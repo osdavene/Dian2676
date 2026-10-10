@@ -1,0 +1,21 @@
+{
+  "name": "dian2676-simulador",
+  "version": "1.0.0",
+  "description": "Simulador y Banco de Preguntas Concurso DIAN 2676 - Analista III y otros cargos",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "node server/index.js",
+    "seed": "node server/seed.js",
+    "seed:more": "node server/seed_expanded.js",
+    "client": "npm.cmd --prefix client run dev",
+    "build": "npm.cmd --prefix client run build",
+    "dev": "node server/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}
