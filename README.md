@@ -1,84 +1,69 @@
 # 🏛️ Simulador y Plataforma de Preparación Concurso DIAN 2676
-## Especializado en: Analista III (Fiscalización y Liquidación - Cód. 203 Grado 03)
 
 Aplicación web integral diseñada con base en las directrices oficiales de la **Comisión Nacional del Servicio Civil (CNSC)** y la **Fundación Universitaria del Área Andina (FUAA)** (Contrato 489 de 2026 / Acuerdo No. 21 de 2025).
 
----
-
-## 🎯 Características y Reglas Oficiales Implementadas
-
-1. **Estructura Oficial de Pruebas Escritas**:
-   - **Competencias Funcionales**: De carácter **ELIMINATORIO**. Puntaje mínimo aprobatorio: **70.00 / 100 puntos** (escala con parte entera y dos decimales truncados).
-   - **Formato de Ítem PJS (Prueba de Juicio Situacional)**: 
-     - 1 Caso hipotético en el contexto laboral de la DIAN.
-     - 1 Enunciado de decisión/acción del servidor público.
-     - 3 Opciones de respuesta (A, B, C) con una única correcta y justificaciones normativas detalladas para cada alternativa.
-   - **Competencias Comportamentales e Integridad**: Formato de autoinforme con escala Likert de 4 niveles (*Totalmente en desacuerdo* a *Totalmente de acuerdo*).
-
-2. **Perfil Especializado de Analista III**:
-   - **Código de Ficha**: `AT-FL-2011` (Versión 5, FT-TAH-1824).
-   - **Nivel Jerárquico**: Nivel Técnico • Grado 03.
-   - **Proceso Misional**: Cumplimiento de obligaciones tributarias, aduaneras y cambiarias.
-   - **Subproceso**: Fiscalización y Liquidación.
-   - **Funciones y Ejes Evaluados**:
-     - *Determinación y Control Tributario* (Estatuto Tributario: Arts. 684, 703, 709, 710, 715, 779, etc.).
-     - *Fiscalización Aduanera y Destrucción de Mercancías* (Decreto 1165 de 2019, Decreto 920 de 2023, aprehensión y decomiso).
-     - *Régimen Cambiario y Lavado de Activos* (Decreto Ley 2245 de 2011, Circular DCIN-83 BanRep, ROS ante la UIAF).
-     - *Procedimiento Administrativo General* (CPACA Ley 1437 de 2011).
-     - *Evasión, Elusión, Contrabando y Ley de Transparencia* (Ley 1712 de 2014).
-     - *Gestión Documental y Modelo MIPG* (Ley 594 de 2000, 7 dimensiones del MIPG).
-     - *Competencias Comportamentales e Integridad* (Código de Integridad DIAN).
-
-3. **Modos de Estudio Disponibles**:
-   - ⏱️ **Simulacro Oficial**: Prueba cronometrada (5 horas oficiales o express) con navegación por cuadernillo y simulación de la **Hoja de Respuestas Óptica Oficial**.
-   - 🎯 **Práctica por Eje Temático**: Entrenamiento por áreas específicas con **retroalimentación inmediata**, mostrando la clave correcta, la justificación de cada opción y la cita legal.
-   - 🔁 **Modo Repasar Fallos**: Filtra y carga automáticamente las preguntas que el usuario ha contestado de forma incorrecta para fijar el aprendizaje activo.
-   - 📚 **Banco de Preguntas & Creador**: Explorador de preguntas en PostgreSQL con opción de crear nuevas preguntas PJS, exportar e importar en JSON.
-   - 📊 **Analítica y Estadísticas**: Tablero con tasa de aprobación, promedio oficial, efectividad por eje temático y diagnóstico de temas a reforzar.
-   - 👥 **Escalabilidad Multigrupo**: Selector y administrador de perfiles listo para incorporar **Analista II**, **Gestor I**, **Inspectores**, etc.
+**Stack:** Laravel 13 · PHP 8.3/8.4 · PostgreSQL (`dian2676_db`) · Tailwind CSS · Alpine.js · Nginx · AWS CloudPanel & Docker
 
 ---
 
-## 🗄️ Arquitectura Tecnológica y Base de Datos
+## 🎯 Características y Módulos Principales
 
-- **Base de Datos**: PostgreSQL 18 (`dian2676_db`).
-  - Tablas: `job_profiles`, `thematic_axes`, `questions`, `exam_sessions`, `session_answers`.
-- **Backend**: Node.js + Express + `pg` (Pool de conexiones).
-- **Frontend**: React + Vite + Tailwind CSS + Lucide Icons + Canvas-Confetti.
+| Módulo | Descripción |
+|---|---|
+| **Simulacro Oficial PJS** | Examen cronometrado con distribución oficial de preguntas, temporizador y hoja óptica interactiva |
+| **Práctica por Ejes Temáticos** | Entrenamiento focalizado por temas con retroalimentación instantánea, citas legales y justificaciones |
+| **Repaso de Fallos** | Detección automática y banco de preguntas erradas para refuerzo activo del aspirante |
+| **Control de Roles y Cargos** | Aspirantes asignados rígidamente a su perfil (**Analista II**, **Analista III**, **Gestor I**, **Gestor III**) |
+| **Panel de Superadministrador** | Control central (`/admin/dashboard`): gestión de usuarios, cambio de cargos, analítica y sesiones en vivo |
+| **Copias de Seguridad y Restauración** | Generación de backups JSON totales y restauración en 1 clic vía web (`/admin/backup`) o CLI (`php artisan dian:restore-backup`) |
+| **Diseño 100% Mobile-First** | Optimizado con ergonomía táctil para cualquier smartphone y tablet |
+| **Banco de Preguntas** | 478 preguntas oficiales y 41 ejes temáticos clasificados por nivel técnico, profesional y transversales |
 
 ---
 
-## 🚀 Cómo Iniciar la Aplicación
+## 👥 Credenciales de Acceso Iniciales
 
-### Opción 1: Con el Lanzador Rápido (Windows)
-Haz doble clic sobre el archivo:
-```
-iniciar_simulador.bat
-```
+- **Super Administrador**: `admin@dian.gov.co` / `admin12345`
+- **Aspirante Demo**: `aspirante@dian.gov.co` / `password123`
 
-### Opción 2: Desde la Terminal
+---
+
+## 🚀 Despliegue Automático en AWS (Similar a FacCol / facturaco)
+
+El repositorio cuenta con integración continua y despliegue continuo (CI/CD) mediante **GitHub Actions** en `.github/workflows/deploy.yml`.
+
+Cada `push` a la rama `main` ejecuta automáticamente:
+1. Conexión segura SSH con el servidor AWS (`appleboy/ssh-action@v1.0.3`).
+2. Descarga de últimos cambios (`git fetch origin main && git reset --hard origin/main`).
+3. Instalación de dependencias de producción (`composer install --no-dev`).
+4. Ejecución de migraciones automáticas (`php artisan migrate --force`).
+5. Sincronización del banco oficial de 478 preguntas y ejes temáticos (`php artisan db:seed --class=DianSeeder --force`).
+6. Optimización de cachés (`config:cache`, `route:cache`, `view:cache`).
+7. Reactivación del sitio con 0 downtime (`php artisan up`).
+
+### Configuración de Secretos en GitHub
+En el repositorio de GitHub (`Settings` > `Secrets and variables` > `Actions`), agrega:
+
+- `AWS_HOST`: Dirección IP pública de tu servidor AWS (EC2 / Lightsail).
+- `AWS_USER`: Usuario SSH de tu servidor (ej. `ubuntu` o el usuario con permisos de despliegue).
+- `AWS_SSH_KEY`: Contenido de tu clave privada SSH (`.pem` o `id_rsa`).
+- `AWS_PORT`: (Opcional, por defecto `22`).
+- `AWS_SITE_PATH`: (Opcional, ej. `/home/dian2676/htdocs/dian2676.com` en CloudPanel).
+
+---
+
+## 🛠️ Comandos de Desarrollo y Verificación
+
 ```bash
-# Iniciar servidor (sirve API y la interfaz web en puerto 3001)
-npm start
-```
-Luego abre tu navegador en:
-```
-http://localhost:3001
-```
+# Iniciar servidor local
+php artisan serve
 
----
+# Ejecutar suite de pruebas automáticas (26 pruebas, 868 aserciones)
+php artisan test
 
-## 🛠️ Comandos de Administración
+# Restaurar última copia de seguridad de preguntas
+php artisan dian:restore-backup --latest
 
-- **Volver a poblar la base de datos inicial**:
-  ```bash
-  npm run seed
-  ```
-- **Agregar más preguntas especializadas**:
-  ```bash
-  npm run seed:more
-  ```
-- **Recompilar el cliente (en caso de modificaciones al código frontend)**:
-  ```bash
-  npm run build
-  ```
+# Re-poblar la base de datos con preguntas y ejes temáticos
+php artisan db:seed --class=DianSeeder --force
+```
