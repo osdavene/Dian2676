@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     const query = `
       SELECT jp.*, 
-             COUNT(q.id) as question_count,
+             COUNT(DISTINCT q.id) as question_count,
              COUNT(DISTINCT ta.id) as axis_count
       FROM job_profiles jp
       LEFT JOIN thematic_axes ta ON ta.job_profile_id = jp.id

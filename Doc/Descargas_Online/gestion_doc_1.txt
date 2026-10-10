@@ -1,0 +1,115 @@
+﻿1. Introducción y Marco Normativo (pp. 7-9)
+La Ley 594 de 2000 (Ley General de Archivos) obliga a todas las entidades públicas a elaborar un Programa de Gestión Documental (PGD). La UAE DIAN cumple esta obligación y lo articula con el Plan Estratégico Institucional 2024-2026 (publicado septiembre 2024) y el Decreto 1080 de 2015 (Decreto Único Reglamentario del Sector Cultura).
+Visión 2024-2026 de la DIAN (texto literal que más cae): “Ser reconocida como una administración tributaria y aduanera modelo, caracterizada por su modernización permanente, innovación y excelencia, que genera confianza y seguridad en la ciudadanía, mediante la aplicación de los principios de honestidad, transparencia, legitimidad y eficiencia en todas nuestras actuaciones.”
+El PGD versión 3 (2025-2026) incorpora la transformación tecnológica como eje estratégico, especialmente la implementación del Sistema de Gestión de Documentos Electrónicos de Archivo (SGDEA), para gestionar de forma automatizada creación, mantenimiento y preservación de documentos.
+Memoriza: El PGD forma parte del Plan Estratégico Institucional y del Plan de Acción Anual, y se rige por el concepto de Archivo Total (físico + electrónico).
+________________
+
+
+2. Alcance y Público Dirigido (pp. 8-10)
+Alcance: Cubre todo el ciclo vital del documento (físico y electrónico) desde su creación/recepción hasta disposición final (conservación permanente o eliminación). Incluye:
+* Planeación, producción, gestión, organización, transferencia, preservación y valoración.
+* Cumplimiento del Sistema de Gestión Documental (SGD) del Decreto 1080 de 2015 (art. 2.8.2.6.1).
+Público dirigido: Dirección General, Direcciones de Gestión, Subdirecciones, Direcciones Seccionales, Divisiones y Grupos de Trabajo de la DIAN (todos deben implementar, evaluar y dar seguimiento).
+________________
+
+
+3. Requerimientos para el Desarrollo del PGD (pp. 10-16)
+3.1 Económicos
+Recursos provienen del presupuesto de funcionamiento e inversión. Se gestionan a través de la Dirección de Gestión Corporativa según el Plan Institucional Nacional de Archivos (PINAR).
+3.2 Normativos (Tabla 1 – más importante)
+* Constitución Política (art. 15, 20, 74, 94)
+* Ley 594 de 2000 (Ley General de Archivos)
+* Ley 1581 de 2012 (Protección de datos personales)
+* Ley 1712 de 2014 (Transparencia y acceso a información pública)
+* Decreto 1080 de 2015 (principal)
+* Acuerdo 001 de 2024 del Archivo General de la Nación (AGN) – Acuerdo Único de la Función Archivística.
+3.3 Administrativos
+* Comité Institucional de Gestión y Desempeño (MIPG)
+* Dirección de Gestión Corporativa (responsable política)
+* Coordinación de Documentación (promueve instrumentos archivísticos)
+* Grupos Internos de Trabajo de Documentación/Archivo en Seccionales
+* Todas las dependencias (implementadoras).
+3.4 Tecnológicos
+Sistemas clave: MUISCA, Notificar, SINOT, Gestor, SIPAC, FAC 20, Devoluciones, RUT, PQRS-Dynamics, Office 365 y SharePoint. Proyecto estratégico: Implementación del SGDEA (financiado con Fondo DIAN y préstamo BID).
+________________
+
+
+4. Lineamientos para los Procesos de la Gestión Documental (Tabla 2 – pp. 17-18)
+Los 8 procesos archivísticos (Decreto 1080 art. 2.8.2.5.9):
+Proceso
+	Descripción principal
+	Procedimientos clave
+	Planeación
+	Creación y valoración de documentos
+	PR-ADF-0155 (TRD/TVD)
+	Producción
+	Estudio de formato y estructura
+	PR-PEC-001 + Manual de Marca
+	Gestión y trámite
+	Registro, radicación, seguimiento
+	PR-ADF-0156 / 0157 / 0159
+	Organización
+	Clasificación y ordenación
+	PR-ADF-0163 + IN-ADF-0132
+	Transferencia
+	Paso a Archivo Central
+	PR-ADF-0163 / 0168
+	Preservación a largo plazo
+	Conservación independientemente del medio
+	PR-ADF-0168 + Sistema Integrado
+	Valoración
+	Determinación de valores primarios/secundarios
+	PR-ADF-0155
+	Memoriza la tabla completa – es la pregunta más frecuente.
+________________
+
+
+5. Fases de Implementación del PGD (Ilustración 2 – p. 19)
+Ciclo:
+1. Elaboración → Actualizar PGD + Aprobación Comité MIPG + Publicar
+2. Ejecución y Puesta en Marcha → Implementar programas específicos
+3. Seguimiento → Verificar periódicamente
+4. Mejora → Acciones correctivas y planes de acción
+________________
+
+
+6. Los 8 Programas Específicos (pp. 20-40 – LO MÁS IMPORTANTE DEL DOCUMENTO)
+Programa 1: Normalización de Formas y Formularios Electrónicos Objetivo: Unificar criterios en creación documental. Lineamientos: Acoger PR-PEC-001 + Manual de Marca + Modelo de Requisitos de Documentos Electrónicos (Tabla 3).
+Programa 2: Documentos Vitales o Esenciales Objetivo: Identificar y proteger documentos indispensables para continuidad del negocio. Lineamientos: Protección especial en archivos + Plan de Continuidad del Negocio.
+Programa 3: Gestión de Documentos Electrónicos Objetivo: Garantizar autenticidad, integridad, fiabilidad y disponibilidad. Lineamientos: Cumplir Tabla 3 (características + metadatos) y Tabla 6 (formatos de preservación: PDF/A, XML, JPEG2000, TIFF, etc.). Hasta implementar SGDEA → usar SharePoint + IN-ADF-0132.
+Programa 4: Archivos Descentralizados Objetivo: Condiciones para contratación de custodia externa. Prohibiciones clave (Acuerdo 001/2024): No contratar custodia de documentos de conservación permanente ni BIC.
+Programa 5: Reprografía Objetivo: Digitalización certificada para copias de seguridad. Procedimiento: PR-ADF-165.
+Programa 6: Documentos Especiales Objetivo: Inventario de documentos no papel (gráficos, audiovisuales, etc.). Lineamientos: IN-ADF-0132.
+Programa 7: Plan Institucional de Capacitación Objetivo: Formar a todos los servidores en gestión documental. Responsable principal: Coordinación de Documentación + Subdirección de Escuela.
+Programa 8: Auditoría y Control Objetivo: Seguimiento y autoevaluación (IN-ADF-0132 numeral 4.3.6).
+Tabla resumen de los 8 programas (memoriza): Cada programa tiene Objetivo + Lineamientos + Cronograma 2025-2026 + Responsables (Coordinación de Documentación es responsable transversal).
+________________
+
+
+7. Armonización con el Modelo Integrado de Planeación y Gestión – MIPG (pp. 41-46)
+El PGD se integra al Mapa de Procesos como proceso Habilitante del macroproceso “Gestión de Recursos”, alineado al elemento de visión “Entidad Moderna, Cercana y Humana”.
+Elementos de Visión clave (Tabla 14):
+* Costo Fiscal
+* Cumplimiento Voluntario
+* Facilitación del Comercio Exterior
+* Confianza del Ciudadano
+* Talento Humano
+* Entidad Moderna, Cercana y Humana
+Lineamientos Estratégicos (Tabla 13): 6 lineamientos (el 4 es “Consolidar la modernización de la DIAN”).
+________________
+
+
+8. Presupuesto y Formalización (pp. 47-48 y 64)
+* Presupuesto 2025: $60.000.000 (historiador para TVD).
+* SGDEA: $3.426.184.651 (préstamo BID). Versión 3 vigente desde 05/05/2025.
+________________
+
+
+9. Glosario Seleccionado (los términos que más caen – pp. 49-63)
+* SGDEA: Sistema de Gestión de Documentos Electrónicos de Archivo
+* TRD: Tabla de Retención Documental
+* TVD: Tabla de Valoración Documental
+* Documento electrónico de archivo: Debe cumplir autenticidad, integridad, fiabilidad y disponibilidad
+* Archivo Total: Concepto que une físico y electrónico
+* Ciclo vital del documento: Creación → Gestión → Archivo Central → Histórico o Eliminación

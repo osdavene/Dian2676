@@ -9,11 +9,19 @@ import {
   ShieldAlert, 
   Users, 
   Compass, 
-  FolderArchive 
+  FolderArchive,
+  Landmark,
+  Award,
+  ShieldCheck
 } from 'lucide-react';
 
 export default function PracticeSelection({ axes = [], onSelectAxis, onBack }) {
   const getIcon = (category, name) => {
+    if (name.includes('Acciones de Control')) return <ShieldAlert className="w-6 h-6 text-indigo-600" />;
+    if (name.includes('ABC del LA') || name.includes('LA - FT')) return <DollarSign className="w-6 h-6 text-rose-600" />;
+    if (name.includes('Constitución')) return <Landmark className="w-6 h-6 text-blue-800" />;
+    if (name.includes('Carrera Administrativa')) return <Award className="w-6 h-6 text-purple-700" />;
+    if (category === 'integridad' || name.includes('Integridad')) return <ShieldCheck className="w-6 h-6 text-emerald-700" />;
     if (name.includes('Tributario')) return <Scale className="w-6 h-6 text-blue-600" />;
     if (name.includes('Aduanera')) return <ShieldAlert className="w-6 h-6 text-amber-600" />;
     if (name.includes('Cambiario')) return <DollarSign className="w-6 h-6 text-emerald-600" />;

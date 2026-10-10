@@ -1,0 +1,111 @@
+@extends('layouts.app')
+
+@section('title', 'Repaso de Fallos — DIAN 2676')
+
+@section('content')
+<div class="space-y-6">
+
+    {{-- Banner de Encabezado --}}
+    <div class="bg-gradient-to-r from-rose-950/60 via-amber-950/40 to-slate-900 border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl">
+        <div class="max-w-3xl space-y-2">
+            <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                    Plan de Mejora Continua
+                </span>
+                <span class="text-xs text-slate-400">
+                    Aspirante: <strong class="text-white">{{ $user->name }}</strong>
+                </span>
+            </div>
+            <h1 class="text-xl sm:text-3xl font-black text-white flex items-center gap-2.5 sm:gap-3">
+                <i class="fa-solid fa-rotate-left text-amber-400 text-lg sm:text-2xl"></i>
+                Repaso de Preguntas Falladas
+            </h1>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Aquí se consolidan las <strong>{{ $failedQuestions->count() }} preguntas</strong> en las que has cometido errores en tus simulacros previos. Estudiar tus puntos débiles es la estrategia más efectiva para superar los 70.00 puntos requeridos.
+            </p>
+        </div>
+    </div>
+
+    {{-- Lista de Preguntas Falladas para Repasar --}}
+    <div class="space-y-4 sm:space-y-5">
+        @foreach($failedQuestions as $idx => $q)
+            <div class="bg-slate-900 border border-rose-500/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl space-y-3.5 sm:space-y-4">
+                
+                {{-- Encabezado --}}
+                <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <span class="px-3 py-1 rounded-xl bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-black">
+                            Fallo #{{ $idx + 1 }}
+                        </span>
+                        @if($q->thematicAxis)
+                            <span class="px-2.5 py-1 rounded-xl bg-slate-800 text-blue-300 text-xs font-medium border border-slate-700/60">
+                                {{ $q->thematicAxis->name }}
+                            </span>
+                        @endif
+                        <span class="text-[11px] text-slate-400">
+                            Competencia: <strong class="text-slate-200">{{ $q->competency_type ?? 'FUNCIONAL' }}</strong>
+                        </span>
+                    </div>
+
+                    <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Opción correcta: {{ $q->correct_option }}
+                    </span>
+                </div>
+
+                {{-- Caso Situacional (si aplica) --}}
+                @if(!empty($q->case_text))
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-300 text-xs sm:text-sm whitespace-pre-line leading-relaxed">
+                        <div class="text-blue-400 font-bold text-xs uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                            Contexto de Análisis
+                        </div>
+                        {{ $q->case_text }}
+                    </div>
+                @endif
+
+                {{-- Enunciado --}}
+                <p class="text-sm font-semibold text-white leading-relaxed">
+                    {{ $q->stem }}
+                </p>
+
+                {{-- Opciones con la Correcta Resaltada --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                    @php
+                        $opts = $q->options_map;
+                    @endphp
+                    @foreach($opts as $let => $txt)
+                        @if(!empty($txt))
+                            <div class="p-3.5 rounded-xl border flex items-start gap-2.5 {{ $let === $q->correct_option ? 'bg-emerald-950/30 border-emerald-500/60 text-emerald-100 font-medium' : 'bg-slate-950/40 border-slate-800/80 text-slate-400' }}">
+                                <span class="w-6 h-6 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 {{ $let === $q->correct_option ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400' }}">
+                                    {{ $let }}
+                                </span>
+                                <span class="leading-relaxed">{{ $txt }}</span>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+
+                {{-- Sustentación Oficial y Fundamento Legal --}}
+                <div class="p-4 rounded-xl bg-blue-950/20 border border-blue-500/30 space-y-2">
+                    <div class="flex items-center gap-2 text-xs font-bold text-blue-300 uppercase tracking-wider">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        Justificación Oficial y Argumento Jurídico
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
+                        {{ $q->rationale ?? 'Sin sustentación registrada.' }}
+                    </p>
+                    @if(!empty($q->legal_basis))
+                        <div class="pt-2 border-t border-blue-500/20 text-xs text-blue-300 font-semibold flex items-center gap-1.5">
+                            <i class="fa-solid fa-gavel"></i>
+                            Base Legal: <span>{{ $q->legal_basis }}</span>
+                        </div>
+                    @endif
+                </div>
+
+            </div>
+        @endforeach
+    </div>
+
+</div>
+@endsection

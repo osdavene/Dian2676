@@ -1,0 +1,79 @@
+name: 🚀 Despliegue Automático a AWS (DIAN 2676)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Desplegar Simulador DIAN 2676 en Servidor AWS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: 🔐 Ejecutar Despliegue en AWS vía SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          port: ${{ secrets.AWS_PORT || 22 }}
+          script_stop: true
+          script: |
+            echo "🚀 Iniciando despliegue de Simulador DIAN 2676 en CloudPanel / AWS..."
+            
+            # Directorio del sitio (configurable mediante secret AWS_SITE_PATH o por defecto)
+            SITE_DIR="${{ secrets.AWS_SITE_PATH }}"
+            if [ -z "$SITE_DIR" ]; then
+              if [ -d "/home/dian2676/htdocs/dian2676.com" ]; then
+                SITE_DIR="/home/dian2676/htdocs/dian2676.com"
+              elif [ -d "/home/dian/htdocs/dian.com" ]; then
+                SITE_DIR="/home/dian/htdocs/dian.com"
+              else
+                SITE_DIR="/home/dian2676/htdocs/dian2676.com"
+              fi
+            fi
+
+            echo "📁 Directorio de despliegue: $SITE_DIR"
+            
+            # Obtener el usuario dueño del directorio
+            SITE_USER=$(stat -c '%U' "$SITE_DIR" 2>/dev/null || echo "dian2676")
+            
+            sudo git config --global --add safe.directory "$SITE_DIR"
+            
+            sudo -u "$SITE_USER" bash << EOF
+            set -e
+            cd "$SITE_DIR"
+
+            # 1. Poner aplicación en modo mantenimiento temporal
+            php artisan down || true
+
+            # 2. Descargar últimos cambios del repositorio
+            git fetch origin main
+            git reset --hard origin/main
+
+            # 3. Instalar dependencias optimizadas de producción
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+            # 4. Ejecutar migraciones de base de datos
+            php artisan migrate --force
+
+            # 5. Poblar/Sincronizar banco de preguntas y ejes temáticos oficiales
+            php artisan db:seed --class=DianSeeder --force
+
+            # 6. Limpiar y optimizar cachés de producción
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+
+            # 7. Enlace simbólico de almacenamiento
+            php artisan storage:link || true
+
+            # 8. Reactivar el sitio
+            php artisan up || true
+
+            echo "✅ ¡Despliegue de Simulador DIAN 2676 completado con éxito en AWS!"
+            EOF

@@ -1,0 +1,41 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dian2676_app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      APP_NAME: "Simulador DIAN 2676"
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_KEY: "base64:XG8o1lV1s4gR2b41hV3vN/VnJ+Xo7y6G4W1b7kZ5mRo="
+      APP_URL: "http://localhost:8080"
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: dian2676_db
+      DB_USERNAME: postgres
+      DB_PASSWORD: password_segura_dian
+      PORT: 8080
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: dian2676_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dian2676_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password_segura_dian
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+volumes:
+  pgdata:
+    driver: local

@@ -1,0 +1,2762 @@
+﻿PROGRAMA DE GESTIÓN DOCUMENTAL – PGD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+UNIDAD ADMINISTRATIVA ESPECIAL DIRECCIÓN DE IMPUESTOS Y ADUANAS NACIONALES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DIRECCIÓN DE GESTIÓN CORPORATIVA SUBDIRECCIÓN ADMINISTRATIVA
+
+
+
+
+
+
+
+
+
+
+
+
+Año 2026
+
+
+
+
+Contenido
+1. ASPECTOS GENERALES        7
+   1. Introducción        7
+   2. Alcance        8
+   3. Público al cual está dirigido        10
+   4. Requerimientos para el desarrollo del PGD        10
+      1. Económicos        10
+      2. Normativos        10
+      3. Administrativos        11
+      4. Tecnológicos        13
+2. LINEAMIENTOS PARA LOS PROCESOS DE LA GESTIÓN DOCUMENTAL        17
+3. FASES DE IMPLEMENTACIÓN DEL PGD        19
+4. PROGRAMAS ESPECÍFICOS        20
+   1. Programa de Normalización de Formas y Formularios Electrónicos        20
+      1. Objetivo        20
+      2. Alcance        20
+      3. Justificación        20
+      4. Beneficios        20
+      5. Lineamientos        20
+      6. Cronograma y Responsables        24
+   2. Programa de Documentos Vitales o Esenciales        25
+      1. Objetivo        25
+      2. Alcance        25
+      3. Justificación        25
+      4. Beneficios        25
+      5. Lineamientos        26
+      6. Cronograma y Responsables        26
+   3. Programa de Gestión de Documentos Electrónicos        27
+      1. Objetivo        27
+      2. Alcance        27
+      3. Justificación        27
+      4. Beneficios        27
+      5. Lineamientos        28
+      6. Cronograma y Responsables        31
+   4. Programa de Archivos Descentralizados        31
+      1. Objetivo        31
+      2. Alcance        32
+      3. Justificación        32
+      4. Beneficios        32
+      5. Lineamientos        33
+      6. Cronograma y Responsables        34
+   5. Programa de Reprografía        35
+      1. Objetivo        35
+      2. Alcance        35
+      3. Justificación        35
+      4. Beneficios        35
+      5. Lineamientos        35
+      6. Cronograma y Responsables        36
+   6. Programa de Documentos Especiales        36
+      1. Objetivo        36
+      2. Alcance        36
+      3. Justificación        36
+      4. Beneficios        36
+      5. Lineamientos        37
+      6. Cronograma y Responsables        37
+   7. Plan Institucional de Capacitación        37
+      1. Objetivo        37
+      2. Alcance        37
+      3. Justificación        37
+      4. Beneficios        38
+      5. Lineamientos        38
+      6. Cronograma y Responsables        38
+   8. Programa de Auditoría y Control        39
+      1. Objetivo        39
+      2. Alcance        39
+      3. Justificación        39
+      4. Beneficios        39
+      5. Lineamientos        39
+      6. Cronograma y Responsables        40
+5. ARMONIZACIÓN CON EL MODELO INTEGRADO DE PLANEACIÓN
+Y GESTIÓN        41
+      1. Mapa de procesos de la entidad        46
+      2. Presupuesto anual para la implementación del PGD        47
+6. GLOSARIO        49
+7. BIBLIOGRAFÍA        63
+8. FORMALIZACIÓN Y CONTROL DE CAMBIOS        64
+
+
+Listado de Ilustraciones
+
+
+Ilustración 1. Líderes en Gestión Documental        13
+Ilustración 2. Fases de Implementación del Programa de Gestión Documental        19
+Ilustración 3. Descripción Vívida - Manifiesto.        43
+Ilustración 4. Mapa de Procesos        47
+
+
+
+
+
+
+Listado de Tablas
+Tabla 1.        Requerimientos Normativos.        11
+Tabla 2.        Procesos de la Gestión Documental en Relación con los Procedimientos y Documentos Asociados.        18
+Tabla 3.        Características de los Documentos Electrónicos de Archivo, Mecanismos de Seguridad y Protección y Metadatos Mínimos.        24
+Tabla 4.        Programa de Normalización de Formas y Formularios Electrónicos: Cronograma y Responsables        25
+Tabla 5.        Programa de Documentos Vitales Esenciales: Cronograma y Responsables        27
+Tabla 6.        Formatos de Archivo        30
+Tabla 7.        Programa de Gestión de Documentos Electrónicos: Cronograma y Responsables        31
+Tabla 8.        Programa de Archivos Descentralizados: Cronograma y Responsables        34
+Tabla 9.        Programa de Reprografía: Cronograma y Responsables        36
+Tabla 10. Programa de Documentos Especiales: Cronograma y Responsables
+.        37
+Tabla 11. Plan Institucional de Capacitación: Cronograma y Responsables        38
+Tabla 12. Programa de Auditoría y Control: Cronograma y Responsables        40
+Tabla 13. Lineamientos Estratégicos.        44
+Tabla 14. Elementos de Visión.        45
+Tabla 15. Asignación Presupuestal Gestión Documental        48
+
+
+
+
+
+
+1. ASPECTOS GENERALES
+
+
+   1. Introducción
+
+
+La Ley 594 de 2000 estableció las reglas y principios generales que regulan la función archivística del Estado y en su artículo 21 determinó como obligación para las Entidades Públicas, el elaborar Programas de Gestión Documental, en cuya aplicación deberán observarse los principios y procesos archivísticos. La Unidad Administrativa Especial Dirección de Impuestos y Aduanas Nacionales, en adelante UAE-DIAN, consciente de la importancia en el cumplimiento de esta normativa, desarrolla su Programa de Gestión Documental, en adelante PGD, abarcando cada uno de los ejes de acción definidos por el Archivo General de la Nación, Jorge Palacios Preciado en el artículo 2.8.2.5.10. del Decreto 1080 de 2015, dicho artículo además de la obligación mencionada establece que el PGD debe hacer parte del Plan Estratégico Institucional y del Plan de Acción Anual.
+
+
+En el mes de septiembre de 2024, la UAE-DIAN presenta el Plan Estratégico Institucional 2024-2026 como respuesta a los desafíos emergentes y el entorno en constante cambio, adoptando la actualización de su identidad estratégica, reflejando su compromiso con el aprendizaje organizacional, la mejora continua, y su adaptación y evolución estratégica con nuevos modelos, metodologías e instrumentos de planeación.
+
+
+Por lo anterior, se hace necesario actualizar el Programa de Gestión Documental a la versión 3, con el fin de garantizar la articulación con el Plan Estratégico Institucional, en el marco de los nuevos lineamientos estratégicos y contribuyendo para alcanzar la visión 2024-2026 de la UAE-DIAN: “Ser reconocida como una administración tributaria y aduanera modelo, caracterizada por su modernización permanente, innovación y excelencia, que genera confianza y seguridad en la ciudadanía, mediante la aplicación de los
+
+
+principios de honestidad, transparencia, legitimidad y eficiencia en todas nuestras actuaciones.”1
+
+
+Adquiriendo gran importancia, la transformación tecnológica donde la implementación de un Sistema de Gestión de Documentos Electrónicos de Archivo SGDEA es uno de los proyectos estratégicos, al gestionar de manera automatizada la creación, mantenimiento, difusión y administración de los documentos de archivo.
+
+
+Así mismo, en el presente programa se contempla la necesidad de contar con personal idóneo y altamente comprometido con la gestión documental, salvaguardar la memoria institucional de la entidad, procurar por la racionalización de trámites, disminución de volúmenes innecesarios de documentos, normalización de la producción documental, disminución en atención de consultas y recuperación de información, optimización de espacios, integración de nuevas tecnologías, trazabilidad de los documentos, implementación de instrumentos archivísticos y articulación de procesos administrativos.
+
+
+   2. Alcance
+
+
+El Programa de Gestión Documental de la DIAN contempla el ciclo de vida del documento tanto electrónico como físico desde su creación o recepción hasta su disposición final, mediante la estandarización y ejecución de los procesos relacionados con la planeación, producción, gestión y trámite, organización, transferencia, disposición de documentos, preservación a largo plazo y valoración de la información de la Entidad; todo lo anterior con base en la normatividad vigente y las herramientas que esta misma señala como de obligatorio cumplimiento.
+
+
+El Programa de Gestión Documental, es parte fundamental del Sistema de Gestión Documental ya que orienta su materialización; en este sentido el
+
+
+  
+
+
+
+capítulo VI del decreto 1080 de 2015 “El Sistema de Gestión Documental”,
+estableció la obligación y características del SDG, de la siguiente forma:
+
+
+Artículo 2.8.2.6.1. Generalidades del sistema de gestión documental. Las entidades públicas deben contar con un sistema de gestión documental que permita.
+
+
+1. Organizar los documentos físicos y electrónicos, incluyendo sus metadatos a través de cuadros de clasificación documental.
+2. Establecer plazos de conservación y eliminación para la información y los documentos electrónicos de archivo en tablas de retención documental (TRD) y tablas de valoración documental (TVD).
+3. Ejecutar procesos de eliminación parcial o completa de acuerdo con los tiempos establecidos en las TRD o TVD.
+4. Garantizar la autenticidad de los documentos de archivo y la información conexa (metadatos) a lo largo del ciclo de vida del documento.
+5. Mantener la integridad de los documentos, mediante agrupaciones documentales, en series y subseries.
+6. Permitir y facilitar el acceso y disponibilidad de los documentos de archivo por parte de la ciudadanía y de la propia entidad, cuando sean requeridos.
+7. Preservar los documentos y sus agrupaciones documentales, en series y subseries, a largo plazo, independientemente de los procedimientos tecnológicos utilizados para su creación.
+
+
+De conformidad con la normatividad transcrita, todos los documentos de archivo tanto electrónicos como físicos, que produzca o reciba la entidad, hacen parte del Sistema de Gestión Documental y por lo tanto, deben ser gestionados archivísticamente, cumpliendo las fases de archivo de gestión, central e histórico, en cumplimiento con el ciclo vital del documento, conforme a lo establecido en las Tablas de Retención Documental de la Entidad.
+
+
+Igualmente, como parte del Sistema de Gestión Documental, la gestión electrónica de documentos de archivo, debe atender las características previstas en el capítulo VII del decreto 1080 de 2015 “La Gestión de Documentos Electrónicos de Archivo”.
+
+
+
+
+   3. Público al cual está dirigido
+
+
+El público al cual está dirigido el Programa de Gestión Documental lo conforma la Dirección General, Oficinas, Direcciones de Gestión, Subdirecciones, Direcciones Seccionales, Divisiones y Grupos de Trabajo de la UAE-DIAN, quienes harán parte de la implementación, evaluación, seguimiento de las estrategias y metas que se establecen en el presente programa.
+
+
+   4. Requerimientos para el desarrollo del PGD
+
+
+      1. Económicos
+Los recursos destinados a la ejecución y el cumplimiento de las estrategias trazadas a corto, mediano y largo plazo, de acuerdo con la naturaleza de cada uno, se encuentran en la asignación presupuestal de los planes de funcionamiento y de inversión.
+
+
+La UAE-DIAN garantizará los recursos financieros necesarios para el mejoramiento continuo en lo relacionado con la gestión documental, los cuales se gestionarán a través de la Dirección de Gestión Corporativa con base en las metas establecidas en el Plan Institucional Nacional de Archivos – PINAR.
+
+
+      2. Normativos
+El catálogo normativo de la UAE-DIAN se encuentra disponible en la página WEB de la Entidad, sección sobre “Normograma”, e incluye la normalización de los procesos involucrados en la administración de los documentos desde el concepto de Archivo Total.
+
+
+Adicionalmente, se cuenta con el normograma establecido por el Archivo General de la Nación: https://normativa.archivogeneral.gov.co/. Sin embargo, se han extraído en la tabla 1 a continuación, la normatividad más representativa y aplicable a nuestra entidad en el proceso de Gestión Documental:
+
+
+Normatividad
+	Constitución Política de Colombia de 1991
+	
+
+Artículo 15, Artículo 20, Artículo 74, Artículo 94.
+	
+
+Ley 527 de 1999
+	Por medio de la cual se define y reglamenta el acceso y uso de los mensajes de datos, del comercio electrónico y de las firmas digitales, y se establecen las Entidades de certificación y se dictan
+otras disposiciones.
+	
+
+Ley 594 de 2000
+	Por medio de la cual se dicta la Ley General de Archivos y se dictan otras disposiciones.
+	
+
+Ley 1581 de 2012
+	Por la cual se dictan disposiciones generales para la protección de datos personales.
+	
+
+Decreto 2364 de 2012
+	Por medio del cual se reglamenta el artículo 7° de la Ley 527 de 1999, sobre la firma electrónica y se dictan otras disposiciones.
+	
+
+Ley 1712 de 2014
+	Por medio de la cual se crea la Ley de transparencia y del derecho de acceso a la información pública nacional y se dictan otras disposiciones.
+	
+
+Decreto 1080 de 2015
+	Por medio del cual se expide el Decreto Único Reglamentario del Sector Cultura.
+	
+
+Acuerdo 001 de 2024
+	Por el cual se establece el Acuerdo Único de la Función Archivística, se definen los criterios técnicos y jurídicos para su implementación en el Estado Colombiano y se fijan otras
+disposiciones.
+	
+
+      3. Administrativos
+Para dar cumplimiento a cada uno de los procesos de la gestión documental con sus respectivas actividades, la UAE-DIAN cuenta con la siguiente estructura:
+
+
+1. El Comité Institucional de Gestión y Desempeño como instancia encargada de orientar la implementación y operación del Modelo
+
+
+Integrado de Planeación y Gestión (MIPG), en la UAE-DIAN, así como responsable de asegurar la implementación de las políticas de gestión dentro de las cuales se encuentra la Política de Gestión Documental, según lo establece la Resolución 21 de 2022.
+
+
+2. La Dirección de Gestión Corporativa es la dependencia de nivel directivo responsable de “Dirigir y orientar la formulación de las políticas, directrices, instrumentos y, procedimientos de administración documental de la DIAN, así como su gestión y cumplimiento” de acuerdo con lo establecido numeral 17 del artículo 34 del Decreto 1742 de 2020.
+
+
+3. El Comité de Operación del Modelo Integrado de Planeación y Gestión, como órgano encargado de impulsar y poner en marcha las estrategias para la implementación, operación, seguimiento y mejoramiento continuo del sistema del Modelo Integrado de Planeación y Gestión en cada una de las Direcciones Seccionales y específicamente tiene bajo su responsabilidad la función de “Monitorear la ejecución de las actividades necesarias para el cumplimiento de las políticas y el logro de los objetivos del Sistema de Gestión Institucional” según lo establece la Resolución 21 de 2022.
+
+
+4. La Coordinación de Documentación como dependencia responsable de promover y coordinar la implementación de los instrumentos archivísticos, dentro de los cuales se incluye el presente Programa de Gestión Documental según lo establece la Resolución 70 de 2021.
+
+
+5. Los Jefes del Grupo Interno de Trabajo de Documentación y de Archivo en las direcciones seccionales tienen como función principal: responder por la integridad, autenticidad, veracidad y fidelidad de la información de los documentos de archivo y responder por su organización, conservación y custodia, así como por la prestación de los servicios archivísticos. Actualmente, el Grupo Interno de Trabajo de Archivo solamente se encuentra creado en la Dirección Seccional de Aduanas de Bogotá y el Grupo Interno de Trabajo de Documentación está creado en
+
+
+las Direcciones Seccionales de Aduanas de Barranquilla, Cali, Cartagena, Cúcuta y Medellín, Direcciones Seccionales de Impuestos de Barranquilla, Bogotá, Cali, Cartagena, Cúcuta y Medellín y en las Direcciones Seccionales de Impuestos y Aduanas de Bucaramanga, Buenaventura, Manizales, Pereira, Santa Marta y Valledupar. Estas funciones son asumidas por los despachos de las Direcciones Seccionales Delegadas de Pamplona, Puerto Carreño, Inírida y San José del Guaviare y despachos de las Direcciones Seccionales de Puerto Asís y Tumaco. En las veinticuatro (24) Direcciones Seccionales de Impuestos y Aduanas restantes y en la Dirección Seccionales de Aduanas Aeropuerto El Dorado son asumidas por la División Administrativa y Financiera según lo contempla la Resolución 69 de 2021. Según se observa en la Ilustración 1.
+
+
+6. Todas las dependencias de la Entidad como encargadas de implementar las actividades del PGD.
+  
+
+
+
+
+
+      4. Tecnológicos
+Desde el Plan Estratégico 2019-2022 en su objetivo “Transformación Tecnológica” y teniendo en cuenta que mediante el artículo 55 de la Ley 1955 de 2019 se creó el Fondo DIAN para Colombia, el cual fue reglamentado por el
+
+
+Decreto 1949 del 25 de octubre de 2019, adicionando la parte 20 del Libro 2 del Decreto 1068 de 2015 reglamentario del sector Hacienda de la siguiente forma:
+
+
+Artículo 2.20.3. Objeto del Fondo. El Fondo tendrá por objeto la financiación y/o la inversión del programa modernización de la DIAN, en proyectos relacionados con:
+1. Gobernanza institucional y transformación del talento humano.
+2. Control y cumplimiento tributario y aduanero.
+3. Plataforma tecnológica, sistemas y tecnología.
+4. Infraestructura y
+5. Otras actividades necesarias para la ejecución de los numerales 1 al 4 del presente artículo.
+
+
+Se incluirán los procesos críticos de la Dirección de Gestión de Recursos y Administración Económica, para que hagan parte de los proyectos a implementar en el ámbito de la modernización tecnológica de la DIAN.
+
+
+Actualmente, la UAE-DIAN cuenta con sistemas de información de negocio los cuales deben irse integrando de manera paulatina como resultado de la modernización tecnológica; los principales sistemas son:
+
+
+Gestión Documental Sistema MUISCA: Es la herramienta informática que apoya la gestión de los documentos que remiten las EAR (Entidades Autorizadas para Recaudar) y otros obligados a enviar declaraciones o recibos de pago, así como los documentos físicos generados en los trámites efectuados por los clientes en los lugares de atención de la DIAN; los documentos se reciben físicos y virtuales, son documentos estructurados en formatos estándar. Su operación se encuentra enmarcada en la Orden Administrativa 001-2008 “Por medio de la cual se fija el procedimiento para la gestión documental de los documentos físicos provenientes de las Entidades autorizadas para recaudar y otros obligados a enviar declaraciones o recibos de pago y los documentos físicos generados cumpliendo las normas que se así se establezcan”.
+
+
+Sistema Notificar y SINOT: Herramientas tecnológicas que gestionan el proceso de notificación personal, electrónica y comunicación de los actos administrativos proferidos por la UAE-DIAN.
+
+
+Sistema Gestor: Es la herramienta tecnológica que gestiona los expedientes de régimen tributario.
+
+
+Sistema SIPAC: Es la herramienta informática que gestiona la acción de cobro (coactivo, persuasivo y judicial) correspondiente a la UAE-DIAN.
+
+
+FAC 20 (Facturación): Es la herramienta tecnológica que permite generar los actos administrativos de autorización para facturación.
+
+
+Sistema Devoluciones: Es la herramienta tecnológica para gestión del proceso de devolución de impuestos, por beneficios tributarios.
+
+
+Sistema Obligación Financiera: Es la herramienta que controla la cuenta corriente del contribuyente, recoge información de los aplicativos NOTIFICAR, GESTOR, FAC 20, SIPAC y DEVOLUCIONES.
+
+
+Sistema Registrar: Es la herramienta para gestiona la documentación de registro aduanero.
+
+
+Sistema RUT: Sistema de información que consolida los datos del contribuyente y genera formato de inscripción, actualización o suspensión.
+
+
+PQRS-Dynamics: Es la herramienta para gestionar las peticiones, quejas, reclamos y sugerencias de la ciudadanía, frente a los servicios de la UAE- DIAN.
+
+
+Adicionalmente, la entidad ha implementado el uso de plataformas como Office 365 y SharePoint para gestionar documentos e información de forma colaborativa y siguiendo los lineamientos de seguridad de la información.
+
+
+Con los anteriores recursos, la UAE-DIAN está proyectando acciones de articulación e interoperabilidad, para lograr una administración interna con los sistemas de información que apoyan la actividad administrativa y misional, así mismo, se está adelantando gradualmente la actualización de los procedimientos para alcanzar la unicidad de expedientes y gestión de los documentos en entorno electrónico.
+
+
+
+
+
+
+2. LINEAMIENTOS PARA LOS PROCESOS DE LA GESTIÓN DOCUMENTAL
+
+
+Los procesos de gestión documental conforme a lo establecido en el Artículo
+2.8.2.5.9. del Decreto 1080 de 2015, están desarrollados en los procedimientos del sistema de gestión de la Entidad, según se relacionan en la tabla 2.
+
+
+Procesos de Gestión Documental
+	
+
+Descripción
+	
+
+Procedimientos y Documentos Asociados
+	
+
+
+
+
+
+
+
+a) Planeación
+	Conjunto de actividades encaminadas a la planeación, generación y valoración de los documentos la Entidad, en cumplimiento con el contexto administrativo, legal, funcional y técnico. Comprende la creación y diseño de formas, formularios y documentos, análisis de procesos, análisis diplomático y su registro en sistema de
+gestión documental.
+	
+
+PR-ADF-0155 Creación o actualización de TRD y TVD
+PR-PEC-001        Documentación        del Sistema de Gestión
+PR-IIT-0366 Gestión de activos de información
+	
+
+
+
+
+
+b) Producción
+	Actividades destinadas al estudio los documentos en la forma de producción o ingreso, formato y estructura, finalidad, área competente para trámite, proceso en que actúa y los resultados esperados.
+	PR-PEC-001        Documentación        del Sistema de Gestión
+MN-PEC-0061 Manual Corporativo de Marca
+Modelo de Requisitos de Documentos Electrónicos
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+c) Gestión y trámite
+	
+
+
+
+
+
+Conjunto actuaciones necesarias para el registro, la vinculación a un trámite, la distribución incluidas las actuaciones o delegaciones, la descripción (metadatos), la disponibilidad, recuperación y acceso para consulta de los documentos, el control y seguimiento a los trámites que el documento hasta la resolución de los asuntos.
+	PR-ADF-0156 Comunicaciones oficiales de entrada
+PR-ADF-0157 Comunicaciones oficiales de salida
+IN-ADF-0131        Radicación        de comunicaciones de entrada y salida
+PR-ADF-0159        Notificación, comunicación y/o publicación
+IN-ADF-0025 Notificación de actos administrativos
+IN-ADF-0033 Publicación de actos administrativos
+IN-ADF-0034 Comunicación de actos administrativos
+IN-ADF-0035        Seguimiento        y
+	
+
+
+
+Procesos de Gestión Documental
+	
+
+Descripción
+	
+
+Procedimientos y Documentos Asociados
+	
+
+	
+
+	autocontrol aplicativo Notificar
+	
+
+d) Organización
+	Conjunto de operaciones para declarar documento en sistema gestión documental, clasificarlo, ubicarlo en el nivel adecuado,
+ordenarlo y describirlo adecuadamente.
+	PR-ADF-0163 Organización de los Archivos de Gestión
+IN-ADF-0132 Manejo de los archivos en
+la UAE DIAN
+	
+
+
+
+
+
+
+
+e) Transferencia
+	Conjunto de operaciones adoptadas por la Entidad para transferir los documentos durante las fases de archivo, verificando la estructura, la validación del formato de generación, la migración, refreshing, emulación o conversión, los metadatos técnicos de formato, los metadatos de
+preservación y los metadatos descriptivos.
+	
+
+PR-ADF-0163 Organización de los Archivos de Gestión
+PR-ADF-0168 Organización de los Archivos Centrales
+IN-ADF-0132 Manejo de los archivos en la UAE DIAN
+	
+
+g) Preservación a largo plazo
+	Conjunto de acciones y estándares aplicados a los documentos durante su gestión para garantizar su preservación en independientemente de su medio y forma
+de registro o almacenamiento.
+	
+
+PR-ADF-0168 Organización de los Archivos Centrales
+Sistema Integrado de Conservación
+	
+
+
+
+
+
+
+
+h) Valoración
+	Proceso permanente y continuo, que inicia desde planificación documentos y por medio del cual se determinan sus valores primarios y secundarios, con fin su permanencia en las diferentes fases del archivo y determinar su destino final (eliminación o conservación temporal o
+definitiva).
+	
+
+PR-ADF-0155 Creación o actualización de TRD y TVD
+PR-ADF-0163 Organización de los Archivos de Gestión
+IN-ADF-0132 Manejo de los archivos en la UAE DIAN
+	Tabla 2. Procesos de la Gestión Documental en Relación con los Procedimientos y Documentos Asociados.
+
+
+
+
+Los procedimientos y documentos asociadas se encuentran publicados en la página WEB y relacionados en el Listado Maestro de Documentos de la Entidad consultables en línea en la dirección: https://diancolombia.sharepoint.com/sites/diannetpruebas/procesos/Paginas/Li stado-Maestro-VI.aspx
+
+
+
+
+
+
+3. FASES DE IMPLEMENTACIÓN DEL PGD
+
+
+Para la implementación del Programa de Gestión Documental se han considerado necesario las surtir las fases de i) Elaboración, ii) Ejecución y Puesta en Marcha, iii) Seguimiento y, iv) Mejora según se muestran en la Ilustración 2.  
+
+
+
+
+
+
+Fase de Elaboración Actualizar el PGD. Aprobar por parte del Comité Institucional de Gestión y Desempeño. Publicar y Divulgar el
+________________
+Fase de Ejecución y Puesta en Marcha Implementar        el Programa de Gestión Documental.
+  
+
+Fase de Mejora
+Identificar acciones correctivas, preventivas y de mejora.  
+Formular planes de acción.
+________________
+Fase de Seguimiento
+Verificar periódicamente la implementación del Programa de Gestión Documental.  
+
+
+
+
+
+
+
+
+Ilustración 2. Fases de Implementación del Programa de Gestión Documental 
+
+
+Las fases se han diseñado de forma cíclica, permitiendo ejecutar de forma planeada las actividades y en el proceso evidenciar las desviaciones e implementar las acciones de mejora correspondientes.
+
+
+
+
+
+
+4. PROGRAMAS ESPECÍFICOS
+
+
+
+
+   5. Programa de Normalización de Formas y Formularios Electrónicos
+
+
+      5. Objetivo
+Definir lineamientos que aseguren la producción de los documentos electrónicos de archivo de forma normalizada, controlada y actualizada, mediante la unificación de criterios en la creación documental.
+
+
+      6. Alcance
+Establece la relación de la producción documental de archivo y el sistema de gestión (formatos y formularios normalizados); al ser instrumentos complementarios, que coadyuvan a la adecuada gestión administrativa, al control de los documentos y a las buenas prácticas administrativas y empresariales que permiten la toma de decisiones acertadas y oportunas, y que a su vez constituyen la memoria institucional de las entidades y organismos.
+
+
+      7. Justificación
+Se requiere identificar y normalizar la producción de las formas y formularios electrónicos utilizados en la entidad, con miras a la definición e implementación del Programa específico de documentos electrónicos.
+
+
+      8. Beneficios
+Cumplir con las características de contenido estable, forma documental fija, vínculo archivístico y equivalente funcional, en la producción de formas, formatos y documentos electrónicos de archivos. Facilitar la interoperabilidad.
+
+
+      9. Lineamientos
+1. Acoger la normalización de formas y formatos de acuerdo con el Procedimiento PR-PEC-001 "Documentación del Sistema de Gestión" cuyo objeto es "Controlar la creación, actualización o eliminación de los
+
+
+documentos requeridos para la operación de los procesos en el marco del Sistema de Gestión de la entidad, garantizando su identificación, acceso, preservación, almacenamiento, divulgación y recuperación; aportando a la estandarización de las actividades y a la gestión del conocimiento".
+
+
+2. Acoger los lineamientos gráficos y diplomática establecidos por la Oficina de Comunicaciones en el "Manual de Marca" que se deben adoptar las Dependencias, Oficinas y Direcciones Seccionales en su comunicación, promoción y divulgación interna y externa.
+3. Acoger los lineamientos del Modelo de Requisitos de Documentos Electrónicos en la producción de documentos electrónicos en los sistemas informáticos, de tal forma que cumpla con las características de contenido, interoperabilidad y calidad de la información que contienen.
+4. Todos los servicios informáticos creados a partir de la Modernización Tecnológica deben garantizar las características del Documento Electrónico de Archivo, incluyendo los metadatos relacionados en la Tabla 3, adaptada de la Guía Técnica G.INF.07 Guía para la gestión de documentos y expedientes electrónicos:
+   * Autenticidad: Entendida como el efecto de acreditar que un documento es lo que pretende ser, sin alteraciones o corrupciones con el paso del tiempo. Es uno de los componentes que conforman la confianza del documento respecto al contexto, estructura y contenido.
+   * Fiabilidad: Entendida como la capacidad de un documento para
+asegurar que su contenido es una representación completa, fidedigna y precisa de las operaciones, las actividades, los hechos que testimonia o se puede establecer, declarar o sostener el acto o hecho del que es relativo, determinando la competencia del autor y examinando tanto la completitud en la forma del documento como el nivel de control ejercido durante su proceso de producción.
+   * Integridad: Entendida como la cualidad de un documento para estar
+completo y sin alteraciones, con la cual se asegura que el contenido y
+
+
+atributos están protegidos a lo largo del tiempo. Es uno de los componentes que conforman la confianza del documento.
+   * Disponibilidad: Entendida en un documento electrónico, como la capacidad actual y futura de que tanto el documento como sus metadatos asociados puedan ser consultados, localizados, recuperados, presentados, interpretados, legibles, y por tanto estar en condiciones de uso.
+
+
+Características del documento
+	
+
+Descripción
+	Mecanismos de
+Protección y Seguridad
+	Metadatos mínimos que deben
+contemplares para tener evidencia de dicha característica
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Autenticidad
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Que puede demostrar, que es lo que afirma ser, que ha sido creado o enviado por la persona que afirma haberlo creado o enviado, y que ha sido creado o enviado en el tiempo que se ha afirmado.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Utilizar        los
+mecanismos de firma digital/electrónica, protección                        y seguridad autorizados        por        la Entidad.
+	* Codigo_proceso
+* Nombre_proceso
+* Codigo_procedimiento
+* Nombre_procedimiento
+* Codigo_subfondo
+* Nombre_subfondo
+* Codigo_seccion
+* Nombre_seccion
+* Codigo_subseccion
+* Nombre_subseccion
+* Codigo_serie
+* Nombre_serie
+* Codigo_suberie
+* Nombre_subserie
+* Numero_expediente
+* Id_unico_unidad_documental (expediente)
+* Titulo_exp
+* Fecha_apertura
+* Fecha_cierre
+* Palabras_clave_expediente
+* Estado
+* Id_unico_documento
+* Nombre_documento
+* Tipología_documental
+* Asunto_y/o_descripcion
+* Fecha_creación
+* Fecha_transmisión
+* Valor_Huella
+* Funcion_Resumen
+* Numero_paginas
+* Numero_folios
+* Formato
+	
+
+
+
+Características del documento
+	
+
+Descripción
+	Mecanismos de Protección y
+Seguridad
+	Metadatos mínimos que deben contemplares para tener evidencia
+de dicha característica
+	
+
+	
+
+	
+
+	* Tamaño
+* Nombre_proyector
+* Cargo_proyector
+* Nombre_revisor
+* Cargo_revisor
+* Nombre_firmante
+* Cargo_firmante
+* Otros_colaboradores
+* Nombre_Destinatario
+* Clasificación_Acceso (Nivel de Acceso)
+* Palabras_clave_documento
+
+
+Para Actos Administrativos:
+* Tipo        De        Correspondes        (E Entrada O Salida)
+* Notifica/Comunica/Public/Tramte
+* Régimen
+* Clase De Acto
+* Si Interpone Recurso (S/N)
+* Nombre Del Recurso
+* Tiempo Para Interponer Recurso
+* Ante        Qué        Dependencia        Se Interpone
+* Normatividad Del Recurso
+* Origen
+* Tipos Notificación
+	
+
+
+
+
+
+Fiabilidad
+	
+
+Que refleja de manera exacta y completa la ejecución de actividades u operaciones.
+	
+
+* Procedimientos Internos
+* Definición de Roles y Permisos. ∙ Estampa de tiempo.
+	* Nombre_proyector
+* Cargo_proyector
+* Nombre_revisor
+* Cargo_revisor
+* Nombre_firmante
+* Cargo_firmante
+* Palabras_clave_documento
+	
+
+
+
+
+
+Integridad
+	
+
+
+
+Que se encuentra completo y sin alteraciones.
+	Utilizar        los
+mecanismos de firma digital/electrónica, protección                        y seguridad autorizados        por        la
+Entidad.
+	
+
+* Valor Huella
+* Función Resumen
+	
+
+
+
+Características del documento
+	
+
+Descripción
+	Mecanismos de Protección y
+Seguridad
+	Metadatos mínimos que deben contemplares para tener evidencia
+de dicha característica
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Usabilidad (Disponibilidad)
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Que se puede localizar, recuperar, presentar e interpretar.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Técnicas        y
+Estrategias        de Preservación Digital
+	* Codigo_proceso
+* Nombre_proceso
+* Codigo_procedimiento
+* Nombre_procedimiento
+* Codigo_subfondo
+* Nombre_subfondo
+* Codigo_seccion
+* Nombre_seccion
+* Codigo_subseccion
+* Nombre_subseccion
+* Codigo_serie
+* Nombre_serie
+* Codigo_suberie
+* Nombre_subserie
+* Numero_expediente
+* Id_unico_unidad_documental (expediente)
+* Titulo_exp
+* Fecha_apertura
+* Fecha_cierre
+* Palabras_clave_expediente
+* Estado
+	Tabla 3. Características de los Documentos Electrónicos de Archivo, Mecanismos de Seguridad y Protección y Metadatos Mínimos.
+Fuente: Modelo de Requisitos para la Gestión de Documentos Electrónicos, octubre de 2024
+
+
+      10. Cronograma y Responsables
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	1. Socializar a los servidores públicos de la entidad sobre el uso e importancia de la implementación del Programa de Normalización de Formas y Formularios Electrónicos.
+	
+
+	
+
+	
+
+	
+
+	* Coordinación  de  Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	
+
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	
+
+2. Identificar formas y formularios incluidos o no en el Listado Maestro de Documentos
+	
+
+	
+
+	
+
+	
+
+	* Coordinación de Procesos y Riesgos Operacionales
+* Coordinación  de  Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	3. Ajustar procedimientos de la entidad incluyendo formas y formatos
+no estandarizados.
+	
+
+	
+
+	
+
+	
+
+	* Coordinación de Procesos y Riesgos Operacionales
+	Tabla 4. Programa de Normalización de Formas y Formularios Electrónicos: Cronograma y Responsables
+Fuente: Elaboración Propia
+
+
+
+
+   6. Programa de Documentos Vitales o Esenciales
+
+
+      11. Objetivo
+Identificar dentro del acervo documental los documentos que tengan característica de “vital”, a fin de propender por su preservación y conservación para la continuidad del negocio.
+
+
+      12. Alcance
+Documentos generados por la entidad y que son esenciales para la continuidad de esta, previniendo que sean dañados o asegurando su recuperación en caso de afectación por eventos o desastres.
+
+
+      13. Justificación
+Se requiere identificar los documentos con información vital para el buen funcionamiento de la Entidad y realizar acciones para garantizar su conservación y / o preservación.
+
+
+      14. Beneficios
+Ante una eventualidad, conservar y preservar la documentación que asegure la continuidad de la entidad.
+
+
+
+
+      15. Lineamientos
+1. En los archivos de cada dependencia deben estar identificados y especialmente protegidos aquellos documentos identificados como vitales por ser considerados indispensables para permitir la continuidad de la existencia y gestión de la Entidad.
+
+
+2. Para realizar procesos de reprografía se debe dar cumplimiento al Procedimiento PR-ADF-165 "Reprografía".
+3. Acoger los lineamientos que se encuentran plasmados en el Plan de Continuidad del Negocio y en el Plan de Emergencias de la cada sede administrativa en el capítulo de Plan de Prevención de Emergencias y Atención de Desastres en Archivos.
+
+
+
+
+      16. Cronograma y Responsables
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	1. Socializar en cada Archivo Central de las Direcciones Seccionales y Nivel Central, la importancia del Programa de Documentos Vitales.
+	
+
+	
+
+	
+
+	
+
+	* Coordinación de Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	2. Identificar en cada Archivo Central de las Direcciones Seccionales y Nivel Central los Documentos Vitales o Esenciales que se custodian.
+	
+
+	
+
+	
+
+	
+
+	* Coordinación de Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	3. Determinar en cada Archivo Central de Nivel Central y Direcciones Seccionales las actividades necesarias que se deben desarrollar para salvaguardar los Documentos Vitales según  se  establecen  en este
+documento.
+	
+
+	
+
+	
+
+	
+
+	
+
+* Coordinación de Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	
+
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	4. Determinar de forma priorizada las necesidades de intervención y digitalización (reprografía) con fines de contingencia y continuidad del negocio, de los documentos vitales que se encuentran en los Archivos Centrales de las Direcciones Seccionales y Nivel
+Central.
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+* Coordinación de Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	Tabla 5. Programa de Documentos Vitales Esenciales: Cronograma y Responsables Fuente: Elaboración Propia
+
+
+
+
+   7. Programa de Gestión de Documentos Electrónicos
+
+
+      17. Objetivo
+Definir el tratamiento archivístico, manteniendo las características de los documentos electrónicos de archivo: autenticidad, integridad, inalterabilidad, fiabilidad, disponibilidad y su preservación, mediante la implementación de las herramientas tecnológicas y la aplicación de la normatividad expedida por el Archivo General de la Nación, en la elaboración y gestión de los documentos y expedientes electrónicos, así como su relación con los documentos físicos.
+
+
+      18. Alcance
+Documentos producidos de forma electrónica en el desarrollo de las funciones de las diferentes dependencias de la entidad y que deben ser conservados en su formato nativo o aquellos que han sido digitalizados con fines archivísticos.
+
+
+      19. Justificación
+Se requiere definir los lineamientos archivísticos encaminados a garantizar el ciclo de vida de los documentos electrónicos de archivo.
+
+
+      20. Beneficios
+Mejorar los procesos soportado en herramientas tecnológicas.
+
+
+      21. Lineamientos
+1. Todos los servicios informáticos creados a partir de la Modernización Tecnológica deben garantizar las características del Documento Electrónico de Archivo, incluyendo los metadatos relacionados en la Tabla 3.
+
+
+2. Con el fin de garantizar la Preservación Digital a Largo Plazo de los Documentos Electrónicos de Archivo, se establecen los formatos en los que se deben conservar los documentos electrónicos de archivo relacionados en la Tabla 6 según recopilación de la Guía Técnica G.INF.07 Guía para la gestión de documentos y expedientes electrónicos elaborada por Ministerio de Tecnologías de la Información y las Comunicaciones y el Archivo General de la Nación.
+3. Hasta tanto no se implemente el SGDEA de acuerdo con el Modelo de Requisitos de Documentos Electrónicos de Archivo, se deberán seguir los lineamientos establecidos en el Instructivo IN-ADF-0132 " Manejo de los Archivos" para la organización de Documentos Electrónicos de Archivo, producidos por los diferentes sistemas informáticos de la entidad, con la conformación de carpetas electrónicas en el SharePoint, realizando la respectiva clasificación de las tablas de retención documental de las respectivas dependencias.
+4. Hasta tanto no se implemente el SGDEA, las transferencias primarias de documentos electrónicos de archivo serán reglamentadas por la Coordinación Documentación para realizarse de forma manual al repositorio indicado.
+
+
+Tipo de
+Contenido
+	Formato
+	Características
+	Extensi
+ón
+	Estándar
+	Contenido de
+Texto
+	PDF/A
+	Formato        de        archivo        de        documentos
+electrónicos para la Preservación a largo plazo.
+	.pdf
+	ISO 19005
+	
+
+
+
+Contenido de Texto
+	
+
+
+
+
+
+PDF/A-1
+	PDF/A-1 Restricciones en cuanto al uso del color, fuentes, y otros elementos.
+PDF/A-1b (Subnivel b = Básico) Garantiza que el texto del documento se puede visualizar correctamente.  PDF/A-1ª  (Subnivel  a  =
+avanzado)  Documento  etiquetado  lo  que
+	
+
+
+
+
+
+Pdf
+	
+
+
+
+
+
+ISO 19005-1
+	
+
+
+
+Tipo de
+Contenido
+	Formato
+	Características
+	Extensi
+ón
+	Estándar
+	
+
+	
+
+	permite        añadirle        información        sobre        su
+estructura.
+	
+
+	
+
+	
+
+
+
+
+
+
+
+Contenido de Texto
+	
+
+
+
+
+
+
+
+
+
+PDF/ A-2
+	PDF/A-2 Características adicionales que no están disponibles en formato PDF/A-1.
+PDF/A-2b (Subnivel b = Básico) Se cumplen todos los requisitos descritos como necesarios. PDF/A-2ª (Subnivel a = avanzado) Adicional contiene información textual o sobre la estructura lógica del documento.
+PDF/A-2u (Subnivel u = Unicode) Requisito adicional, todo el texto en el documento tienen
+equivalentes en Unicode.
+	
+
+
+
+
+
+
+
+
+
+.pdf
+	
+
+
+
+
+
+
+
+ISO        19005-2
+ISO 32000-1
+	
+
+
+
+
+
+
+
+Contenido de Texto
+	
+
+
+
+
+
+
+
+
+
+PDF/A-3
+	PDF/A-3 Ofrece soporte para archivos incrustados.
+PDF/A-3b (Subnivel b = básico) Se cumplen todos los requisitos descritos como necesarios para un PDF/A-3.
+PDF/A-3ª (Subnivel a = avanzado) etiquetado de forma que se describa y conserve la estructura lógica —el orden de lectura.
+	
+
+
+
+
+
+
+
+
+
+Pdf
+	
+
+
+
+
+
+
+
+ISO        19005-3
+ISO 32000-1
+	Contenido de Texto
+	
+
+XML
+	Es un estándar abierto, flexible y ampliamente utilizado        para        almacenar,        publicar        e
+intercambiar cualquier tipo de información.
+	
+
+.xml
+	W3C        HTML
+Estándar Abierto
+	
+
+
+
+
+
+Imagen        de Mapa de Bits
+	
+
+
+
+
+
+JPEG200 0
+	JPEG2000 (con pérdida) Permite obtener imágenes aproximadamente cinco veces menos pesadas.
+JPEG2000 (sin pérdida) permite reducir el peso de los archivos a la mitad en comparación  con  las  imágenes  no
+comprimidas.
+	
+
+
+
+
+
+.jpg2
+.jp2
+	
+
+
+
+
+
+ISO/IEC 15444
+	Imagen        de Mapa de Bits
+	OpenDoc ument
+	Formato de archivo abierto y estándar de la
+familia ODF para el almacenamiento de gráficas
+	
+
+.odg
+	OASIS ISO/IEC 26300
+	
+
+
+
+
+
+
+
+TIFF
+	
+
+	Formato de archivo para imágenes panorámicas y en tercera dimensión TIFF (con compresión) Realiza compresión de imagen sin pérdidas, por tanto, devuelve la imagen descomprimida exactamente igual a la original.
+TIFF (sin compresión) Archivos más grandes
+que un formato comprimido.
+	
+
+
+
+
+
+
+
+.tiff
+	
+
+
+
+
+
+
+
+ISO 12639
+	Imagen
+Vectoriales
+	SVG
+	Formato para describir gráficos vectoriales
+bidimensionales,        tanto        estáticos        como
+	.svg
+.svgz
+	W3C
+	
+
+
+
+Tipo de
+Contenido
+	Formato
+	Características
+	Extensi
+ón
+	Estándar
+	
+
+	
+
+	animados en formato XML.
+	
+
+	
+
+	Contenido de audio
+	
+
+BWF
+	Formato de archivo que toma la estructura de
+archivos WAVE existente y añade metadatos adicionales
+	
+
+.bwf
+	EBU – TECH 3285
+	
+
+Contenido de video
+	JPEG 2000-
+Motion
+	Formato para la Preservación sin pérdida de vídeo en formato digital y migración de las grabaciones de vídeo analógicas obsoletos en
+archivos digitales
+	
+
+.mj2
+.mjp2.
+	
+
+ISO 15444-4
+	Contenido geoespacial
+	
+
+GML
+	Geography Markup Language (GML) Formato
+basado en XML para el modelaje, transporte y almacenamiento de información geográfica.
+	
+
+.gml
+	ISO        19136
+Estándar Abierto
+	
+
+Contenido geoespacial
+	
+
+GMLJP2
+	GML en JPEG 2000 proporcionar una codificación XML de los metadatos necesarios para  la  georreferenciación  de  imágenes
+JPEG2000, utilizando GML
+	
+
+.gml
+.jp2
+	Open Geospatial Consortium
+(OGC).
+	Formato        de compresión
+	
+
+GZIP
+	
+
+Formato de compresión de datos
+	
+
+.gz
+	RFC        1952
+Estándar Abierto
+	
+
+Bases        de Datos
+	
+
+SIARD
+	Formato para el archivo de bases de datos relacionales en una forma independiente del proveedor, delimitado archivos planos (texto
+sin formato ) con DDL
+	
+
+. siard
+	
+
+N/A
+	Bases        de Datos
+	
+
+SQL
+	Structured Query Language, de acceso a bases
+de datos relacionales que permite especificar diversos tipos de operaciones en ella
+	
+
+.sql
+	
+
+ISO 9075-1
+	
+
+Páginas Web
+	Web ARChive
+	Utilizado para almacenar “Web crawls” como
+secuencias        de        bloques        de        contenido recolectados de la World Wide Web
+	
+
+.warc
+	
+
+ISO 28500
+	Correo electrónico
+	
+
+EML
+	Diseñado para almacenar mensajes de correo electrónico en forma de un archivo de texto sin
+formato
+	
+
+.eml
+	
+
+RFC 822
+	Correo
+electrónico
+	MBOX
+	Formato utilizado para almacenar conjuntos de
+correos electrónicos.
+	.mbox,
+.mbx
+	N/A
+	Tabla 6. Formatos de Archivo.
+Fuente: Modelo de Requisitos para la Gestión de Documentos Electrónicos, octubre de 2024
+
+
+      22. Cronograma y Responsables
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	1. Gestionar y parametrizar ante Dirección de Gestión de Innovación y Tecnología el repositorio de archivo central de Documentos electrónicos de archivo, para realizar transferencia primaria de las unidades documentales electrónicas creadas en el SharePoint que ya cumplieron tiempos de retención de acuerdo con las Tablas de Retención Documental.
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+* Coordinación  de  Documentación
+* Dirección de Gestión de Innovación y Tecnología
+	2. Realizar la implementación del Sistema de Gestión de Documentos Electrónicos de Archivo, de acuerdo con el Modelo de Requisitos de Documentos Electrónicos, garantizando las características de los documentos electrónicos de archivo: autenticidad, fiabilidad, integridad y disponibilidad, una vez haya sido adquirido
+el SGDEA.
+	
+
+	
+
+	
+
+	
+
+	* Dirección de Gestión de Innovación y Tecnología
+* Coordinación de Documentación y Coordinación de Correspondencia y Notificaciones
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	Tabla 7. Programa de Gestión de Documentos Electrónicos: Cronograma y Responsables 
+
+
+
+
+   8. Programa de Archivos Descentralizados
+
+
+      23. Objetivo
+Establecer las condiciones que deben cumplir las empresas en el caso que la UAE-DIAN considere necesario la contratación de los servicios de custodia de documentos de archivo o administración de los depósitos propios; así como, las condiciones físicas y ambientales que deben cumplir los depósitos de archivo utilizados por las empresas que presten el servicio de custodia de documentos de archivo y las condiciones para el adecuado control de los documentos entregados en custodia a las empresas contratadas. De forma que se garanticen las condiciones de disponibilidad, confidencialidad, seguridad y conservación de documentación objeto de contratación.
+
+
+
+
+      24. Alcance
+Inicia con la determinación de la necesidad de contratación de un tercero para la custodia de documentos de archivo o la administración de los depósitos de la UAE-DIAN, hasta la liquidación y cierre del contrato.
+
+
+La responsabilidad en el seguimiento y control de las condiciones del contrato corresponderá a la dependencia productora a cargo de la documentación objeto de la custodia y comprende el mantenimiento de una estricta vigilancia sobre el medio ambiente, la limpieza, el archivo y la manipulación de documentos y las condiciones generales de seguridad con el fin de prevenir afectaciones a los documentos. Adicionalmente se debe llevar control a los tiempos de respuesta en la entrega de la documentación.
+
+
+La disposición final de los documentos entregados en custodia puede ser realizada operativamente por el contratista cumpliendo los lineamientos del Sistema de Gestión Ambiental de la UAE-DIAN, en especial de lo relacionado con el programa para la gestión integral de residuos sólidos aprovechables CT-FI-0032 V.1., o la versión vigente al momento de celebrar el contrato y en todos los casos en presencia de un funcionario de la dependencia responsable de la documentación, sin embargo la propuesta de eliminación debe ser presentada al comité Seccional de Archivo o al comité Institucional de Gestión y Desempeño por el responsable del archivo central, en cumplimiento a lo dispuesto en el procedimiento PR-ADF-0168 Organización de los Archivos Centrales.
+
+
+      25. Justificación
+Se requiere establecer las condiciones mínimas que deben cumplir un tercero para prestar los servicios de custodia de documentos de archivo o la administración de los depósitos de la UAE-DIAN.
+
+
+      26. Beneficios
+Mitigar los posibles riesgos para la contratación de los servicios de custodia de documentos de archivo o administración de los depósitos propios
+
+
+      27. Lineamientos
+
+
+         1. Acoger los lineamientos establecidos por el AGN para las edificaciones en donde se custodian archivos contenidos en la "Guía para la Planeación, Diseño, Adecuación y Construcción de Archivos", disponible        en:
+https://www.archivogeneral.gov.co/sites/default/files/Estructura_We b/5_Consulte/Recursos/Publicacionees/Gu%C3%ADa_Construccion Achivos_AGN.pdf.
+
+
+         2. Acoger las prohibiciones y obligaciones para la contratación de servicios de custodia de documentos de archivo, según se establece en el Acuerdo 001 de 2024 del Archivo General de la Nación y en el Capítulo XII del Decreto 1080 de 2015:
+
+
+Artículo 2.8.2.12.1. Prohibición para contratar la custodia de documentos de conservación permanente. Las entidades públicas no podrán contratar con empresas privadas, la custodia de documentos de conservación permanente, sobre los cuales exista la obligación de transferirlos al Archivo General de la Nación o a los archivos generales territoriales; tampoco podrán contratar con firmas privadas o terceros la custodia o administración de documentos declarados como Bienes de Interés Cultural (BIC).
+
+
+Artículo 2.8.2.12.2. Contratación de la custodia de documentos de conservación temporal. Solo se podrá contratar la custodia de documentos de archivo de conservación temporal, de acuerdo con lo establecido en la tabla de retención documental; en este caso, las entidades públicas en los diferentes niveles, deberán exigir a los contratistas, y así deberá quedar consignado en los contratos que se suscriban, el cumplimiento de las normas expedidas por el Archivo General de la Nación, en lo referente a:
+            1. Características de las edificaciones en las cuales se albergarán los documentos;
+            2. Idoneidad del personal asignado para la atención de los servicios contratados;
+            3. Organización de los documentos por series documentales, siguiendo el principio de procedencia, orden original e integridad de los fondos;
+            4. Aplicación de la Tabla de Retención Documental;
+
+
+            5. Utilización de sistemas de información archivísticos que cumplan con las normas internacionales de descripción archivística adoptadas por el Consejo Internacional de Archivos (CIA);
+            6. Características de los materiales y contenedores utilizados para almacenamiento de los documentos;
+            7. Cumplimiento de condiciones de preservación y conservación de los documentos físicos y electrónicos que custodien.
+
+
+Parágrafo. Las entidades públicas que contraten servicios de custodia de documentos de archivo, deberán incluir en los estudios previos, en los pliegos de condiciones y en los contratos suscritos con terceros para la prestación del servicio respectivo, lo señalado en el presente artículo.
+
+
+Artículo 2.8.2.12.3. Vigilancia y Control sobre los servicios de administración y custodia de documentos de archivo. El Archivo General de la Nación podrá realizar, en cualquier momento, visitas de inspección a las empresas que presten servicios de administración y custodia documental, cuando estas hayan sido contratadas por entidades públicas; así mismo, es obligación de las entidades públicas informar al Archivo General de la Nación y a los archivos generales territoriales, los contratos de custodia y administración de archivos que suscriban o hayan suscrito con entidades privadas y particulares.
+
+
+      28. Cronograma y Responsables
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	
+
+1. Socializar en las Direcciones Seccionales, el Programa de Archivos Descentralizados
+	
+
+	
+
+	
+
+	
+
+	* Coordinación de Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	Tabla 8. Programa de Archivos Descentralizados: Cronograma y Responsables 
+
+
+   9. Programa de Reprografía
+
+
+      29. Objetivo
+Implementar procesos de reproducción técnica de los documentos, de acuerdo con la normatividad archivística al respecto.
+
+
+      30. Alcance
+Documentos físicos producidos por la entidad que requieran copias de seguridad o respaldo y facilitar su consulta, teniendo en cuenta su valor histórico, científico o cultural.
+
+
+      31. Justificación
+Se requiere implementar reproducción técnica de los documentos que por su valor archivístico, requieran copias de seguridad o respaldo y facilitar su consulta.
+
+
+      32. Beneficios
+Garantizar que la información no se pierda en caso de daño o sustracción de los documentos originales.
+Sustituir a los documentos originales en papel, en caso de pérdida o deterioro de los documentos originales a los que se le hayan realizado procesos de digitalización certificada, manteniendo su valor probatorio legal.
+Acceder de forma fácil y ágil a la consulta de documentos digitalizados, evitando los daños por manipulación del documento en soporte físico.
+
+
+      33. Lineamientos
+1. Acoger los lineamientos establecidos en el Procedimiento PR-ADF-165 "Reprografía".
+
+
+      34. Cronograma y Responsables
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	1. Elaborar proyecto de digitalización con fines archivísticos para generar copias de seguridad o respaldo y facilitar la consulta de los documentos de archivo con valor histórico, científico o cultural, atendiendo la necesidad evidenciada en el Archivo Central de Nivel Central.
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+* Coordinación de Documentación
+	Tabla 9. Programa de Reprografía: Cronograma y Responsables 
+
+
+
+
+   10. Programa de Documentos Especiales
+
+
+      35. Objetivo
+Identificar los documentos generados en medios especiales (gráficos, sonoros, audiovisuales, orales, cartográficos, entre otros) para determinar su conservación y preservación, consulta y acceso.
+
+
+      36. Alcance
+Documentos generados por la entidad en formatos diferentes al papel tamaño carta u oficio.
+
+
+      37. Justificación
+Se requiere establecer el inventario de documentos especiales, así como los lineamientos para su conservación y preservación, consulta y acceso.
+
+
+      38. Beneficios
+Conservar y preservar la documentación generada en formatos especiales.
+
+
+      39. Lineamientos
+Acoger las directrices establecidas en el Instructivo Manejo de los Archivos IN- ADF-0132, para la identificación y conservación de documentos especiales.
+      40. Cronograma y Responsables
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	
+
+1. Realizar levantamiento de inventario de documentos especiales en cada uno de los archivos centrales.
+	
+
+	
+
+	
+
+	
+
+	* Coordinación        de Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga
+sus veces a nivel nacional
+	Tabla 10. Programa de Documentos Especiales: Cronograma y Responsables 
+
+
+
+
+   11. Plan Institucional de Capacitación
+
+
+      41. Objetivo
+Lograr la articulación con el Plan Institucional de Capacitación de la entidad con el objetivo de fortalecer los conceptos en materia de gestión documental para todos los funcionarios de la entidad.
+
+
+      42. Alcance
+Funcionarios de todas las dependencias de la UAE-DIAN.
+
+
+      43. Justificación
+Se requiere para la implementación de la Política en Gestión Documental, la capacitación y sensibilización en Gestión Documental para todos los servidores de la entidad, como parte de sus responsabilidades en calidad de funcionarios públicos.
+
+
+      44. Beneficios
+Generar conciencia de la importancia de la gestión documental para la preservación de la memoria institucional y patrimonio documental de la Entidad.
+Contar con funcionarios más comprometidos con la gestión documental.
+
+
+      45. Lineamientos
+1. Divulgar los procedimientos y el instructivo de gestión documental, incluidos en el sistema de gestión de la Entidad.
+2. Divulgar las actualizaciones de normatividad archivística.
+
+
+      46. Cronograma y Responsables
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	1. Solicitar a la Subdirección de Escuela la inclusión de los temas en Gestión Documental dentro de las necesidades de capacitación del Plan Institucional de Capacitaciones.
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+* Coordinación de Documentación
+	
+
+2. Desarrollar de forma coordinada con la Subdirección de Escuela, los programas de capacitación en gestión documental.
+	
+
+	
+
+	
+
+	
+
+	* Subdirección  de  Escuela  DIAN
+* Coordinación  de  Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	3. Atender las solicitudes particulares de las dependencias de Nivel central o Direcciones Seccionales según las necesidades de formación manifestadas.
+	
+
+	
+
+	
+
+	
+
+	* Coordinación  de  Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	4. Promover el desarrollo de una cultura en gestión documental, a través de la promoción de actividades de divulgación y socialización de los cambios normativos o actualizaciones de procedimientos.
+	
+
+	
+
+	
+
+	
+
+	
+
+* Coordinación  de  Documentación
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces a nivel nacional
+	Tabla 11. Plan Institucional de Capacitación: Cronograma y Responsables 
+
+
+
+
+
+
+   12. Programa de Auditoría y Control
+
+
+      47. Objetivo
+Todos los archivos a nivel nacional, tanto de Gestión como Centrales, aunque la Coordinación de Documentación y los Grupos Internos de Trabajo de Documentación no cuentan con la función para realizar auditorías, si realizan seguimientos en los Archivos de Gestión para verificar el cumplimiento de los lineamientos de organización documental y en los Archivos Centrales se verifica el cumplimiento de lineamientos de custodia, conservación y disposición documental.
+
+
+      48. Alcance
+Todos los archivos a nivel nacional, tanto de gestión como centrales, aunque la Coordinación de Documentación y los Grupos Internos de Trabajo de Documentación no cuentan con la función para realizar auditorías, si realizan seguimientos en los Archivos de Gestión para verificar el cumplimiento de los lineamientos de organización documental y en los Archivos Centrales se verifica el cumplimiento de lineamientos de custodia, conservación y disposición documental.
+
+
+      49. Justificación
+Se requiere realizar el seguimiento y evaluación de implementación y cumplimiento de la normatividad archivística por parte de las dependencias y archivos centrales a nivel nacional.
+
+
+      50. Beneficios
+Identificar el grado de avance o cumplimiento de la política, lineamientos y directrices en gestión documental.
+Identificar oportunidades de mejora en el proceso de gestión documental.
+
+
+      51. Lineamientos
+1. Acoger los procedimientos y el Instructivo de gestión documental, incluidos en el sistema de gestión de la Entidad.
+
+
+
+
+2. Acoger        específicamente        lo        establecido        en        el        numeral        4.3.6. Autoevaluación del Instructivo IN-ADF-0132 Manejo de los Archivos.
+
+
+      52. Cronograma y Responsables
+
+
+
+
+	2025
+	2026
+	
+
+	Actividades
+	I
+Sem.
+	II
+Sem.
+	I
+Sem.
+	II
+Sem.
+	Responsables
+	1. Realizar seguimiento y acompañamiento a los Planes de Trabajo en Gestión Documental elaborado por cada una de las dependencias de nivel central y direcciones seccionales.
+	
+
+	
+
+	
+
+	
+
+	* Todos los jefes de Dependencias a nivel        nacional
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces    a    nivel    nacional
+* Coordinación de Documentación
+	2. Consolidar las "Autoevaluaciones" en gestión documental realizadas por las dependencias a nivel nacional y las acciones de mejora que se implementen de acuerdo con el numeral 4.3.6. del Instructivo IN-
+ADF-0132
+	
+
+	
+
+	
+
+	
+
+	* Todos los jefes de Dependencias a nivel        nacional
+* Grupo Interno de Trabajo de Documentación y/o quien haga sus veces    a    nivel    nacional
+* Coordinación de Documentación
+	Tabla 12. Programa de Auditoría y Control: Cronograma y Responsables 
+
+
+
+
+5. ARMONIZACIÓN CON EL MODELO INTEGRADO DE PLANEACIÓN Y
+GESTIÓN
+
+
+El Modelo Integrado de Planeación y Gestión es un marco de para dirigir y planear, ejecutar, hacer seguimiento, evaluar y controlar la gestión institucional de las entidades públicas y organismos públicos, con el fin de generar resultados que atiendan los planes de desarrollo y resuelvan las necesidades y problemas de los ciudadanos, con integridad y calidad en el servicio.2
+
+
+En el Plan Estratégico Institucional divulgado en septiembre de 20243, se presenta el modelo de gestión bajo la metodología de liderazgo de Alineación Total que permite orientar las acciones de los colaboradores de la organización en busca de una visión y estrategia compartida, los principales componentes del modelo en el que se integra y articula la estrategia institucional son:
+
+
+Propósito Central
+El Propósito Central captura el alma de la entidad. Perdura, es inspirador y motiva el progreso. Debe guiar todas las acciones de la DIAN, es la razón de por qué se hacen las cosas. Se usa como movilizador de los funcionarios para dar sentido a lo que hacen y como referente en la toma de decisiones para definir si lo que emprende la Entidad le aporta a este propósito o no.
+
+
+“Hacemos posible que todos / todas aporten los recursos necesarios para el sostenimiento del estado social de derecho”.4
+
+
+Misión 2024 - 2026
+Trabajamos con empeño y dedicación para que toda la ciudadanía contribuya de manera justa y equitativa en el financiamiento del gasto público, garantizando la sostenibilidad fiscal del país y la consolidación del Estado social de derecho.
+  
+
+2 Decreto 1499 de 2017. ARTÍCULO 2.2.22.3.2. Definición del Modelo Integrado de Planeación y Gestión - MIPG.
+3        UAE-DIAN.        Planeación        estratégica        2024,        disponible        en: https://www.dian.gov.co/dian/entidad/PlanEvalInstitucional/7-Planeacion-Estrategica-2024-V2-septiembre-2024.pdf  4 Ibid.
+
+
+
+
+Valores Aspiracionales
+Los Valores Aspiracionales reflejan lo que se anhela alcanzar en el carácter o cultura de la entidad. Representa una meta ideal en comportamientos y actitudes los cuales se construyen sobre los Valores del Servicio Público actuales. Los Valores Aspiracionales definen comportamientos que se desean promover en todos los funcionarios en su actuación del día a día. Son comportamientos deseados, a desarrollar en la Cultura Institucional y que servirán como palanca para el logro de la estrategia institucional.
+
+
+* Valentía: Luchamos contra las economías criminales para garantizar el imperio de la ley en todos los rincones del país.
+* Objetividad: Cumplimos nuestras funciones basándonos en evidencia rigurosa, sin sesgos, para fortalecer la confianza de la ciudadanía en la DIAN y en el Estado.
+* Templanza: Somos sobrios y enfrentamos con determinación y buen juicio la lucha contra la evasión y el contrabando, generando los recursos necesarios para el sostenimiento del Estado social de derecho.
+* Providencia: Nos anticipamos a las eventualidades que puedan sobrevenir y, ante los reveses, continuamos de forma decidida en el cumplimiento de nuestra misión: cerrar la brecha tributaria y acabar con el contrabando.
+
+
+Visión 2024 - 2026
+Ser reconocida como una administración tributaria y aduanera modelo, caracterizada por su modernización permanente, innovación y excelencia, que genera confianza y seguridad en la ciudadanía, mediante la aplicación de los principios de honestidad, transparencia, legitimidad y eficiencia en todas nuestras actuaciones.
+
+
+Descripción Vívida – Manifiesto
+La Descripción Vívida es una descripción apasionante de cómo sería lograr el Objetivo Retador. La Descripción Vívida en conjunto al Objetivo Retador, constituyen la visión de la DIAN. Marcan los diferentes elementos que la Institución debe monitorear y en los que debe trabajar para lograr los resultados que suman al reto propuesto. Presentada en forma de manifiesto
+
+
+busca comunicar todos los elementos de la nueva Filosofía Institucional fomentando motivación y compromiso en los funcionarios de la entidad.
+  
+
+Ilustración 3. Descripción Vívida - Manifiesto. Fuente: Planeación Estratégica, septiembre 2024
+
+
+Lineamientos Estratégicos
+Son los intereses y prioridades de la Dirección General, de acuerdo con las directrices del gobierno nacional, y los compromisos nacionales e internacionales de la entidad.
+
+
+        Lineamientos estratégicos        
+
+
+Lineamientos estratégicos
+	1. Cumplimiento de las metas de recaudo
+	Alcanzar el monto del recaudo bruto y neto, mensual y acumulado, conforme a lo dispuesto en el Marco Fiscal de Mediano Plazo y la planeación financiera
+del Ministerio de Hacienda.
+	
+
+2. Combatir efectivamente la evasión y elusión tributarias
+	Implementar de manera proactiva las estrategias, acciones y programas contemplados en el Plan de Choque contra la Evasión con el fin de combatir de manera decidida y contundente la evasión, la elusión, el contrabando y
+demás formas de fraude fiscal.
+	3. Operación aduanera ágil, segura y transparente
+	Facilitar las operaciones de comercio exterior del país, con trámites ágiles, digitalizados, y asegurando transparencia, trazabilidad y monitoreo permanente y en tiempo real de las actuaciones en el proceso aduanero.
+	
+
+4.Consolidar la modernización de la DIAN
+	Gerenciar integral y articuladamente los proyectos del programa de modernización, integrándolos en el plan estratégico de la entidad, para concretar el mejoramiento del desempeño institucional a corto y mediano
+plazo.
+	
+
+
+
+5. Priorizar los procesos misionales
+	Reorientar y priorizar la asignación de talento humano, recursos físicos, financieros y tecnológicos hacia los procesos misionales críticos, en respuesta a los cambios estructurales que enfrenta la entidad, la disminución del recaudo y su impacto en el programa macroeconómico del Gobierno Nacional.
+	
+
+6. La DIAN, una entidad apreciada por los grupos de valor e interés
+	Garantizar que las actuaciones de los servidores públicos sean transparentes, cercanas, respetuosas y efectivas hacia los grupos de valor e interés, para que la entidad genere confianza, motive el cumplimiento voluntario de las obligaciones fiscales y sea valorada por su aporte a la consolidación de un Estado social de derecho.
+	Tabla 13. Lineamientos Estratégicos.
+Fuente: Planeación Estratégica, septiembre 2024
+
+
+
+
+
+
+Elementos de Visión
+Los elementos de visión que corresponden a los componentes esenciales que delinean el futuro deseado de la entidad, en otros modelos se conocen como los objetivos estratégicos. Para la entidad se definieron cuatro elementos visionales (o misionales) y dos habilitantes (o apoyos directos e indirectos).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Elementos de visión        
+
+
+Elementos de visión
+	
+
+
+
+
+
+
+
+Costo Fiscal
+	Representa el compromiso de la entidad en combatir la evasión fiscal y el contrabando, enfocándose en las actividades relacionadas con las economías informales, ilegales e ilícitas que erosionan la base y el recaudo necesario para la financiación del gasto público que promuevan el bienestar económico y social del país.
+La estrategia para reducir el costo fiscal de la evasión y el contrabando incorpora una fiscalización analítica y precisa, combinada con campañas de control y concientización que buscan erradicar prácticas que afecten negativamente el
+recaudo.
+	Cumplimiento Voluntario de Obligaciones
+	Refleja el propósito de fomentar una cultura de responsabilidad social tributaria, donde los ciudadanos contribuyan voluntaria y conscientemente a la seguridad fiscal del estado y la competitividad del país.
+	
+
+
+
+
+
+Facilitación del Comercio Exterior
+	Busca optimizar las operaciones de comercio exterior del país mediante la agilización y automatización de trámites aduaneros y la consolidación de alianzas estratégicas que impulsen la economía nacional. La facilitación del comercio exterior es una línea estratégica prioritaria para la entidad, dada la necesidad de cumplir con los estándares internacionales de la OCDE y que la economía nacional se posicione como un socio comercial competitivo y eficiente en la economía
+regional y global.
+	
+
+
+
+Confianza del Ciudadano
+	Busca fortalecer la relación de la entidad con la ciudadanía, asegurando transparencia, equidad y eficacia en todas sus actuaciones para ganar y mantener su confianza, aprecio y respeto. A su vez, fortalecerse como una entidad transparente y justa, es fundamental para el mantenimiento y crecimiento de una base tributaria sólida, donde prime el cumplimiento voluntario y se incremente la moral tributaria.
+	
+
+
+
+Talento Humano Apto, Resolutivo y Comprometido
+	Representa el compromiso de la entidad en desarrollar un equipo altamente calificado, cuyas habilidades y dedicación sean la base para una entidad excepcionalmente capaz y eficiente, y que cumple con las metas y compromisos definidos en el programa macroeconómico del gobierno nacional. Es indispensable el desarrollo de las capacidades del talento humano, acorde con las necesidades y expectativas que demanda el contexto actual, convirtiéndose en un pilar organizacional que favorezca la excelencia y la innovación permanentes.
+	
+
+
+
+Entidad Moderna, Cercana y Humana
+	Enfatiza la transformación de la entidad que incorpora ágil y oportunamente nuevas tecnologías de la información y telecomunicaciones en pro de una mejora constante en la operación, así como la prestación de servicios más fáciles, entendibles y utilizables para el ciudadano. La DIAN se propone modernizar sus procesos y estructuras para ser más eficiente y cumplir con las necesidades y expectativas de los grupos de valor e interés.
+	Tabla 14. Elementos de Visión.
+Fuente: Planeación Estratégica, septiembre 2024
+
+
+En este marco, la gestión documental de la entidad debe orientarse hacia el uso de tecnologías que agilicen la organización, busquen garantizar la disponibilidad y preservación de los documentos y provean herramientas para facilitar la consulta y el acceso a la información, con menores tiempos de respuesta, alcanzando y superando las expectativas de los grupos de valor.
+
+
+
+
+      1. Mapa de procesos de la entidad
+
+
+El modelo de gestión por procesos para la UAE-DIAN es un enfoque que permite identificar, diseñar, ejecutar, documentar, medir, monitorear y controlar tanto los procesos manuales como los automatizados, con el fin de asegurar los resultados de manera coherente y alineados a los lineamientos estratégicos de la entidad, definidos en la planeación institucional en el marco de los valores aspiracionales.
+
+
+Para la UAE-DIAN la gestión por procesos es una disciplina integradora que se encuentra apalancada por las personas, tecnología, innovación y mejora continua, desde una vista de Arquitectura Institucional, el Modelo de Gestión de Procesos y el Sistema Integrado de Gestión.
+
+
+El nuevo Mapa de Procesos fue publicado a finales del año 2024 según se muestra en la Ilustración 4, donde se pueden visualizar:
+
+
+         * Macroprocesos: Vista a alto nivel de un conjunto de procesos interrelacionados y alineados con los objetivos principales de la entidad.
+
+
+         * Procesos: Agrupador de dos o más subprocesos. Conjunto organizado y coordinado de actividades alineados a un objetivo común.
+
+
+De esta forma, se muestra como la “Gestión Documental” es un proceso del macroproceso de “Gestión de Recursos” categorizado como “Habilitante”, enfocado en el elemento de visión: “Entidad Moderna, Cercana y Humana”, descrito en la Tabla 14.
+
+
+  
+
+Ilustración 4. Mapa de Procesos
+Fuente: Coordinación de Procesos y Riesgos Operacionales, Octubre de 2024.
+
+
+En la elaboración y actualización de los instrumentos archivísticos se tienen como base los procesos y procedimientos, los cuales determinan la producción documental en razón a las funciones y competencias de cada una de las dependencias que intervienen en el desarrollo de dichos procesos, así como la normalización de las formas y formatos.
+
+
+      2. Presupuesto anual para la implementación del PGD
+
+
+De acuerdo con las actividades contempladas en el presente programa, requerirán del compromiso del recurso humano para su ejecución, siendo en su gran medida ejecutadas de forma directa. Sin embargo, se tiene una actividad que implica la destinación de recursos de presupuesto específico; por lo que, estos recursos fueron gestionados y se encuentran incluidos en el Plan Anual de Adquisiciones de la vigencia 2025 según se detallan en la Tabla 15.  Así
+
+
+mismo, para la vigencia 2026 se deberá realizar la gestión para la lograr la destinación de los recursos requeridos.
+
+
+
+
+	OBJETO
+	VALOR
+	
+
+1
+	Prestación de servicios profesionales de un historiador para estudiar y hacer el registro de los acontecimientos orgánico-funcionales que dieron paso a la estructura de la entidad con el pasar de los años con el fin de crear las
+Tablas de Valoración Documental de la Entidad
+	
+
+$60,000,000
+	
+
+	Valor Asignación Presupuestal
+	Σ 60.000,000
+	Tabla 15. Asignación Presupuestal Gestión Documental.
+Fuente: Plan Anual de Adquisiciones 2025
+
+
+De igual forma, dentro del Programa de Apoyo a la Modernización de la entidad se incluyó la adquisición del Sistema de Gestión de Documentos Electrónicos de Archivo, SGDEA, proyecto que es liderado por la Dirección de Gestión de Innovación y Tecnología, con la participación como líderes funcionales de la Subdirección Administrativa y sus Coordinaciones de Documentación y Correspondencia y Notificaciones, en aras de responder a las nuevas y crecientes necesidades de manera que se gestionen y preserven los documentos electrónicos de archivo como parte del patrimonio documental de la entidad.
+
+
+Al encontrarse dentro del Programa de Apoyo a la Modernización, la adquisición se realizará en el marco del Contrato de Préstamo BID 5148/OC- CO y se estima un costo de $3.426.184.651 de acuerdo con el Informe Técnico y Financiero RFI del Proyecto Estratégico de Transformación Digital de Junio de 2024.
+
+
+
+
+
+
+6. GLOSARIO
+
+
+* Activos de Información. En relación con la privacidad de la información, se refiere al activo que contiene información pública que el sujeto obligado genere, obtenga, adquiera, transforme o controle en su calidad de tal. Fuente: Ministerio de Tecnologías de la Información y las Comunicaciones. – MSPI. 5
+
+
+* Almacenamiento de documentos. Acción de guardar sistemáticamente documentos de archivo en espacios, mobiliario y unidades de conservación apropiadas.6
+
+
+* Archivo General de la Nación AGN. Es una entidad de la orden nacional adscrita al Ministerio de Cultura, encargada de la organización y dirección del Sistema Nacional de Archivos - SNA, de regir la política archivística en Colombia y de custodiar, resguardar y proteger el patrimonio documental del País y ponerlo al servicio de la comunidad.7
+
+
+* Archivo. Conjunto de documentos, sea cual fuere su fecha, forma y soporte material, acumulados en un proceso natural por una persona o entidad pública o privada, en el transcurso de su gestión, conservados respetando aquel orden para servir como testimonio e información a la persona o institución que los produce y a los ciudadanos, o como fuentes de la historia. También se puede entender como la institución que está al servicio de la gestión administrativa, la información, la investigación y la cultura.8
+
+
+* Archivo Central. Unidad administrativa que coordina y controla el funcionamiento de los archivos de gestión y reúne los documentos transferidos por los mismos una vez finalizado su trámite y cuando su consulta es constante.9
+
+
+  
+
+
+
+* Archivo de gestión. Archivo de la oficina productora que reúne su documentación en trámite, sometida a continua utilización y consulta administrativa.10
+
+
+* Archivo electrónico. Conjunto de documentos electrónicos producidos y tratados archivísticamente, siguiendo la estructura-orgánico funcional del productor, acumulados en un proceso natural por una persona o institución pública o privada, en el transcurso de su gestión.11
+
+
+* Ciclo vital del documento. Etapas sucesivas por las que atraviesan los documentos desde su producción o recepción, hasta su disposición final.12
+
+
+* Clasificación documental. Es la fase del proceso de organización documental, en la cual se identifican y establecen agrupaciones documentales de acuerdo con la estructura orgánico-funcional de la entidad productora (fondo, sección, subsección, series, subseries o asuntos) y su resultado está basado en el Cuadro de Clasificación Documental – CCD respetando así el principio de procedencia en cada una de las etapas del ciclo vital del documento.13
+
+
+* Conservación de documentos. Conjunto de medidas de conservación preventiva y conservación – restauración, adoptadas para asegurar la integridad física y funcional de los documentos analógicos de archivo.14
+
+
+* Conservación total. Se aplica a aquellos documentos que tienen valor permanente y que por su contenido informan sobre el origen, estructura, procedimientos y políticas de la entidad productora. Así mismo, son patrimonio documental de la sociedad que los produce, utiliza y conserva para la investigación, la ciencia y la cultura.15
+
+
+* Consulta de documentos. Acceso a un documento o a un grupo de documentos con el fin de conocer la información que contienen.16
+  
+
+
+
+
+
+* Copia de seguridad. Copia de un documento realizada para conservar la información contenida en el original en caso de pérdida o destrucción del mismo.17
+
+
+* Custodia de Documentos. Guarda o tenencia de documentos por parte de una institución o una persona, que implica responsabilidad jurídica en la administración y conservación de los mismos, cualquiera que sea su titularidad.18
+
+
+* Descripción documental. Fase del proceso de organización documental que consiste en el análisis de los documentos de archivo y de sus agrupaciones, y cuyo resultado son los instrumentos de descripción y de consulta.19
+
+
+* Diplomática documental: Disciplina que estudia las características internas y externas de los documentos conforme a las reglas formales que rigen su elaboración, con el objeto de evidenciar la evolución de los tipos documentales y determinar su valor como fuentes para la historia.20
+
+
+* Digitalización. Técnica que permite la reproducción de información que se encuentra guardada de manera analógica (papel, video, casettes, cinta, película, microfilm y otros) en una que sólo puede leerse o interpretarse por sistemas de información.21
+
+
+* Disponibilidad: Que se puede localizar, recuperar, presentar, interpretar y leer. Su presentación debe mostrar la actividad que lo produjo. El contexto de los documentos debe ser suficientemente claro y contener la información necesaria para la comprensión de las operaciones que los crearon y usaron. Debe ser posible identificar un documento en el contexto amplio de las actividades y las funciones de la organización. Se deben mantener los vínculos existentes entre los documentos que reflejan una secuencia de actividades. Propiedad de que la información sea accesible y utilizable por solicitud de una entidad autorizada.22
+  
+
+
+
+
+
+* Disposición final de documentos. Decisión resultante de la valoración hecha en cualquier etapa del ciclo vital de los documentos, registrada en las Tablas de Retención y/o Tablas de Valoración Documental, con miras a su conservación total, eliminación o selección.23
+
+
+* Documento. Información registrada, cualquiera que sea su forma o el medio utilizado.24
+
+
+* Documento de apoyo. Documento generado por la misma oficina o por otras oficinas o instituciones, que no hace parte de sus series documentales, pero es de utilidad para el cumplimiento de sus funciones.25
+
+
+* Documento de archivo. Registro de información producida o recibida por una persona o entidad pública o privada en razón a sus actividades o funciones, que tiene valor administrativo, fiscal, legal, científico, histórico, técnico o cultural y debe ser objeto de conservación en el tiempo, con fines de consulta posterior.26
+
+
+* Documento digital. información representada por medio de valores numéricos diferenciados – discretos o discontinuos-, por lo general valores numéricos binarios (bits), de acuerdo con un código o convención preestablecidos.27
+
+
+* Documento electrónico de archivo. Registro de información generada, producida o recibida o comunicada por medios electrónicos, que permanece almacenada electrónicamente durante todo su ciclo de vida, producida, por una persona o entidad en razón a sus actividades o funciones, que tiene valor administrativo, fiscal, legal, o valor científico, histórico, técnico o cultural y que debe ser tratada conforme a los principios y procesos archivísticos.28
+
+
+* Documento facilitativo. Documento producido en cumplimiento de funciones idénticas o comunes en todas las entidades.29
+  
+
+
+
+
+
+* Documento histórico. Documento único que por su significado jurídico o autográfico o por sus rasgos externos y su valor permanente para la dirección del Estado, la soberanía nacional, las relaciones internacionales o las actividades científicas, tecnológicas y culturales, se convierte en parte del patrimonio histórico.30
+
+
+* Documento original. Fuente primaria de información con todos los rasgos y características que permiten garantizar su autenticidad e integridad.31
+
+
+* Documento público. Documento otorgado por un funcionario público en ejercicio de su cargo o con su intervención.32
+
+
+* Eliminación documental. Actividad resultante de la disposición final señalada en las Tablas de Retención o de Valoración Documental para aquellos documentos que han perdido sus valores primarios.33
+
+
+* Estantería. Mueble con entrepaños para almacenar documentos en sus respectivas unidades de conservación.34
+
+
+* Expediente. Conjunto de documentos producidos y recibidos durante el desarrollo de un mismo trámite o procedimiento, acumulados por una persona, dependencia o unidad administrativa, vinculados y relacionados entre sí y que se conservan manteniendo la integridad y orden en que fueron tramitados, desde su inicio hasta su resolución definitiva.35
+
+
+* Expediente digital o digitalizado. Copia exacta de un expediente físico cuyos documentos originales, tradicionalmente impresos, son convertidos a formato electrónico mediante procesos de digitalización.36
+
+
+* Expediente electrónico. Conjunto de documentos electrónicos correspondientes a un procedimiento administrativo, cualquiera que sea el tipo
+  
+
+30 Ibid., p. 107.
+31 Ibid., p. 107.
+32 Ibid., p. 107.
+33 Archivo General de la Nación (2024). Acuerdo 001. Anexo 1. “Definiciones”. p.107.
+
+
+de información que contengan. El expediente electrónico deberá garantizar condiciones de autenticidad, integridad y disponibilidad.37
+
+
+* Expediente híbrido. Conjunto conformado por documentos en soportes físicos y formatos electrónicos simultáneamente que, a pesar de estar separados por ser conservados en sus formatos nativos (soportes originales), forman una sola unidad documental en razón al trámite o actuación que tratan, manteniendo un vínculo archivístico, apoyado por el uso de herramientas tecnológicas.38
+* Fiabilidad: Condición técnica de un sistema de información de garantizar la integridad de los datos. Su contenido representa exactamente lo que se quiso decir en él. Es una representación completa y precisa de lo que da testimonio y se puede recurrir a él para demostrarlo. Los documentos de archivo deben ser creados en el momento o poco después en que tiene lugar la operación o actividad que reflejan, por individuos que dispongan de un conocimiento directo de los hechos o automáticamente por los instrumentos que se usen habitualmente para realizar las operaciones.39
+* Firma digital: Corresponde a un valor numérico que se adhiere a un mensaje de datos y que, utilizando un procedimiento matemático conocido, vinculado a la clave del iniciador y al texto del mensaje permite determinar que este valor se ha obtenido exclusivamente con la clave del iniciador y que el mensaje inicial no ha sido modificado después de efectuada la transformación. Esta firma se puede verificar utilizando la clave pública correspondiente al firmante. Si la firma digital se verifica correctamente y el documento no ha sido modificado desde su firma, se puede confiar en la autenticidad e integridad del documento.40
+* Firma electrónica: Corresponde a métodos tales como códigos, contraseñas, datos biométricos o claves criptográficas privadas, que permiten identificar a una persona en relación con un mensaje, siempre y cuando el mismo sea confiable y apropiado respecto de los fines para los que se utiliza la firma, teniendo en cuenta todas las circunstancias del caso, así como cualquier acuerdo pertinente.41
+  
+
+37 Ibid., p. 108.
+38 Ibid., p. 109.
+39 Ibid., p. 109.
+40 Ibid., p. 109.
+41 Ibid., p. 110.
+
+
+
+
+* Función archivística: Actividades relacionadas con la totalidad del quehacer archivístico que comprenden desde la elaboración del documento hasta su eliminación o conservación permanente.42
+
+
+* Gestión documental. Conjunto de actividades administrativas y técnicas, tendientes a la planificación, manejo y organización de la documentación producida y recibida por las entidades, desde su origen hasta su destino final con el objeto de facilitar su utilización y conservación.43
+
+
+* Identificación documental. Primera etapa de la labor archivística, que consiste en indagar, analizar y sistematizar las categorías administrativas y archivísticas que sustentan la estructura de un fondo.44
+
+
+* Información pública. Es toda información que un sujeto obligado genere, obtenga, adquiera o controle.45
+
+
+* Información pública clasificada. Es aquella información que estando en poder o custodia de un sujeto obligado en su calidad de tal, pertenece al ámbito propio, particular y privado o semiprivado de una persona natural o jurídica por lo que su acceso podrá ser negado o exceptuado, siempre que se trate de las circunstancias legítimas y necesarias y los derechos particulares o privados consagrados en el artículo 18 de la Ley 1712 de 2014.46
+
+
+* Información pública reservada. Es aquella información que estando en poder o custodia de un sujeto obligado en su calidad de tal, es exceptuada de acceso a la ciudadanía por daño a intereses públicos y bajo cumplimiento de la totalidad de los requisitos consagrados en el artículo 19 de la Ley 1712 de 2014.47
+* Integridad: Característica técnica de seguridad de la información con la cual se salvaguarda la exactitud y totalidad de la información y los métodos de procesamiento asociados a la misma. Condición que garantiza que la
+  
+
+42 Ibid., p. 110.
+43 Ibid., p. 111.
+44 Ibid., p. 111.
+45 Ibid., p. 112.
+46 Congreso de la República de Colombia (2014). Ley 1712, Artículo 6, Título 1.
+47 Ibid.
+
+
+información consignada en un mensaje de datos ha permanecido completa e inalterada.48
+* Interdependencia de los metadatos: En el esquema de metadatos para la gestión de documentos pueden existir conjuntos de metadatos relacionados que, por razones de integridad, necesitan ser gestionados como un conjunto, por ejemplo, describir en un documento un evento específico, necesita de metadatos como fecha, actividad, agente, entre otros. Los conjuntos de metadatos identificados requieren de la definición de una secuencia lógica, creando una interdependencia entre dichos metadatos, la cual ayuda a soportar la integridad de estos.49
+* Instrumentos Archivísticos: Herramientas con propósitos específicos, que tienen por objeto apoyar el adecuado desarrollo e implementación de la gestión documental y la función archivística.50
+
+
+* Inventario documental. Instrumento de recuperación de información que describe de manera exacta y precisa las series o asuntos de un fondo documental.51
+
+
+* Modelo de requisitos para la gestión de documentos electrónicos: Instrumento archivístico para la gestión de documentos electrónicos que establece los requisitos funcionales y técnicos para la gestión de documentos electrónicos y proporciona una guía para la implementación de sistemas de gestión de documentos electrónicos, definiendo los criterios mínimos esenciales que deben tener estos sistemas para garantizar la autenticidad, integridad, fiabilidad y disponibilidad de los documentos electrónicos a lo largo de su ciclo de vida.52
+
+
+* Metadatos. Se define como la información adicional que se utiliza para clasificar, ordenar, describir y gestionar otros datos. Los metadatos son datos que proporcionan información sobre otros datos. Los metadatos ayudan a los sistemas de búsqueda y recuperación de información a encontrar y filtrar los datos de manera eficiente, desempeñando un rol fundamental en la
+  
+
+48 Archivo General de la Nación (2024). Acuerdo 001. Anexo 1. “Definiciones”. p. 112.
+49 Ibid., p. 112.
+50 Ibid., p. 112.
+51 Ibid., p. 112.
+52 Ibid., p. 113.
+
+
+interoperabilidad y la preservación a largo plazo de los documentos de archivo.53
+
+
+* Normalización archivística. Actividad colectiva encaminada a unificar criterios en la aplicación de la práctica archivística.54
+
+
+* Ordenación documental. Es la fase del proceso de organización documental que consiste en establecer secuencias dentro de las agrupaciones documentales definidas en la fase de clasificación, respetando así el principio de orden original en cada una de las etapas del ciclo vital del documento.55
+
+
+* Organización de archivos. Conjunto de operaciones técnicas y administrativas cuya finalidad es la agrupación documental relacionada en forma jerárquica con criterios orgánicos o funcionales.56
+
+
+* Organización documental. Proceso archivístico orientado a la clasificación, la ordenación y la descripción de los documentos de archivo.57
+* Patrimonio documental: Conjunto de documentos conservados por su valor histórico o cultural. También se refiere a los bienes documentales de naturaleza archivística declarados como Bien de Interés Cultural de Carácter Documental Archivístico.58
+* Plan Institucional de Archivos - PINAR: Instrumento archivístico que permite agrupar la planeación, seguimiento e implementación de aspectos relevantes de los procesos de gestión documental y administración de archivos en cumplimiento de las normas y directrices determinadas por el Archivo General de la Nación Jorge Palacios Preciado.59
+
+
+* Preservación digital. Es el conjunto de principios, políticas, estrategias y acciones específicas que tienen como fin asegurar la estabilidad física y tecnológica de los datos, la permanencia y el acceso de la información de los
+  
+
+53 Ibid., p. 114.
+54 Ibid., p. 114.
+55 Ibid., p. 114.
+56 Ibid., p. 114.
+57 Ibid., p. 114.
+58 Ibid., p. 115.
+59 Ibid., p. 116.
+
+
+documentos digitales y proteger el contenido intelectual de los mismos por el tiempo que se considere necesario.60
+
+
+* Préstamo. Entrega a un usuario autorizado de unidades documentales con carácter devolutivo, en cualquiera de las fases de archivo, con fines administrativos, judiciales o informativos.61
+
+
+* Principio de orden original. Se trata de un principio fundamental de la teoría archivística por el cual se establece que la disposición física de los documentos debe respetar la secuencia de los trámites que los produjo. Es prioritario para la ordenación de fondos, series y unidades documentales.62
+
+
+* Principio de procedencia. Se trata de un principio fundamental de la teoría archivística por el cual se establece que los documentos producidos por una institución y sus dependencias no deben mezclarse con los de otras.63
+
+
+* Programa de Gestión Documental - PGD. Es el instrumento archivístico que permite a los sujetos obligados, formular y documentar a corto, mediano y largo plazo, el desarrollo sistemático de los procesos de gestión documental, encaminados a la planificación, procesamiento, manejo y organización de documentación producida y recibida, desde su origen hasta su destino final, para facilitar su uso, conservación y preservación.64
+
+
+* Recuperación de documentos. Acción y efecto de obtener, por medio de los instrumentos de consulta, los documentos requeridos.65
+* Repositorios digitales: Sistema de almacenamiento que tiene como objetivo conservar, preservar y almacenar los documentos electrónicos de archivo de acuerdo con los tiempos de retención establecidos en la Tabla de Retención Documental, mientras se encuentren bajo su custodia. Un repositorio digital de confianza es un sistema que almacena datos digitales de manera segura. Estos datos pueden incluir documentos, imágenes, videos, audio y otros tipos de archivos. Los repositorios digitales de confianza utilizan una variedad de
+  
+
+60 Ibid., p. 115.
+61 UAE-DIAN, Coordinación de Documentación. (2021). Definición.
+62 Archivo General de la Nación (2024). Acuerdo 001. Anexo 1. “Definiciones”. p.115.
+63 Ibid., p. 115.
+64 Ibid., p. 116.
+65 Ibid., p. 116.
+
+
+técnicas para proteger los datos de acceso no autorizado, pérdida o destrucción. Estas técnicas pueden incluir encriptación, controles de acceso y software de detección y prevención de hackeos.66
+* Reprografía: Conjunto de técnicas, como la fotografía, el fotocopiado, la microfilmación y la digitalización, que permiten copiar o duplicar documentos originalmente consignados en papel.67
+
+
+* Retención documental. Plazo que los documentos deben permanecer en el archivo de gestión o en el Archivo Central, tal como se consigna en la tabla de retención documental.68
+
+
+* Selección documental. Disposición final señalada en las tablas de retención o de valoración documental y realizada en el Archivo Central con el fin de escoger una muestra de documentos de carácter representativo para su conservación permanente.69
+
+
+* Serie documental. Documentos organizados de acuerdo con un sistema de archivo o conservados formando una unidad como resultado de la acumulación del mismo proceso archivístico, o de la misma actividad; que tienen una forma particular, o como consecuencia de cualquier actividad derivada de su producción, recepción o utilización.70
+* Sistema de Gestión de Documentos Electrónicos de Archivo - SGDEA: Sistema de información que integra todos los documentos identificados como documentos electrónicos de archivo, además de centralizar todas las actividades inherentes a la gestión documental, asegurando su autenticidad, integridad, inalterabilidad, fiabilidad, disponibilidad, conservación, preservación a largo plazo, seguridad y almacenamiento, entre otros criterios de referencia para su implementación y seguimiento.71
+* Sistema de información: Es un conjunto organizado de datos, operaciones y transacciones que interactúan para el almacenamiento y procesamiento de la
+
+
+información que, a su vez, requiere la interacción de uno o más activos de información para efectuar sus tareas. Un sistema de información es todo componente de software ya sea de origen interno o de origen externo, ya sea adquirido por las entidades públicas o privadas como un producto estándar de mercado o desarrollado para las necesidades de la entidad.72
+* Sistema integrado de conservación - SIC: Es el conjunto de planes, programas, estrategias, procesos y procedimientos de conservación documental y preservación digital, bajo el concepto de archivo total, acorde con la política de gestión documental y demás sistemas organizacionales, tendiente a asegurar el adecuado mantenimiento de cualquier tipo de información, independiente del medio o tecnología con la cual se haya elaborado, conservando atributos tales como unidad, integridad autenticidad, inalterabilidad, originalidad, fiabilidad y accesibilidad, desde el momento de su producción y/o recepción, durante su gestión, hasta su disposición final, es decir, en cualquier etapa de su ciclo vital.73
+* Situación de riesgo para el material documental: Es un estado temporal que a corto plazo produce un cambio en el ambiente donde se encuentran los acervos y que a menudo produce consecuencias dañinas e irreversibles para la integridad y el mantenimiento del material.74
+
+
+* Subserie documental. Conjunto de unidades documentales que forman parte de una serie, identificadas de forma separada de ésta por su contenido y sus características específicas.75
+
+
+* Tablas de Control de Acceso: Instrumento archivístico que establece las restricciones de accesos y seguridad a los documentos.76
+* Tabla de Retención Documental - TRD. Listado de series, con sus correspondientes tipos documentales, a las cuales se asigna el tiempo de permanencia en cada etapa del ciclo vital de los documentos.77
+
+
+* Tabla de Valoración Documental –TVD. Listado de series documentales o asuntos a los cuales se asigna un tiempo de permanencia en el Archivo Central, así como una disposición final.78
+
+
+* Tipo documental. Unidad documental simple originada en una actividad administrativa, con diagramación, formato y contenido distintivos que sirven como elementos para clasificarla, describirla y asignarle categoría diplomática.79
+
+
+* Trámite de documentos. Recorrido del documento desde su producción o recepción, hasta el cumplimiento de su función administrativa.80
+
+
+* Transferencia documental. Proceso técnico, administrativo y legal mediante el cual se entrega a los archivos centrales (transferencia primaria) o a los archivos históricos (transferencia secundaria), los documentos que de conformidad con las Tablas de Retención Documental y valoración, han cumplido su tiempo de retención en la etapa de archivo de gestión o de Archivo Central respectivamente; implica un cambio en el responsable de la tenencia y administración de los documentos de archivo que supone obligaciones del receptor de la transferencia, quien asume la responsabilidad integral sobre los documentos transferidos.81
+
+
+* Unidad administrativa. Unidad técnico - operativa de una institución.82
+
+
+* Unidad de conservación. Cuerpo que contiene un conjunto de documentos de tal forma que garantice su preservación e identificación. Pueden ser unidades de conservación, entre otros elementos, las carpetas, las cajas, y los libros o tomos.83
+
+
+* Unidad documental. Unidad archivística constituida por documentos del mismo tipo formando unidades simples o por documentos de diferentes tipos formando una unidad documental compleja (expediente).84
+  
+
+78 Ibid., p. 119.
+79 Ibid., p. 119.
+80 Ibid., p. 119.
+81 Ibid., p. 120.
+82 Ibid., p. 120.
+83 Ibid., p. 120.
+84 Ibid., p. 120.
+
+
+
+
+* Valor técnico: Atributo de los documentos producidos y recibidos por una institución en virtud de su aspecto misional.85
+
+
+* Valoración documental. Proceso permanente y continuo, que inicia desde la planificación de los documentos y por medio del cual se determinan los valores primarios (para la administración y gestión) y secundarios (para la sociedad, la historia, la cultura, la memoria) de los documentos, con el fin de establecer su permanencia en las diferentes fases de archivo y determinar su disposición final (conservación temporal o permanente).86
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+85 Ibid., p. 121.
+86 Ibid., p. 121.
+
+
+
+
+
+
+7. BIBLIOGRAFÍA
+
+
+* ARCHIVO GENERAL DE LA NACIÓN. ACUERDO 001 DE 2024.
+Disponible        en:        https://normativa.archivogeneral.gov.co/wp- content/uploads/2024/04/2024-02_29_AcuerdoAGN-FIRMADO.pdf
+
+
+* ARCHIVO GENERAL DE LA NACIÓN. (2014). Manual: Implementación de un Programa de Gestión Documental – PGD. Bogotá.
+
+
+* ARCHIVO GENERAL DE LA NACIÓN. (2020). Guía de Implementación de un Sistema de Gestión de Documentos Electrónicos de Archivo - SGDEA.
+
+
+* ARCHIVO GENERAL DE LA NACIÓN Y MINISTERIO DE LAS TECNOLOGÍAS DE INFORMACIÓN Y LAS COMUNICACIONES. (2018).
+G.INF.07 Guía Técnica para la Gestión de Documentos y Expedientes Electrónicos.
+
+
+* COLOMBIA. PRESIDENCIA DE LA REPÚBLICA. (2015). Decreto 1080.
+Decreto Reglamentario Único del Sector Cultura.
+
+
+
+
+
+
+8. FORMALIZACIÓN Y CONTROL DE CAMBIOS
+
+
+Versión
+	Vigencia
+	
+
+	Desde
+	Hasta
+	Descripción de la formalización y los cambios
+	
+
+1
+	
+
+25/04/2016
+	
+
+11/08/2020
+	Versión inicial.
+Formalización del Programa de Gestión Documental
+	
+
+
+
+
+
+2
+	
+
+
+
+
+
+12/08/2020
+	
+
+
+
+
+
+04/05/2025
+	Versión 2, que reemplaza lo establecido en la versión 1.
+Se realizó actualización del Programa de Gestión Documental de acuerdo con el Plan Estratégico 2019- 2022, teniendo en cuenta los objetivos estratégicos  relacionados  con  la  Gestión
+Documental.
+	
+
+
+
+3
+	
+
+
+
+05/05/2025
+	
+
+	Versión 3, que reemplaza lo establecido en la versión 2.
+Se realizó actualización del Programa de Gestión Documental de acuerdo con el Plan Estratégico
+2024-2026, divulgado en septiembre de 2024.
+	
+
+
+
+
+
+Elaboró:
+	Luz        Mary        Poveda Velásquez
+	Jefe Coordinación de Documentación (A)
+	Coordinación        de
+Documentación
+	Lyda Milena Triana Parra
+	Gestor IV
+	Coordinación        de
+Documentación
+	
+
+
+
+
+
+Revisó:
+	Camilo Octavio Contreras Bravo
+
+
+Pedro        José        Arieta Meléndez
+	Subdirector Administrativo
+
+
+Director        de        Gestión Corporativa
+	Subdirección Administrativa
+
+
+
+
+Dirección        de        Gestión Corporativa
+	
+
+Aprobó:
+	Comité        Institucional        de Gestión y Desempeño.
+	
+
+UAE-DIAN
+	
+
+UAE-DIAN

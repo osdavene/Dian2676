@@ -1,0 +1,312 @@
+@extends('layouts.app')
+
+@section('title', 'Control Central — DIAN 2676')
+
+@section('content')
+<div class="space-y-6">
+
+    {{-- Banner Superior de Control Central --}}
+    <div class="bg-gradient-to-r from-slate-900 via-indigo-950/60 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-shield-halved text-amber-400"></i>
+                    Panel de Super Usuario &bull; Control Central
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                    Monitoreo y Analítica del Concurso DIAN 2676
+                </h1>
+                <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                    Visualiza el progreso general de todos los aspirantes, rendimiento comparativo por cargos, tasa global de aprobación bajo los parámetros eliminatorios de la CNSC y diagnóstico de reactivos.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full md:w-auto">
+                <a href="{{ route('admin.users') }}" 
+                   class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-users"></i>
+                    Gestionar Aspirantes
+                </a>
+                <a href="{{ route('admin.backup') }}" 
+                   class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-indigo-600/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-database"></i>
+                    Backup Total BD
+                </a>
+                <a href="{{ route('admin.questions.analytics') }}" 
+                   class="w-full sm:w-auto justify-center px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-chart-pie text-amber-400"></i>
+                    Analítica de Fallos
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {{-- Cuadrícula de KPIs Globales --}}
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 flex items-center justify-between">
+            <div>
+                <span class="text-xs font-semibold text-slate-400 block">Aspirantes Registrados</span>
+                <span class="text-2xl sm:text-3xl font-black text-white mt-1 block">{{ $totalUsers }}</span>
+                <span class="text-[11px] text-slate-500 font-medium">{{ $totalAspirantes }} aspirantes &bull; {{ $totalAdmins }} admins</span>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-users-gear"></i>
+            </div>
+        </div>
+
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 flex items-center justify-between">
+            <div>
+                <span class="text-xs font-semibold text-slate-400 block">Simulacros Calificados</span>
+                <span class="text-2xl sm:text-3xl font-black text-white mt-1 block">{{ $totalExamsCompleted }}</span>
+                <span class="text-[11px] text-slate-500 font-medium">Historial consolidado</span>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-file-circle-check"></i>
+            </div>
+        </div>
+
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 flex items-center justify-between">
+            <div>
+                <span class="text-xs font-semibold text-slate-400 block">Tasa Global Aprobación</span>
+                <span class="text-2xl sm:text-3xl font-black {{ $globalPassRate >= 70 ? 'text-emerald-400' : 'text-amber-400' }} mt-1 block">
+                    {{ $globalPassRate }}%
+                </span>
+                <span class="text-[11px] text-slate-500 font-medium">&ge; 70.00 pts eliminatorio</span>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-award"></i>
+            </div>
+        </div>
+
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 flex items-center justify-between">
+            <div>
+                <span class="text-xs font-semibold text-slate-400 block">Promedio General</span>
+                <span class="text-2xl sm:text-3xl font-black text-white mt-1 block">{{ number_format($globalAvgScore, 2) }}</span>
+                <span class="text-[11px] text-slate-500 font-medium">Escala 0 - 100 puntos</span>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-chart-simple"></i>
+            </div>
+        </div>
+
+    </div>
+
+    {{-- Simulacros en Vivo / Activos en este Momento --}}
+    @if($liveSessions->isNotEmpty())
+        <div class="bg-slate-900 border border-amber-500/30 rounded-2xl p-6 shadow-xl space-y-3">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-amber-300 uppercase tracking-wider flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+                    Simulacros Activos en Vivo (En Curso)
+                </h3>
+                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300">
+                    {{ $liveSessions->count() }} aspirantes rindiendo examen
+                </span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
+                @foreach($liveSessions as $live)
+                    @php
+                        $elapsed = $live->created_at->diffInSeconds(now());
+                        $remaining = max(0, ($live->time_limit_seconds ?? 18000) - $elapsed);
+                        $hrs = floor($remaining / 3600);
+                        $mins = floor(($remaining % 3600) / 60);
+                    @endphp
+                    <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-white block">{{ $live->user->name ?? 'Aspirante' }}</span>
+                            <span class="text-[11px] text-blue-400 font-medium">{{ $live->jobProfile->name ?? 'Cargo' }} &bull; Sesión #{{ $live->id }}</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-slate-400 block">Tiempo restante</span>
+                            <span class="font-mono text-xs font-bold text-amber-300">{{ sprintf('%02dh %02dm', $hrs, $mins) }}</span>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    {{-- Rendimiento Comparativo por Cargo del Concurso --}}
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
+        <div class="flex items-center justify-between">
+            <div>
+                <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-blue-400"></i>
+                    Rendimiento Comparativo por Cargo
+                </h2>
+                <p class="text-xs text-slate-400">
+                    Distribución de aspirantes, preguntas de estudio y resultados por nivel y grado
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+            @foreach($cargoStats as $stat)
+                <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 hover:border-blue-500/40 transition-all space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400 block">{{ $stat['job']->level }} (Grado {{ $stat['job']->grade }})</span>
+                            <h3 class="text-base font-extrabold text-white">{{ $stat['job']->name }}</h3>
+                        </div>
+                        <span class="text-xs px-2.5 py-1 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-300 font-bold">
+                            {{ $stat['users_count'] }} aspirantes
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 text-xs pt-2 border-t border-slate-800/80">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block">Banco de Preguntas</span>
+                            <strong class="text-slate-200 text-sm">{{ $stat['questions_count'] }} items</strong>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-400 block">Simulacros Rendidos</span>
+                            <strong class="text-slate-200 text-sm">{{ $stat['exams_count'] }} exámenes</strong>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-400 block">Promedio Oficial</span>
+                            <strong class="text-white text-sm font-mono">{{ number_format($stat['avg_score'], 2) }} pts</strong>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-400 block">Tasa Aprobación</span>
+                            <strong class="{{ $stat['pass_rate'] >= 70 ? 'text-emerald-400' : 'text-amber-400' }} text-sm font-bold">
+                                {{ $stat['pass_rate'] }}%
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    {{-- Últimos Simulacros Presentados (Auditoría Central) --}}
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 space-y-4 shadow-xl">
+        <div class="flex items-center justify-between">
+            <div>
+                <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-clock-rotate-left text-amber-400"></i>
+                    Últimos Simulacros Completados
+                </h2>
+                <p class="text-xs text-slate-400">Auditoría en tiempo real de todos los exámenes finalizados</p>
+            </div>
+            <a href="{{ route('admin.sessions') }}" class="text-xs text-blue-400 hover:underline font-bold">
+                Ver todos &rarr;
+            </a>
+        </div>
+
+        {{-- Vista Móvil de Tarjetas (< sm) --}}
+        <div class="grid grid-cols-1 gap-3 sm:hidden">
+            @forelse($recentSessions as $s)
+                <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">
+                            {{ $s->completed_at ? $s->completed_at->format('d/m/Y H:i') : $s->created_at->format('d/m/Y H:i') }}
+                        </span>
+                        @if($s->is_passed)
+                            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold text-[10px]">
+                                APROBADO
+                            </span>
+                        @else
+                            <span class="px-2 py-0.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 font-bold text-[10px]">
+                                NO APROBADO
+                            </span>
+                        @endif
+                    </div>
+
+                    <div>
+                        @if($s->user_id)
+                            <a href="{{ route('admin.users.detail', $s->user_id) }}" class="font-bold text-white hover:text-blue-400 text-sm">
+                                {{ $s->user->name ?? 'Usuario #' . $s->user_id }}
+                            </a>
+                        @else
+                            <span class="text-slate-400 font-normal text-sm">Aspirante demo / anónimo</span>
+                        @endif
+                        <span class="block text-[11px] text-blue-400">{{ $s->jobProfile->name ?? 'N/A' }}</span>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs pt-2 border-t border-slate-800/80">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block">Puntaje</span>
+                            <span class="font-black text-sm text-white font-mono">{{ number_format($s->score, 2) }}</span>
+                            <span class="text-[10px] text-slate-400">({{ $s->correct_answers }}/{{ $s->total_questions }})</span>
+                        </div>
+                        <a href="{{ route('simulacro.resultado', $s->id) }}"
+                           class="px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600/40 text-blue-300 font-semibold transition-colors text-xs flex items-center gap-1">
+                            <i class="fa-solid fa-file-lines text-[10px]"></i> Ver Examen
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <div class="py-6 text-center text-slate-500 text-xs">No hay simulacros completados aún.</div>
+            @endforelse
+        </div>
+
+        {{-- Vista de Tabla para Escritorio (>= sm) --}}
+        <div class="hidden sm:block overflow-x-auto">
+            <table class="w-full text-left text-xs">
+                <thead>
+                    <tr class="border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[10px]">
+                        <th class="py-3 px-3">Fecha y Hora</th>
+                        <th class="py-3 px-3">Aspirante</th>
+                        <th class="py-3 px-3">Cargo</th>
+                        <th class="py-3 px-3 text-center">Aciertos</th>
+                        <th class="py-3 px-3 text-center">Puntaje</th>
+                        <th class="py-3 px-3 text-center">Veredicto CNSC</th>
+                        <th class="py-3 px-3 text-right">Acción</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                    @forelse($recentSessions as $s)
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="py-3 px-3 whitespace-nowrap text-slate-400 font-mono">
+                                {{ $s->completed_at ? $s->completed_at->format('d/m/Y H:i') : $s->created_at->format('d/m/Y H:i') }}
+                            </td>
+                            <td class="py-3 px-3 font-bold text-white">
+                                @if($s->user_id)
+                                    <a href="{{ route('admin.users.detail', $s->user_id) }}" class="hover:text-blue-400">
+                                        {{ $s->user->name ?? 'Usuario #' . $s->user_id }}
+                                    </a>
+                                @else
+                                    <span class="text-slate-400 font-normal">Aspirante demo / anónimo</span>
+                                @endif
+                            </td>
+                            <td class="py-3 px-3 text-slate-300">
+                                {{ $s->jobProfile->name ?? 'N/A' }}
+                            </td>
+                            <td class="py-3 px-3 text-center font-bold text-emerald-400">
+                                {{ $s->correct_answers }} / {{ $s->total_questions }}
+                            </td>
+                            <td class="py-3 px-3 text-center font-black text-sm text-white font-mono">
+                                {{ number_format($s->score, 2) }}
+                            </td>
+                            <td class="py-3 px-3 text-center">
+                                @if($s->is_passed)
+                                    <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold text-[10px]">
+                                        APROBADO
+                                    </span>
+                                @else
+                                    <span class="px-2.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 font-bold text-[10px]">
+                                        NO APROBADO
+                                    </span>
+                                @endif
+                            </td>
+                            <td class="py-3 px-3 text-right">
+                                <a href="{{ route('simulacro.resultado', $s->id) }}"
+                                   class="px-2.5 py-1 rounded-lg bg-blue-600/20 hover:bg-blue-600/40 text-blue-300 font-semibold transition-colors text-[11px]">
+                                    Ver Examen
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="py-6 text-center text-slate-500">No hay simulacros completados aún.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+@endsection

@@ -1,0 +1,209 @@
+@extends('layouts.app')
+
+@section('title', 'Práctica: ' . $axis->name . ' — DIAN 2676')
+
+@section('content')
+<div class="space-y-6" x-data="practiceMode()">
+
+    {{-- Barra Superior de Práctica --}}
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 sm:p-5 shadow-xl flex flex-wrap items-center justify-between gap-3 sm:gap-4">
+        
+        <div class="flex items-center gap-2.5 sm:gap-3">
+            <a href="{{ route('practica.index') }}" 
+               class="p-2 sm:p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors" title="Volver a los ejes">
+                <i class="fa-solid fa-arrow-left text-sm"></i>
+            </a>
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded-md bg-blue-500/20 text-blue-300 text-[10px] font-bold uppercase">
+                        {{ $axis->category }}
+                    </span>
+                    <h1 class="text-xs sm:text-base font-bold text-white truncate max-w-[200px] sm:max-w-none">
+                        {{ $axis->name }}
+                    </h1>
+                </div>
+                <p class="text-[11px] sm:text-xs text-slate-400">
+                    Modo formativo &bull; {{ $questions->count() }} preguntas
+                </p>
+            </div>
+        </div>
+
+        {{-- Marcador de Práctica en Vivo --}}
+        <div class="flex items-center gap-2 sm:gap-4 text-xs">
+            <div class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 font-bold text-[11px] sm:text-xs">
+                <i class="fa-solid fa-circle-check"></i>
+                <span id="practice-correct">0</span> Aciertos
+            </div>
+            <div class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-rose-950/40 border border-rose-500/30 text-rose-300 font-bold text-[11px] sm:text-xs">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <span id="practice-wrong">0</span> Errores
+            </div>
+        </div>
+
+    </div>
+
+    {{-- Preguntas Interactivas --}}
+    <div class="space-y-6">
+        @foreach($questions as $idx => $q)
+            <div id="p-card-{{ $idx + 1 }}" 
+                 class="practice-card {{ $idx === 0 ? '' : 'hidden' }} bg-slate-900 border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-xl space-y-4 sm:space-y-6">
+                
+                {{-- Encabezado de Pregunta --}}
+                <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                    <span class="px-2.5 sm:px-3 py-1 rounded-xl bg-blue-600 text-white text-xs font-black">
+                        Pregunta {{ $idx + 1 }} de {{ $questions->count() }}
+                    </span>
+                    <span class="text-[11px] sm:text-xs text-slate-400">
+                        Dificultad: <strong class="text-slate-200 capitalize">{{ $q->difficulty ?? 'Media' }}</strong>
+                    </span>
+                </div>
+
+                {{-- Caso de Estudio --}}
+                @if(!empty($q->case_text))
+                    <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-slate-200 text-xs sm:text-sm whitespace-pre-line leading-relaxed">
+                        <div class="flex items-center gap-2 text-blue-400 font-bold text-xs uppercase tracking-wider mb-1.5">
+                            <i class="fa-solid fa-file-lines"></i>
+                            Situación de Hecho / Caso
+                        </div>
+                        {{ $q->case_text }}
+                    </div>
+                @endif
+
+                {{-- Enunciado --}}
+                <div class="text-sm sm:text-base font-semibold text-white leading-relaxed">
+                    {{ $q->stem }}
+                </div>
+
+                {{-- Opciones de Respuesta Interactiva --}}
+                <div class="space-y-3" id="options-group-{{ $idx + 1 }}">
+                    @php
+                        $opts = $q->options_map;
+                    @endphp
+
+                    @foreach($opts as $letter => $text)
+                        @if(!empty($text))
+                            <button type="button" 
+                                    id="btn-opt-{{ $idx + 1 }}-{{ $letter }}"
+                                    onclick="checkPracticeAnswer({{ $idx + 1 }}, '{{ $letter }}', '{{ $q->correct_option }}')"
+                                    class="w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-950/60 hover:bg-slate-800/80 hover:border-slate-700 text-slate-200 transition-all flex items-start gap-3 group">
+                                <span class="badge-letter w-6 h-6 rounded-lg bg-slate-800 group-hover:bg-blue-600 group-hover:text-white text-slate-300 text-xs font-bold flex items-center justify-center shrink-0 transition-colors">
+                                    {{ $letter }}
+                                </span>
+                                <span class="text-xs sm:text-sm font-medium leading-relaxed flex-1">
+                                    {{ $text }}
+                                </span>
+                            </button>
+                        @endif
+                    @endforeach
+                </div>
+
+                {{-- Caja de Justificación Jurídica (Se revela al responder) --}}
+                <div id="feedback-{{ $idx + 1 }}" class="hidden p-5 rounded-2xl bg-blue-950/20 border border-blue-500/30 space-y-3 transition-all">
+                    <div class="flex items-center gap-2 text-xs font-bold text-blue-400 uppercase tracking-wider">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        Explicación Jurídica y Análisis Oficial
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
+                        {{ $q->rationale ?? 'No se registró explicación adicional.' }}
+                    </p>
+                    @if(!empty($q->legal_basis))
+                        <div class="pt-2 border-t border-blue-500/20 text-xs text-blue-300 font-semibold flex items-center gap-1.5">
+                            <i class="fa-solid fa-gavel"></i>
+                            Base Legal: <span>{{ $q->legal_basis }}</span>
+                        </div>
+                    @endif
+                </div>
+
+                {{-- Navegación --}}
+                <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                    <button type="button" 
+                            onclick="goPractice({{ $idx }})" 
+                            class="{{ $idx === 0 ? 'invisible' : '' }} px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Anterior
+                    </button>
+
+                    <span class="text-xs text-slate-500 font-medium">
+                        {{ $idx + 1 }} / {{ $questions->count() }}
+                    </span>
+
+                    @if($idx + 1 < $questions->count())
+                        <button type="button" 
+                                onclick="goPractice({{ $idx + 2 }})" 
+                                class="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-lg shadow-blue-600/20 transition-all flex items-center gap-2">
+                            Siguiente <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    @else
+                        <a href="{{ route('practica.index') }}" 
+                           class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-lg shadow-emerald-600/20 transition-all flex items-center gap-2">
+                            Finalizar Práctica <i class="fa-solid fa-circle-check"></i>
+                        </a>
+                    @endif
+                </div>
+
+            </div>
+        @endforeach
+    </div>
+
+</div>
+@endsection
+
+@push('scripts')
+<script>
+    const totalPracticeQuestions = {{ $questions->count() }};
+    let currentPractice = 1;
+    let answeredPractice = {};
+    let correctCount = 0;
+    let wrongCount = 0;
+
+    function goPractice(target) {
+        if (target < 1 || target > totalPracticeQuestions) return;
+
+        const cur = document.getElementById(`p-card-${currentPractice}`);
+        if (cur) cur.classList.add('hidden');
+
+        currentPractice = target;
+        const nxt = document.getElementById(`p-card-${currentPractice}`);
+        if (nxt) nxt.classList.remove('hidden');
+
+        window.scrollTo({ top: 80, behavior: 'smooth' });
+    }
+
+    function checkPracticeAnswer(qIndex, selectedLetter, correctLetter) {
+        if (answeredPractice[qIndex]) return; // Ya respondida
+        answeredPractice[qIndex] = selectedLetter;
+
+        const isCorrect = (selectedLetter === correctLetter);
+        if (isCorrect) {
+            correctCount++;
+            document.getElementById('practice-correct').textContent = correctCount;
+        } else {
+            wrongCount++;
+            document.getElementById('practice-wrong').textContent = wrongCount;
+        }
+
+        // Estilizar botones
+        const letters = ['A', 'B', 'C', 'D'];
+        letters.forEach(let => {
+            const btn = document.getElementById(`btn-opt-${qIndex}-${let}`);
+            if (!btn) return;
+            btn.disabled = true;
+
+            if (let === correctLetter) {
+                btn.className = "w-full text-left p-4 rounded-xl border-2 border-emerald-500 bg-emerald-950/40 text-emerald-100 flex items-start gap-3 transition-all";
+                const badge = btn.querySelector('.badge-letter');
+                if (badge) badge.className = "w-6 h-6 rounded-lg bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shrink-0";
+            } else if (let === selectedLetter && !isCorrect) {
+                btn.className = "w-full text-left p-4 rounded-xl border-2 border-rose-500 bg-rose-950/40 text-rose-100 flex items-start gap-3 transition-all";
+                const badge = btn.querySelector('.badge-letter');
+                if (badge) badge.className = "w-6 h-6 rounded-lg bg-rose-600 text-white text-xs font-bold flex items-center justify-center shrink-0";
+            } else {
+                btn.className = "w-full text-left p-4 rounded-xl border border-slate-800/60 bg-slate-950/30 text-slate-500 opacity-60 flex items-start gap-3";
+            }
+        });
+
+        // Revelar justificación
+        const fb = document.getElementById(`feedback-${qIndex}`);
+        if (fb) fb.classList.remove('hidden');
+    }
+</script>
+@endpush
