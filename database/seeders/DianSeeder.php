@@ -105,7 +105,7 @@ class DianSeeder extends Seeder
                     [
                         'description' => $ax['description'] ?? null,
                         'category' => $ax['category'] ?? 'FUNCIONAL',
-                        'weight_percent' => $ax['weight_percent'] ?? 0,
+                        'weight_pct' => $ax['weight_pct'] ?? $ax['weight_percent'] ?? 0,
                     ]
                 );
             }
