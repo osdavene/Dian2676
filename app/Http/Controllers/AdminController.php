@@ -569,7 +569,21 @@ class AdminController extends Controller
                 }
             }
 
-            $existing = Question::where('stem', $stem)->first();
+            $jobId = $q['job_profile_id'] ?? null;
+            $existing = Question::where('stem', $stem)
+                ->where(function ($query) use ($jobId, $axisId) {
+                    if ($jobId) {
+                        $query->where('job_profile_id', $jobId);
+                    } else {
+                        $query->whereNull('job_profile_id');
+                    }
+                    if ($axisId) {
+                        $query->where('thematic_axis_id', $axisId);
+                    } else {
+                        $query->whereNull('thematic_axis_id');
+                    }
+                })
+                ->first();
             if ($existing) {
                 if ($overwrite) {
                     $existing->update([

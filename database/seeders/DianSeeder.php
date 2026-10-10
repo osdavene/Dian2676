@@ -125,7 +125,23 @@ class DianSeeder extends Seeder
                     continue;
                 }
 
-                $exists = Question::where('stem', $q['stem'])->exists();
+                $axisId = (!empty($q['thematic_axis_id']) && isset($validAxisIds[$q['thematic_axis_id']])) ? $q['thematic_axis_id'] : null;
+                $jobId = (!empty($q['job_profile_id']) && isset($validJobIds[$q['job_profile_id']])) ? $q['job_profile_id'] : null;
+
+                $exists = Question::where('stem', $q['stem'])
+                    ->where(function ($query) use ($jobId, $axisId) {
+                        if ($jobId) {
+                            $query->where('job_profile_id', $jobId);
+                        } else {
+                            $query->whereNull('job_profile_id');
+                        }
+                        if ($axisId) {
+                            $query->where('thematic_axis_id', $axisId);
+                        } else {
+                            $query->whereNull('thematic_axis_id');
+                        }
+                    })
+                    ->exists();
 
                 if (!$exists) {
                     $options = $q['options'] ?? null;
@@ -139,9 +155,6 @@ class DianSeeder extends Seeder
                             $options[] = ['key' => 'D', 'text' => $q['option_d'], 'is_correct' => ($q['correct_option'] ?? '') === 'D'];
                         }
                     }
-
-                    $axisId = (!empty($q['thematic_axis_id']) && isset($validAxisIds[$q['thematic_axis_id']])) ? $q['thematic_axis_id'] : null;
-                    $jobId = (!empty($q['job_profile_id']) && isset($validJobIds[$q['job_profile_id']])) ? $q['job_profile_id'] : null;
 
                     Question::create([
                         'job_profile_id' => $jobId,

@@ -369,12 +369,12 @@
         "created_at": "2026-10-10 15:45:50.792021-05"
     },
     {
-        "id": 44,
+        "id": 46,
         "job_profile_id": 1,
         "category": "funcional_especifica",
         "name": "Eje de Prueba Backup",
         "description": "Eje temporal para test de importación",
         "weight_pct": "10.00",
-        "created_at": "2026-10-10 16:14:24.899236-05"
+        "created_at": "2026-10-10 17:27:51.666684-05"
     }
 ]
