@@ -44,12 +44,17 @@ class Question extends Model
         $job = JobProfile::find($jobId);
         $isProfesional = $job && str_contains(strtolower($job->level), 'profesional');
         $isTecnico = $job && str_contains(strtolower($job->level), 'técnico');
+        $axisIds = $jobId ? ThematicAxis::where('job_profile_id', $jobId)->pluck('id')->toArray() : [];
 
-        return $query->where(function ($q) use ($jobId, $isProfesional, $isTecnico) {
+        return $query->where(function ($q) use ($jobId, $isProfesional, $isTecnico, $axisIds) {
             $q->where('job_profile_id', $jobId)
               ->orWhere('is_shared', true)
               ->orWhereNull('job_profile_id')
               ->orWhere('scope_level', 'transversal');
+
+            if (!empty($axisIds)) {
+                $q->orWhereIn('thematic_axis_id', $axisIds);
+            }
 
             if ($isProfesional) {
                 $q->orWhere('scope_level', 'profesional');

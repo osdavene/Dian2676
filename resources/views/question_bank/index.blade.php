@@ -32,6 +32,9 @@
                 </label>
                 <select name="job_id" id="job_id" onchange="this.form.submit()"
                         class="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-3 py-2 text-xs text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="todos" {{ $jobId == 'todos' ? 'selected' : '' }}>
+                        Todos los Cargos (Banco Global)
+                    </option>
                     @foreach($jobs as $j)
                         <option value="{{ $j->id }}" {{ $jobId == $j->id ? 'selected' : '' }}>
                             {{ $j->name }}

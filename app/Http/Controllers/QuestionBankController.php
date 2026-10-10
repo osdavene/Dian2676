@@ -19,11 +19,16 @@ class QuestionBankController extends Controller
         $difficulty = $request->input('difficulty');
 
         $jobs = JobProfile::where('is_active', true)->orderBy('id')->get();
-        $axes = ThematicAxis::where('job_profile_id', $jobId)->orderBy('name')->get();
 
-        $query = Question::where('job_profile_id', $jobId)
-            ->where('is_active', true)
-            ->with(['thematicAxis', 'jobProfile']);
+        if ($jobId === 'todos') {
+            $axes = ThematicAxis::orderBy('name')->get();
+            $query = Question::where('is_active', true)->with(['thematicAxis', 'jobProfile']);
+        } else {
+            $axes = ThematicAxis::where('job_profile_id', $jobId)->orderBy('name')->get();
+            $query = Question::forCargo($jobId)
+                ->where('is_active', true)
+                ->with(['thematicAxis', 'jobProfile']);
+        }
 
         if ($axisId) {
             $query->where('thematic_axis_id', $axisId);
@@ -35,9 +40,9 @@ class QuestionBankController extends Controller
 
         if ($search) {
             $query->where(function ($q) use ($search) {
-                $q->where('stem', 'ILIKE', "%{$search}%")
-                  ->orWhere('case_text', 'ILIKE', "%{$search}%")
-                  ->orWhere('legal_basis', 'ILIKE', "%{$search}%");
+                $q->where('stem', 'LIKE', "%{$search}%")
+                  ->orWhere('case_text', 'LIKE', "%{$search}%")
+                  ->orWhere('legal_basis', 'LIKE', "%{$search}%");
             });
         }
 

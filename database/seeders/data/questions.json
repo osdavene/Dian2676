@@ -3054,42 +3054,6 @@
         "scope_level": "transversal"
     },
     {
-        "id": 559,
-        "job_profile_id": null,
-        "thematic_axis_id": 49,
-        "question_type": "situacional",
-        "difficulty": "medio",
-        "case_text": "Caso de prueba para importación.",
-        "stem": "¿Pregunta de prueba para test de importación de backup 6acabe8627c7c?",
-        "options": [
-            {
-                "key": "A",
-                "text": "Opción de prueba A",
-                "is_correct": true,
-                "justification": "Correcta por ley."
-            },
-            {
-                "key": "B",
-                "text": "Opción de prueba B",
-                "is_correct": false,
-                "justification": "Incorrecta."
-            },
-            {
-                "key": "C",
-                "text": "Opción de prueba C",
-                "is_correct": false,
-                "justification": "Incorrecta."
-            }
-        ],
-        "correct_option": "A",
-        "legal_basis": "Estatuto Tributario Nacional",
-        "explanation_summary": "Explicación de prueba.",
-        "is_active": true,
-        "created_at": "2026-10-10 17:39:02.180846-05",
-        "is_shared": true,
-        "scope_level": "transversal"
-    },
-    {
         "id": 446,
         "job_profile_id": null,
         "thematic_axis_id": 38,
@@ -3230,6 +3194,42 @@
         "explanation_summary": "Para obtener la autorización como OEA, la empresa debe acreditar un sistema fiable y seguro de gestión de registros comerciales y contables que permita a la autoridad aduanera llevar un seguimiento transparente de sus movimientos, garantizando la trazabilidad de la cadena logística.",
         "is_active": true,
         "created_at": "2026-10-10 15:45:50.874813-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 560,
+        "job_profile_id": null,
+        "thematic_axis_id": 50,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Caso de prueba para importación.",
+        "stem": "¿Pregunta de prueba para test de importación de backup 6acac02d4eed9?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Opción de prueba A",
+                "is_correct": true,
+                "justification": "Correcta por ley."
+            },
+            {
+                "key": "B",
+                "text": "Opción de prueba B",
+                "is_correct": false,
+                "justification": "Incorrecta."
+            },
+            {
+                "key": "C",
+                "text": "Opción de prueba C",
+                "is_correct": false,
+                "justification": "Incorrecta."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional",
+        "explanation_summary": "Explicación de prueba.",
+        "is_active": true,
+        "created_at": "2026-10-10 17:46:05.35369-05",
         "is_shared": true,
         "scope_level": "transversal"
     },
