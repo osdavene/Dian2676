@@ -78,8 +78,8 @@
 
                     <a href="{{ route('dashboard') }}" 
                        class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-gauge-high"></i>
-                        Ir al Dashboard
+                        <i class="fa-solid fa-house"></i>
+                        Ir al Inicio
                     </a>
                 </div>
             </div>

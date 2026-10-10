@@ -57,8 +57,8 @@
                 <div class="hidden md:flex items-center gap-1">
                     <a href="{{ route('dashboard') }}" 
                        class="px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/60' }} transition-all flex items-center gap-1.5">
-                        <i class="fa-solid fa-gauge-high"></i>
-                        Dashboard
+                        <i class="fa-solid fa-house"></i>
+                        Inicio
                     </a>
 
                     <a href="{{ route('practica.index') }}" 
@@ -206,8 +206,8 @@
             <div class="space-y-1">
                 <a href="{{ route('dashboard') }}" 
                    class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-bold {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-colors">
-                    <i class="fa-solid fa-gauge-high text-sm w-5 text-center text-blue-400"></i>
-                    <span>Dashboard Principal</span>
+                    <i class="fa-solid fa-house text-sm w-5 text-center text-blue-400"></i>
+                    <span>Inicio</span>
                 </a>
                 
                 <a href="{{ route('practica.index') }}" 
