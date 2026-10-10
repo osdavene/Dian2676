@@ -117,7 +117,14 @@ class DianSeeder extends Seeder
         if (File::exists($questionsFile)) {
             $questionsData = json_decode(File::get($questionsFile), true);
             $importedCount = 0;
+            $validAxisIds = ThematicAxis::pluck('id')->flip()->toArray();
+            $validJobIds = JobProfile::pluck('id')->flip()->toArray();
+
             foreach ($questionsData as $q) {
+                if (str_contains($q['stem'], 'Pregunta de prueba para test')) {
+                    continue;
+                }
+
                 $exists = Question::where('stem', $q['stem'])->exists();
 
                 if (!$exists) {
@@ -133,9 +140,12 @@ class DianSeeder extends Seeder
                         }
                     }
 
+                    $axisId = (!empty($q['thematic_axis_id']) && isset($validAxisIds[$q['thematic_axis_id']])) ? $q['thematic_axis_id'] : null;
+                    $jobId = (!empty($q['job_profile_id']) && isset($validJobIds[$q['job_profile_id']])) ? $q['job_profile_id'] : null;
+
                     Question::create([
-                        'job_profile_id' => $q['job_profile_id'] ?? null,
-                        'thematic_axis_id' => $q['thematic_axis_id'] ?? null,
+                        'job_profile_id' => $jobId,
+                        'thematic_axis_id' => $axisId,
                         'case_text' => $q['case_text'] ?? null,
                         'stem' => $q['stem'],
                         'options' => $options,
