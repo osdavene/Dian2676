@@ -836,4 +836,136 @@ class DianExamTest extends TestCase
         $response->assertSee('P <span id="mobile-current-q" class="text-blue-400">3</span>', false);
         $response->assertSee('let currentQuestion = 3;', false);
     }
+
+    public function test_admin_can_access_questions_management_module(): void
+    {
+        $admin = User::where('email', 'admin@dian.gov.co')->first();
+        $this->assertNotNull($admin);
+
+        $response = $this->actingAs($admin)->get('/admin/preguntas');
+        $response->assertStatus(200);
+        $response->assertSee('Gestión, Auditoría y Corrección de Reactivos');
+        $response->assertSee('Banco de Preguntas');
+        $response->assertSee('Auditoría de Duplicadas');
+    }
+
+    public function test_admin_can_update_question_and_recalculate_scores(): void
+    {
+        $admin = User::where('email', 'admin@dian.gov.co')->first();
+        $aspirante = User::where('role', 'aspirante')->first();
+
+        // 1. Crear pregunta de prueba
+        $question = Question::create([
+            'job_profile_id' => 1,
+            'stem' => 'Pregunta de prueba para auditoría y corrección admin '.uniqid(),
+            'correct_option' => 'A',
+            'options' => [
+                ['key' => 'A', 'text' => 'Opción A original', 'is_correct' => true],
+                ['key' => 'B', 'text' => 'Opción B errónea', 'is_correct' => false],
+                ['key' => 'C', 'text' => 'Opción C corregida', 'is_correct' => false],
+            ],
+            'is_active' => true,
+        ]);
+
+        // 2. Crear sesión y respuesta de aspirante que eligió la opción 'C'
+        $session = ExamSession::create([
+            'user_id' => $aspirante->id,
+            'job_profile_id' => 1,
+            'mode' => 'simulacro_express',
+            'question_ids' => [$question->id],
+            'total_questions' => 1,
+            'correct_answers' => 0,
+            'incorrect_answers' => 1,
+            'score' => 0.00,
+            'is_passed' => false,
+            'time_limit_seconds' => 9000,
+            'time_spent_seconds' => 100,
+            'completed_at' => now(),
+        ]);
+
+        $answer = SessionAnswer::create([
+            'exam_session_id' => $session->id,
+            'question_id' => $question->id,
+            'selected_option' => 'C',
+            'is_correct' => false,
+        ]);
+
+        // 3. Superadministrador detecta el error y corrige la opción correcta a 'C'
+        $updateResponse = $this->actingAs($admin)->put('/admin/preguntas/'.$question->id, [
+            'correct_option' => 'C',
+            'stem' => $question->stem,
+            'option_a' => 'Opción A original',
+            'option_b' => 'Opción B errónea',
+            'option_c' => 'Opción C corregida',
+            'recalculate_scores' => 1,
+        ]);
+
+        $updateResponse->assertRedirect();
+        $updateResponse->assertSessionHas('success');
+
+        // 4. Verificar que la pregunta se corrigió y el examen del aspirante se recalculó a aprobado
+        $question->refresh();
+        $this->assertEquals('C', $question->correct_option);
+
+        $answer->refresh();
+        $this->assertTrue($answer->is_correct);
+
+        $session->refresh();
+        $this->assertEquals(1, $session->correct_answers);
+        $this->assertEquals(100.00, (float) $session->score);
+        $this->assertTrue($session->is_passed);
+
+        // Limpiar registros de prueba
+        $answer->delete();
+        $session->delete();
+        $question->delete();
+    }
+
+    public function test_exam_generation_deduplicates_questions_and_groups_cases_consecutively(): void
+    {
+        $aspirante = User::where('role', 'aspirante')->first();
+
+        $response = $this->actingAs($aspirante)->post('/simulacro/iniciar', [
+            'question_count' => 50,
+            'force_new' => 1,
+        ]);
+
+        $response->assertRedirect();
+
+        $session = ExamSession::where('user_id', $aspirante->id)
+            ->whereNull('completed_at')
+            ->latest('id')
+            ->first();
+
+        $this->assertNotNull($session);
+        $questionIds = $session->question_ids;
+        $this->assertCount(50, $questionIds);
+
+        // 1. Verificar que NO hay preguntas repetidas (0% duplicados por stem)
+        $questions = Question::whereIn('id', $questionIds)->get();
+        $uniqueStems = $questions->pluck('stem')->unique()->count();
+        $this->assertEquals($questions->count(), $uniqueStems, 'Todas las preguntas del simulacro deben tener enunciados únicos');
+
+        // 2. Verificar que preguntas que comparten caso queden ordenadas consecutivamente
+        $caseIndices = [];
+        foreach ($questionIds as $idx => $qId) {
+            $q = $questions->firstWhere('id', $qId);
+            $caseText = trim($q->case_text ?? '');
+            if (strlen($caseText) > 50) {
+                $caseIndices[$caseText][] = $idx + 1;
+            }
+        }
+
+        foreach ($caseIndices as $cText => $indices) {
+            if (count($indices) > 1) {
+                for ($i = 0; $i < count($indices) - 1; $i++) {
+                    $this->assertEquals(
+                        $indices[$i] + 1,
+                        $indices[$i + 1],
+                        'Las preguntas asociadas a un mismo caso deben ser estrictamente consecutivas en el examen'
+                    );
+                }
+            }
+        }
+    }
 }

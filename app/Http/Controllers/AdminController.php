@@ -713,4 +713,262 @@ class AdminController extends Controller
             'users_metadata' => $users,
         ];
     }
+
+    /**
+     * Módulo de Gestión y Corrección de Preguntas del Super Administrador
+     */
+    public function questionsIndex(Request $request)
+    {
+        $search = $request->input('search');
+        $jobId = $request->input('job_id');
+        $axisId = $request->input('axis_id');
+        $difficulty = $request->input('difficulty');
+        $viewDuplicates = $request->boolean('duplicates', false);
+        $onlyCases = $request->boolean('only_cases', false);
+
+        $jobs = JobProfile::where('is_active', true)->orderBy('id')->get();
+        $axes = ThematicAxis::orderBy('name')->get();
+
+        $query = Question::with(['jobProfile', 'thematicAxis']);
+
+        if ($viewDuplicates) {
+            // Obtener preguntas cuyos enunciados estén repetidos
+            $duplicateStems = Question::select('stem')
+                ->where('is_active', true)
+                ->groupBy('stem')
+                ->havingRaw('count(*) > 1')
+                ->pluck('stem');
+
+            $query->whereIn('stem', $duplicateStems)->orderBy('stem')->orderBy('id');
+        } else {
+            if ($search) {
+                $query->where(function ($q) use ($search) {
+                    if (is_numeric($search)) {
+                        $q->where('id', (int) $search);
+                    }
+                    $q->orWhere('stem', 'ILIKE', "%{$search}%")
+                        ->orWhere('case_text', 'ILIKE', "%{$search}%")
+                        ->orWhere('legal_basis', 'ILIKE', "%{$search}%")
+                        ->orWhere('explanation_summary', 'ILIKE', "%{$search}%");
+                });
+            }
+
+            if ($jobId) {
+                if ($jobId === 'globales') {
+                    $query->whereNull('job_profile_id');
+                } else {
+                    $query->where('job_profile_id', $jobId);
+                }
+            }
+
+            if ($axisId) {
+                $query->where('thematic_axis_id', $axisId);
+            }
+
+            if ($difficulty) {
+                $query->where('difficulty', $difficulty);
+            }
+
+            if ($onlyCases) {
+                $query->whereNotNull('case_text')->where('case_text', '!=', '');
+            }
+
+            $query->orderBy('id', 'desc');
+        }
+
+        $questions = $query->paginate(20)->withQueryString();
+
+        // Conteo de preguntas duplicadas para badge
+        $totalDuplicates = Question::select('stem', DB::raw('count(*) as c'))
+            ->where('is_active', true)
+            ->groupBy('stem')
+            ->havingRaw('count(*) > 1')
+            ->get()
+            ->sum('c');
+
+        return view('admin.questions.index', compact(
+            'questions',
+            'jobs',
+            'axes',
+            'search',
+            'jobId',
+            'axisId',
+            'difficulty',
+            'viewDuplicates',
+            'onlyCases',
+            'totalDuplicates'
+        ));
+    }
+
+    /**
+     * Obtener datos de una pregunta para el modal de edición AJAX
+     */
+    public function getQuestionData($id)
+    {
+        $q = Question::with(['thematicAxis', 'jobProfile'])->findOrFail($id);
+
+        return response()->json([
+            'id' => $q->id,
+            'stem' => $q->stem,
+            'case_text' => $q->case_text,
+            'correct_option' => $q->correct_option,
+            'option_a' => $q->option_a,
+            'option_b' => $q->option_b,
+            'option_c' => $q->option_c,
+            'option_d' => $q->option_d,
+            'legal_basis' => $q->legal_basis,
+            'explanation_summary' => $q->explanation_summary,
+            'thematic_axis_id' => $q->thematic_axis_id,
+            'difficulty' => $q->difficulty,
+            'is_active' => (bool) $q->is_active,
+            'job_profile_id' => $q->job_profile_id,
+            'job_name' => $q->jobProfile->name ?? 'Transversal / Todos',
+            'axis_name' => $q->thematicAxis->name ?? 'General',
+        ]);
+    }
+
+    /**
+     * Guardar corrección de una pregunta y recalcular exámenes afectados
+     */
+    public function updateQuestion(Request $request, $id)
+    {
+        $question = Question::findOrFail($id);
+
+        $request->validate([
+            'correct_option' => 'required|in:A,B,C,D',
+            'stem' => 'required|string',
+            'option_a' => 'required|string',
+            'option_b' => 'required|string',
+            'option_c' => 'required|string',
+        ]);
+
+        $oldCorrect = strtoupper(trim($question->correct_option));
+        $newCorrect = strtoupper(trim($request->input('correct_option')));
+
+        // Reconstruir array de opciones con la nueva respuesta correcta
+        $updatedOptions = [
+            [
+                'key' => 'A',
+                'text' => trim($request->input('option_a')),
+                'is_correct' => ($newCorrect === 'A'),
+            ],
+            [
+                'key' => 'B',
+                'text' => trim($request->input('option_b')),
+                'is_correct' => ($newCorrect === 'B'),
+            ],
+            [
+                'key' => 'C',
+                'text' => trim($request->input('option_c')),
+                'is_correct' => ($newCorrect === 'C'),
+            ],
+        ];
+
+        if ($request->filled('option_d')) {
+            $updatedOptions[] = [
+                'key' => 'D',
+                'text' => trim($request->input('option_d')),
+                'is_correct' => ($newCorrect === 'D'),
+            ];
+        }
+
+        $question->update([
+            'stem' => trim($request->input('stem')),
+            'case_text' => $request->filled('case_text') ? trim($request->input('case_text')) : null,
+            'correct_option' => $newCorrect,
+            'options' => $updatedOptions,
+            'legal_basis' => $request->input('legal_basis'),
+            'explanation_summary' => $request->input('explanation_summary'),
+            'thematic_axis_id' => $request->input('thematic_axis_id') ?: $question->thematic_axis_id,
+            'difficulty' => $request->input('difficulty') ?: $question->difficulty,
+            'is_active' => $request->boolean('is_active', true),
+        ]);
+
+        // Si la respuesta correcta cambió, recalcular respuestas de aspirantes y puntajes de exámenes
+        $recalcExamsCount = 0;
+        $updatedAnswersCount = 0;
+
+        if ($oldCorrect !== $newCorrect && $request->boolean('recalculate_scores', true)) {
+            $answers = SessionAnswer::where('question_id', $question->id)->get();
+            $affectedSessions = [];
+
+            foreach ($answers as $ans) {
+                $userPick = strtoupper(trim($ans->selected_option ?? ''));
+                $isNowCorrect = (! empty($userPick) && $userPick === $newCorrect);
+
+                if ($ans->is_correct !== $isNowCorrect) {
+                    $ans->update([
+                        'is_correct' => $isNowCorrect,
+                    ]);
+                    $affectedSessions[] = $ans->exam_session_id;
+                    $updatedAnswersCount++;
+                }
+            }
+
+            foreach (array_unique($affectedSessions) as $sId) {
+                $session = ExamSession::find($sId);
+                if ($session) {
+                    $total = $session->total_questions > 0 ? $session->total_questions : count($session->question_ids ?? []);
+                    if ($total > 0) {
+                        $sAnswers = SessionAnswer::where('exam_session_id', $session->id)->get();
+                        $cCount = $sAnswers->where('is_correct', true)->count();
+                        $iCount = $sAnswers->where('is_correct', false)->where('is_omitted', false)->count();
+                        $oCount = max(0, $total - $sAnswers->count());
+                        $rawScore = ($cCount / $total) * 100;
+                        $score = floor($rawScore * 100) / 100;
+
+                        $session->update([
+                            'correct_answers' => $cCount,
+                            'incorrect_answers' => $iCount,
+                            'omitted_answers' => $oCount,
+                            'score' => $score,
+                            'is_passed' => ($score >= 70.00),
+                        ]);
+                        $recalcExamsCount++;
+                    }
+                }
+            }
+        }
+
+        $msg = "Pregunta #{$question->id} actualizada exitosamente.";
+        if ($oldCorrect !== $newCorrect) {
+            $msg .= " La opción correcta cambió de '{$oldCorrect}' a '{$newCorrect}'.";
+            if ($recalcExamsCount > 0) {
+                $msg .= " Se recalcularon automáticamente {$recalcExamsCount} exámenes de aspirantes ({$updatedAnswersCount} respuestas corregidas).";
+            }
+        }
+
+        return back()->with('success', $msg);
+    }
+
+    /**
+     * Herramienta Superadmin: Desactivar copias duplicadas de preguntas
+     */
+    public function deactivateDuplicates()
+    {
+        $duplicateStems = Question::select('stem')
+            ->where('is_active', true)
+            ->groupBy('stem')
+            ->havingRaw('count(*) > 1')
+            ->get();
+
+        $deactivatedCount = 0;
+        foreach ($duplicateStems as $dup) {
+            $copies = Question::where('stem', $dup->stem)
+                ->where('is_active', true)
+                ->orderBy('id', 'asc')
+                ->get();
+
+            if ($copies->count() > 1) {
+                // Conservar la primera pregunta ($copies->first()) y desactivar las copias redundantes
+                $duplicatesToDeactivate = $copies->slice(1);
+                foreach ($duplicatesToDeactivate as $q) {
+                    $q->update(['is_active' => false]);
+                    $deactivatedCount++;
+                }
+            }
+        }
+
+        return back()->with('success', "Se desactivaron {$deactivatedCount} preguntas redundantes. Ahora todas las preguntas activas son 100% únicas.");
+    }
 }

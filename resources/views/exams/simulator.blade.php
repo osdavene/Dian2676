@@ -172,17 +172,41 @@
                             </button>
                         </div>
 
-                        {{-- Caso / Situación de Análisis (Diseño Formal y Justificado) --}}
+                        {{-- Caso / Situación de Análisis (Diseño Formal y Ergonómico) --}}
                         @if(!empty($q->case_text))
-                            <div class="mb-5 sm:mb-7 p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950/20 border-l-4 border-blue-500 border-y border-r border-slate-800 text-slate-200 shadow-inner">
-                                <div class="flex items-center gap-2 text-xs sm:text-sm font-extrabold text-blue-400 uppercase tracking-wider mb-2.5">
-                                    <i class="fa-solid fa-file-lines text-sm sm:text-base"></i>
-                                    Caso de Estudio Situacional &bull; Concurso DIAN
+                            @php
+                                $prevCase = ($index > 0 && isset($questions[$index - 1])) ? trim($questions[$index - 1]->case_text ?? '') : '';
+                                $isSameCaseAsPrev = ($prevCase !== '' && $prevCase === trim($q->case_text));
+                            @endphp
+
+                            @if($isSameCaseAsPrev)
+                                <div class="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl bg-slate-950/80 border border-blue-500/30 text-slate-200">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <div class="flex items-center gap-2 text-xs font-bold text-blue-300">
+                                            <i class="fa-solid fa-link text-blue-400"></i>
+                                            <span>Pregunta vinculada al Caso Situacional anterior</span>
+                                        </div>
+                                        <button type="button" onclick="toggleCaseDetails({{ $index + 1 }})" 
+                                                class="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-all">
+                                            <span id="case-toggle-text-{{ $index + 1 }}">Ver texto del caso</span>
+                                            <i id="case-toggle-icon-{{ $index + 1 }}" class="fa-solid fa-chevron-down text-[10px] transition-transform"></i>
+                                        </button>
+                                    </div>
+                                    <div id="case-body-{{ $index + 1 }}" class="hidden mt-3 pt-3 border-t border-slate-800 text-xs sm:text-sm leading-relaxed text-slate-300 whitespace-pre-line text-justify [text-justify:inter-word]">
+                                        {{ $q->case_text }}
+                                    </div>
                                 </div>
-                                <div class="text-sm sm:text-base leading-relaxed sm:leading-loose text-slate-200 whitespace-pre-line font-normal text-justify [text-justify:inter-word] [hyphens:auto]">
-                                    {{ $q->case_text }}
+                            @else
+                                <div class="mb-5 sm:mb-7 p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950/20 border-l-4 border-blue-500 border-y border-r border-slate-800 text-slate-200 shadow-inner">
+                                    <div class="flex items-center gap-2 text-xs sm:text-sm font-extrabold text-blue-400 uppercase tracking-wider mb-2.5">
+                                        <i class="fa-solid fa-file-lines text-sm sm:text-base"></i>
+                                        Caso de Estudio Situacional &bull; Concurso DIAN
+                                    </div>
+                                    <div class="text-sm sm:text-base leading-relaxed sm:leading-loose text-slate-200 whitespace-pre-line font-normal text-justify [text-justify:inter-word] [hyphens:auto]">
+                                        {{ $q->case_text }}
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         @endif
 
                         {{-- Enunciado de la Pregunta (Mayor Tamaño en Móvil y Justificado) --}}
@@ -703,6 +727,24 @@
     function goToQuestionAndClose(qNum) {
         goToQuestion(qNum);
         closeOpticalSheetModal();
+    }
+
+    function toggleCaseDetails(qNum) {
+        const body = document.getElementById(`case-body-${qNum}`);
+        const text = document.getElementById(`case-toggle-text-${qNum}`);
+        const icon = document.getElementById(`case-toggle-icon-${qNum}`);
+        if (body) {
+            const isHidden = body.classList.contains('hidden');
+            if (isHidden) {
+                body.classList.remove('hidden');
+                if (text) text.textContent = 'Ocultar texto del caso';
+                if (icon) icon.className = 'fa-solid fa-chevron-up text-[10px] transition-transform';
+            } else {
+                body.classList.add('hidden');
+                if (text) text.textContent = 'Ver texto del caso';
+                if (icon) icon.className = 'fa-solid fa-chevron-down text-[10px] transition-transform';
+            }
+        }
     }
 
     function onSelectAnswer(qNum, qId, optionLetter) {

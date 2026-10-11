@@ -55,19 +55,97 @@ class ExamController extends Controller
         $timeLimitSeconds = ($questionCount === 50) ? 9000 : 18000;
         $mode = ($questionCount === 50) ? 'simulacro_express' : 'simulacro_oficial';
 
-        // 3. Seleccionar preguntas del cargo de forma aleatoria
-        $questions = Question::forCargo($jobId)
+        // 3. Obtener preguntas activas aplicables al cargo
+        $rawPool = Question::forCargo($jobId)
             ->where('is_active', true)
             ->with('thematicAxis')
-            ->inRandomOrder()
-            ->take($questionCount)
             ->get();
 
-        if ($questions->isEmpty()) {
+        if ($rawPool->isEmpty()) {
             return back()->with('error', 'No hay preguntas disponibles para el cargo seleccionado.');
         }
 
-        $questionIds = $questions->pluck('id')->toArray();
+        // 4. Deduplicar estrictamente por enunciado normalizado (0% preguntas repetidas en el examen)
+        $uniquePool = $rawPool->unique(function ($q) {
+            $cleaned = preg_replace('/^\d+[\.\)]\s*/', '', trim($q->stem));
+
+            return mb_strtolower($cleaned);
+        })->values();
+
+        $targetCount = min($questionCount, $uniquePool->count());
+
+        // 5. Agrupación por Caso Situacional: preguntas que comparten el mismo caso se seleccionan juntas y consecutivas
+        $groupedByCase = $uniquePool->groupBy(function ($q) {
+            $c = trim($q->case_text ?? '');
+
+            return (strlen($c) > 50) ? $c : '__SOLO_'.$q->id;
+        });
+
+        $caseBlocks = [];
+        $soloItems = [];
+
+        foreach ($groupedByCase as $key => $items) {
+            if (! str_starts_with($key, '__SOLO_') && $items->count() > 1) {
+                $caseBlocks[] = $items;
+            } else {
+                foreach ($items as $item) {
+                    $soloItems[] = $item;
+                }
+            }
+        }
+
+        shuffle($caseBlocks);
+        shuffle($soloItems);
+
+        $selected = collect();
+
+        // Agregar bloques de casos situacionales completos
+        foreach ($caseBlocks as $block) {
+            if ($selected->count() + $block->count() <= $targetCount) {
+                $selected = $selected->merge($block);
+            }
+            if ($selected->count() >= $targetCount) {
+                break;
+            }
+        }
+
+        // Completar con preguntas individuales
+        foreach ($soloItems as $solo) {
+            if ($selected->count() >= $targetCount) {
+                break;
+            }
+            if (! $selected->contains('id', $solo->id)) {
+                $selected->push($solo);
+            }
+        }
+
+        // Si faltasen para el cupo, rellenar con cualquier pregunta pendiente
+        if ($selected->count() < $targetCount) {
+            foreach ($uniquePool->shuffle() as $extra) {
+                if ($selected->count() >= $targetCount) {
+                    break;
+                }
+                if (! $selected->contains('id', $extra->id)) {
+                    $selected->push($extra);
+                }
+            }
+        }
+
+        // 6. Ordenar para que las preguntas del mismo caso queden ESTRICTAMENTE CONSECUTIVAS
+        $finalCaseGroups = $selected->groupBy(function ($q) {
+            $c = trim($q->case_text ?? '');
+
+            return (strlen($c) > 50) ? $c : '__SOLO_'.$q->id;
+        })->shuffle();
+
+        $orderedQuestions = collect();
+        foreach ($finalCaseGroups as $group) {
+            foreach ($group as $q) {
+                $orderedQuestions->push($q);
+            }
+        }
+
+        $questionIds = $orderedQuestions->pluck('id')->toArray();
 
         $session = ExamSession::create([
             'user_id' => $user->id,

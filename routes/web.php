@@ -86,6 +86,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::put('/usuarios/{id}', [AdminController::class, 'updateUser'])->name('users.update');
         Route::delete('/usuarios/{id}', [AdminController::class, 'deleteUser'])->name('users.delete');
         Route::get('/simulacros', [AdminController::class, 'examSessions'])->name('sessions');
+        Route::get('/preguntas', [AdminController::class, 'questionsIndex'])->name('questions.index');
+        Route::get('/preguntas/{id}/datos', [AdminController::class, 'getQuestionData'])->name('questions.data');
+        Route::put('/preguntas/{id}', [AdminController::class, 'updateQuestion'])->name('questions.update');
+        Route::post('/preguntas/desactivar-duplicados', [AdminController::class, 'deactivateDuplicates'])->name('questions.deactivate-duplicates');
         Route::get('/analitica-preguntas', [AdminController::class, 'questionAnalytics'])->name('questions.analytics');
         Route::get('/backup', [AdminController::class, 'backupCenter'])->name('backup');
         Route::post('/backup/generar', [AdminController::class, 'generateBackupFile'])->name('backup.generate');

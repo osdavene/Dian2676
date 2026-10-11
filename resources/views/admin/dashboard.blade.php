@@ -22,6 +22,11 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full md:w-auto">
+                <a href="{{ route('admin.questions.index') }}" 
+                   class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Gestión de Preguntas
+                </a>
                 <a href="{{ route('admin.users') }}" 
                    class="flex-1 sm:flex-none justify-center px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2">
                     <i class="fa-solid fa-users"></i>

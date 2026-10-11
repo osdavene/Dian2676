@@ -4800,6 +4800,48 @@
         "scope_level": "profesional"
     },
     {
+        "id": 293,
+        "job_profile_id": 3,
+        "thematic_axis_id": 17,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Aplicación de principios constitucionales, derechos fundamentales y deberes del servidor público en actuaciones administrativas del Estado colombiano.",
+        "stem": "15. Un ciudadano llega a la oficina solicitando protección porque su vida corre peligro debido a una denuncia que puso. Su deber constitucional como servidor es:",
+        "options": [
+            {
+                "key": "A",
+                "text": "Decirle que vaya a la policía, ya que su oficina no tiene armas para protegerlo.",
+                "is_correct": false,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            },
+            {
+                "key": "B",
+                "text": "Ignorarlo, pues los servidores públicos solo deben hacer lo que dice el manual de funciones estrictamente.",
+                "is_correct": false,
+                "justification": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes."
+            },
+            {
+                "key": "C",
+                "text": "Activar de inmediato las rutas de protección institucional y remitir el caso a la autoridad competente (UNP o Policía).",
+                "is_correct": true,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            },
+            {
+                "key": "D",
+                "text": "Pedirle que llene un formulario de PQRS y esperar 15 días para darle respuesta sobre su protección.",
+                "is_correct": false,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            }
+        ],
+        "correct_option": "C",
+        "legal_basis": "Constitución Política de Colombia de 1991",
+        "explanation_summary": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes.",
+        "is_active": true,
+        "created_at": "2026-10-10 08:23:59.864599-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 90,
         "job_profile_id": 1,
         "thematic_axis_id": 8,
@@ -6312,6 +6354,48 @@
         "scope_level": "profesional"
     },
     {
+        "id": 540,
+        "job_profile_id": 3,
+        "thematic_axis_id": 12,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Aplicación de principios constitucionales, derechos fundamentales y deberes del servidor público en actuaciones administrativas del Estado colombiano.",
+        "stem": "15. Un ciudadano llega a la oficina solicitando protección porque su vida corre peligro debido a una denuncia que puso. Su deber constitucional como servidor es:",
+        "options": [
+            {
+                "key": "A",
+                "text": "Decirle que vaya a la policía, ya que su oficina no tiene armas para protegerlo.",
+                "is_correct": false,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            },
+            {
+                "key": "B",
+                "text": "Ignorarlo, pues los servidores públicos solo deben hacer lo que dice el manual de funciones estrictamente.",
+                "is_correct": false,
+                "justification": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes."
+            },
+            {
+                "key": "C",
+                "text": "Activar de inmediato las rutas de protección institucional y remitir el caso a la autoridad competente (UNP o Policía).",
+                "is_correct": true,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            },
+            {
+                "key": "D",
+                "text": "Pedirle que llene un formulario de PQRS y esperar 15 días para darle respuesta sobre su protección.",
+                "is_correct": false,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            }
+        ],
+        "correct_option": "C",
+        "legal_basis": "Constitución Política de Colombia de 1991",
+        "explanation_summary": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes.",
+        "is_active": true,
+        "created_at": "2026-10-10 17:27:51.50974-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 313,
         "job_profile_id": 3,
         "thematic_axis_id": 11,
@@ -6562,42 +6646,6 @@
         "created_at": "2026-10-10 08:23:59.918726-05",
         "is_shared": false,
         "scope_level": "tecnico"
-    },
-    {
-        "id": 567,
-        "job_profile_id": null,
-        "thematic_axis_id": 57,
-        "question_type": "situacional",
-        "difficulty": "medio",
-        "case_text": "Caso de prueba para importación.",
-        "stem": "¿Pregunta de prueba para test de importación de backup 6acb71ce49ee5?",
-        "options": [
-            {
-                "key": "A",
-                "text": "Opción de prueba A",
-                "is_correct": true,
-                "justification": "Correcta por ley."
-            },
-            {
-                "key": "B",
-                "text": "Opción de prueba B",
-                "is_correct": false,
-                "justification": "Incorrecta."
-            },
-            {
-                "key": "C",
-                "text": "Opción de prueba C",
-                "is_correct": false,
-                "justification": "Incorrecta."
-            }
-        ],
-        "correct_option": "A",
-        "legal_basis": "Estatuto Tributario Nacional",
-        "explanation_summary": "Explicación de prueba.",
-        "is_active": true,
-        "created_at": "2026-10-11 06:23:58.339013-05",
-        "is_shared": true,
-        "scope_level": "transversal"
     },
     {
         "id": 341,
@@ -7480,6 +7528,42 @@
         "created_at": "2026-10-10 17:27:51.41679-05",
         "is_shared": false,
         "scope_level": "profesional"
+    },
+    {
+        "id": 584,
+        "job_profile_id": null,
+        "thematic_axis_id": 72,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Caso de prueba para importación.",
+        "stem": "¿Pregunta de prueba para test de importación de backup 6acbf06a81820?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Opción de prueba A",
+                "is_correct": true,
+                "justification": "Correcta por ley."
+            },
+            {
+                "key": "B",
+                "text": "Opción de prueba B",
+                "is_correct": false,
+                "justification": "Incorrecta."
+            },
+            {
+                "key": "C",
+                "text": "Opción de prueba C",
+                "is_correct": false,
+                "justification": "Incorrecta."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional",
+        "explanation_summary": "Explicación de prueba.",
+        "is_active": true,
+        "created_at": "2026-10-11 15:24:10.558969-05",
+        "is_shared": true,
+        "scope_level": "transversal"
     },
     {
         "id": 510,
@@ -11448,6 +11532,48 @@
         "scope_level": "profesional"
     },
     {
+        "id": 149,
+        "job_profile_id": 1,
+        "thematic_axis_id": 12,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Aplicación de principios constitucionales, derechos fundamentales y deberes del servidor público en actuaciones administrativas del Estado colombiano.",
+        "stem": "15. Un ciudadano llega a la oficina solicitando protección porque su vida corre peligro debido a una denuncia que puso. Su deber constitucional como servidor es:",
+        "options": [
+            {
+                "key": "A",
+                "text": "Decirle que vaya a la policía, ya que su oficina no tiene armas para protegerlo.",
+                "is_correct": false,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            },
+            {
+                "key": "B",
+                "text": "Ignorarlo, pues los servidores públicos solo deben hacer lo que dice el manual de funciones estrictamente.",
+                "is_correct": false,
+                "justification": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes."
+            },
+            {
+                "key": "C",
+                "text": "Activar de inmediato las rutas de protección institucional y remitir el caso a la autoridad competente (UNP o Policía).",
+                "is_correct": true,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            },
+            {
+                "key": "D",
+                "text": "Pedirle que llene un formulario de PQRS y esperar 15 días para darle respuesta sobre su protección.",
+                "is_correct": false,
+                "justification": "Incompatible con la norma constitucional aplicable."
+            }
+        ],
+        "correct_option": "C",
+        "legal_basis": "Constitución Política de Colombia de 1991",
+        "explanation_summary": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes.",
+        "is_active": true,
+        "created_at": "2026-10-10 08:23:59.694134-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 148,
         "job_profile_id": 1,
         "thematic_axis_id": 12,
@@ -11486,48 +11612,6 @@
         "explanation_summary": "Ley 581 de 2000 (Ley de Cuotas): Reglamenta la adecuada y efectiva participación de la mujer en los niveles decisorios de la administración.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.693125-05",
-        "is_shared": false,
-        "scope_level": "profesional"
-    },
-    {
-        "id": 149,
-        "job_profile_id": 1,
-        "thematic_axis_id": 12,
-        "question_type": "situacional",
-        "difficulty": "medio",
-        "case_text": "Aplicación de principios constitucionales, derechos fundamentales y deberes del servidor público en actuaciones administrativas del Estado colombiano.",
-        "stem": "15. Un ciudadano llega a la oficina solicitando protección porque su vida corre peligro debido a una denuncia que puso. Su deber constitucional como servidor es:",
-        "options": [
-            {
-                "key": "A",
-                "text": "Decirle que vaya a la policía, ya que su oficina no tiene armas para protegerlo.",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            },
-            {
-                "key": "B",
-                "text": "Ignorarlo, pues los servidores públicos solo deben hacer lo que dice el manual de funciones estrictamente.",
-                "is_correct": true,
-                "justification": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes."
-            },
-            {
-                "key": "C",
-                "text": "Activar de inmediato las rutas de protección institucional y remitir el caso a la autoridad competente (UNP o Policía).",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            },
-            {
-                "key": "D",
-                "text": "Pedirle que llene un formulario de PQRS y esperar 15 días para darle respuesta sobre su protección.",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            }
-        ],
-        "correct_option": "B",
-        "legal_basis": "Constitución Política de Colombia de 1991",
-        "explanation_summary": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes.",
-        "is_active": true,
-        "created_at": "2026-10-10 08:23:59.694134-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -15698,48 +15782,6 @@
         "explanation_summary": "Ley 581 de 2000 (Ley de Cuotas): Reglamenta la adecuada y efectiva participación de la mujer en los niveles decisorios de la administración.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.863434-05",
-        "is_shared": false,
-        "scope_level": "profesional"
-    },
-    {
-        "id": 293,
-        "job_profile_id": 3,
-        "thematic_axis_id": 17,
-        "question_type": "situacional",
-        "difficulty": "medio",
-        "case_text": "Aplicación de principios constitucionales, derechos fundamentales y deberes del servidor público en actuaciones administrativas del Estado colombiano.",
-        "stem": "15. Un ciudadano llega a la oficina solicitando protección porque su vida corre peligro debido a una denuncia que puso. Su deber constitucional como servidor es:",
-        "options": [
-            {
-                "key": "A",
-                "text": "Decirle que vaya a la policía, ya que su oficina no tiene armas para protegerlo.",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            },
-            {
-                "key": "B",
-                "text": "Ignorarlo, pues los servidores públicos solo deben hacer lo que dice el manual de funciones estrictamente.",
-                "is_correct": true,
-                "justification": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes."
-            },
-            {
-                "key": "C",
-                "text": "Activar de inmediato las rutas de protección institucional y remitir el caso a la autoridad competente (UNP o Policía).",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            },
-            {
-                "key": "D",
-                "text": "Pedirle que llene un formulario de PQRS y esperar 15 días para darle respuesta sobre su protección.",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            }
-        ],
-        "correct_option": "B",
-        "legal_basis": "Constitución Política de Colombia de 1991",
-        "explanation_summary": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes.",
-        "is_active": true,
-        "created_at": "2026-10-10 08:23:59.864599-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -20876,48 +20918,6 @@
         "explanation_summary": "Ley 581 de 2000 (Ley de Cuotas): Reglamenta la adecuada y efectiva participación de la mujer en los niveles decisorios de la administración.",
         "is_active": true,
         "created_at": "2026-10-10 17:27:51.507605-05",
-        "is_shared": false,
-        "scope_level": "profesional"
-    },
-    {
-        "id": 540,
-        "job_profile_id": 3,
-        "thematic_axis_id": 12,
-        "question_type": "situacional",
-        "difficulty": "medio",
-        "case_text": "Aplicación de principios constitucionales, derechos fundamentales y deberes del servidor público en actuaciones administrativas del Estado colombiano.",
-        "stem": "15. Un ciudadano llega a la oficina solicitando protección porque su vida corre peligro debido a una denuncia que puso. Su deber constitucional como servidor es:",
-        "options": [
-            {
-                "key": "A",
-                "text": "Decirle que vaya a la policía, ya que su oficina no tiene armas para protegerlo.",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            },
-            {
-                "key": "B",
-                "text": "Ignorarlo, pues los servidores públicos solo deben hacer lo que dice el manual de funciones estrictamente.",
-                "is_correct": true,
-                "justification": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes."
-            },
-            {
-                "key": "C",
-                "text": "Activar de inmediato las rutas de protección institucional y remitir el caso a la autoridad competente (UNP o Policía).",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            },
-            {
-                "key": "D",
-                "text": "Pedirle que llene un formulario de PQRS y esperar 15 días para darle respuesta sobre su protección.",
-                "is_correct": false,
-                "justification": "Incompatible con la norma constitucional aplicable."
-            }
-        ],
-        "correct_option": "B",
-        "legal_basis": "Constitución Política de Colombia de 1991",
-        "explanation_summary": "Art. 2 Constitución Política: Las autoridades están instituidas para proteger a todas las personas en su vida, honra y bienes.",
-        "is_active": true,
-        "created_at": "2026-10-10 17:27:51.50974-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
