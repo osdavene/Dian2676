@@ -85,6 +85,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/usuarios/{id}', [AdminController::class, 'userDetail'])->name('users.detail');
         Route::put('/usuarios/{id}', [AdminController::class, 'updateUser'])->name('users.update');
         Route::delete('/usuarios/{id}', [AdminController::class, 'deleteUser'])->name('users.delete');
+        Route::post('/usuarios/{id}/reiniciar', [AdminController::class, 'resetAttempts'])->name('users.reset_attempts');
         Route::get('/simulacros', [AdminController::class, 'examSessions'])->name('sessions');
         Route::get('/preguntas', [AdminController::class, 'questionsIndex'])->name('questions.index');
         Route::get('/preguntas/{id}/datos', [AdminController::class, 'getQuestionData'])->name('questions.data');

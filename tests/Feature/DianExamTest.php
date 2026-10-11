@@ -277,6 +277,55 @@ class DianExamTest extends TestCase
         $this->assertNull(User::find($createdUser->id));
     }
 
+    public function test_admin_can_view_user_detail_and_reset_attempts(): void
+    {
+        $admin = User::where('email', 'admin@dian.gov.co')->first();
+        $this->assertNotNull($admin);
+
+        $aspirante = User::create([
+            'name' => 'Jaime Cabrera Test',
+            'email' => 'jaime_test_'.uniqid().'@dian.gov.co',
+            'password' => bcrypt('password123'),
+            'role' => 'aspirante',
+            'job_profile_id' => 1,
+        ]);
+
+        // 1. Acceder a la ficha de detalle sin ningún simulacro (debe retornar 200 sin error 500)
+        $detailResponse = $this->actingAs($admin)->get('/admin/usuarios/'.$aspirante->id);
+        $detailResponse->assertStatus(200);
+        $detailResponse->assertSee('Jaime Cabrera Test');
+        $detailResponse->assertSee('Este aspirante no ha presentado ningún simulacro aún.');
+
+        // 2. Crear una sesión de simulacro para el aspirante
+        $session = ExamSession::create([
+            'user_id' => $aspirante->id,
+            'job_profile_id' => 1,
+            'mode' => 'oficial',
+            'status' => 'completed',
+            'started_at' => now(),
+            'completed_at' => now(),
+            'score' => 85.50,
+            'is_passed' => true,
+            'correct_answers' => 85,
+            'total_questions' => 100,
+            'duration_seconds' => 3600,
+            'question_ids' => [1, 2, 3],
+        ]);
+
+        // 3. Acceder a la ficha con simulacros completados
+        $detailWithSessionResponse = $this->actingAs($admin)->get('/admin/usuarios/'.$aspirante->id);
+        $detailWithSessionResponse->assertStatus(200);
+        $detailWithSessionResponse->assertSee('85.50');
+        $detailWithSessionResponse->assertSee('APROBADO');
+
+        // 4. Probar reinicio de intentos
+        $resetResponse = $this->actingAs($admin)->post('/admin/usuarios/'.$aspirante->id.'/reiniciar');
+        $resetResponse->assertSessionHas('success');
+        $this->assertEquals(0, ExamSession::where('user_id', $aspirante->id)->count());
+
+        $aspirante->delete();
+    }
+
     public function test_exam_questions_are_randomized_and_locked_to_session(): void
     {
         $user = User::where('role', 'aspirante')->first() ?? User::first();

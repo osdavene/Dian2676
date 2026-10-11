@@ -20,7 +20,7 @@
         <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-6">
             <div class="flex items-center gap-4">
                 <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 text-blue-400 flex items-center justify-center font-bold text-xl">
-                    {{ strtoupper(substr($aspirante->name, 0, 2)) }}
+                    {{ strtoupper(mb_substr($aspirante->name ?? 'US', 0, 2, 'UTF-8')) }}
                 </div>
                 <div>
                     <h2 class="text-base font-extrabold text-white">{{ $aspirante->name }}</h2>
@@ -170,7 +170,7 @@
 
                         <div class="text-xs">
                             <span class="font-semibold text-white">{{ $s->jobProfile->name ?? 'N/A' }}</span>
-                            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">{{ $s->created_at->format('d/m/Y H:i') }}</span>
+                            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">{{ $s->created_at?->format('d/m/Y H:i') ?? 'N/A' }}</span>
                         </div>
 
                         <div class="flex items-center justify-between text-xs py-2 border-y border-slate-800/60 text-slate-300">
@@ -219,7 +219,7 @@
                                     #{{ $s->id }}
                                 </td>
                                 <td class="py-3 px-3 text-slate-400 whitespace-nowrap">
-                                    {{ $s->created_at->format('d/m/Y H:i') }}
+                                    {{ $s->created_at?->format('d/m/Y H:i') ?? 'N/A' }}
                                 </td>
                                 <td class="py-3 px-3 font-semibold text-white">
                                     {{ $s->jobProfile->name ?? 'N/A' }}
