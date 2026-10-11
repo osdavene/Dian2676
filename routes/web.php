@@ -1,11 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExamController;
-use App\Http\Controllers\QuestionBankController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionBankController;
+use Illuminate\Support\Facades\Route;
 
 // ─── Rutas Públicas (Huéspedes) ──────────────────────────────────
 Route::middleware('guest')->group(function () {
@@ -13,6 +15,18 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
     Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+    // Recuperación de Contraseña
+    Route::get('/forgot-password', [PasswordResetController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('/reset-password/{token}', [PasswordResetController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/reset-password', [PasswordResetController::class, 'reset'])->name('password.update');
+
+    // Autenticación con Google OAuth 2.0
+    Route::get('/auth/google', [AuthController::class, 'redirectToGoogle'])->name('auth.google');
+    Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('auth.google.callback');
+    Route::get('/auth/google/completar-perfil', [AuthController::class, 'showGoogleCompleteProfile'])->name('auth.google.complete');
+    Route::post('/auth/google/completar-perfil', [AuthController::class, 'storeGoogleCompleteProfile'])->name('auth.google.complete.post');
 });
 
 // ─── Rutas Protegidas (Usuarios Autenticados) ─────────────────────
@@ -56,19 +70,19 @@ Route::middleware('auth')->group(function () {
 
     // ─── Control Central (Super Usuario / Administrador) ─────────────
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
-        Route::get('/usuarios', [\App\Http\Controllers\AdminController::class, 'users'])->name('users');
-        Route::post('/usuarios', [\App\Http\Controllers\AdminController::class, 'storeUser'])->name('users.store');
-        Route::get('/usuarios/{id}', [\App\Http\Controllers\AdminController::class, 'userDetail'])->name('users.detail');
-        Route::put('/usuarios/{id}', [\App\Http\Controllers\AdminController::class, 'updateUser'])->name('users.update');
-        Route::delete('/usuarios/{id}', [\App\Http\Controllers\AdminController::class, 'deleteUser'])->name('users.delete');
-        Route::get('/simulacros', [\App\Http\Controllers\AdminController::class, 'examSessions'])->name('sessions');
-        Route::get('/analitica-preguntas', [\App\Http\Controllers\AdminController::class, 'questionAnalytics'])->name('questions.analytics');
-        Route::get('/backup', [\App\Http\Controllers\AdminController::class, 'backupCenter'])->name('backup');
-        Route::post('/backup/generar', [\App\Http\Controllers\AdminController::class, 'generateBackupFile'])->name('backup.generate');
-        Route::get('/backup/descargar-directo', [\App\Http\Controllers\AdminController::class, 'downloadDirectBackup'])->name('backup.download.direct');
-        Route::get('/backup/descargar/{filename}', [\App\Http\Controllers\AdminController::class, 'downloadBackupFile'])->name('backup.download');
-        Route::post('/backup/importar', [\App\Http\Controllers\AdminController::class, 'importBackupUpload'])->name('backup.import');
-        Route::post('/backup/restaurar/{filename}', [\App\Http\Controllers\AdminController::class, 'restoreServerBackup'])->name('backup.restore');
+        Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/usuarios', [AdminController::class, 'users'])->name('users');
+        Route::post('/usuarios', [AdminController::class, 'storeUser'])->name('users.store');
+        Route::get('/usuarios/{id}', [AdminController::class, 'userDetail'])->name('users.detail');
+        Route::put('/usuarios/{id}', [AdminController::class, 'updateUser'])->name('users.update');
+        Route::delete('/usuarios/{id}', [AdminController::class, 'deleteUser'])->name('users.delete');
+        Route::get('/simulacros', [AdminController::class, 'examSessions'])->name('sessions');
+        Route::get('/analitica-preguntas', [AdminController::class, 'questionAnalytics'])->name('questions.analytics');
+        Route::get('/backup', [AdminController::class, 'backupCenter'])->name('backup');
+        Route::post('/backup/generar', [AdminController::class, 'generateBackupFile'])->name('backup.generate');
+        Route::get('/backup/descargar-directo', [AdminController::class, 'downloadDirectBackup'])->name('backup.download.direct');
+        Route::get('/backup/descargar/{filename}', [AdminController::class, 'downloadBackupFile'])->name('backup.download');
+        Route::post('/backup/importar', [AdminController::class, 'importBackupUpload'])->name('backup.import');
+        Route::post('/backup/restaurar/{filename}', [AdminController::class, 'restoreServerBackup'])->name('backup.restore');
     });
 });
