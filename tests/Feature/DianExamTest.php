@@ -653,6 +653,108 @@ class DianExamTest extends TestCase
         Question::where('stem', $testPayload['questions'][0]['stem'])->delete();
         ThematicAxis::where('name', 'Eje de Prueba Backup')->delete();
     }
+
+    public function test_user_can_start_express_simulacro_with_50_questions(): void
+    {
+        $user = User::where('role', 'aspirante')->first() ?? User::first();
+
+        $response = $this->actingAs($user)->post('/simulacro/iniciar', [
+            'question_count' => 50,
+            'force_new' => 1,
+        ]);
+
+        $response->assertRedirect();
+
+        $session = ExamSession::where('user_id', $user->id)
+            ->where('mode', 'simulacro_express')
+            ->latest('id')
+            ->first();
+
+        $this->assertNotNull($session);
+        $this->assertEquals('simulacro_express', $session->mode);
+        $this->assertEquals(9000, $session->time_limit_seconds); // 2h 30m
+        $this->assertLessThanOrEqual(50, $session->total_questions);
+
+        // Ver el simulacro express
+        $viewResponse = $this->actingAs($user)->get('/simulacro/' . $session->id);
+        $viewResponse->assertStatus(200);
+        $viewResponse->assertSee('Simulacro Rápido Express');
+    }
+
+    public function test_user_can_pause_simulacro_and_time_is_frozen(): void
+    {
+        $user = User::where('role', 'aspirante')->first() ?? User::first();
+
+        // 1. Iniciar un simulacro
+        $this->actingAs($user)->post('/simulacro/iniciar', [
+            'question_count' => 100,
+            'force_new' => 1,
+        ]);
+
+        $session = ExamSession::where('user_id', $user->id)
+            ->whereNull('completed_at')
+            ->latest('id')
+            ->first();
+
+        $this->assertNotNull($session);
+
+        // 2. Simular que el usuario gasta 1800 segundos (30 min) y pausa el examen
+        $pauseResponse = $this->actingAs($user)->post('/simulacro/' . $session->id . '/pausar', [
+            'time_spent_seconds' => 1800,
+        ]);
+
+        $pauseResponse->assertRedirect(route('dashboard'));
+        $pauseResponse->assertSessionHas('success');
+
+        $session->refresh();
+        $this->assertEquals(1800, $session->time_spent_seconds);
+        $this->assertNull($session->completed_at);
+
+        // 3. Volver a ingresar al simulador: el tiempo restante debe reflejar exactamente la pausa
+        $viewResponse = $this->actingAs($user)->get('/simulacro/' . $session->id);
+        $viewResponse->assertStatus(200);
+        // Debe quedar 18000 - 1800 = 16200 segundos (04:30:00)
+        $expectedRemainingFormatted = gmdate('H:i:s', $session->time_limit_seconds - 1800);
+        $viewResponse->assertSee($expectedRemainingFormatted);
+    }
+
+    public function test_heartbeat_syncs_elapsed_time(): void
+    {
+        $user = User::where('role', 'aspirante')->first() ?? User::first();
+
+        $session = ExamSession::where('user_id', $user->id)
+            ->whereNull('completed_at')
+            ->latest('id')
+            ->first();
+
+        if (!$session) {
+            $this->actingAs($user)->post('/simulacro/iniciar');
+            $session = ExamSession::where('user_id', $user->id)->whereNull('completed_at')->latest('id')->first();
+        }
+
+        $newTime = ($session->time_spent_seconds ?? 0) + 120;
+
+        $hbResponse = $this->actingAs($user)->postJson('/simulacro/' . $session->id . '/heartbeat', [
+            'time_spent_seconds' => $newTime,
+        ]);
+
+        $hbResponse->assertStatus(200);
+        $hbResponse->assertJson(['success' => true, 'time_spent_seconds' => $newTime]);
+
+        $session->refresh();
+        $this->assertEquals($newTime, $session->time_spent_seconds);
+    }
+
+    public function test_user_can_view_exam_history_and_diagnostics(): void
+    {
+        $user = User::where('role', 'aspirante')->first() ?? User::first();
+
+        $response = $this->actingAs($user)->get('/simulacros/historial');
+        $response->assertStatus(200);
+        $response->assertSee('Historial de Simulacros y Diagnóstico Personal');
+        $response->assertSee('Trazabilidad Histórica');
+        $response->assertSee('Total Simulacros');
+    }
 }
 
 

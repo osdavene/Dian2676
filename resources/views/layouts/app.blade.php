@@ -61,6 +61,12 @@
                         Inicio
                     </a>
 
+                    <a href="{{ route('simulacros.historial') }}" 
+                       class="px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('simulacros.historial') ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/60' }} transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        Historial
+                    </a>
+
                     <a href="{{ route('practica.index') }}" 
                        class="px-3 py-2 rounded-xl text-xs font-semibold {{ request()->routeIs('practica.*') ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/60' }} transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-bullseye"></i>
@@ -208,6 +214,12 @@
                    class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-bold {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-colors">
                     <i class="fa-solid fa-house text-sm w-5 text-center text-blue-400"></i>
                     <span>Inicio</span>
+                </a>
+
+                <a href="{{ route('simulacros.historial') }}" 
+                   class="flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-bold {{ request()->routeIs('simulacros.historial') ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/80' }} transition-colors">
+                    <i class="fa-solid fa-clock-rotate-left text-sm w-5 text-center text-amber-400"></i>
+                    <span>Historial y Estadísticas</span>
                 </a>
                 
                 <a href="{{ route('practica.index') }}" 

@@ -34,10 +34,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/perfil', [ProfileController::class, 'show'])->name('perfil');
     Route::put('/perfil', [ProfileController::class, 'update'])->name('perfil.update');
 
-    // Simulador Oficial
+    // Simulador Oficial y Express
     Route::post('/simulacro/iniciar', [ExamController::class, 'startSimulacro'])->name('simulacro.iniciar');
+    Route::get('/simulacros/historial', [ExamController::class, 'history'])->name('simulacros.historial');
     Route::get('/simulacro/{session}', [ExamController::class, 'showSimulacro'])->name('simulacro.view');
     Route::post('/simulacro/{session}/guardar-respuesta', [ExamController::class, 'saveSingleAnswer'])->name('simulacro.guardar-respuesta');
+    Route::post('/simulacro/{session}/heartbeat', [ExamController::class, 'syncHeartbeat'])->name('simulacro.heartbeat');
+    Route::post('/simulacro/{session}/pausar', [ExamController::class, 'pauseSimulacro'])->name('simulacro.pausar');
     Route::post('/simulacro/{session}/finalizar', [ExamController::class, 'submitSimulacro'])->name('simulacro.finalizar');
     Route::get('/simulacro/{session}/resultado', [ExamController::class, 'showResult'])->name('simulacro.resultado');
 

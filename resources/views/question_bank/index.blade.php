@@ -144,7 +144,7 @@
 
                 {{-- Caso Situacional --}}
                 @if(!empty($q->case_text))
-                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-300 text-xs sm:text-sm whitespace-pre-line leading-relaxed">
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-slate-300 text-xs sm:text-sm whitespace-pre-line leading-relaxed text-justify [text-justify:inter-word]">
                         <div class="text-blue-400 font-bold text-xs uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
                             <i class="fa-solid fa-file-invoice"></i>
                             Situación de Análisis
@@ -154,7 +154,7 @@
                 @endif
 
                 {{-- Enunciado --}}
-                <p class="text-sm font-semibold text-white leading-relaxed">
+                <p class="text-sm font-semibold text-white leading-relaxed text-justify [text-justify:inter-word]">
                     {{ $q->stem }}
                 </p>
 
@@ -171,7 +171,7 @@
                                       :class="showAnswer && '{{ $let }}' === '{{ $q->correct_option }}' ? 'bg-emerald-600 text-white' : 'bg-slate-800 text-slate-400'">
                                     {{ $let }}
                                 </span>
-                                <span class="leading-relaxed">{{ $txt }}</span>
+                                <span class="leading-relaxed text-justify [text-justify:inter-word]">{{ $txt }}</span>
                             </div>
                         @endif
                     @endforeach
@@ -191,7 +191,7 @@
                             </span>
                         @endif
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal pt-1">
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal pt-1 text-justify [text-justify:inter-word]">
                         {{ $q->rationale ?? 'Sin sustentación registrada.' }}
                     </p>
                 </div>

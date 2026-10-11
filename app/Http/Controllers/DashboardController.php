@@ -67,17 +67,17 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        // 4. Simulacro activo en curso (si existe y no ha expirado)
+        // 4. Simulacro activo en curso (si existe y no ha agotado su tiempo)
         $activeSession = ExamSession::where('user_id', $user->id)
             ->whereNull('completed_at')
-            ->where('mode', 'simulacro_oficial')
+            ->whereIn('mode', ['simulacro_oficial', 'simulacro_express'])
             ->latest('id')
             ->first();
 
         if ($activeSession) {
             $timeLimit = $activeSession->time_limit_seconds ?? 18000;
-            $elapsed = $activeSession->created_at->diffInSeconds(now());
-            if ($elapsed >= $timeLimit) {
+            $spent = (int) ($activeSession->time_spent_seconds ?? 0);
+            if ($spent >= $timeLimit) {
                 $activeSession = null;
             }
         }

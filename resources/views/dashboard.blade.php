@@ -27,17 +27,19 @@
                     <a href="{{ route('simulacro.view', $activeSession->id) }}"
                        class="w-full sm:w-auto px-4 sm:px-5 py-3 rounded-2xl bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2 transition-all transform active:scale-95 animate-pulse text-center">
                         <i class="fa-solid fa-forward-step"></i>
-                        Continuar Simulacro en Curso
+                        Continuar Simulacro en Curso ({{ gmdate('H:i:s', max(0, $activeSession->time_limit_seconds - ($activeSession->time_spent_seconds ?? 0))) }})
                     </a>
+                    <button type="button" onclick="openStartSimulacroModal()"
+                            class="w-full sm:w-auto px-4 sm:px-5 py-3 rounded-2xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95">
+                        <i class="fa-solid fa-plus"></i>
+                        Iniciar Nuevo
+                    </button>
                 @else
-                    <form method="POST" action="{{ route('simulacro.iniciar') }}">
-                        @csrf
-                        <button type="submit"
-                                class="w-full sm:w-auto px-4 sm:px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-all transform active:scale-95">
-                            <i class="fa-solid fa-play"></i>
-                            Iniciar Simulacro Oficial
-                        </button>
-                    </form>
+                    <button type="button" onclick="openStartSimulacroModal()"
+                            class="w-full sm:w-auto px-4 sm:px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-all transform active:scale-95">
+                        <i class="fa-solid fa-play"></i>
+                        Iniciar Simulacro
+                    </button>
                 @endif
 
                 <a href="{{ route('practica.index') }}"
@@ -59,7 +61,9 @@
             <div>
                 <span class="text-[11px] sm:text-xs font-semibold text-slate-400 block leading-tight">Simulacros</span>
                 <span class="text-xl sm:text-3xl font-black text-white mt-1 block">{{ $totalExams }}</span>
-                <span class="text-[10px] sm:text-[11px] text-slate-500 font-medium">Historial</span>
+                <a href="{{ route('simulacros.historial') }}" class="text-[10px] sm:text-[11px] text-blue-400 hover:underline font-semibold block mt-0.5">
+                    Ver Historial &rarr;
+                </a>
             </div>
             <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-sm sm:text-xl shrink-0">
                 <i class="fa-solid fa-file-signature"></i>
@@ -112,25 +116,22 @@
     {{-- 4 Modos Principales de Estudio --}}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        {{-- Tarjeta 1: Simulacro Oficial --}}
+        {{-- Tarjeta 1: Simulacro Oficial & Express --}}
         <div class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-5 transition-all flex flex-col justify-between group">
             <div class="space-y-3">
                 <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-lg">
                     <i class="fa-solid fa-stopwatch"></i>
                 </div>
                 <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
-                    Simulacro Oficial
+                    Simulacro Oficial y Express
                 </h3>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    Examen cronometrado con temporizador de 5 horas, hoja de respuestas óptica y regla eliminatoria oficial (&ge; 70.00 pts).
+                <p class="text-xs text-slate-400 leading-relaxed text-justify">
+                    Examen cronometrado con tiempo pausable al salir. Elige entre el <strong>Simulacro Oficial (100 preguntas)</strong> o <strong>Simulacro Express (50 preguntas)</strong>.
                 </p>
             </div>
-            <form method="POST" action="{{ route('simulacro.iniciar') }}" class="mt-4">
-                @csrf
-                <button type="submit" class="w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors">
-                    Iniciar Examen
-                </button>
-            </form>
+            <button type="button" onclick="openStartSimulacroModal()" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors">
+                Elegir Modalidad
+            </button>
         </div>
 
         {{-- Tarjeta 2: Práctica Focalizada --}}
@@ -238,14 +239,21 @@
     {{-- Historial Reciente de Simulacros --}}
     @if($recentSessions->isNotEmpty())
         <div class="bg-slate-900/70 border border-slate-800/80 rounded-2xl sm:rounded-3xl p-4 sm:p-8 space-y-4">
-            <div class="flex items-center justify-between pb-2 border-b border-slate-800">
-                <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-clock-rotate-left text-amber-400"></i>
-                    Tus Simulacros Recientes
-                </h2>
-                <span class="text-xs text-slate-400 font-medium">
-                    {{ $recentSessions->count() }} evaluacion(es)
-                </span>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
+                <div>
+                    <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clock-rotate-left text-amber-400"></i>
+                        Tus Simulacros Recientes
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-0.5">
+                        Últimas {{ $recentSessions->count() }} evaluaciones presentadas
+                    </p>
+                </div>
+                <a href="{{ route('simulacros.historial') }}" 
+                   class="px-3.5 py-1.5 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 font-bold text-xs border border-blue-500/30 transition-colors flex items-center gap-1.5 w-fit">
+                    <span>Ver Todo el Historial y Estadísticas</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
             </div>
 
             {{-- Versión Móvil: Tarjetas Táctiles Ergonomicas (Solo celulares) --}}
@@ -255,16 +263,18 @@
                         <div class="flex items-start justify-between gap-2">
                             <div>
                                 <span class="font-bold text-xs text-white block">
-                                    @if($s->mode === 'simulacro_oficial')
-                                        <span class="text-amber-400"><i class="fa-solid fa-stopwatch mr-1"></i> Simulacro Oficial</span>
+                                    @if($s->mode === 'simulacro_express')
+                                        <span class="text-amber-300 font-extrabold"><i class="fa-solid fa-bolt mr-1"></i> Simulacro Express (50P)</span>
+                                    @elseif($s->mode === 'simulacro_oficial')
+                                        <span class="text-amber-400 font-extrabold"><i class="fa-solid fa-trophy mr-1"></i> Simulacro Oficial (100P)</span>
                                     @elseif($s->mode === 'practica_eje')
-                                        <span class="text-blue-400"><i class="fa-solid fa-bullseye mr-1"></i> {{ $s->thematicAxis->name ?? 'Práctica' }}</span>
+                                        <span class="text-blue-400 font-bold"><i class="fa-solid fa-bullseye mr-1"></i> {{ $s->thematicAxis->name ?? 'Práctica' }}</span>
                                     @else
-                                        <span class="text-rose-400"><i class="fa-solid fa-rotate-left mr-1"></i> Repaso de Fallos</span>
+                                        <span class="text-rose-400 font-bold"><i class="fa-solid fa-rotate-left mr-1"></i> Repaso de Fallos</span>
                                     @endif
                                 </span>
                                 <span class="text-[10px] text-slate-400 font-mono">
-                                    {{ $s->created_at->format('d/m/Y H:i') }}
+                                    {{ $s->created_at->format('d/m/Y H:i') }} &bull; {{ gmdate('H:i:s', $s->time_spent_seconds ?? 0) }}
                                 </span>
                             </div>
                             @if($s->is_passed)
@@ -309,6 +319,7 @@
                         <tr class="border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[10px]">
                             <th class="py-3 px-3">Fecha</th>
                             <th class="py-3 px-3">Modo</th>
+                            <th class="py-3 px-3 text-center">Tiempo Usado</th>
                             <th class="py-3 px-3 text-center">Correctas</th>
                             <th class="py-3 px-3 text-center">Incorrectas</th>
                             <th class="py-3 px-3 text-center">Puntaje</th>
@@ -323,13 +334,26 @@
                                     {{ $s->created_at->format('d/m/Y H:i') }}
                                 </td>
                                 <td class="py-3 px-3 font-semibold text-white">
-                                    @if($s->mode === 'simulacro_oficial')
-                                        <span class="text-amber-400">Simulacro Oficial</span>
+                                    @if($s->mode === 'simulacro_express')
+                                        <span class="text-amber-300 font-extrabold flex items-center gap-1.5">
+                                            <i class="fa-solid fa-bolt text-xs"></i> Simulacro Express (50P)
+                                        </span>
+                                    @elseif($s->mode === 'simulacro_oficial')
+                                        <span class="text-amber-400 font-extrabold flex items-center gap-1.5">
+                                            <i class="fa-solid fa-trophy text-xs"></i> Simulacro Oficial (100P)
+                                        </span>
                                     @elseif($s->mode === 'practica_eje')
-                                        <span class="text-blue-400">Práctica: {{ $s->thematicAxis->name ?? 'Eje' }}</span>
+                                        <span class="text-blue-400 flex items-center gap-1.5">
+                                            <i class="fa-solid fa-bullseye text-xs"></i> {{ $s->thematicAxis->name ?? 'Práctica' }}
+                                        </span>
                                     @else
-                                        <span class="text-rose-400">Repaso de Fallos</span>
+                                        <span class="text-rose-400 flex items-center gap-1.5">
+                                            <i class="fa-solid fa-rotate-left text-xs"></i> Repaso de Fallos
+                                        </span>
                                     @endif
+                                </td>
+                                <td class="py-3 px-3 text-center text-slate-400 font-mono">
+                                    {{ gmdate('H:i:s', $s->time_spent_seconds ?? 0) }}
                                 </td>
                                 <td class="py-3 px-3 text-center font-bold text-emerald-400">
                                     {{ $s->correct_answers }}
@@ -366,4 +390,104 @@
     @endif
 
 </div>
+
+{{-- Modal para Iniciar Nuevo Simulacro (Selector 100 vs 50 Preguntas) --}}
+<div id="modal-start-simulacro" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative space-y-5">
+        
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-stopwatch"></i>
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-black text-white">Selecciona Modalidad de Simulacro</h3>
+                    <p class="text-xs text-slate-400">Elige la duración según tu disponibilidad de tiempo</p>
+                </div>
+            </div>
+            <button type="button" onclick="closeStartSimulacroModal()" class="text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div class="space-y-3.5">
+            {{-- Opción 1: 100 Preguntas Oficial --}}
+            <form method="POST" action="{{ route('simulacro.iniciar') }}">
+                @csrf
+                <input type="hidden" name="question_count" value="100">
+                @if($activeSession)
+                    <input type="hidden" name="force_new" value="1">
+                @endif
+                <button type="submit" 
+                        class="w-full text-left p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-950 to-indigo-950/30 border border-amber-500/30 hover:border-amber-400 transition-all group flex items-start gap-4 shadow-lg hover:shadow-amber-500/10">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center text-xl font-black shrink-0 group-hover:scale-105 transition-transform shadow-md">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div class="flex-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm sm:text-base font-extrabold text-white group-hover:text-amber-300 transition-colors">
+                                Simulacro Oficial Completo
+                            </span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                5 Horas
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed text-justify sm:text-left">
+                            <strong>100 preguntas situacionales</strong> oficiales. Réplica exacta de la prueba escrita DIAN 2676. Tiempo pausable si sales de la plataforma.
+                        </p>
+                    </div>
+                </button>
+            </form>
+
+            {{-- Opción 2: 50 Preguntas Express --}}
+            <form method="POST" action="{{ route('simulacro.iniciar') }}">
+                @csrf
+                <input type="hidden" name="question_count" value="50">
+                @if($activeSession)
+                    <input type="hidden" name="force_new" value="1">
+                @endif
+                <button type="submit" 
+                        class="w-full text-left p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-950 to-blue-950/30 border border-blue-500/30 hover:border-blue-400 transition-all group flex items-start gap-4 shadow-lg hover:shadow-blue-500/10">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-xl font-black shrink-0 group-hover:scale-105 transition-transform shadow-md">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="flex-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm sm:text-base font-extrabold text-white group-hover:text-blue-300 transition-colors">
+                                Simulacro Rápido Express
+                            </span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                                2h 30m
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed text-justify sm:text-left">
+                            <strong>50 preguntas situacionales</strong> representativas. Ideal para quienes disponen de menos tiempo. Tiempo pausable en cualquier momento.
+                        </p>
+                    </div>
+                </button>
+            </form>
+        </div>
+
+        @if($activeSession)
+            <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
+                <span>Nota: Al iniciar un nuevo simulacro se auto-finalizará y guardará tu simulacro anterior en tu historial.</span>
+            </div>
+        @endif
+
+        <p class="text-[11px] text-slate-400 text-center pt-1">
+            Ambas modalidades se guardan en tu historial permanente y alimentan tus métricas pedagógicas.
+        </p>
+
+    </div>
+</div>
+
+<script>
+    function openStartSimulacroModal() {
+        document.getElementById('modal-start-simulacro').classList.remove('hidden');
+    }
+    function closeStartSimulacroModal() {
+        document.getElementById('modal-start-simulacro').classList.add('hidden');
+    }
+</script>
 @endsection

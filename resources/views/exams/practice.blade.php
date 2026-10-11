@@ -60,7 +60,7 @@
 
                 {{-- Caso de Estudio --}}
                 @if(!empty($q->case_text))
-                    <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-slate-200 text-xs sm:text-sm whitespace-pre-line leading-relaxed">
+                    <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-slate-200 text-xs sm:text-sm whitespace-pre-line leading-relaxed text-justify [text-justify:inter-word]">
                         <div class="flex items-center gap-2 text-blue-400 font-bold text-xs uppercase tracking-wider mb-1.5">
                             <i class="fa-solid fa-file-lines"></i>
                             Situación de Hecho / Caso
@@ -70,7 +70,7 @@
                 @endif
 
                 {{-- Enunciado --}}
-                <div class="text-sm sm:text-base font-semibold text-white leading-relaxed">
+                <div class="text-sm sm:text-base font-semibold text-white leading-relaxed text-justify [text-justify:inter-word]">
                     {{ $q->stem }}
                 </div>
 
@@ -89,7 +89,7 @@
                                 <span class="badge-letter w-6 h-6 rounded-lg bg-slate-800 group-hover:bg-blue-600 group-hover:text-white text-slate-300 text-xs font-bold flex items-center justify-center shrink-0 transition-colors">
                                     {{ $letter }}
                                 </span>
-                                <span class="text-xs sm:text-sm font-medium leading-relaxed flex-1">
+                                <span class="text-xs sm:text-sm font-medium leading-relaxed flex-1 text-justify [text-justify:inter-word]">
                                     {{ $text }}
                                 </span>
                             </button>
@@ -103,7 +103,7 @@
                         <i class="fa-solid fa-scale-balanced"></i>
                         Explicación Jurídica y Análisis Oficial
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal text-justify [text-justify:inter-word]">
                         {{ $q->rationale ?? 'No se registró explicación adicional.' }}
                     </p>
                     @if(!empty($q->legal_basis))

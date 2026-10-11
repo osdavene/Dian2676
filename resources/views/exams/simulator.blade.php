@@ -9,8 +9,8 @@
     <div class="bg-slate-900/95 border border-slate-800/90 rounded-2xl p-3 sm:p-5 shadow-2xl backdrop-blur-md sticky top-16 z-30">
         
         {{-- Versión Móvil Compacta (visible solo en celulares) --}}
-        <div class="sm:hidden flex items-center justify-between gap-2">
-            <div class="flex items-center gap-2">
+        <div class="sm:hidden flex items-center justify-between gap-1.5">
+            <div class="flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span class="text-xs font-black text-white font-mono">
                     P <span id="mobile-current-q" class="text-blue-400">1</span>/{{ $questions->count() }}
@@ -18,21 +18,28 @@
             </div>
 
             {{-- Reloj en Móvil --}}
-            <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+            <div class="flex items-center gap-1 px-2 py-1 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
                 <i class="fa-regular fa-clock text-amber-400 text-xs animate-pulse"></i>
                 <span id="mobile-timer-display" class="font-mono text-xs font-black text-amber-300">
-                    05:00:00
+                    {{ gmdate('H:i:s', $remainingSeconds) }}
                 </span>
             </div>
 
-            <div class="flex items-center gap-1.5">
+            <div class="flex items-center gap-1">
+                {{-- Botón Pausar en Móvil --}}
+                <button type="button" onclick="confirmPauseModal()" 
+                        class="px-2 py-1 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center gap-1 active:scale-95 transition-all"
+                        title="Pausar examen y salir">
+                    <i class="fa-solid fa-pause text-[10px]"></i>
+                    <span>Pausar</span>
+                </button>
                 <button type="button" onclick="openOpticalSheetModal()" 
-                        class="px-2.5 py-1 rounded-lg bg-blue-600/30 text-blue-300 border border-blue-500/40 text-[11px] font-bold flex items-center gap-1">
+                        class="px-2 py-1 rounded-lg bg-blue-600/30 text-blue-300 border border-blue-500/40 text-xs font-bold flex items-center gap-1">
                     <i class="fa-solid fa-table-cells text-[10px]"></i>
                     <span id="mobile-header-answered">{{ count($savedAnswers) }}</span>/{{ $questions->count() }}
                 </button>
                 <button type="button" onclick="confirmSubmitModal()"
-                        class="px-2.5 py-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg text-[11px] font-bold shadow-md shadow-emerald-600/20">
+                        class="px-2.5 py-1 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg text-xs font-bold shadow-md shadow-emerald-600/20 active:scale-95">
                     Enviar
                 </button>
             </div>
@@ -54,18 +61,21 @@
                         <span class="text-xs font-bold text-slate-300">
                             {{ $session->jobProfile->name ?? 'Analista III' }}
                         </span>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded {{ $session->mode === 'simulacro_express' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' }}">
+                            {{ $session->mode === 'simulacro_express' ? '⚡ Modo Express (50 Preguntas)' : '🏆 Oficial Completo (100 Preguntas)' }}
+                        </span>
                     </div>
                     <h1 class="text-sm sm:text-base font-extrabold text-white mt-0.5">
-                        Simulacro Oficial Concurso DIAN 2676
+                        {{ $session->mode === 'simulacro_express' ? 'Simulacro Rápido Express Concurso DIAN 2676' : 'Simulacro Oficial Concurso DIAN 2676' }}
                     </h1>
                     <p class="text-[11px] text-slate-400">
-                        Prueba Escrita de Competencias Básicas, Funcionales y Conductuales
+                        Prueba Escrita de Competencias Básicas, Funcionales y Conductuales &bull; Tiempo Pausable
                     </p>
                 </div>
             </div>
 
             {{-- Reloj Temporizador, Guardado y Acción Finalizar --}}
-            <div class="flex items-center gap-3 sm:gap-5">
+            <div class="flex items-center gap-3 sm:gap-4">
                 
                 {{-- Estado de Autoguardado en Tiempo Real --}}
                 <div id="save-status-indicator" class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-emerald-400 font-semibold shadow-inner">
@@ -81,16 +91,24 @@
                     </span>
                 </div>
 
-                {{-- Cronómetro Oficial Continuo (5 Horas) --}}
+                {{-- Cronómetro Oficial (Pausable) --}}
                 <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 shadow-inner">
                     <i class="fa-regular fa-clock text-amber-400 text-base animate-pulse"></i>
                     <div>
                         <span class="text-[9px] uppercase tracking-wider text-slate-400 block -mb-1 font-semibold">Tiempo Restante</span>
                         <span id="timer-display" class="font-mono text-sm sm:text-base font-black text-amber-300">
-                            05:00:00
+                            {{ gmdate('H:i:s', $remainingSeconds) }}
                         </span>
                     </div>
                 </div>
+
+                {{-- Botón Pausar y Salir --}}
+                <button type="button" onclick="confirmPauseModal()"
+                        class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 rounded-xl text-xs sm:text-sm font-bold shadow-md transition-all flex items-center gap-1.5"
+                        title="Pausar el tiempo y salir para continuar después">
+                    <i class="fa-solid fa-pause"></i>
+                    <span>Pausar y Salir</span>
+                </button>
 
                 {{-- Botón Finalizar Examen --}}
                 <button type="button" onclick="confirmSubmitModal()"
@@ -154,31 +172,31 @@
                             </button>
                         </div>
 
-                        {{-- Caso / Situación de Análisis (Diseño Formal) --}}
+                        {{-- Caso / Situación de Análisis (Diseño Formal y Justificado) --}}
                         @if(!empty($q->case_text))
-                            <div class="mb-4 sm:mb-6 p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-slate-950 to-indigo-950/20 border-l-4 border-blue-500 border-y border-r border-slate-800 text-slate-200 shadow-inner">
-                                <div class="flex items-center gap-2 text-xs font-extrabold text-blue-400 uppercase tracking-wider mb-2">
-                                    <i class="fa-solid fa-file-lines text-sm"></i>
+                            <div class="mb-5 sm:mb-7 p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950/20 border-l-4 border-blue-500 border-y border-r border-slate-800 text-slate-200 shadow-inner">
+                                <div class="flex items-center gap-2 text-xs sm:text-sm font-extrabold text-blue-400 uppercase tracking-wider mb-2.5">
+                                    <i class="fa-solid fa-file-lines text-sm sm:text-base"></i>
                                     Caso de Estudio Situacional &bull; Concurso DIAN
                                 </div>
-                                <div class="text-xs sm:text-sm leading-relaxed text-slate-300 whitespace-pre-line font-normal">
+                                <div class="text-sm sm:text-base leading-relaxed sm:leading-loose text-slate-200 whitespace-pre-line font-normal text-justify [text-justify:inter-word] [hyphens:auto]">
                                     {{ $q->case_text }}
                                 </div>
                             </div>
                         @endif
 
-                        {{-- Enunciado de la Pregunta --}}
-                        <div class="mb-4 sm:mb-6">
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                                Enunciado
+                        {{-- Enunciado de la Pregunta (Mayor Tamaño en Móvil y Justificado) --}}
+                        <div class="mb-5 sm:mb-7">
+                            <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
+                                Enunciado de la Pregunta
                             </span>
-                            <h3 class="text-xs sm:text-base font-bold text-white leading-relaxed">
+                            <h3 class="text-base sm:text-lg font-bold text-white leading-relaxed sm:leading-snug text-justify [text-justify:inter-word]">
                                 {{ $q->stem }}
                             </h3>
                         </div>
 
-                        {{-- Opciones de Respuesta --}}
-                        <div class="space-y-2.5 sm:space-y-3" id="options-group-{{ $index + 1 }}">
+                        {{-- Opciones de Respuesta (Ergonómicas, Legibles y Justificadas) --}}
+                        <div class="space-y-3 sm:space-y-3.5" id="options-group-{{ $index + 1 }}">
                             @php
                                 $options = $q->options_map;
                             @endphp
@@ -190,9 +208,9 @@
                                     @endphp
                                     <label for="q{{ $q->id }}_{{ $letter }}" 
                                            data-letter="{{ $letter }}"
-                                           class="option-label flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border cursor-pointer transition-all active:scale-[0.99] {{ $isSelected ? 'border-blue-500 bg-blue-950/40 ring-1 ring-blue-500/50 shadow-md shadow-blue-500/10' : 'border-slate-800 bg-slate-950/60 hover:bg-slate-800/60 hover:border-blue-500/50' }}">
+                                           class="option-label flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4.5 rounded-2xl border cursor-pointer transition-all active:scale-[0.99] {{ $isSelected ? 'border-blue-500 bg-blue-950/40 ring-1 ring-blue-500/50 shadow-md shadow-blue-500/10' : 'border-slate-800 bg-slate-950/60 hover:bg-slate-800/60 hover:border-blue-500/50' }}">
                                         
-                                        <div class="flex items-center h-5 mt-0.5">
+                                        <div class="flex items-center h-6 mt-0.5">
                                             <input type="radio" 
                                                    id="q{{ $q->id }}_{{ $letter }}" 
                                                    name="answers[{{ $q->id }}]" 
@@ -202,11 +220,11 @@
                                                    class="w-4 h-4 text-blue-600 bg-slate-900 border-slate-700 focus:ring-blue-500 focus:ring-2">
                                         </div>
 
-                                        <div class="flex-1 flex items-start gap-2.5 sm:gap-3">
-                                            <span class="option-badge w-6 h-6 sm:w-7 sm:h-7 rounded-lg text-xs font-black flex items-center justify-center shrink-0 transition-colors {{ $isSelected ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/40' : 'bg-slate-800 text-slate-300' }}">
+                                        <div class="flex-1 flex items-start gap-3">
+                                            <span class="option-badge w-7 h-7 sm:w-8 sm:h-8 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center shrink-0 transition-colors {{ $isSelected ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/40' : 'bg-slate-800 text-slate-300' }}">
                                                 {{ $letter }}
                                             </span>
-                                            <span class="text-xs sm:text-sm text-slate-200 font-medium leading-relaxed">
+                                            <span class="text-sm sm:text-base text-slate-200 font-medium leading-relaxed text-justify [text-justify:inter-word] pt-0.5">
                                                 {{ $text }}
                                             </span>
                                         </div>
@@ -467,6 +485,42 @@
         </div>
     </div>
 
+    {{-- Modal Profesional de Confirmación de Pausa y Salida --}}
+    <div id="modal-pause-confirm" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative space-y-4">
+            
+            <div class="text-center">
+                <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 mx-auto flex items-center justify-center text-2xl mb-3 shadow-inner">
+                    <i class="fa-solid fa-pause"></i>
+                </div>
+                <h3 class="text-lg font-extrabold text-white">¿Deseas pausar el simulacro y salir?</h3>
+                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                    Tu <strong>tiempo restante se congelará</strong> exactamente en este instante y todas tus respuestas quedarán <strong>guardadas en la nube</strong>.
+                </p>
+                <p class="text-xs text-slate-400 mt-1.5">
+                    Podrás volver a entrar cuantas veces quieras y reanudarlo desde el Inicio.
+                </p>
+            </div>
+
+            <form id="pause-form" method="POST" action="{{ route('simulacro.pausar', $session->id) }}">
+                @csrf
+                <input type="hidden" name="time_spent_seconds" id="pause_time_spent_seconds" value="{{ $elapsedSeconds ?? 0 }}">
+
+                <div class="flex items-center gap-3 pt-2">
+                    <button type="button" onclick="closePauseModal()"
+                            class="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs transition-colors">
+                        Continuar Examen
+                    </button>
+                    <button type="submit"
+                            class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition-colors flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-circle-pause"></i> Sí, Pausar y Salir
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
 </div>
 @endsection
 
@@ -520,7 +574,9 @@
 
         if (remainingSeconds <= 0) {
             clearInterval(timerInterval);
-            alert('¡El tiempo oficial de 5 horas ha concluido! Tu examen se enviará y calificará automáticamente.');
+            if (typeof heartbeatTimer !== 'undefined') clearInterval(heartbeatTimer);
+            timeSpentInput.value = secondsSpent;
+            alert('¡El tiempo asignado para este simulacro ha concluido! Tu examen se enviará y calificará automáticamente.');
             document.getElementById('exam-form').submit();
             return;
         }
@@ -668,7 +724,7 @@
             saveIndicator.innerHTML = '<i class="fa-solid fa-arrows-rotate animate-spin"></i><span>Guardando...</span>';
         }
 
-        // 4. Autoguardado asíncrono en PostgreSQL
+        // 4. Autoguardado asíncrono en base de datos (con tiempo consumido actualizado)
         fetch("{{ route('simulacro.guardar-respuesta', $session->id) }}", {
             method: 'POST',
             headers: {
@@ -677,7 +733,8 @@
             },
             body: JSON.stringify({
                 question_id: qId,
-                selected_option: optionLetter
+                selected_option: optionLetter,
+                time_spent_seconds: secondsSpent
             })
         })
         .then(() => {
@@ -800,17 +857,68 @@
         document.getElementById('modal-submit-confirm').classList.add('hidden');
     }
 
+    function confirmPauseModal() {
+        const pauseInput = document.getElementById('pause_time_spent_seconds');
+        if (pauseInput) pauseInput.value = secondsSpent;
+        document.getElementById('modal-pause-confirm').classList.remove('hidden');
+    }
+
+    function closePauseModal() {
+        document.getElementById('modal-pause-confirm').classList.add('hidden');
+    }
+
     function doSubmitForm() {
         clearInterval(timerInterval);
+        if (typeof heartbeatTimer !== 'undefined') clearInterval(heartbeatTimer);
+        timeSpentInput.value = secondsSpent;
         document.getElementById('exam-form').submit();
     }
+
+    // Sincronización continua de tiempo (Heartbeat y Beacon al salir)
+    function sendHeartbeat(isBeacon = false) {
+        const payload = JSON.stringify({
+            time_spent_seconds: secondsSpent,
+            _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        });
+
+        if (isBeacon && navigator.sendBeacon) {
+            const blob = new Blob([payload], { type: 'application/json' });
+            navigator.sendBeacon("{{ route('simulacro.heartbeat', $session->id) }}", blob);
+            return;
+        }
+
+        fetch("{{ route('simulacro.heartbeat', $session->id) }}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: payload,
+            keepalive: isBeacon
+        }).catch(e => console.debug('Heartbeat ping'));
+    }
+
+    // Heartbeat periódico cada 15 segundos
+    const heartbeatTimer = setInterval(() => {
+        sendHeartbeat(false);
+    }, 15000);
+
+    // Guardar tiempo al salir o cambiar de pestaña para pausar con total precisión
+    window.addEventListener('pagehide', () => sendHeartbeat(true));
+    window.addEventListener('beforeunload', () => sendHeartbeat(true));
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            sendHeartbeat(true);
+        }
+    });
 
     // Inicializar UI Móvil al cargar
     updateMobileUI();
 
     // Atajos de teclado para navegación rápida
     document.addEventListener('keydown', function(e) {
-        if (!document.getElementById('modal-submit-confirm').classList.contains('hidden')) return;
+        if (!document.getElementById('modal-submit-confirm').classList.contains('hidden') ||
+            !document.getElementById('modal-pause-confirm').classList.contains('hidden')) return;
 
         if (e.key === 'ArrowRight' || e.key === 'PageDown') {
             if (currentQuestion < totalQuestions) {

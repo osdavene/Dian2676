@@ -14,38 +14,54 @@ use Illuminate\Support\Facades\DB;
 class ExamController extends Controller
 {
     /**
-     * Iniciar un Simulacro Oficial Completo o retomar uno en curso
+     * Iniciar un Simulacro Oficial (100 preguntas / 5h) o Express (50 preguntas / 2.5h) o retomar uno en curso
      */
     public function startSimulacro(Request $request)
     {
         $user = Auth::user();
         $jobId = $user->job_profile_id ?? 1;
 
-        // 1. Verificar si el usuario ya tiene un simulacro oficial en curso
+        $questionCount = (int) $request->input('question_count', 100);
+        if ($questionCount !== 50 && $questionCount !== 100) {
+            $questionCount = 100;
+        }
+
+        $forceNew = $request->boolean('force_new', false);
+
+        // 1. Verificar si el usuario ya tiene un simulacro en curso
         $activeSession = ExamSession::where('user_id', $user->id)
             ->whereNull('completed_at')
-            ->where('mode', 'simulacro_oficial')
+            ->whereIn('mode', ['simulacro_oficial', 'simulacro_express'])
             ->latest('id')
             ->first();
 
         if ($activeSession) {
             $timeLimit = $activeSession->time_limit_seconds ?? 18000;
-            $elapsed = $activeSession->created_at->diffInSeconds(now());
+            $spent = (int) ($activeSession->time_spent_seconds ?? 0);
 
-            if ($elapsed < $timeLimit) {
+            // Si el tiempo consumido ya agotó el límite, auto-finalizar
+            if ($spent >= $timeLimit) {
+                $this->autoFinalizeExpiredSession($activeSession);
+            } elseif (!$forceNew) {
+                // Reanudar el simulacro pausado existente
                 return redirect()->route('simulacro.view', $activeSession->id)
-                    ->with('info', 'Retomando tu simulacro en curso. Tu tiempo transcurrido y respuestas se mantienen guardados.');
+                    ->with('info', 'Retomando tu simulacro en curso. Tu tiempo transcurrido (pausado) y respuestas se mantienen guardados.');
             } else {
+                // El usuario decidió iniciar uno nuevo, auto-finalizar el anterior
                 $this->autoFinalizeExpiredSession($activeSession);
             }
         }
 
-        // 2. Seleccionar preguntas del cargo (exclusivas + compartidas/transversales) de forma aleatoria
+        // 2. Parámetros del nuevo simulacro: 50 preguntas (9000 s = 2h 30m) o 100 preguntas (18000 s = 5h)
+        $timeLimitSeconds = ($questionCount === 50) ? 9000 : 18000;
+        $mode = ($questionCount === 50) ? 'simulacro_express' : 'simulacro_oficial';
+
+        // 3. Seleccionar preguntas del cargo de forma aleatoria
         $questions = Question::forCargo($jobId)
             ->where('is_active', true)
             ->with('thematicAxis')
             ->inRandomOrder()
-            ->take(100)
+            ->take($questionCount)
             ->get();
 
         if ($questions->isEmpty()) {
@@ -57,10 +73,11 @@ class ExamController extends Controller
         $session = ExamSession::create([
             'user_id' => $user->id,
             'job_profile_id' => $jobId,
-            'mode' => 'simulacro_oficial',
+            'mode' => $mode,
             'question_ids' => $questionIds,
             'total_questions' => count($questionIds),
-            'time_limit_seconds' => 18000, // 5 Horas oficiales
+            'time_limit_seconds' => $timeLimitSeconds,
+            'time_spent_seconds' => 0,
         ]);
 
         return redirect()->route('simulacro.view', $session->id);
@@ -83,16 +100,16 @@ class ExamController extends Controller
             return redirect()->route('simulacro.resultado', $session->id);
         }
 
-        // Cálculo del tiempo continuo y real transcurrido
+        // Cálculo del tiempo continuo y real transcurrido (pausable)
         $timeLimitSeconds = $session->time_limit_seconds ?? 18000;
-        $elapsedSeconds = $session->created_at->diffInSeconds(now());
+        $elapsedSeconds = (int) ($session->time_spent_seconds ?? 0);
         $remainingSeconds = max(0, $timeLimitSeconds - $elapsedSeconds);
 
         // Si el tiempo límite ya expiró en el servidor
         if ($remainingSeconds <= 0) {
             $this->autoFinalizeExpiredSession($session);
             return redirect()->route('simulacro.resultado', $session->id)
-                ->with('info', 'El tiempo límite de 5 horas ha concluido para esta sesión.');
+                ->with('info', 'El tiempo límite oficial ha concluido para esta sesión.');
         }
 
         // Obtener preguntas fijas y aleatorizadas asignadas a esta sesión
@@ -163,7 +180,63 @@ class ExamController extends Controller
             ]
         );
 
+        // Si se envió el tiempo consumido acumulado, actualizarlo
+        if ($request->has('time_spent_seconds')) {
+            $spent = (int) $request->input('time_spent_seconds');
+            if ($spent > 0) {
+                $session->update([
+                    'time_spent_seconds' => min($session->time_limit_seconds, max($session->time_spent_seconds ?? 0, $spent)),
+                ]);
+            }
+        }
+
         return response()->json(['success' => true]);
+    }
+
+    /**
+     * Sincronización periódica o al salir del tiempo consumido (Heartbeat AJAX)
+     */
+    public function syncHeartbeat(Request $request, $sessionId)
+    {
+        $user = Auth::user();
+        $session = ExamSession::where('user_id', $user->id)->findOrFail($sessionId);
+
+        if ($session->completed_at) {
+            return response()->json(['completed' => true]);
+        }
+
+        $spent = (int) $request->input('time_spent_seconds', $session->time_spent_seconds ?? 0);
+        $newSpent = min($session->time_limit_seconds, max($session->time_spent_seconds ?? 0, $spent));
+
+        $session->update([
+            'time_spent_seconds' => $newSpent,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'time_spent_seconds' => $newSpent,
+            'remaining_seconds' => max(0, $session->time_limit_seconds - $newSpent),
+        ]);
+    }
+
+    /**
+     * Pausar el simulacro y volver al Inicio
+     */
+    public function pauseSimulacro(Request $request, $sessionId)
+    {
+        $user = Auth::user();
+        $session = ExamSession::where('user_id', $user->id)->findOrFail($sessionId);
+
+        if (!$session->completed_at) {
+            $spent = (int) $request->input('time_spent_seconds', $session->time_spent_seconds ?? 0);
+            $newSpent = min($session->time_limit_seconds, max($session->time_spent_seconds ?? 0, $spent));
+            $session->update([
+                'time_spent_seconds' => $newSpent,
+            ]);
+        }
+
+        return redirect()->route('dashboard')
+            ->with('success', 'Simulacro pausado exitosamente. Tu tiempo y tus respuestas quedaron guardados. Puedes reanudarlo cuando desees desde el Inicio.');
     }
 
     /**
@@ -179,7 +252,7 @@ class ExamController extends Controller
         }
 
         $answers = $request->input('answers', []);
-        $timeSpent = (int) $request->input('time_spent_seconds', $session->created_at->diffInSeconds(now()));
+        $timeSpent = (int) $request->input('time_spent_seconds', $session->time_spent_seconds ?? 0);
 
         $questionIds = $session->question_ids;
         if (!empty($questionIds) && is_array($questionIds)) {
@@ -518,5 +591,87 @@ class ExamController extends Controller
         }
 
         return view('exams.mistakes', compact('failedQuestions', 'user'));
+    }
+
+    /**
+     * Historial Completo de Simulacros y Diagnóstico Estadístico Personal
+     */
+    public function history(Request $request)
+    {
+        $user = Auth::user();
+
+        // 1. Listado paginado de todos los simulacros completados
+        $sessions = ExamSession::where('user_id', $user->id)
+            ->whereNotNull('completed_at')
+            ->with(['jobProfile', 'thematicAxis'])
+            ->orderBy('completed_at', 'desc')
+            ->paginate(12);
+
+        // 2. Métricas consolidadas del aspirante
+        $allCompleted = ExamSession::where('user_id', $user->id)
+            ->whereNotNull('completed_at')
+            ->get();
+
+        $totalCount = $allCompleted->count();
+        $passedCount = $allCompleted->where('is_passed', true)->count();
+        $passRate = $totalCount > 0 ? round(($passedCount / $totalCount) * 100, 1) : 0;
+        $avgScore = $totalCount > 0 ? floor(($allCompleted->avg('score')) * 100) / 100 : 0.00;
+        $bestScore = $totalCount > 0 ? $allCompleted->max('score') : 0.00;
+        $totalTimeSpent = (int) $allCompleted->sum('time_spent_seconds');
+
+        $officialCount = $allCompleted->where('mode', 'simulacro_oficial')->count();
+        $expressCount = $allCompleted->where('mode', 'simulacro_express')->count();
+
+        // 3. Diagnóstico acumulado de rendimiento por Eje Temático para identificar áreas de mejora
+        $axisPerformance = DB::table('session_answers')
+            ->join('exam_sessions', 'exam_sessions.id', '=', 'session_answers.exam_session_id')
+            ->join('questions', 'questions.id', '=', 'session_answers.question_id')
+            ->leftJoin('thematic_axes', 'thematic_axes.id', '=', 'questions.thematic_axis_id')
+            ->where('exam_sessions.user_id', $user->id)
+            ->whereNotNull('exam_sessions.completed_at')
+            ->select(
+                'thematic_axes.id as axis_id',
+                'thematic_axes.name as axis_name',
+                'thematic_axes.category as category',
+                DB::raw('COUNT(session_answers.id) as total_answers'),
+                DB::raw('SUM(CASE WHEN session_answers.is_correct THEN 1 ELSE 0 END) as correct_answers')
+            )
+            ->groupBy('thematic_axes.id', 'thematic_axes.name', 'thematic_axes.category')
+            ->get()
+            ->map(function ($row) {
+                $total = (int) $row->total_answers;
+                $correct = (int) $row->correct_answers;
+                $pct = $total > 0 ? round(($correct / $total) * 100, 1) : 0;
+                return (object) [
+                    'axis_id' => $row->axis_id,
+                    'name' => $row->axis_name ?? 'Eje Temático General',
+                    'category' => $row->category ?? 'FUNCIONAL',
+                    'total' => $total,
+                    'correct' => $correct,
+                    'incorrect' => $total - $correct,
+                    'percent' => $pct,
+                    'needs_improvement' => ($pct < 70.00),
+                    'priority' => ($pct < 50.00) ? 'CRÍTICA' : (($pct < 70.00) ? 'MEDIA' : 'DOMINADA'),
+                ];
+            })
+            ->sortBy('percent')
+            ->values();
+
+        $criticalAxes = $axisPerformance->where('needs_improvement', true);
+
+        return view('exams.history', compact(
+            'user',
+            'sessions',
+            'totalCount',
+            'passedCount',
+            'passRate',
+            'avgScore',
+            'bestScore',
+            'totalTimeSpent',
+            'officialCount',
+            'expressCount',
+            'axisPerformance',
+            'criticalAxes'
+        ));
     }
 }
