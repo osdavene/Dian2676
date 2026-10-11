@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\ProfileController;
@@ -29,17 +30,25 @@ Route::middleware('guest')->group(function () {
     Route::post('/auth/google/completar-perfil', [AuthController::class, 'storeGoogleCompleteProfile'])->name('auth.google.complete.post');
 });
 
-// ─── Rutas Protegidas (Usuarios Autenticados) ─────────────────────
+// ─── Rutas Autenticadas Básicas (No requieren verificación) ──────
 Route::middleware('auth')->group(function () {
+    // Cierre de Sesión
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/logout', [AuthController::class, 'logout']);
+
+    // Verificación de Correo Electrónico
+    Route::get('/email/verify', [EmailVerificationController::class, 'showNotice'])->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware('signed')->name('verification.verify');
+    Route::post('/email/verification-notification', [EmailVerificationController::class, 'resend'])->middleware('throttle:6,1')->name('verification.send');
+});
+
+// ─── Rutas Protegidas (Usuarios con Correo Verificado) ───────────
+Route::middleware(['auth', 'verified'])->group(function () {
     // Inicio / Dashboard
     Route::get('/', function () {
         return redirect()->route('dashboard');
     });
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    // Cierre de Sesión
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/logout', [AuthController::class, 'logout']); // Soporte para enlaces directos
 
     // Selector rápido de cargo activo
     Route::post('/cambiar-cargo/{id}', [AuthController::class, 'switchJob'])->name('cambiar.cargo');

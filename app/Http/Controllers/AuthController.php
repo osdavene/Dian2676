@@ -87,7 +87,10 @@ class AuthController extends Controller
             'role' => 'aspirante',
         ]);
 
-        // Intentar enviar correo de bienvenida con Brevo
+        // Enviar correo de verificación de cuenta
+        $user->sendEmailVerificationNotification();
+
+        // Enviar correo de bienvenida con detalles institucionales
         try {
             Mail::to($user->email)->send(new WelcomeMail($user));
         } catch (\Throwable $e) {
@@ -96,8 +99,8 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard')
-            ->with('success', '¡Registro exitoso! Ya tienes acceso a tu perfil de '.$jobProfile->name.'.');
+        return redirect()->route('verification.notice')
+            ->with('success', '¡Registro exitoso! Por favor revisa tu correo electrónico para verificar tu cuenta y comenzar.');
     }
 
     public function logout(Request $request)
@@ -164,6 +167,9 @@ class AuthController extends Controller
             if (empty($user->avatar) && $googleUser->getAvatar()) {
                 $updates['avatar'] = $googleUser->getAvatar();
             }
+            if (empty($user->email_verified_at)) {
+                $updates['email_verified_at'] = now();
+            }
             if (! empty($updates)) {
                 $user->update($updates);
             }
@@ -218,6 +224,7 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $googleUser['name'] ?? 'Aspirante DIAN',
             'email' => $googleUser['email'],
+            'email_verified_at' => now(), // ¡Google ya verifica el correo!
             'google_id' => $googleUser['id'],
             'avatar' => $googleUser['avatar'],
             'password' => Hash::make(Str::random(32)),

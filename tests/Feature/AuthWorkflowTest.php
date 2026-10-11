@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Mail\ResetPasswordMail;
+use App\Mail\VerifyEmailMail;
 use App\Mail\WelcomeMail;
 use App\Models\JobProfile;
 use App\Models\User;
@@ -10,6 +11,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
@@ -68,6 +70,7 @@ class AuthWorkflowTest extends TestCase
 
         $user = User::factory()->create([
             'email' => $email,
+            'email_verified_at' => now(),
         ]);
 
         $response = $this->post(route('password.email'), [
@@ -107,6 +110,7 @@ class AuthWorkflowTest extends TestCase
         $user = User::factory()->create([
             'email' => $email,
             'password' => Hash::make('ClaveVieja123'),
+            'email_verified_at' => now(),
         ]);
 
         $token = 'secure-random-token-12345';
@@ -144,6 +148,7 @@ class AuthWorkflowTest extends TestCase
         $user = User::factory()->create([
             'email' => $email,
             'password' => Hash::make('ClaveVieja123'),
+            'email_verified_at' => now(),
         ]);
 
         DB::table('password_reset_tokens')->updateOrInsert(
@@ -164,7 +169,7 @@ class AuthWorkflowTest extends TestCase
         $response->assertSessionHasErrors('email');
     }
 
-    public function test_register_creates_user_and_sends_welcome_mail(): void
+    public function test_register_creates_user_and_sends_verification_mail(): void
     {
         Mail::fake();
 
@@ -181,15 +186,64 @@ class AuthWorkflowTest extends TestCase
             'job_profile_id' => $job->id,
         ]);
 
-        $response->assertRedirect(route('dashboard'));
+        $response->assertRedirect(route('verification.notice'));
         $this->assertDatabaseHas('users', [
             'email' => $email,
             'target_cargo' => $job->name,
+            'email_verified_at' => null,
         ]);
+
+        Mail::assertSent(VerifyEmailMail::class, function ($mail) use ($email) {
+            return $mail->user->email === $email;
+        });
 
         Mail::assertSent(WelcomeMail::class, function ($mail) use ($email) {
             return $mail->user->email === $email;
         });
+    }
+
+    public function test_unverified_user_is_redirected_to_verification_notice(): void
+    {
+        $email = 'unverified.'.uniqid().'@dian.gov.co';
+        $this->createdEmails[] = $email;
+
+        $user = User::factory()->create([
+            'email' => $email,
+            'email_verified_at' => null,
+        ]);
+
+        $response = $this->actingAs($user)->get(route('dashboard'));
+
+        $response->assertRedirect(route('verification.notice'));
+    }
+
+    public function test_user_can_verify_email_with_signed_url(): void
+    {
+        $email = 'verify.test.'.uniqid().'@dian.gov.co';
+        $this->createdEmails[] = $email;
+
+        $user = User::factory()->create([
+            'email' => $email,
+            'email_verified_at' => null,
+        ]);
+
+        $verificationUrl = URL::temporarySignedRoute(
+            'verification.verify',
+            now()->addMinutes(60),
+            [
+                'id' => $user->id,
+                'hash' => sha1($user->getEmailForVerification()),
+            ]
+        );
+
+        $response = $this->actingAs($user)->get($verificationUrl);
+
+        $response->assertRedirect(route('dashboard'));
+        $response->assertSessionHas('success');
+
+        $user->refresh();
+        $this->assertNotNull($user->email_verified_at);
+        $this->assertTrue($user->hasVerifiedEmail());
     }
 
     public function test_google_redirect_handles_missing_credentials_gracefully(): void

@@ -2,12 +2,13 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
-use App\Models\JobProfile;
-use App\Models\ThematicAxis;
-use App\Models\Question;
 use App\Models\ExamSession;
+use App\Models\JobProfile;
+use App\Models\Question;
+use App\Models\ThematicAxis;
+use App\Models\User;
+use Illuminate\Http\UploadedFile;
+use Tests\TestCase;
 
 class DianExamTest extends TestCase
 {
@@ -49,7 +50,7 @@ class DianExamTest extends TestCase
 
     public function test_user_can_register_new_account(): void
     {
-        $email = 'nuevo_aspirante_' . time() . '@dian.test';
+        $email = 'nuevo_aspirante_'.time().'@dian.test';
         $job = JobProfile::first();
 
         $response = $this->post('/register', [
@@ -60,7 +61,7 @@ class DianExamTest extends TestCase
             'job_profile_id' => $job->id,
         ]);
 
-        $response->assertRedirect('/dashboard');
+        $response->assertRedirect('/email/verify');
         $this->assertDatabaseHas('users', [
             'email' => $email,
             'name' => 'Carlos Prueba',
@@ -114,7 +115,7 @@ class DianExamTest extends TestCase
         $session = ExamSession::where('user_id', $user->id)->whereNull('completed_at')->latest('id')->first();
         $this->assertNotNull($session);
 
-        $viewResponse = $this->actingAs($user)->get('/simulacro/' . $session->id);
+        $viewResponse = $this->actingAs($user)->get('/simulacro/'.$session->id);
         $viewResponse->assertStatus(200);
         $viewResponse->assertSee('Simulacro Oficial Concurso DIAN 2676');
         $viewResponse->assertSee('Hoja Óptica CNSC');
@@ -124,7 +125,7 @@ class DianExamTest extends TestCase
     {
         $user = User::where('role', 'aspirante')->first() ?? User::first();
         $session = ExamSession::where('user_id', $user->id)->whereNull('completed_at')->latest('id')->first();
-        if (!$session) {
+        if (! $session) {
             $this->actingAs($user)->post('/simulacro/iniciar');
             $session = ExamSession::where('user_id', $user->id)->whereNull('completed_at')->latest('id')->first();
         }
@@ -132,13 +133,13 @@ class DianExamTest extends TestCase
 
         // Enviar respuestas para calificación basadas en los reactivos asignados a la sesión
         $questionIds = is_array($session->question_ids) ? $session->question_ids : [];
-        $questions = !empty($questionIds) ? Question::whereIn('id', $questionIds)->get() : Question::where('job_profile_id', $session->job_profile_id)->take($session->total_questions)->get();
+        $questions = ! empty($questionIds) ? Question::whereIn('id', $questionIds)->get() : Question::where('job_profile_id', $session->job_profile_id)->take($session->total_questions)->get();
         $answers = [];
         foreach ($questions as $q) {
             $answers[$q->id] = $q->correct_option; // Todas correctas para probar 100 pts
         }
 
-        $submitResponse = $this->actingAs($user)->post('/simulacro/' . $session->id . '/finalizar', [
+        $submitResponse = $this->actingAs($user)->post('/simulacro/'.$session->id.'/finalizar', [
             'answers' => $answers,
             'time_spent_seconds' => 1200,
         ]);
@@ -151,7 +152,7 @@ class DianExamTest extends TestCase
         $this->assertTrue($session->is_passed);
 
         // Ver resultados
-        $resultView = $this->actingAs($user)->get('/simulacro/' . $session->id . '/resultado');
+        $resultView = $this->actingAs($user)->get('/simulacro/'.$session->id.'/resultado');
         $resultView->assertStatus(200);
         $resultView->assertSee('Calificación Oficial CNSC');
         $resultView->assertSee('Aspirante Aprobado');
@@ -170,7 +171,7 @@ class DianExamTest extends TestCase
         // Simular que el usuario responde la primera pregunta de su sesión vía autoguardado AJAX
         $firstQId = is_array($session->question_ids) ? $session->question_ids[0] : Question::where('job_profile_id', $session->job_profile_id)->first()->id;
         $firstQ = Question::find($firstQId);
-        $saveResponse = $this->actingAs($user)->postJson('/simulacro/' . $session->id . '/guardar-respuesta', [
+        $saveResponse = $this->actingAs($user)->postJson('/simulacro/'.$session->id.'/guardar-respuesta', [
             'question_id' => $firstQ->id,
             'selected_option' => $firstQ->correct_option,
         ]);
@@ -178,7 +179,7 @@ class DianExamTest extends TestCase
         $saveResponse->assertJson(['success' => true]);
 
         // Recargar la vista del simulacro: debe mantener el tiempo continuo y la opción marcada
-        $reloadView = $this->actingAs($user)->get('/simulacro/' . $session->id);
+        $reloadView = $this->actingAs($user)->get('/simulacro/'.$session->id);
         $reloadView->assertStatus(200);
         $reloadView->assertSee('checked');
 
@@ -224,7 +225,7 @@ class DianExamTest extends TestCase
         // 5. Ver Examen de Cualquier Aspirante (Auditoría Admin)
         $completedSession = ExamSession::whereNotNull('completed_at')->first();
         if ($completedSession) {
-            $examViewResponse = $this->actingAs($admin)->get('/simulacro/' . $completedSession->id . '/resultado');
+            $examViewResponse = $this->actingAs($admin)->get('/simulacro/'.$completedSession->id.'/resultado');
             $examViewResponse->assertStatus(200);
             $examViewResponse->assertSee('Calificación Oficial CNSC');
         }
@@ -236,7 +237,7 @@ class DianExamTest extends TestCase
         $this->assertNotNull($admin);
 
         // 1. Crear nuevo aspirante
-        $uniqueEmail = 'nuevo.aspirante.' . time() . '@dian.gov.co';
+        $uniqueEmail = 'nuevo.aspirante.'.time().'@dian.gov.co';
         $createResponse = $this->actingAs($admin)->post('/admin/usuarios', [
             'name' => 'Carlos Aspirante Test',
             'email' => $uniqueEmail,
@@ -254,7 +255,7 @@ class DianExamTest extends TestCase
         $this->assertEquals('aspirante', $createdUser->role);
 
         // 2. Modificar datos y contraseña del aspirante
-        $updateResponse = $this->actingAs($admin)->put('/admin/usuarios/' . $createdUser->id, [
+        $updateResponse = $this->actingAs($admin)->put('/admin/usuarios/'.$createdUser->id, [
             'name' => 'Carlos Aspirante Modificado',
             'email' => $uniqueEmail,
             'password' => 'nuevaclave123',
@@ -270,7 +271,7 @@ class DianExamTest extends TestCase
         $this->assertEquals(2, $createdUser->job_profile_id);
 
         // 3. Eliminar usuario creado en test
-        $deleteResponse = $this->actingAs($admin)->delete('/admin/usuarios/' . $createdUser->id);
+        $deleteResponse = $this->actingAs($admin)->delete('/admin/usuarios/'.$createdUser->id);
         $deleteResponse->assertRedirect(route('admin.users'));
         $this->assertNull(User::find($createdUser->id));
     }
@@ -297,7 +298,7 @@ class DianExamTest extends TestCase
         $this->assertNotEmpty($session2->question_ids);
 
         // El orden de las preguntas debe persistir exactamente en la vista del simulacro
-        $viewResponse = $this->actingAs($user)->get('/simulacro/' . $session2->id);
+        $viewResponse = $this->actingAs($user)->get('/simulacro/'.$session2->id);
         $viewResponse->assertStatus(200);
         $viewResponse->assertSee('Hoja Óptica CNSC');
     }
@@ -335,7 +336,7 @@ class DianExamTest extends TestCase
 
         // 2. Verificar que están marcadas como transversales / compartidas
         foreach ($acuerdoQuestions as $q) {
-            $this->assertTrue((bool)$q->is_shared);
+            $this->assertTrue((bool) $q->is_shared);
             $this->assertEquals('transversal', $q->scope_level);
         }
 
@@ -402,7 +403,7 @@ class DianExamTest extends TestCase
         $this->assertNotNull($analista2);
         $this->assertNotNull($gestor1);
 
-        $email = 'aspirante_bloqueado_' . uniqid() . '@dian.gov.co';
+        $email = 'aspirante_bloqueado_'.uniqid().'@dian.gov.co';
         $aspirante = User::factory()->create([
             'name' => 'Aspirante Bloqueado',
             'email' => $email,
@@ -439,7 +440,7 @@ class DianExamTest extends TestCase
         $analista2 = JobProfile::where('name', 'Analista II')->first();
         $gestor3 = JobProfile::where('name', 'Gestor III')->first();
 
-        $email = 'aspirante_admin_' . uniqid() . '@dian.gov.co';
+        $email = 'aspirante_admin_'.uniqid().'@dian.gov.co';
         $aspirante = User::factory()->create([
             'name' => 'Aspirante Para Admin',
             'email' => $email,
@@ -481,7 +482,7 @@ class DianExamTest extends TestCase
         $this->assertEquals(288, $pool->count());
 
         // 3. Crear aspirante asignado a Analista II y lanzar simulacro de 100 preguntas
-        $email = 'analista2_' . uniqid() . '@dian.gov.co';
+        $email = 'analista2_'.uniqid().'@dian.gov.co';
         $userAnalista2 = User::factory()->create([
             'email' => $email,
             'job_profile_id' => $analista2->id,
@@ -519,7 +520,7 @@ class DianExamTest extends TestCase
         $newSample = Question::where('id', '>=', 383)->where('scope_level', 'transversal')->get();
         $this->assertGreaterThanOrEqual(108, $newSample->count());
         foreach ($newSample as $q) {
-            $this->assertTrue((bool)$q->is_shared);
+            $this->assertTrue((bool) $q->is_shared);
             $this->assertEquals('transversal', $q->scope_level);
         }
 
@@ -557,7 +558,7 @@ class DianExamTest extends TestCase
 
         $aspirante = User::factory()->create([
             'name' => 'Aspirante Fijo',
-            'email' => 'fijo_' . uniqid() . '@dian.test',
+            'email' => 'fijo_'.uniqid().'@dian.test',
             'role' => 'aspirante',
             'job_profile_id' => $analista2->id,
             'target_cargo' => 'Analista II',
@@ -571,7 +572,7 @@ class DianExamTest extends TestCase
         $response->assertDontSee('id="cargo-modal"', false);
 
         // 2. Intentar llamar por POST a la ruta de cambiar cargo debe ser rechazado
-        $postResponse = $this->actingAs($aspirante)->post('/cambiar-cargo/' . $gestor1->id);
+        $postResponse = $this->actingAs($aspirante)->post('/cambiar-cargo/'.$gestor1->id);
         $postResponse->assertSessionHas('error');
 
         // 3. El cargo en base de datos debe permanecer intacto
@@ -581,7 +582,7 @@ class DianExamTest extends TestCase
 
         // 4. Un Administrador sí puede alternar cargo
         $admin = User::where('email', 'admin@dian.gov.co')->first();
-        $adminResponse = $this->actingAs($admin)->post('/cambiar-cargo/' . $analista2->id);
+        $adminResponse = $this->actingAs($admin)->post('/cambiar-cargo/'.$analista2->id);
         $adminResponse->assertSessionHas('success');
         $admin->refresh();
         $this->assertEquals($analista2->id, $admin->job_profile_id);
@@ -601,7 +602,7 @@ class DianExamTest extends TestCase
         $latestBackup = basename(end($files));
 
         // 2. Restaurar ese backup desde el servidor
-        $restoreServerResponse = $this->actingAs($admin)->post('/admin/backup/restaurar/' . $latestBackup, [
+        $restoreServerResponse = $this->actingAs($admin)->post('/admin/backup/restaurar/'.$latestBackup, [
             'overwrite' => 1,
         ]);
         $restoreServerResponse->assertSessionHas('success');
@@ -615,12 +616,12 @@ class DianExamTest extends TestCase
                     'category' => 'funcional_especifica',
                     'description' => 'Eje temporal para test de importación',
                     'weight_pct' => 10.00,
-                ]
+                ],
             ],
             'questions' => [
                 [
                     'thematic_axis_name' => 'Eje de Prueba Backup',
-                    'stem' => '¿Pregunta de prueba para test de importación de backup ' . uniqid() . '?',
+                    'stem' => '¿Pregunta de prueba para test de importación de backup '.uniqid().'?',
                     'case_text' => 'Caso de prueba para importación.',
                     'options' => [
                         ['key' => 'A', 'text' => 'Opción de prueba A', 'is_correct' => true, 'justification' => 'Correcta por ley.'],
@@ -634,11 +635,11 @@ class DianExamTest extends TestCase
                     'difficulty' => 'medio',
                     'is_shared' => true,
                     'scope_level' => 'transversal',
-                ]
-            ]
+                ],
+            ],
         ];
 
-        $uploadedFile = \Illuminate\Http\UploadedFile::fake()->createWithContent('backup_test.json', json_encode($testPayload));
+        $uploadedFile = UploadedFile::fake()->createWithContent('backup_test.json', json_encode($testPayload));
 
         $uploadResponse = $this->actingAs($admin)->post('/admin/backup/importar', [
             'backup_file' => $uploadedFile,
@@ -676,7 +677,7 @@ class DianExamTest extends TestCase
         $this->assertLessThanOrEqual(50, $session->total_questions);
 
         // Ver el simulacro express
-        $viewResponse = $this->actingAs($user)->get('/simulacro/' . $session->id);
+        $viewResponse = $this->actingAs($user)->get('/simulacro/'.$session->id);
         $viewResponse->assertStatus(200);
         $viewResponse->assertSee('Simulacro Rápido Express');
     }
@@ -699,7 +700,7 @@ class DianExamTest extends TestCase
         $this->assertNotNull($session);
 
         // 2. Simular que el usuario gasta 1800 segundos (30 min) y pausa el examen
-        $pauseResponse = $this->actingAs($user)->post('/simulacro/' . $session->id . '/pausar', [
+        $pauseResponse = $this->actingAs($user)->post('/simulacro/'.$session->id.'/pausar', [
             'time_spent_seconds' => 1800,
         ]);
 
@@ -711,7 +712,7 @@ class DianExamTest extends TestCase
         $this->assertNull($session->completed_at);
 
         // 3. Volver a ingresar al simulador: el tiempo restante debe reflejar exactamente la pausa
-        $viewResponse = $this->actingAs($user)->get('/simulacro/' . $session->id);
+        $viewResponse = $this->actingAs($user)->get('/simulacro/'.$session->id);
         $viewResponse->assertStatus(200);
         // Debe quedar 18000 - 1800 = 16200 segundos (04:30:00)
         $expectedRemainingFormatted = gmdate('H:i:s', $session->time_limit_seconds - 1800);
@@ -727,14 +728,14 @@ class DianExamTest extends TestCase
             ->latest('id')
             ->first();
 
-        if (!$session) {
+        if (! $session) {
             $this->actingAs($user)->post('/simulacro/iniciar');
             $session = ExamSession::where('user_id', $user->id)->whereNull('completed_at')->latest('id')->first();
         }
 
         $newTime = ($session->time_spent_seconds ?? 0) + 120;
 
-        $hbResponse = $this->actingAs($user)->postJson('/simulacro/' . $session->id . '/heartbeat', [
+        $hbResponse = $this->actingAs($user)->postJson('/simulacro/'.$session->id.'/heartbeat', [
             'time_spent_seconds' => $newTime,
         ]);
 
@@ -756,5 +757,3 @@ class DianExamTest extends TestCase
         $response->assertSee('Total Simulacros');
     }
 }
-
-
