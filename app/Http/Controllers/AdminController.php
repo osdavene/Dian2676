@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\JobProfile;
-use App\Models\ThematicAxis;
-use App\Models\Question;
 use App\Models\ExamSession;
+use App\Models\JobProfile;
+use App\Models\Question;
 use App\Models\SessionAnswer;
+use App\Models\ThematicAxis;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,12 +29,17 @@ class AdminController extends Controller
         $globalPassRate = $totalExamsCompleted > 0 ? round(($passedExamsCount / $totalExamsCompleted) * 100, 1) : 0;
         $globalAvgScore = $totalExamsCompleted > 0 ? round($allCompletedSessions->avg('score'), 2) : 0.00;
 
-        // Simulacros actualmente en curso (activos en vivo)
+        // Simulacros actualmente en curso (activos en vivo o pausados con tiempo disponible)
         $liveSessions = ExamSession::whereNull('completed_at')
-            ->where('mode', 'simulacro_oficial')
-            ->where('created_at', '>=', now()->subHours(5))
+            ->whereIn('mode', ['simulacro_oficial', 'simulacro_express'])
+            ->where(function ($query) {
+                $query->where('updated_at', '>=', now()->subHours(24))
+                    ->orWhere('created_at', '>=', now()->subHours(24));
+            })
+            ->whereColumn('time_spent_seconds', '<', 'time_limit_seconds')
             ->with(['user', 'jobProfile'])
-            ->orderBy('id', 'desc')
+            ->withCount('sessionAnswers')
+            ->orderBy('updated_at', 'desc')
             ->get();
 
         // 2. Desglose comparativo por Cargo
@@ -93,13 +98,13 @@ class AdminController extends Controller
                 },
                 'examSessions as passed_exams_count' => function ($q) {
                     $q->whereNotNull('completed_at')->where('is_passed', true);
-                }
+                },
             ]);
 
         if ($search) {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'ILIKE', "%{$search}%")
-                  ->orWhere('email', 'ILIKE', "%{$search}%");
+                    ->orWhere('email', 'ILIKE', "%{$search}%");
             });
         }
 
@@ -184,7 +189,7 @@ class AdminController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $aspirante->id],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$aspirante->id],
             'role' => ['required', 'in:aspirante,admin,superadmin'],
             'job_profile_id' => ['required', 'exists:job_profiles,id'],
             'password' => ['nullable', 'string', 'min:6'],
@@ -200,7 +205,7 @@ class AdminController extends Controller
             'target_cargo' => $job->name,
         ];
 
-        if (!empty($validated['password'])) {
+        if (! empty($validated['password'])) {
             $updateData['password'] = $validated['password'];
         }
 
@@ -344,19 +349,19 @@ class AdminController extends Controller
 
         // Leer archivos de backup existentes en storage/app/backups
         $backupDir = storage_path('app/backups');
-        if (!file_exists($backupDir)) {
+        if (! file_exists($backupDir)) {
             mkdir($backupDir, 0755, true);
         }
 
-        $files = glob($backupDir . '/*.json');
+        $files = glob($backupDir.'/*.json');
         $backups = [];
         if ($files) {
             foreach ($files as $filePath) {
                 $filename = basename($filePath);
                 $sizeBytes = filesize($filePath);
-                $sizeFormatted = $sizeBytes > 1048576 
-                    ? number_format($sizeBytes / 1048576, 2) . ' MB' 
-                    : number_format($sizeBytes / 1024, 1) . ' KB';
+                $sizeFormatted = $sizeBytes > 1048576
+                    ? number_format($sizeBytes / 1048576, 2).' MB'
+                    : number_format($sizeBytes / 1024, 1).' KB';
 
                 $backups[] = [
                     'filename' => $filename,
@@ -394,12 +399,12 @@ class AdminController extends Controller
     {
         $data = $this->buildFullBackupPayload();
         $backupDir = storage_path('app/backups');
-        if (!file_exists($backupDir)) {
+        if (! file_exists($backupDir)) {
             mkdir($backupDir, 0755, true);
         }
 
-        $filename = 'dian2676_backup_total_' . date('Y-m-d_His') . '.json';
-        $fullPath = $backupDir . '/' . $filename;
+        $filename = 'dian2676_backup_total_'.date('Y-m-d_His').'.json';
+        $fullPath = $backupDir.'/'.$filename;
 
         file_put_contents($fullPath, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
@@ -412,7 +417,7 @@ class AdminController extends Controller
     public function downloadDirectBackup()
     {
         $data = $this->buildFullBackupPayload();
-        $filename = 'dian2676_backup_total_' . date('Y-m-d_His') . '.json';
+        $filename = 'dian2676_backup_total_'.date('Y-m-d_His').'.json';
 
         return response()->streamDownload(function () use ($data) {
             echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -427,9 +432,9 @@ class AdminController extends Controller
     public function downloadBackupFile($filename)
     {
         $cleanFilename = basename($filename);
-        $fullPath = storage_path('app/backups/' . $cleanFilename);
+        $fullPath = storage_path('app/backups/'.$cleanFilename);
 
-        if (!file_exists($fullPath)) {
+        if (! file_exists($fullPath)) {
             return back()->with('error', 'El archivo de backup solicitado no existe.');
         }
 
@@ -448,14 +453,14 @@ class AdminController extends Controller
         ], [
             'backup_file.required' => 'Debe seleccionar un archivo de copia de seguridad (.json).',
             'backup_file.file' => 'El archivo proporcionado no es válido.',
-            'backup_file.max' => 'El archivo supera el tamaño máximo permitido (50 MB).'
+            'backup_file.max' => 'El archivo supera el tamaño máximo permitido (50 MB).',
         ]);
 
         $file = $request->file('backup_file');
         $content = file_get_contents($file->getRealPath());
         $data = json_decode($content, true);
 
-        if (!$data || !is_array($data)) {
+        if (! $data || ! is_array($data)) {
             return back()->with('error', 'El archivo no contiene un formato JSON válido o está dañado.');
         }
 
@@ -471,16 +476,16 @@ class AdminController extends Controller
     public function restoreServerBackup($filename, Request $request)
     {
         $cleanFilename = basename($filename);
-        $fullPath = storage_path('app/backups/' . $cleanFilename);
+        $fullPath = storage_path('app/backups/'.$cleanFilename);
 
-        if (!file_exists($fullPath)) {
+        if (! file_exists($fullPath)) {
             return back()->with('error', 'El archivo de backup seleccionado no existe en el servidor.');
         }
 
         $content = file_get_contents($fullPath);
         $data = json_decode($content, true);
 
-        if (!$data || !is_array($data)) {
+        if (! $data || ! is_array($data)) {
             return back()->with('error', 'El archivo de backup está dañado o no es un JSON válido.');
         }
 
@@ -499,7 +504,7 @@ class AdminController extends Controller
             $data = ['questions' => $data];
         }
 
-        if (!empty($data['job_profiles'])) {
+        if (! empty($data['job_profiles'])) {
             foreach ($data['job_profiles'] as $jp) {
                 JobProfile::firstOrCreate(
                     ['name' => $jp['name']],
@@ -520,7 +525,7 @@ class AdminController extends Controller
         $axisMapById = [];
         $axesProcessed = 0;
 
-        if (!empty($data['thematic_axes'])) {
+        if (! empty($data['thematic_axes'])) {
             foreach ($data['thematic_axes'] as $ax) {
                 $axis = ThematicAxis::firstOrCreate(
                     ['name' => $ax['name']],
@@ -546,25 +551,27 @@ class AdminController extends Controller
 
         foreach ($questionsList as $q) {
             $stem = trim($q['stem'] ?? '');
-            if (!$stem) continue;
+            if (! $stem) {
+                continue;
+            }
 
             $axisId = null;
-            if (!empty($q['thematic_axis_name']) && isset($axisMapByName[$q['thematic_axis_name']])) {
+            if (! empty($q['thematic_axis_name']) && isset($axisMapByName[$q['thematic_axis_name']])) {
                 $axisId = $axisMapByName[$q['thematic_axis_name']];
-            } elseif (!empty($q['thematic_axis_id']) && isset($axisMapById[$q['thematic_axis_id']])) {
+            } elseif (! empty($q['thematic_axis_id']) && isset($axisMapById[$q['thematic_axis_id']])) {
                 $axisId = $axisMapById[$q['thematic_axis_id']];
-            } elseif (!empty($q['thematic_axis_id'])) {
+            } elseif (! empty($q['thematic_axis_id'])) {
                 $axisId = $q['thematic_axis_id'];
             }
 
             $options = $q['options'] ?? null;
-            if (!$options && isset($q['option_a'])) {
+            if (! $options && isset($q['option_a'])) {
                 $options = [
                     ['key' => 'A', 'text' => $q['option_a'], 'is_correct' => ($q['correct_option'] ?? '') === 'A'],
                     ['key' => 'B', 'text' => $q['option_b'], 'is_correct' => ($q['correct_option'] ?? '') === 'B'],
                     ['key' => 'C', 'text' => $q['option_c'], 'is_correct' => ($q['correct_option'] ?? '') === 'C'],
                 ];
-                if (!empty($q['option_d'])) {
+                if (! empty($q['option_d'])) {
                     $options[] = ['key' => 'D', 'text' => $q['option_d'], 'is_correct' => ($q['correct_option'] ?? '') === 'D'];
                 }
             }
@@ -627,9 +634,9 @@ class AdminController extends Controller
             $axesDir = database_path('seeders/data');
             if (is_dir($axesDir)) {
                 $allAxes = ThematicAxis::all()->toArray();
-                file_put_contents($axesDir . '/thematic_axes.json', json_encode($allAxes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                file_put_contents($axesDir.'/thematic_axes.json', json_encode($allAxes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
                 $allQuestions = Question::all()->toArray();
-                file_put_contents($axesDir . '/questions.json', json_encode($allQuestions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                file_put_contents($axesDir.'/questions.json', json_encode($allQuestions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
             }
         } catch (\Throwable $e) {
             // Ignorar errores menores de escritura en data

@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\ExamSession;
 use App\Models\JobProfile;
 use App\Models\Question;
+use App\Models\SessionAnswer;
 use App\Models\ThematicAxis;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
@@ -755,5 +756,84 @@ class DianExamTest extends TestCase
         $response->assertSee('Historial de Simulacros y Diagnóstico Personal');
         $response->assertSee('Trazabilidad Histórica');
         $response->assertSee('Total Simulacros');
+    }
+
+    public function test_admin_dashboard_shows_both_oficial_and_express_live_sessions(): void
+    {
+        $admin = User::where('email', 'admin@dian.gov.co')->first();
+        $aspirante = User::where('role', 'aspirante')->first();
+
+        // Crear una sesión oficial y una sesión express activas
+        $officialSession = ExamSession::create([
+            'user_id' => $aspirante->id,
+            'job_profile_id' => $aspirante->job_profile_id ?? 1,
+            'mode' => 'simulacro_oficial',
+            'question_ids' => [1, 2, 3],
+            'total_questions' => 3,
+            'time_limit_seconds' => 18000,
+            'time_spent_seconds' => 100,
+            'completed_at' => null,
+        ]);
+
+        $expressSession = ExamSession::create([
+            'user_id' => $aspirante->id,
+            'job_profile_id' => $aspirante->job_profile_id ?? 1,
+            'mode' => 'simulacro_express',
+            'question_ids' => [1, 2],
+            'total_questions' => 2,
+            'time_limit_seconds' => 9000,
+            'time_spent_seconds' => 50,
+            'completed_at' => null,
+        ]);
+
+        $response = $this->actingAs($admin)->get('/admin');
+        $response->assertStatus(200);
+        $response->assertSee('Simulacros Activos en Vivo (En Curso)');
+        $response->assertSee('⚡ Express (50P)');
+        $response->assertSee('🏆 Oficial (100P)');
+
+        $officialSession->delete();
+        $expressSession->delete();
+    }
+
+    public function test_simulator_positions_directly_on_first_unanswered_question(): void
+    {
+        $aspirante = User::where('role', 'aspirante')->first();
+
+        // Iniciar un simulacro
+        $this->actingAs($aspirante)->post('/simulacro/iniciar', [
+            'question_count' => 50,
+            'force_new' => 1,
+        ]);
+
+        $session = ExamSession::where('user_id', $aspirante->id)
+            ->whereNull('completed_at')
+            ->latest('id')
+            ->first();
+
+        $questionIds = $session->question_ids;
+        $this->assertNotEmpty($questionIds);
+
+        // Responder las primeras 2 preguntas
+        SessionAnswer::create([
+            'exam_session_id' => $session->id,
+            'question_id' => $questionIds[0],
+            'selected_option' => 'A',
+            'is_correct' => true,
+        ]);
+
+        SessionAnswer::create([
+            'exam_session_id' => $session->id,
+            'question_id' => $questionIds[1],
+            'selected_option' => 'B',
+            'is_correct' => true,
+        ]);
+
+        // Cargar vista del simulador: debe posicionar directamente en la pregunta 3
+        $response = $this->actingAs($aspirante)->get('/simulacro/'.$session->id);
+        $response->assertStatus(200);
+        $response->assertViewHas('initialQuestionNumber', 3);
+        $response->assertSee('P <span id="mobile-current-q" class="text-blue-400">3</span>', false);
+        $response->assertSee('let currentQuestion = 3;', false);
     }
 }

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JobProfile;
-use App\Models\ThematicAxis;
-use App\Models\Question;
 use App\Models\ExamSession;
+use App\Models\Question;
 use App\Models\SessionAnswer;
+use App\Models\ThematicAxis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -42,7 +41,7 @@ class ExamController extends Controller
             // Si el tiempo consumido ya agotó el límite, auto-finalizar
             if ($spent >= $timeLimit) {
                 $this->autoFinalizeExpiredSession($activeSession);
-            } elseif (!$forceNew) {
+            } elseif (! $forceNew) {
                 // Reanudar el simulacro pausado existente
                 return redirect()->route('simulacro.view', $activeSession->id)
                     ->with('info', 'Retomando tu simulacro en curso. Tu tiempo transcurrido (pausado) y respuestas se mantienen guardados.');
@@ -90,7 +89,7 @@ class ExamController extends Controller
     {
         $user = Auth::user();
         $query = ExamSession::with(['jobProfile']);
-        if (!$user->isAdmin()) {
+        if (! $user->isAdmin()) {
             $query->where('user_id', $user->id);
         }
         $session = $query->findOrFail($sessionId);
@@ -108,13 +107,14 @@ class ExamController extends Controller
         // Si el tiempo límite ya expiró en el servidor
         if ($remainingSeconds <= 0) {
             $this->autoFinalizeExpiredSession($session);
+
             return redirect()->route('simulacro.resultado', $session->id)
                 ->with('info', 'El tiempo límite oficial ha concluido para esta sesión.');
         }
 
         // Obtener preguntas fijas y aleatorizadas asignadas a esta sesión
         $questionIds = $session->question_ids;
-        if (!empty($questionIds) && is_array($questionIds)) {
+        if (! empty($questionIds) && is_array($questionIds)) {
             $questions = Question::whereIn('id', $questionIds)
                 ->where('is_active', true)
                 ->with('thematicAxis')
@@ -136,13 +136,23 @@ class ExamController extends Controller
             ->pluck('selected_option', 'question_id')
             ->toArray();
 
+        // Encontrar la primera pregunta no respondida para ubicar al aspirante directamente
+        $initialQuestionNumber = 1;
+        foreach ($questions as $index => $q) {
+            if (! isset($savedAnswers[$q->id]) || $savedAnswers[$q->id] === '' || $savedAnswers[$q->id] === null) {
+                $initialQuestionNumber = $index + 1;
+                break;
+            }
+        }
+
         return view('exams.simulator', compact(
             'session',
             'questions',
             'user',
             'remainingSeconds',
             'elapsedSeconds',
-            'savedAnswers'
+            'savedAnswers',
+            'initialQuestionNumber'
         ));
     }
 
@@ -162,7 +172,7 @@ class ExamController extends Controller
         $selected = $request->input('selected_option');
 
         $q = Question::where('id', $qId)->where('is_active', true)->first();
-        if (!$q) {
+        if (! $q) {
             return response()->json(['error' => 'Pregunta no encontrada.'], 404);
         }
 
@@ -227,7 +237,7 @@ class ExamController extends Controller
         $user = Auth::user();
         $session = ExamSession::where('user_id', $user->id)->findOrFail($sessionId);
 
-        if (!$session->completed_at) {
+        if (! $session->completed_at) {
             $spent = (int) $request->input('time_spent_seconds', $session->time_spent_seconds ?? 0);
             $newSpent = min($session->time_limit_seconds, max($session->time_spent_seconds ?? 0, $spent));
             $session->update([
@@ -255,7 +265,7 @@ class ExamController extends Controller
         $timeSpent = (int) $request->input('time_spent_seconds', $session->time_spent_seconds ?? 0);
 
         $questionIds = $session->question_ids;
-        if (!empty($questionIds) && is_array($questionIds)) {
+        if (! empty($questionIds) && is_array($questionIds)) {
             $questions = Question::whereIn('id', $questionIds)->where('is_active', true)->get();
         } else {
             $questions = Question::forCargo($session->job_profile_id)
@@ -331,7 +341,8 @@ class ExamController extends Controller
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->with('error', 'Error al calificar el examen: ' . $e->getMessage());
+
+            return back()->with('error', 'Error al calificar el examen: '.$e->getMessage());
         }
     }
 
@@ -341,7 +352,7 @@ class ExamController extends Controller
     private function autoFinalizeExpiredSession(ExamSession $session): void
     {
         $questionIds = $session->question_ids;
-        if (!empty($questionIds) && is_array($questionIds)) {
+        if (! empty($questionIds) && is_array($questionIds)) {
             $questions = Question::whereIn('id', $questionIds)->where('is_active', true)->get();
         } else {
             $questions = Question::forCargo($session->job_profile_id)
@@ -360,7 +371,7 @@ class ExamController extends Controller
 
         foreach ($questions as $q) {
             $ans = $savedAnswers->get($q->id);
-            if ($ans && !empty($ans->selected_option)) {
+            if ($ans && ! empty($ans->selected_option)) {
                 if ($ans->is_correct) {
                     $correctCount++;
                 } else {
@@ -404,7 +415,7 @@ class ExamController extends Controller
     {
         $user = Auth::user();
         $query = ExamSession::with(['jobProfile', 'thematicAxis', 'user']);
-        if (!$user->isAdmin()) {
+        if (! $user->isAdmin()) {
             $query->where('user_id', $user->id);
         }
         $session = $query->findOrFail($sessionId);
@@ -425,13 +436,15 @@ class ExamController extends Controller
 
         foreach ($answers as $a) {
             $q = $a->question;
-            if (!$q) continue;
+            if (! $q) {
+                continue;
+            }
 
             $axis = $q->thematicAxis;
             $axisId = $axis->id ?? 0;
             $axisName = $axis->name ?? 'General / Transversal';
 
-            if (!isset($axisStats[$axisName])) {
+            if (! isset($axisStats[$axisName])) {
                 $axisStats[$axisName] = [
                     'id' => $axisId,
                     'name' => $axisName,
@@ -447,7 +460,7 @@ class ExamController extends Controller
                 $axisStats[$axisName]['correct']++;
             } else {
                 $axisStats[$axisName]['incorrect']++;
-                if (!empty($q->legal_basis) && !in_array($q->legal_basis, $axisStats[$axisName]['legal_references'])) {
+                if (! empty($q->legal_basis) && ! in_array($q->legal_basis, $axisStats[$axisName]['legal_references'])) {
                     $axisStats[$axisName]['legal_references'][] = $q->legal_basis;
                 }
             }
@@ -476,7 +489,7 @@ class ExamController extends Controller
         // Generar diagnóstico de áreas a mejorar (Plan de Mejora Focalizado)
         foreach ($axisStats as $axisName => &$st) {
             $st['percent'] = $st['total'] > 0 ? round(($st['correct'] / $st['total']) * 100, 1) : 0;
-            
+
             // Si la efectividad es menor al umbral eliminatorio CNSC (70.00 pts)
             if ($st['percent'] < 70.00 && $st['total'] > 0) {
                 $priority = $st['percent'] < 50.00 ? 'CRÍTICA' : 'MEDIA';
@@ -520,15 +533,15 @@ class ExamController extends Controller
             $axis->questions_count = Question::where('is_active', true)
                 ->where(function ($q) use ($axis) {
                     $q->where('thematic_axis_id', $axis->id)
-                      ->orWhere(function ($sub) use ($axis) {
-                          $sub->where(function ($s) {
-                              $s->where('is_shared', true)
-                                ->orWhere('scope_level', 'profesional')
-                                ->orWhere('scope_level', 'transversal');
-                          })->whereHas('thematicAxis', function ($tax) use ($axis) {
-                              $tax->where('name', $axis->name);
-                          });
-                      });
+                        ->orWhere(function ($sub) use ($axis) {
+                            $sub->where(function ($s) {
+                                $s->where('is_shared', true)
+                                    ->orWhere('scope_level', 'profesional')
+                                    ->orWhere('scope_level', 'transversal');
+                            })->whereHas('thematicAxis', function ($tax) use ($axis) {
+                                $tax->where('name', $axis->name);
+                            });
+                        });
                 })->count();
         }
 
@@ -546,15 +559,15 @@ class ExamController extends Controller
         $questions = Question::where('is_active', true)
             ->where(function ($q) use ($axis) {
                 $q->where('thematic_axis_id', $axis->id)
-                  ->orWhere(function ($sub) use ($axis) {
-                      $sub->where(function ($s) {
-                          $s->where('is_shared', true)
-                            ->orWhere('scope_level', 'profesional')
-                            ->orWhere('scope_level', 'transversal');
-                      })->whereHas('thematicAxis', function ($tax) use ($axis) {
-                          $tax->where('name', $axis->name);
-                      });
-                  });
+                    ->orWhere(function ($sub) use ($axis) {
+                        $sub->where(function ($s) {
+                            $s->where('is_shared', true)
+                                ->orWhere('scope_level', 'profesional')
+                                ->orWhere('scope_level', 'transversal');
+                        })->whereHas('thematicAxis', function ($tax) use ($axis) {
+                            $tax->where('name', $axis->name);
+                        });
+                    });
             })
             ->orderBy('id')
             ->get();
@@ -642,6 +655,7 @@ class ExamController extends Controller
                 $total = (int) $row->total_answers;
                 $correct = (int) $row->correct_answers;
                 $pct = $total > 0 ? round(($correct / $total) * 100, 1) : 0;
+
                 return (object) [
                     'axis_id' => $row->axis_id,
                     'name' => $row->axis_name ?? 'Eje Temático General',

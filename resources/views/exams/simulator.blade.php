@@ -13,7 +13,7 @@
             <div class="flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span class="text-xs font-black text-white font-mono">
-                    P <span id="mobile-current-q" class="text-blue-400">1</span>/{{ $questions->count() }}
+                    P <span id="mobile-current-q" class="text-blue-400">{{ $initialQuestionNumber }}</span>/{{ $questions->count() }}
                 </span>
             </div>
 
@@ -144,7 +144,7 @@
                         $savedOpt = $savedAnswers[$q->id] ?? null;
                     @endphp
                     <div id="question-card-{{ $index + 1 }}" 
-                         class="question-card {{ $index === 0 ? '' : 'hidden' }} bg-slate-900 border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl transition-all">
+                         class="question-card {{ ($index + 1) === $initialQuestionNumber ? '' : 'hidden' }} bg-slate-900 border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl transition-all">
                         
                         {{-- Encabezado de la Pregunta --}}
                         <div class="flex flex-wrap items-center justify-between gap-2.5 pb-3.5 mb-4 sm:mb-6 border-b border-slate-800">
@@ -303,7 +303,7 @@
                                     id="bubble-{{ $index + 1 }}" 
                                     data-q="{{ $index + 1 }}"
                                     onclick="goToQuestion({{ $index + 1 }})" 
-                                    class="bubble-btn h-8 rounded-xl font-bold text-xs flex items-center justify-center transition-all {{ $isAnswered ? 'bg-blue-600 text-white font-black shadow-sm' : 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300' }} {{ $index === 0 ? 'ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-900 scale-105' : '' }}">
+                                    class="bubble-btn h-8 rounded-xl font-bold text-xs flex items-center justify-center transition-all {{ $isAnswered ? 'bg-blue-600 text-white font-black shadow-sm' : 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300' }} {{ ($index + 1) === $initialQuestionNumber ? 'ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-900 scale-105' : '' }}">
                                 {{ $index + 1 }}
                             </button>
                         @endforeach
@@ -409,7 +409,7 @@
                             id="m-bubble-{{ $index + 1 }}" 
                             data-q="{{ $index + 1 }}"
                             onclick="goToQuestionAndClose({{ $index + 1 }})" 
-                            class="m-bubble-btn h-10 rounded-xl font-bold text-xs flex items-center justify-center transition-all active:scale-95 {{ $isAnswered ? 'bg-blue-600 text-white font-black shadow-sm' : 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300' }} {{ $index === 0 ? 'ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-900 scale-105' : '' }}">
+                            class="m-bubble-btn h-10 rounded-xl font-bold text-xs flex items-center justify-center transition-all active:scale-95 {{ $isAnswered ? 'bg-blue-600 text-white font-black shadow-sm' : 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300' }} {{ ($index + 1) === $initialQuestionNumber ? 'ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-900 scale-105' : '' }}">
                         {{ $index + 1 }}
                     </button>
                 @endforeach
@@ -521,13 +521,36 @@
         </div>
     </div>
 
+    {{-- Modal de Auto-Pausa por Desconexión de Red --}}
+    <div id="offline-notice-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-rose-500/40 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative text-center space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 mx-auto flex items-center justify-center text-2xl">
+                <i class="fa-solid fa-wifi"></i>
+            </div>
+            <div>
+                <h3 class="text-base sm:text-lg font-black text-white">Conexión a Internet Interrumpida</h3>
+                <p class="text-xs text-rose-300 font-semibold mt-1">El examen se ha pausado automáticamente.</p>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                    Tu tiempo restante y tus respuestas están seguros. El cronómetro no se descontará mientras estés sin conexión. En cuanto se restablezca la red, podrás continuar exactamente donde ibas.
+                </p>
+            </div>
+            <div class="pt-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-amber-300 font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                    <span>Esperando reconexión a Internet...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 @endsection
 
 @push('scripts')
 <script>
     const totalQuestions = {{ $questions->count() }};
-    let currentQuestion = 1;
+    let currentQuestion = {{ $initialQuestionNumber }};
+    let isTimerActive = true;
     let answeredSet = new Set([
         @foreach($questions as $idx => $q)
             @if(isset($savedAnswers[$q->id]) && !empty($savedAnswers[$q->id]))
@@ -568,6 +591,8 @@
     updateTimerUI();
 
     const timerInterval = setInterval(() => {
+        if (!isTimerActive) return;
+
         secondsSpent++;
         remainingSeconds--;
         timeSpentInput.value = secondsSpent;
@@ -876,44 +901,104 @@
 
     // Sincronización continua de tiempo (Heartbeat y Beacon al salir)
     function sendHeartbeat(isBeacon = false) {
-        const payload = JSON.stringify({
-            time_spent_seconds: secondsSpent,
-            _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        });
+        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
 
-        if (isBeacon && navigator.sendBeacon) {
-            const blob = new Blob([payload], { type: 'application/json' });
-            navigator.sendBeacon("{{ route('simulacro.heartbeat', $session->id) }}", blob);
+        if (isBeacon) {
+            // 1. Usar FormData con sendBeacon (el navegador garantiza el envío al cerrar pestaña o navegar)
+            if (navigator.sendBeacon) {
+                try {
+                    const fd = new FormData();
+                    fd.append('_token', csrfToken);
+                    fd.append('time_spent_seconds', secondsSpent);
+                    const sent = navigator.sendBeacon("{{ route('simulacro.heartbeat', $session->id) }}", fd);
+                    if (sent) return;
+                } catch (e) {}
+            }
+
+            // 2. Fallback fetch con keepalive
+            try {
+                fetch("{{ route('simulacro.heartbeat', $session->id) }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    body: JSON.stringify({
+                        time_spent_seconds: secondsSpent,
+                        _token: csrfToken
+                    }),
+                    keepalive: true
+                }).catch(() => {});
+            } catch (e) {}
             return;
         }
 
+        // Heartbeat periódico normal
         fetch("{{ route('simulacro.heartbeat', $session->id) }}", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                'X-CSRF-TOKEN': csrfToken
             },
-            body: payload,
-            keepalive: isBeacon
+            body: JSON.stringify({
+                time_spent_seconds: secondsSpent,
+                _token: csrfToken
+            })
         }).catch(e => console.debug('Heartbeat ping'));
     }
 
     // Heartbeat periódico cada 15 segundos
     const heartbeatTimer = setInterval(() => {
-        sendHeartbeat(false);
+        if (isTimerActive && navigator.onLine) {
+            sendHeartbeat(false);
+        }
     }, 15000);
 
-    // Guardar tiempo al salir o cambiar de pestaña para pausar con total precisión
-    window.addEventListener('pagehide', () => sendHeartbeat(true));
-    window.addEventListener('beforeunload', () => sendHeartbeat(true));
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'hidden') {
-            sendHeartbeat(true);
+    // Detección de Desconexión / Pérdida de Internet -> Auto-pausa instantánea
+    const offlineNotice = document.getElementById('offline-notice-modal');
+
+    window.addEventListener('offline', () => {
+        isTimerActive = false;
+        if (offlineNotice) offlineNotice.classList.remove('hidden');
+        if (saveIndicator) {
+            saveIndicator.className = "hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-rose-400 font-semibold shadow-inner";
+            saveIndicator.innerHTML = '<i class="fa-solid fa-wifi text-sm"></i><span>Sin red (Pausado)</span>';
         }
     });
 
-    // Inicializar UI Móvil al cargar
+    window.addEventListener('online', () => {
+        isTimerActive = true;
+        if (offlineNotice) offlineNotice.classList.add('hidden');
+        if (saveIndicator) {
+            saveIndicator.className = "hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-emerald-400 font-semibold shadow-inner";
+            saveIndicator.innerHTML = '<i class="fa-solid fa-cloud-arrow-up text-sm"></i><span>Conexión restaurada</span>';
+        }
+        sendHeartbeat(false);
+    });
+
+    // Guardar tiempo y pausar si el usuario cambia de pestaña o minimiza
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            isTimerActive = false;
+            sendHeartbeat(true);
+        } else if (document.visibilityState === 'visible') {
+            if (navigator.onLine) {
+                isTimerActive = true;
+                sendHeartbeat(false);
+            }
+        }
+    });
+
+    // Guardar tiempo al salir o cerrar la ventana
+    window.addEventListener('pagehide', () => sendHeartbeat(true));
+    window.addEventListener('beforeunload', () => sendHeartbeat(true));
+
+    // Inicializar UI Móvil y enfocar bubble activo al cargar
     updateMobileUI();
+    const activeBubble = document.getElementById(`bubble-${currentQuestion}`);
+    if (activeBubble) {
+        activeBubble.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
 
     // Atajos de teclado para navegación rápida
     document.addEventListener('keydown', function(e) {

@@ -108,17 +108,37 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
                 @foreach($liveSessions as $live)
                     @php
-                        $elapsed = $live->created_at->diffInSeconds(now());
-                        $remaining = max(0, ($live->time_limit_seconds ?? 18000) - $elapsed);
+                        $spent = (int) ($live->time_spent_seconds ?? 0);
+                        $remaining = max(0, ($live->time_limit_seconds ?? 18000) - $spent);
                         $hrs = floor($remaining / 3600);
                         $mins = floor(($remaining % 3600) / 60);
+                        $isLiveNow = $live->updated_at && $live->updated_at->diffInMinutes(now()) <= 3;
                     @endphp
-                    <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs font-bold text-white block">{{ $live->user->name ?? 'Aspirante' }}</span>
-                            <span class="text-[11px] text-blue-400 font-medium">{{ $live->jobProfile->name ?? 'Cargo' }} &bull; Sesión #{{ $live->id }}</span>
+                    <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between gap-3 hover:border-slate-700 transition-all">
+                        <div class="space-y-1 min-w-0">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="text-xs font-bold text-white truncate max-w-[150px]">{{ $live->user->name ?? 'Aspirante' }}</span>
+                                @if($live->mode === 'simulacro_express')
+                                    <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">⚡ Express (50P)</span>
+                                @else
+                                    <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">🏆 Oficial (100P)</span>
+                                @endif
+                            </div>
+                            <span class="text-[11px] text-blue-400 font-medium block truncate">{{ $live->jobProfile->name ?? 'Cargo' }} &bull; Sesión #{{ $live->id }}</span>
+                            <div class="flex items-center gap-2 text-[10px]">
+                                <span class="text-slate-400 font-medium">{{ $live->session_answers_count ?? 0 }}/{{ $live->total_questions }} respondidas</span>
+                                @if($isLiveNow)
+                                    <span class="inline-flex items-center gap-1 text-emerald-400 font-semibold">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> En vivo
+                                    </span>
+                                @else
+                                    <span class="inline-flex items-center gap-1 text-slate-400 font-medium">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80"></span> Pausado
+                                    </span>
+                                @endif
+                            </div>
                         </div>
-                        <div class="text-right">
+                        <div class="text-right shrink-0">
                             <span class="text-[10px] text-slate-400 block">Tiempo restante</span>
                             <span class="font-mono text-xs font-bold text-amber-300">{{ sprintf('%02dh %02dm', $hrs, $mins) }}</span>
                         </div>
