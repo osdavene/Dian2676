@@ -93,7 +93,7 @@
         <p class="text-xs text-slate-400">
             ¿Aún no tienes cuenta?
             <a href="{{ route('register') }}" class="font-bold text-blue-400 hover:text-blue-300 transition-colors ml-1">
-                Regístrate aquí y elige tu cargo
+                Regístrate con Google aquí
             </a>
         </p>
     </div>
