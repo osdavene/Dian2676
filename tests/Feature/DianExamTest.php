@@ -1017,4 +1017,11 @@ class DianExamTest extends TestCase
             }
         }
     }
+
+    public function test_whatsapp_support_redirects_safely_to_wa_me(): void
+    {
+        $response = $this->get(route('support.whatsapp'));
+        $response->assertRedirect();
+        $this->assertStringContainsString('https://wa.me/573192570557', $response->headers->get('Location'));
+    }
 }

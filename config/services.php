@@ -45,4 +45,9 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI', env('APP_URL').'/auth/google/callback'),
     ],
 
+    'whatsapp' => [
+        'phone' => env('WHATSAPP_SUPPORT_PHONE', '573192570557'),
+        'message' => env('WHATSAPP_SUPPORT_MESSAGE', 'Hola, tengo una consulta sobre el simulador Concurso DIAN 2676.'),
+    ],
+
 ];

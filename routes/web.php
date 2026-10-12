@@ -100,3 +100,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/backup/restaurar/{filename}', [AdminController::class, 'restoreServerBackup'])->name('backup.restore');
     });
 });
+
+// ─── Soporte Directo WhatsApp (Número protegido en servidor) ──────
+Route::get('/soporte', function () {
+    $phone = config('services.whatsapp.phone', '573192570557');
+    $message = urlencode(config('services.whatsapp.message', 'Hola, tengo una consulta sobre el simulador Concurso DIAN 2676.'));
+
+    return redirect()->away("https://wa.me/{$phone}?text={$message}");
+})->name('support.whatsapp');
