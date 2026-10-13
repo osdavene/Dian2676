@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use App\Models\JobProfile;
-use App\Models\ThematicAxis;
 use App\Models\Question;
+use App\Models\ThematicAxis;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class DianSeeder extends Seeder
 {
@@ -54,6 +54,19 @@ class DianSeeder extends Seeder
             ]
         );
 
+        $gestor2 = JobProfile::firstOrCreate(
+            ['code' => 'CT-CR-3007'],
+            [
+                'name' => 'Gestor II',
+                'level' => 'Nivel Profesional',
+                'grade' => '02',
+                'process' => 'MISIONAL: Cumplimiento de obligaciones tributarias',
+                'subprocess' => 'Administración de cartera, Recaudo-Devoluciones',
+                'purpose' => 'Desarrollar acciones inherentes al proceso de Cumplimiento de Obligaciones Tributarias, de acuerdo con la normativa vigente, las políticas gubernamentales e institucionales y las directrices de Nivel Central.',
+                'is_active' => true,
+            ]
+        );
+
         $gestor3 = JobProfile::firstOrCreate(
             ['code' => 'TP-DE-3006'],
             [
@@ -90,7 +103,7 @@ class DianSeeder extends Seeder
             ]
         );
 
-        $this->command->info(" Super Administrador (admin@dian.gov.co / admin12345) y Aspirante demo verificados");
+        $this->command->info(' Super Administrador (admin@dian.gov.co / admin12345) y Aspirante demo verificados');
 
         // 3. Importación de Ejes Temáticos desde JSON (para despliegues en AWS / Docker)
         $axesFile = database_path('seeders/data/thematic_axes.json');
@@ -109,7 +122,7 @@ class DianSeeder extends Seeder
                     ]
                 );
             }
-            $this->command->info(" Ejes temáticos sincronizados: " . count($axesData));
+            $this->command->info(' Ejes temáticos sincronizados: '.count($axesData));
         }
 
         // 4. Importación de Preguntas desde JSON (para despliegues en AWS / Docker)
@@ -125,8 +138,8 @@ class DianSeeder extends Seeder
                     continue;
                 }
 
-                $axisId = (!empty($q['thematic_axis_id']) && isset($validAxisIds[$q['thematic_axis_id']])) ? $q['thematic_axis_id'] : null;
-                $jobId = (!empty($q['job_profile_id']) && isset($validJobIds[$q['job_profile_id']])) ? $q['job_profile_id'] : null;
+                $axisId = (! empty($q['thematic_axis_id']) && isset($validAxisIds[$q['thematic_axis_id']])) ? $q['thematic_axis_id'] : null;
+                $jobId = (! empty($q['job_profile_id']) && isset($validJobIds[$q['job_profile_id']])) ? $q['job_profile_id'] : null;
 
                 $exists = Question::where('stem', $q['stem'])
                     ->where(function ($query) use ($jobId, $axisId) {
@@ -143,15 +156,15 @@ class DianSeeder extends Seeder
                     })
                     ->exists();
 
-                if (!$exists) {
+                if (! $exists) {
                     $options = $q['options'] ?? null;
-                    if (!$options && isset($q['option_a'])) {
+                    if (! $options && isset($q['option_a'])) {
                         $options = [
                             ['key' => 'A', 'text' => $q['option_a'], 'is_correct' => ($q['correct_option'] ?? '') === 'A'],
                             ['key' => 'B', 'text' => $q['option_b'], 'is_correct' => ($q['correct_option'] ?? '') === 'B'],
                             ['key' => 'C', 'text' => $q['option_c'], 'is_correct' => ($q['correct_option'] ?? '') === 'C'],
                         ];
-                        if (!empty($q['option_d'])) {
+                        if (! empty($q['option_d'])) {
                             $options[] = ['key' => 'D', 'text' => $q['option_d'], 'is_correct' => ($q['correct_option'] ?? '') === 'D'];
                         }
                     }
@@ -174,7 +187,7 @@ class DianSeeder extends Seeder
                     $importedCount++;
                 }
             }
-            $this->command->info(" Preguntas procesadas. Nuevas insertadas: {$importedCount} (Total en base: " . Question::count() . ")");
+            $this->command->info(" Preguntas procesadas. Nuevas insertadas: {$importedCount} (Total en base: ".Question::count().')');
         }
     }
 }

@@ -74,33 +74,61 @@ class ExamController extends Controller
 
         $targetCount = min($questionCount, $uniquePool->count());
 
-        // 5. Agrupación por Caso Situacional: preguntas que comparten el mismo caso se seleccionan juntas y consecutivas
+        // 5. Rotación anti-repetición entre exámenes por usuario:
+        // Identificar preguntas ya vistas por este usuario en simulacros previos
+        $seenQuestionIds = ExamSession::where('user_id', $user->id)
+            ->pluck('question_ids')
+            ->filter()
+            ->flatten()
+            ->unique()
+            ->flip()
+            ->toArray();
+
+        // Agrupación por Caso Situacional: preguntas que comparten el mismo caso se seleccionan juntas y consecutivas
         $groupedByCase = $uniquePool->groupBy(function ($q) {
             $c = trim($q->case_text ?? '');
 
             return (strlen($c) > 50) ? $c : '__SOLO_'.$q->id;
         });
 
-        $caseBlocks = [];
-        $soloItems = [];
+        $unseenCaseBlocks = [];
+        $seenCaseBlocks = [];
+        $unseenSoloItems = [];
+        $seenSoloItems = [];
 
         foreach ($groupedByCase as $key => $items) {
-            if (! str_starts_with($key, '__SOLO_') && $items->count() > 1) {
-                $caseBlocks[] = $items;
+            $isCaseBlock = (! str_starts_with($key, '__SOLO_') && $items->count() > 1);
+
+            $hasUnseen = $items->contains(function ($q) use ($seenQuestionIds) {
+                return ! isset($seenQuestionIds[$q->id]);
+            });
+
+            if ($isCaseBlock) {
+                if ($hasUnseen) {
+                    $unseenCaseBlocks[] = $items;
+                } else {
+                    $seenCaseBlocks[] = $items;
+                }
             } else {
                 foreach ($items as $item) {
-                    $soloItems[] = $item;
+                    if (! isset($seenQuestionIds[$item->id])) {
+                        $unseenSoloItems[] = $item;
+                    } else {
+                        $seenSoloItems[] = $item;
+                    }
                 }
             }
         }
 
-        shuffle($caseBlocks);
-        shuffle($soloItems);
+        shuffle($unseenCaseBlocks);
+        shuffle($seenCaseBlocks);
+        shuffle($unseenSoloItems);
+        shuffle($seenSoloItems);
 
         $selected = collect();
 
-        // Agregar bloques de casos situacionales completos
-        foreach ($caseBlocks as $block) {
+        // Fase A: Priorizar bloques de casos situacionales con preguntas no vistas
+        foreach ($unseenCaseBlocks as $block) {
             if ($selected->count() + $block->count() <= $targetCount) {
                 $selected = $selected->merge($block);
             }
@@ -109,8 +137,8 @@ class ExamController extends Controller
             }
         }
 
-        // Completar con preguntas individuales
-        foreach ($soloItems as $solo) {
+        // Fase B: Completar con preguntas individuales no vistas
+        foreach ($unseenSoloItems as $solo) {
             if ($selected->count() >= $targetCount) {
                 break;
             }
@@ -119,7 +147,31 @@ class ExamController extends Controller
             }
         }
 
-        // Si faltasen para el cupo, rellenar con cualquier pregunta pendiente
+        // Fase C: Si falta cupo (se agotaron las preguntas no vistas), rellenar con bloques de casos ya vistos
+        if ($selected->count() < $targetCount) {
+            foreach ($seenCaseBlocks as $block) {
+                if ($selected->count() + $block->count() <= $targetCount) {
+                    $selected = $selected->merge($block);
+                }
+                if ($selected->count() >= $targetCount) {
+                    break;
+                }
+            }
+        }
+
+        // Fase D: Completar con preguntas individuales ya vistas
+        if ($selected->count() < $targetCount) {
+            foreach ($seenSoloItems as $solo) {
+                if ($selected->count() >= $targetCount) {
+                    break;
+                }
+                if (! $selected->contains('id', $solo->id)) {
+                    $selected->push($solo);
+                }
+            }
+        }
+
+        // Fase E: En caso extremo de que aún falte cupo, rellenar con cualquier pregunta pendiente del pool único
         if ($selected->count() < $targetCount) {
             foreach ($uniquePool->shuffle() as $extra) {
                 if ($selected->count() >= $targetCount) {
@@ -147,11 +199,29 @@ class ExamController extends Controller
 
         $questionIds = $orderedQuestions->pluck('id')->toArray();
 
+        // 7. Barajado dinámico de opciones por pregunta (determinista por sesión)
+        $optionsOrder = [];
+        foreach ($orderedQuestions as $q) {
+            $origMap = $q->options_map;
+            $origKeys = array_keys($origMap);
+            if (count($origKeys) > 1) {
+                $displayLetters = $origKeys;
+                $shuffledKeys = $origKeys;
+                shuffle($shuffledKeys);
+                $map = [];
+                foreach ($displayLetters as $i => $dispLetter) {
+                    $map[$dispLetter] = $shuffledKeys[$i];
+                }
+                $optionsOrder[$q->id] = $map;
+            }
+        }
+
         $session = ExamSession::create([
             'user_id' => $user->id,
             'job_profile_id' => $jobId,
             'mode' => $mode,
             'question_ids' => $questionIds,
+            'options_order' => $optionsOrder,
             'total_questions' => count($questionIds),
             'time_limit_seconds' => $timeLimitSeconds,
             'time_spent_seconds' => 0,
@@ -209,6 +279,11 @@ class ExamController extends Controller
                 ->get();
         }
 
+        // Asignar opciones en el orden barajado persistente de esta sesión
+        foreach ($questions as $q) {
+            $q->display_options = $session->getDisplayOptionsFor($q);
+        }
+
         // Respuestas guardadas previamente en la sesión
         $savedAnswers = SessionAnswer::where('exam_session_id', $session->id)
             ->pluck('selected_option', 'question_id')
@@ -254,7 +329,8 @@ class ExamController extends Controller
             return response()->json(['error' => 'Pregunta no encontrada.'], 404);
         }
 
-        $isCorrect = (trim(strtoupper($selected)) === trim(strtoupper($q->correct_option)));
+        $origSelected = $session->getOriginalOptionFor($q, $selected);
+        $isCorrect = (trim(strtoupper($origSelected ?? '')) === trim(strtoupper($q->correct_option)));
 
         SessionAnswer::updateOrCreate(
             [
@@ -375,7 +451,8 @@ class ExamController extends Controller
                     $omittedCount++;
                 } else {
                     $isOmitted = false;
-                    $isCorrect = (trim(strtoupper($selected)) === trim(strtoupper($q->correct_option)));
+                    $origSelected = $session->getOriginalOptionFor($q, $selected);
+                    $isCorrect = (trim(strtoupper($origSelected ?? '')) === trim(strtoupper($q->correct_option)));
                     if ($isCorrect) {
                         $correctCount++;
                     } else {

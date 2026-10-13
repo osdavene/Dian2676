@@ -137,7 +137,7 @@ class DianExamTest extends TestCase
         $questions = ! empty($questionIds) ? Question::whereIn('id', $questionIds)->get() : Question::where('job_profile_id', $session->job_profile_id)->take($session->total_questions)->get();
         $answers = [];
         foreach ($questions as $q) {
-            $answers[$q->id] = $q->correct_option; // Todas correctas para probar 100 pts
+            $answers[$q->id] = $session->getCorrectDisplayOptionFor($q); // Todas correctas según la sesión para probar 100 pts
         }
 
         $submitResponse = $this->actingAs($user)->post('/simulacro/'.$session->id.'/finalizar', [
@@ -1023,5 +1023,149 @@ class DianExamTest extends TestCase
         $response = $this->get(route('support.whatsapp'));
         $response->assertRedirect();
         $this->assertStringContainsString('https://wa.me/573192570557', $response->headers->get('Location'));
+    }
+
+    public function test_gestor_ii_profile_and_thematic_axes_exist_and_can_be_selected(): void
+    {
+        $gestor2 = JobProfile::where('code', 'CT-CR-3007')->first();
+        $this->assertNotNull($gestor2, 'El perfil Gestor II debe existir');
+        $this->assertEquals('Gestor II', $gestor2->name);
+        $this->assertEquals('Nivel Profesional', $gestor2->level);
+        $this->assertEquals('02', $gestor2->grade);
+
+        $axes = ThematicAxis::where('job_profile_id', $gestor2->id)->get();
+        $this->assertCount(7, $axes, 'Gestor II debe tener sus 7 ejes temáticos específicos');
+
+        $axisNames = $axes->pluck('name')->toArray();
+        $this->assertContains('Cobro Coactivo y Procedimiento Administrativo de Cobro', $axisNames);
+        $this->assertContains('Medidas Cautelares y Garantías Tributarias', $axisNames);
+        $this->assertContains('Devoluciones y Compensaciones de Tributos', $axisNames);
+        $this->assertContains('Cobro Persuasivo y Acuerdos de Pago', $axisNames);
+        $this->assertContains('Control Extensivo de Obligaciones y Normalización', $axisNames);
+        $this->assertContains('Procesos Concursales y Reorganización Empresarial', $axisNames);
+        $this->assertContains('Entidades Autorizadas para Recaudar (EAR)', $axisNames);
+
+        $testUser = User::factory()->create([
+            'job_profile_id' => $gestor2->id,
+            'target_cargo' => 'Gestor II',
+        ]);
+
+        $response = $this->actingAs($testUser)->get('/dashboard');
+        $response->assertStatus(200);
+        $response->assertSee('Gestor II');
+
+        $practiceResponse = $this->actingAs($testUser)->get('/practica');
+        $practiceResponse->assertStatus(200);
+        $practiceResponse->assertSee('Cobro Coactivo');
+    }
+
+    public function test_dynamic_options_shuffling_is_deterministic_and_accurately_graded(): void
+    {
+        $user = User::factory()->create();
+
+        // Crear sesión de 50 preguntas
+        $response = $this->actingAs($user)->post('/simulacro/iniciar', [
+            'question_count' => 50,
+            'force_new' => true,
+        ]);
+        $response->assertRedirect();
+
+        $session = ExamSession::where('user_id', $user->id)->latest('id')->first();
+        $this->assertNotNull($session);
+        $this->assertNotEmpty($session->options_order, 'La sesión debe guardar el orden de opciones barajadas');
+
+        // Elegir una pregunta de la sesión
+        $firstQId = $session->question_ids[0];
+        $question = Question::findOrFail($firstQId);
+
+        // 1. Verificar métodos helpers de ExamSession
+        $displayOpts = $session->getDisplayOptionsFor($question);
+        $this->assertNotEmpty($displayOpts);
+
+        $correctDisplayLetter = $session->getCorrectDisplayOptionFor($question);
+        $this->assertNotNull($correctDisplayLetter);
+
+        // El mapeo inverso de la letra correcta visible debe ser exactamente la opción original correcta
+        $origMapped = $session->getOriginalOptionFor($question, $correctDisplayLetter);
+        $this->assertEquals(strtoupper($question->correct_option), strtoupper($origMapped));
+
+        // 2. Probar autoguardado AJAX con la letra visible correcta
+        $ajaxResponse = $this->actingAs($user)->postJson(route('simulacro.guardar-respuesta', $session->id), [
+            'question_id' => $question->id,
+            'selected_option' => $correctDisplayLetter,
+        ]);
+        $ajaxResponse->assertStatus(200);
+        $ajaxResponse->assertJson(['success' => true]);
+
+        $savedAnswer = SessionAnswer::where('exam_session_id', $session->id)
+            ->where('question_id', $question->id)
+            ->first();
+        $this->assertNotNull($savedAnswer);
+        $this->assertEquals($correctDisplayLetter, $savedAnswer->selected_option);
+        $this->assertTrue($savedAnswer->is_correct, 'La respuesta con la letra visible correcta debe ser calificada como correcta');
+
+        // 3. Probar autoguardado AJAX con una letra visible incorrecta
+        $displayKeys = array_keys($displayOpts);
+        $incorrectDisplayKeys = array_filter($displayKeys, fn ($k) => $k !== $correctDisplayLetter);
+        $incorrectLetter = reset($incorrectDisplayKeys);
+
+        $ajaxWrongResponse = $this->actingAs($user)->postJson(route('simulacro.guardar-respuesta', $session->id), [
+            'question_id' => $question->id,
+            'selected_option' => $incorrectLetter,
+        ]);
+        $ajaxWrongResponse->assertStatus(200);
+
+        $savedWrongAnswer = SessionAnswer::where('exam_session_id', $session->id)
+            ->where('question_id', $question->id)
+            ->first();
+        $this->assertEquals($incorrectLetter, $savedWrongAnswer->selected_option);
+        $this->assertFalse($savedWrongAnswer->is_correct, 'La respuesta con la letra visible incorrecta debe ser calificada como incorrecta');
+
+        // 4. Finalizar examen y revisar vista de resultados
+        $finishResponse = $this->actingAs($user)->post(route('simulacro.finalizar', $session->id), [
+            'answers' => [
+                $question->id => $correctDisplayLetter,
+            ],
+            'time_spent_seconds' => 120,
+        ]);
+        $finishResponse->assertRedirect(route('simulacro.resultado', $session->id));
+
+        $resultView = $this->actingAs($user)->get(route('simulacro.resultado', $session->id));
+        $resultView->assertStatus(200);
+        $resultView->assertSee("Correcta: <strong class=\"text-emerald-400\">{$correctDisplayLetter}</strong>", false);
+    }
+
+    public function test_anti_repetition_prioritizes_unseen_questions_across_multiple_exams_for_same_user(): void
+    {
+        $user = User::factory()->create();
+
+        // 1. Examen 1
+        $this->actingAs($user)->post('/simulacro/iniciar', [
+            'question_count' => 50,
+            'force_new' => true,
+        ]);
+        $session1 = ExamSession::where('user_id', $user->id)->latest('id')->first();
+        $this->assertNotNull($session1);
+        $exam1QIds = $session1->question_ids;
+        $this->assertCount(50, $exam1QIds);
+
+        // Finalizar examen 1
+        $session1->update(['completed_at' => now()]);
+
+        // 2. Examen 2
+        $this->actingAs($user)->post('/simulacro/iniciar', [
+            'question_count' => 50,
+            'force_new' => true,
+        ]);
+        $session2 = ExamSession::where('user_id', $user->id)->latest('id')->first();
+        $this->assertNotNull($session2);
+        $this->assertNotEquals($session1->id, $session2->id);
+
+        $exam2QIds = $session2->question_ids;
+        $this->assertCount(50, $exam2QIds);
+
+        // Como el cargo tiene más de 400 preguntas disponibles, el examen 2 no debe repetir preguntas del examen 1
+        $repeatedQuestions = array_intersect($exam1QIds, $exam2QIds);
+        $this->assertEmpty($repeatedQuestions, 'El segundo examen debe priorizar preguntas no vistas (0 repetidas entre exámenes mientras haya banco disponible)');
     }
 }

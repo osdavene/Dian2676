@@ -222,7 +222,7 @@
                         {{-- Opciones de Respuesta (Ergonómicas, Legibles y Justificadas) --}}
                         <div class="space-y-3 sm:space-y-3.5" id="options-group-{{ $index + 1 }}">
                             @php
-                                $options = $q->options_map;
+                                $options = $q->display_options ?? $session->getDisplayOptionsFor($q);
                             @endphp
 
                             @foreach($options as $letter => $text)

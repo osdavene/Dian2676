@@ -367,7 +367,7 @@
 
                         <div class="text-xs text-slate-400">
                             Tu respuesta: <strong class="{{ $ans->is_correct ? 'text-emerald-400' : 'text-rose-400' }}">{{ $ans->selected_option ?? 'Ninguna' }}</strong>
-                            &bull; Correcta: <strong class="text-emerald-400">{{ $q->correct_option }}</strong>
+                            &bull; Correcta: <strong class="text-emerald-400">{{ $session->getCorrectDisplayOptionFor($q) }}</strong>
                         </div>
                     </div>
 
@@ -389,12 +389,13 @@
                     {{-- Opciones detalladas --}}
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                         @php
-                            $letters = $q->options_map;
+                            $letters = $session->getDisplayOptionsFor($q);
+                            $correctDisplay = $session->getCorrectDisplayOptionFor($q);
                         @endphp
                         @foreach($letters as $let => $txt)
                             @if(!empty($txt))
-                                <div class="p-3 rounded-xl border flex items-start gap-2.5 {{ $let === $q->correct_option ? 'bg-emerald-950/30 border-emerald-500/50 text-emerald-200' : ($let === $ans->selected_option ? 'bg-rose-950/30 border-rose-500/50 text-rose-200' : 'bg-slate-950/40 border-slate-800/80 text-slate-400') }}">
-                                    <span class="w-5 h-5 rounded-md font-bold text-xs flex items-center justify-center shrink-0 {{ $let === $q->correct_option ? 'bg-emerald-600 text-white' : ($let === $ans->selected_option ? 'bg-rose-600 text-white' : 'bg-slate-800 text-slate-300') }}">
+                                <div class="p-3 rounded-xl border flex items-start gap-2.5 {{ $let === $correctDisplay ? 'bg-emerald-950/30 border-emerald-500/50 text-emerald-200' : ($let === $ans->selected_option ? 'bg-rose-950/30 border-rose-500/50 text-rose-200' : 'bg-slate-950/40 border-slate-800/80 text-slate-400') }}">
+                                    <span class="w-5 h-5 rounded-md font-bold text-xs flex items-center justify-center shrink-0 {{ $let === $correctDisplay ? 'bg-emerald-600 text-white' : ($let === $ans->selected_option ? 'bg-rose-600 text-white' : 'bg-slate-800 text-slate-300') }}">
                                         {{ $let }}
                                     </span>
                                     <span class="leading-relaxed">{{ $txt }}</span>
