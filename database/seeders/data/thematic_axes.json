@@ -21,7 +21,7 @@
         "id": 3,
         "job_profile_id": 1,
         "category": "funcional_especifica",
-        "name": "Régimen Cambiario y Detección de Lavado de Activos (UIAF / ROS)",
+        "name": "Régimen Cambiario y Detección de Lavado de Activos (UIAF \/ ROS)",
         "description": "Decreto Ley 2245 de 2011, Circular DCIN-83 Banco de la República, operaciones canalizables, infracciones cambiarias y Reportes de Operaciones Sospechosas (ROS).",
         "weight_pct": "15.00",
         "created_at": "2026-10-09 20:47:49.961292-05"
@@ -85,7 +85,7 @@
         "job_profile_id": 1,
         "category": "funcional_especifica",
         "name": "ABC del LA - FT",
-        "description": "Cuestionario y casos de estudio sobre prevención, detección y reporte de Lavado de Activos y Financiación del Terrorismo (LA/FT) en la DIAN.",
+        "description": "Cuestionario y casos de estudio sobre prevención, detección y reporte de Lavado de Activos y Financiación del Terrorismo (LA\/FT) en la DIAN.",
         "weight_pct": "15.00",
         "created_at": "2026-10-10 07:53:17.683917-05"
     },
@@ -112,7 +112,7 @@
         "job_profile_id": 3,
         "category": "integridad",
         "name": "Código de Integridad y Ética Pública DIAN",
-        "description": "Valores institucionales: Honestidad, Respeto, Compromiso, Diligencia, Justicia y dilemas éticos anticorrupción (Estatuto Anticorrupción Ley 1474 / Ley 1952).",
+        "description": "Valores institucionales: Honestidad, Respeto, Compromiso, Diligencia, Justicia y dilemas éticos anticorrupción (Estatuto Anticorrupción Ley 1474 \/ Ley 1952).",
         "weight_pct": "10.00",
         "created_at": "2026-10-10 08:23:59.569653-05"
     },
@@ -211,7 +211,7 @@
         "job_profile_id": 4,
         "category": "funcional_especifica",
         "name": "Auditoría Interna, Análisis de Riesgos y Evaluación de Control Interno",
-        "description": "Aplicación de técnicas y herramientas de auditoría interna, mapas de riesgos institucionales y evaluación del Sistema de Control Interno (MECI/MIPG).",
+        "description": "Aplicación de técnicas y herramientas de auditoría interna, mapas de riesgos institucionales y evaluación del Sistema de Control Interno (MECI\/MIPG).",
         "weight_pct": "15.00",
         "created_at": "2026-10-10 13:14:41.153701-05"
     },
@@ -228,8 +228,8 @@
         "id": 26,
         "job_profile_id": 4,
         "category": "funcional_especifica",
-        "name": "Anti Lavado de Activos y Contra la Financiación del Terrorismo (ALA/CFT)",
-        "description": "Detección, prevención y reporte de LA/FT, UIAF, Reportes de Operaciones Sospechosas (ROS), personas expuestas políticamente (PEP) y extinción de dominio.",
+        "name": "Anti Lavado de Activos y Contra la Financiación del Terrorismo (ALA\/CFT)",
+        "description": "Detección, prevención y reporte de LA\/FT, UIAF, Reportes de Operaciones Sospechosas (ROS), personas expuestas políticamente (PEP) y extinción de dominio.",
         "weight_pct": "10.00",
         "created_at": "2026-10-10 13:14:41.162222-05"
     },
@@ -309,8 +309,8 @@
         "id": 35,
         "job_profile_id": 2,
         "category": "funcional_especifica",
-        "name": "Anti Lavado de Activos y Contra la Financiación del Terrorismo (ALA/CFT)",
-        "description": "Detección, prevención y reporte de LA/FT en la DIAN, UIAF y Reportes de Operaciones Sospechosas (ROS).",
+        "name": "Anti Lavado de Activos y Contra la Financiación del Terrorismo (ALA\/CFT)",
+        "description": "Detección, prevención y reporte de LA\/FT en la DIAN, UIAF y Reportes de Operaciones Sospechosas (ROS).",
         "weight_pct": "15.00",
         "created_at": "2026-10-10 13:32:56.505551-05"
     },
@@ -355,7 +355,7 @@
         "job_profile_id": 4,
         "category": "funcional_especifica",
         "name": "Precios de Transferencia y Directrices OCDE",
-        "description": "Directrices de la OCDE en materia de precios de transferencia, operaciones con materias primas (commodities / CUP), servicios intragrupo de bajo valor añadido, reestructuraciones empresariales e intangibles de difícil valoración (HTVI).",
+        "description": "Directrices de la OCDE en materia de precios de transferencia, operaciones con materias primas (commodities \/ CUP), servicios intragrupo de bajo valor añadido, reestructuraciones empresariales e intangibles de difícil valoración (HTVI).",
         "weight_pct": "10.00",
         "created_at": "2026-10-10 15:45:50.78993-05"
     },
@@ -364,7 +364,7 @@
         "job_profile_id": 1,
         "category": "funcional_especifica",
         "name": "Entidades Autorizadas para Recaudar (EAR) y Procedimiento de Recaudo",
-        "description": "Estatuto Tributario y manuales operativos de recepción y recaudo de impuestos nacionales a través de entidades financieras autorizadas, control de autoadhesivos, oportunidad magnética (FTP/FOM) y reserva tributaria.",
+        "description": "Estatuto Tributario y manuales operativos de recepción y recaudo de impuestos nacionales a través de entidades financieras autorizadas, control de autoadhesivos, oportunidad magnética (FTP\/FOM) y reserva tributaria.",
         "weight_pct": "10.00",
         "created_at": "2026-10-10 15:45:50.792021-05"
     },

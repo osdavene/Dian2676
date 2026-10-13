@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobProfile;
-use App\Models\ThematicAxis;
 use App\Models\Question;
+use App\Models\ThematicAxis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class QuestionBankController extends Controller
 {
@@ -39,10 +40,13 @@ class QuestionBankController extends Controller
         }
 
         if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->where('stem', 'LIKE', "%{$search}%")
-                  ->orWhere('case_text', 'LIKE', "%{$search}%")
-                  ->orWhere('legal_basis', 'LIKE', "%{$search}%");
+            $driver = DB::connection()->getDriverName();
+            $like = ($driver === 'pgsql') ? 'ILIKE' : 'LIKE';
+
+            $query->where(function ($q) use ($search, $like) {
+                $q->where('stem', $like, "%{$search}%")
+                    ->orWhere('case_text', $like, "%{$search}%")
+                    ->orWhere('legal_basis', $like, "%{$search}%");
             });
         }
 

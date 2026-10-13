@@ -91,6 +91,9 @@ class AdminController extends Controller
         $jobId = $request->input('job_id');
         $role = $request->input('role');
 
+        $driver = DB::connection()->getDriverName();
+        $like = ($driver === 'pgsql') ? 'ILIKE' : 'LIKE';
+
         $query = User::with(['jobProfile'])
             ->withCount([
                 'examSessions as exams_count' => function ($q) {
@@ -102,9 +105,9 @@ class AdminController extends Controller
             ]);
 
         if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->where('name', 'ILIKE', "%{$search}%")
-                    ->orWhere('email', 'ILIKE', "%{$search}%");
+            $query->where(function ($q) use ($search, $like) {
+                $q->where('name', $like, "%{$search}%")
+                    ->orWhere('email', $like, "%{$search}%");
             });
         }
 
@@ -742,14 +745,17 @@ class AdminController extends Controller
             $query->whereIn('stem', $duplicateStems)->orderBy('stem')->orderBy('id');
         } else {
             if ($search) {
-                $query->where(function ($q) use ($search) {
+                $driver = DB::connection()->getDriverName();
+                $like = ($driver === 'pgsql') ? 'ILIKE' : 'LIKE';
+
+                $query->where(function ($q) use ($search, $like) {
                     if (is_numeric($search)) {
                         $q->where('id', (int) $search);
                     }
-                    $q->orWhere('stem', 'ILIKE', "%{$search}%")
-                        ->orWhere('case_text', 'ILIKE', "%{$search}%")
-                        ->orWhere('legal_basis', 'ILIKE', "%{$search}%")
-                        ->orWhere('explanation_summary', 'ILIKE', "%{$search}%");
+                    $q->orWhere('stem', $like, "%{$search}%")
+                        ->orWhere('case_text', $like, "%{$search}%")
+                        ->orWhere('legal_basis', $like, "%{$search}%")
+                        ->orWhere('explanation_summary', $like, "%{$search}%");
                 });
             }
 

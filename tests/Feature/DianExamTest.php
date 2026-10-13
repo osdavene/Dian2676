@@ -703,6 +703,9 @@ class DianExamTest extends TestCase
         // Limpieza de la pregunta de prueba
         Question::where('stem', $testPayload['questions'][0]['stem'])->delete();
         ThematicAxis::where('name', 'Eje de Prueba Backup')->delete();
+        if (file_exists(database_path('seeders/data/thematic_axes.json'))) {
+            file_put_contents(database_path('seeders/data/thematic_axes.json'), json_encode(ThematicAxis::all()->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
         if (file_exists(database_path('seeders/data/questions.json'))) {
             file_put_contents(database_path('seeders/data/questions.json'), json_encode(Question::all()->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         }
