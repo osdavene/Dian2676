@@ -6732,6 +6732,42 @@
         "scope_level": "tecnico"
     },
     {
+        "id": 647,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una sociedad titular de una cuenta de compensación debidamente registrada ante el Banco de la República presentó el Formulario No. 10 con los movimientos del mes de marzo dentro de los términos establecidos. No obstante, al realizar una auditoría cambiaria, la DIAN detecta que la sociedad consignó datos equivocados respecto a los números de las declaraciones de importación amparadas y los códigos de numerales cambiarios asignados a los egresos.",
+        "stem": "¿Qué sanción prevé el Decreto 2245 de 2011 frente a la presentación de declaraciones de cambio con datos equivocados?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Multa de 25 UVT por cada declaración de cambio o documento que haga sus veces presentada con datos equivocados, sin exceder de 1.000 UVT.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 3 Numeral 4. La presentación de la declaración de cambio o informe que haga sus veces con datos equivocados o inexactos acarrea multa de 25 UVT por cada documento, con tope legal."
+            },
+            {
+                "key": "B",
+                "text": "Multa del 100% del valor total de los egresos reportados en el periodo mensual auditado.",
+                "is_correct": false,
+                "justification": "La multa del 100% se reserva para la no canalización de divisas o canalización indebida sustancial, no para errores formales en datos."
+            },
+            {
+                "key": "C",
+                "text": "Cancelación inmediata del registro de la cuenta de compensación y prohibición de operar en moneda extranjera.",
+                "is_correct": false,
+                "justification": "El régimen sancionatorio de la DIAN es de carácter pecuniario (multas) y no contempla la cancelación del registro de cuentas por errores en datos."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 3 Numeral 4",
+        "explanation_summary": "Los errores en datos o datos equivocados en las declaraciones de cambio e informes mensuales de cuentas de compensación se sancionan con 25 UVT por cada documento con inexactitud.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.554936-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
         "id": 308,
         "job_profile_id": 3,
         "thematic_axis_id": 11,
@@ -9666,6 +9702,42 @@
         "scope_level": "profesional"
     },
     {
+        "id": 648,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Durante una investigación cambiaria, la División de Gestión de Fiscalización Cambiaria de la DIAN notifica Pliego de Cargos a una empresa importadora por no haber canalizado USD $80.000 correspondientes a tres operaciones de comercio exterior. El apoderado de la sociedad recibe la notificación electrónica el 5 de marzo de 2024.",
+        "stem": "¿De qué término legal dispone el investigado para responder al Pliego de Cargos Cambiario formulado por la DIAN?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Un (1) mes contado a partir del día siguiente a la notificación del pliego de cargos para formular descargos y solicitar o aportar pruebas.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 12. Dentro del mes siguiente a la notificación del pliego de cargos, el investigado podrá presentar escrito de descargos, controvertir las glosas y pedir o allegar pruebas."
+            },
+            {
+                "key": "B",
+                "text": "Tres (3) meses, asimilándolo al término de respuesta del Requerimiento Especial en materia tributaria.",
+                "is_correct": false,
+                "justification": "El procedimiento sancionatorio cambiario se rige por el Decreto 2245 de 2011, donde el término es de 1 mes y no los 3 meses del Estatuto Tributario."
+            },
+            {
+                "key": "C",
+                "text": "Quince (15) días hábiles conforme al Código de Procedimiento Administrativo y de lo Contencioso Administrativo (CPACA).",
+                "is_correct": false,
+                "justification": "El régimen cambiario tiene una norma especial procedimental autónoma (Decreto 2245\/2011) que prevalece sobre el CPACA."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 12 (Respuesta al pliego de cargos)",
+        "explanation_summary": "El término para responder el pliego de cargos en el procedimiento administrativo cambiario de la DIAN es perentorio de un (1) mes siguiente a su notificación.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.557422-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
         "id": 73,
         "job_profile_id": 1,
         "thematic_axis_id": 8,
@@ -10431,6 +10503,42 @@
         "is_active": true,
         "created_at": "2026-10-13 11:32:54.73723-05",
         "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 649,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "En el marco de un procedimiento sancionatorio cambiario, una vez vencido el periodo de descargos, la DIAN decreta la práctica de pruebas técnicas y solicitudes de información a intermediarios financieros en Panamá para verificar los giros efectuados por el investigado.",
+        "stem": "¿Cuál es el término probatorio general y su prórroga máxima en el régimen de procedimiento cambiario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Término probatorio de hasta tres (3) meses, prorrogable hasta por tres (3) meses más cuando deban practicarse pruebas en el exterior o se requiera dictamen pericial.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 14. El periodo probatorio es de hasta 3 meses, prorrogable por un término igual (3 meses adicionales) si se deben recaudar pruebas en el exterior."
+            },
+            {
+                "key": "B",
+                "text": "Término probatorio de treinta (30) días improrrogables en cualquier circunstancia procesal.",
+                "is_correct": false,
+                "justification": "El Decreto 2245 de 2011 establece expresamente un término probatorio más amplio dada la complejidad de las operaciones internacionales."
+            },
+            {
+                "key": "C",
+                "text": "Término probatorio de seis (6) meses prorrogable automáticamente por un (1) año sin necesidad de auto motivado.",
+                "is_correct": false,
+                "justification": "No existe prórroga automática de un año en el procedimiento cambiario de la DIAN."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 14 (Periodo probatorio)",
+        "explanation_summary": "El periodo probatorio en procedimiento cambiario es de hasta 3 meses y puede prorrogarse hasta por 3 meses más cuando se requiera práctica de pruebas en el exterior.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.560126-05",
+        "is_shared": true,
         "scope_level": "profesional"
     },
     {
@@ -11358,6 +11466,42 @@
         "scope_level": "profesional"
     },
     {
+        "id": 681,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un contribuyente recibe la notificación de un Requerimiento Especial el 10 de octubre de 2023, en el cual la DIAN propone desconocer deducciones por $150 millones y liquidar sanción por inexactitud. El contador del contribuyente solicita una prórroga de dos meses para aportar pruebas complejas.",
+        "stem": "¿De qué término legal dispone el contribuyente para responder al Requerimiento Especial y qué dispone la ley sobre su prórroga?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Dispone de tres (3) meses improrrogables contados a partir de la notificación del requerimiento para formular objeciones y aportar pruebas.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 707. El término para responder el requerimiento especial es perentorio de tres (3) meses y no admite prórroga legal."
+            },
+            {
+                "key": "B",
+                "text": "Dispone de un (1) mes prorrogable automáticamente por otro mes a simple solicitud escrita del contador.",
+                "is_correct": false,
+                "justification": "El término legal del artículo 707 E.T. es de 3 meses, no de 1 mes prorrogable."
+            },
+            {
+                "key": "C",
+                "text": "Dispone de quince (15) días hábiles conforme a los términos ordinarios del derecho de petición.",
+                "is_correct": false,
+                "justification": "El procedimiento tributario especial prevalece sobre las normas generales de peticiones ciudadanas."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 707 (Respuesta al requerimiento especial)",
+        "explanation_summary": "El término para dar respuesta al Requerimiento Especial es de tres (3) meses perentorios e improrrogables contados desde su notificación.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.629384-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
         "id": 124,
         "job_profile_id": 1,
         "thematic_axis_id": 14,
@@ -11883,6 +12027,42 @@
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.678726-05",
         "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 671,
+        "job_profile_id": 4,
+        "thematic_axis_id": 39,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una empresa calificada como Usuario Industrial de Bienes dentro de una Zona Franca Permanente en Cartagena requiere ingresar materias primas procedentes del exterior. El transportador marítimo descarga la carga en el puerto y solicita el traslado de las mercancías hacia la Zona Franca.",
+        "stem": "¿Qué documento aduanero obligatorio debe autorizar el Usuario Operador de la Zona Franca para permitir el ingreso de la mercancía a sus instalaciones?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El Formulario de Movimiento de Mercancías (FMM) debidamente aprobado en el sistema informático de la Zona Franca.",
+                "is_correct": true,
+                "justification": "Decreto 2147 de 2016, Art. 50 y Módulo Aduanero. Todo ingreso, salida o traslado de mercancías hacia o desde Zona Franca requiere la autorización previa del Usuario Operador mediante el FMM."
+            },
+            {
+                "key": "B",
+                "text": "Una declaración de importación definitiva con pago inmediato de arancel e IVA en el puerto marítimo.",
+                "is_correct": false,
+                "justification": "El ingreso a Zona Franca desde el exterior es extraterritorial a efectos aduaneros y no paga tributos aduaneros a la entrada."
+            },
+            {
+                "key": "C",
+                "text": "Un certificado de paz y salvo emitido por la Cámara de Comercio de la jurisdicción.",
+                "is_correct": false,
+                "justification": "El control logístico aduanero corresponde al Usuario Operador mediante el FMM y la planilla de envío correspondiente."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2147 de 2016, Artículo 50 (Formulario de Movimiento de Mercancías - FMM)",
+        "explanation_summary": "El Formulario de Movimiento de Mercancías (FMM) autorizado por el Usuario Operador es el soporte indispensable para el control aduanero en Zonas Francas.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.609482-05",
+        "is_shared": true,
         "scope_level": "profesional"
     },
     {
@@ -18192,6 +18372,42 @@
         "scope_level": "profesional"
     },
     {
+        "id": 680,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una sociedad comercial presentó oportunamente su declaración del impuesto sobre la renta del año gravable 2020 el día 14 de abril de 2021, sin liquidar beneficio de auditoría ni compensar pérdidas fiscales. La DIAN adelanta auditoría posterior para verificar costos laborales no soportados.",
+        "stem": "¿Hasta qué fecha límite legal tiene la administración tributaria para notificar válidamente el Requerimiento Especial?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Hasta el 14 de abril de 2024, correspondiente a los tres (3) años siguientes al vencimiento del plazo fijado para declarar.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 705. El requerimiento especial debe notificarse a más tardar dentro de los tres (3) años siguientes a la fecha de vencimiento del plazo para declarar."
+            },
+            {
+                "key": "B",
+                "text": "Hasta el 31 de diciembre de 2026, por tratarse del término quinquenal del Código General del Proceso.",
+                "is_correct": false,
+                "justification": "El término especial tributario del artículo 705 es de 3 años para la firmeza general, no 5 años."
+            },
+            {
+                "key": "C",
+                "text": "Hasta los dos (2) años siguientes contados a partir del pago del primer anticipo de renta.",
+                "is_correct": false,
+                "justification": "La Ley 1819 de 2016 amplió el término general de firmeza de 2 a 3 años."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 705 (Término para notificar el requerimiento especial)",
+        "explanation_summary": "La regla general de notificación del Requerimiento Especial es de tres (3) años contados desde el vencimiento del plazo para declarar o de la presentación extemporánea.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.627315-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
         "id": 335,
         "job_profile_id": 3,
         "thematic_axis_id": 6,
@@ -19388,42 +19604,6 @@
         "explanation_summary": "Las estrategias educativas y pedagógicas a mediano y largo plazo construyen cultura de la legalidad y rechazo colectivo frente a los dineros ilícitos y el contrabando.",
         "is_active": true,
         "created_at": "2026-10-10 13:14:41.213151-05",
-        "is_shared": true,
-        "scope_level": "transversal"
-    },
-    {
-        "id": 642,
-        "job_profile_id": null,
-        "thematic_axis_id": 88,
-        "question_type": "situacional",
-        "difficulty": "medio",
-        "case_text": "Caso de prueba para importación.",
-        "stem": "¿Pregunta de prueba para test de importación de backup 6ace5db6e5c69?",
-        "options": [
-            {
-                "key": "A",
-                "text": "Opción de prueba A",
-                "is_correct": true,
-                "justification": "Correcta por ley."
-            },
-            {
-                "key": "B",
-                "text": "Opción de prueba B",
-                "is_correct": false,
-                "justification": "Incorrecta."
-            },
-            {
-                "key": "C",
-                "text": "Opción de prueba C",
-                "is_correct": false,
-                "justification": "Incorrecta."
-            }
-        ],
-        "correct_option": "A",
-        "legal_basis": "Estatuto Tributario Nacional",
-        "explanation_summary": "Explicación de prueba.",
-        "is_active": true,
-        "created_at": "2026-10-13 11:35:02.973212-05",
         "is_shared": true,
         "scope_level": "transversal"
     },
@@ -22990,5 +23170,2489 @@
         "created_at": "2026-10-10 17:27:51.548258-05",
         "is_shared": false,
         "scope_level": "profesional"
+    },
+    {
+        "id": 644,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La sociedad exportadora de café 'Granos Andinos S.A.S.' abrió una cuenta corriente bancaria en Miami (EE.UU.) el 15 de enero de 2024 para canalizar los ingresos en divisas de sus ventas al exterior. La empresa comenzó a recibir pagos de compradores extranjeros en febrero de 2024. No obstante, al 30 de abril de 2024, el representante legal no ha realizado ningún trámite de registro de dicha cuenta ante el Banco de la República ni ante la DIAN, alegando que la cuenta no genera rendimientos financieros en Colombia.",
+        "stem": "¿Cuál es la obligación cambiaria omitida por la empresa y la sanción correspondiente de competencia de la DIAN?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Omitió el registro obligatorio de la cuenta de compensación ante el Banco de la República dentro del mes siguiente a su apertura o primera operación, haciéndose acreedora a una multa de 200 UVT conforme al Decreto 2245 de 2011.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 3 Numeral 13. La no transmisión o no registro oportuno de la cuenta de compensación ante el Banco de la República constituye infracción cambiaria sancionada con multa fija de 200 UVT."
+            },
+            {
+                "key": "B",
+                "text": "Omitió la declaración tributaria de activos en el exterior, por lo cual la sanción aplicable es del 100% del saldo bancario al cierre del año fiscal.",
+                "is_correct": false,
+                "justification": "Confunde la sanción administrativa cambiaria con la sanción tributaria de activos en el exterior del Estatuto Tributario."
+            },
+            {
+                "key": "C",
+                "text": "No existe infracción cambiaria, puesto que las cuentas en el exterior solo deben registrarse si mantienen saldos superiores a USD $100.000 al término de cada semestre calendario.",
+                "is_correct": false,
+                "justification": "Toda cuenta bancaria en el exterior utilizada para canalizar operaciones del mercado cambiario obligatorio adquiere la condición de cuenta de compensación y debe registrarse sin umbral mínimo de saldo."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 3 Numeral 13 \/ Circular Reglamentaria Externa DCIN-83",
+        "explanation_summary": "Las cuentas en el exterior utilizadas para operaciones de obligatoria canalización deben registrarse como cuentas de compensación ante el Banco de la República; omitir dicho registro acarrea multa de 200 UVT impuesta por la DIAN.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.54771-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 645,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una empresa fabricante de autopartes importó maquinaria pesada por valor FOB de USD $250.000 amparada en una declaración de importación con levante de noviembre de 2023. Al momento de efectuar el pago al proveedor extranjero en enero de 2024, el tesorero de la compañía pagó la obligación transfiriendo los fondos desde una cuenta personal en el exterior del socio mayoritario que no está registrada como cuenta de compensación, sin canalizar las divisas a través del mercado cambiario colombiano ni presentar declaración de cambio.",
+        "stem": "¿Cómo tipifica la DIAN esta conducta y qué sanción procede de conformidad con el régimen sancionatorio cambiario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Infracción por no canalizar divisas a través del mercado cambiario habiendo tenido la obligación legal de hacerlo, sancionada con multa del 100% del valor de la operación dejada de canalizar en moneda legal colombiana.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 3 Numeral 1. Por no canalizar a través del mercado cambiario las operaciones de obligatoria canalización (importaciones de bienes), la sanción es multa equivalente al 100% del valor dejado de canalizar."
+            },
+            {
+                "key": "B",
+                "text": "Infracción formal por declaración de cambio inexacta, sancionada con multa del 20% del valor de la operación.",
+                "is_correct": false,
+                "justification": "Al no haberse utilizado el mercado cambiario ni presentado declaración de cambio, no se configura inexactitud sino la infracción sustancial de no canalización."
+            },
+            {
+                "key": "C",
+                "text": "Infracción aduanera de decomiso posterior de la maquinaria pesada importada por pago indebido.",
+                "is_correct": false,
+                "justification": "El medio de pago de la importación es una infracción cambiaria de competencia de la DIAN, no una causal de aprehensión o decomiso aduanero."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 3 Numeral 1 \/ Resolución Externa 1 de 2018 Banco de la República",
+        "explanation_summary": "El pago de importaciones de bienes debe canalizarse obligatoriamente a través de intermediarios del mercado cambiario (IMC) o cuentas de compensación; su omisión acarrea multa del 100% del valor no canalizado.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.550581-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 646,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un comerciante colombiano que exporta confecciones a Ecuador pacta con su cliente el pago en efectivo en pesos colombianos en la ciudad de Ipiales. El cliente le entrega $120.000.000 en billetes de moneda nacional, y el exportador consigna dicho dinero en su cuenta bancaria corriente local sin diligenciar ninguna declaración de cambio por exportación de bienes, alegando que al recibir moneda legal colombiana no se generaron divisas sujetas a control.",
+        "stem": "A la luz del régimen cambiario de competencia de la DIAN, ¿es admisible esta operación y qué consecuencia legal acarrea?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Es inadmisible; las exportaciones de bienes deben canalizarse en divisas a través del mercado cambiario o recibirse en pesos a través de cuentas de compensación de no residentes en Colombia; el reintegro en efectivo en frontera vulnera el régimen y genera multa del 100%.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 3 Num. 1 y Circular DCIN-83. Las exportaciones de bienes son de obligatoria canalización; recibir pagos en efectivo en moneda local por compras de no residentes no extingue la obligación de canalización cambiaria legal."
+            },
+            {
+                "key": "B",
+                "text": "Es plenamente admisible, porque el principio de libertad cambiaria permite a los exportadores pactar cualquier medio de pago en efectivo dentro del territorio nacional.",
+                "is_correct": false,
+                "justification": "Vulnera la obligatoriedad de canalización establecida en el artículo 7 de la Ley 9 de 1991 y la Res. Externa 1 de 2018 del Banco de la República."
+            },
+            {
+                "key": "C",
+                "text": "Es admisible siempre y cuando el exportador efectúe la retención en la fuente del 3.5% sobre el dinero recibido en efectivo.",
+                "is_correct": false,
+                "justification": "Las obligaciones tributarias de retención no convalidan ni reemplazan el régimen cambiario sancionatorio."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 3 Numeral 1 \/ Resolución Externa 1 de 2018 Junta Directiva BanRep",
+        "explanation_summary": "Los pagos de exportaciones son operaciones del mercado regulado que deben canalizarse obligatoriamente mediante IMC o cuentas de compensación; no se permite su extinción mediante cobros directos en efectivo.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.552527-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 650,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una empresa investigada por no canalizar divisas de exportación reconoce los hechos imputados en el pliego de cargos antes de que la DIAN profiera la Resolución Sancionatoria. El representante legal manifiesta su voluntad de allanarse a los cargos y subsanar voluntariamente la infracción cancelando la multa respectiva.",
+        "stem": "¿A qué beneficio de reducción de la sanción tiene derecho el investigado al allanarse en esta etapa procesal?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La sanción propuesta en el pliego de cargos se reduce al cuarenta por ciento (40%) de su valor, siempre que pague y demuestre el cumplimiento de la obligación.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 4 Literal a). Si el investigado acepta los cargos y paga antes de que se profiera la resolución sancionatoria, la multa se reducirá al 40% de la tasada inicialmente."
+            },
+            {
+                "key": "B",
+                "text": "La sanción se reduce al diez por ciento (10%) de su valor por principio de favorabilidad tributaria del Estatuto Tributario.",
+                "is_correct": false,
+                "justification": "El régimen cambiario no aplica los porcentajes del artículo 640 del Estatuto Tributario sino sus propias reglas del Decreto 2245 de 2011."
+            },
+            {
+                "key": "C",
+                "text": "No procede reducción alguna en materia cambiaria, por tratarse de normas de orden público internacional.",
+                "is_correct": false,
+                "justification": "El Decreto 2245 de 2011 contempla expresamente el beneficio de allanamiento procesal con reducción al 40% o 60%."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 4 Literal a) (Reducción de sanciones cambiarias)",
+        "explanation_summary": "El allanamiento oportuno antes de la resolución sancionatoria otorga el beneficio de pagar solo el 40% del valor de la sanción propuesta.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.562449-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 651,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La DIAN notifica Resolución Sancionatoria a una comercializadora internacional imponiéndole una multa cambiaria de $180.000.000. El apoderado de la sociedad decide recurrir el acto administrativo para controvertir la tasación de la sanción.",
+        "stem": "¿Qué recurso procede contra la Resolución Sancionatoria Cambiaria y ante quién se interpone?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Únicamente el Recurso de Reposición, el cual debe interponerse dentro del mes siguiente a la notificación del acto ante el mismo funcionario que expidió la resolución.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 18. Contra la resolución sancionatoria cambiaria solo procede el recurso de reposición dentro del mes siguiente a su notificación, agotando la vía administrativa."
+            },
+            {
+                "key": "B",
+                "text": "El Recurso de Reconsideración dentro de los dos meses siguientes a su notificación, conforme al artículo 720 del Estatuto Tributario.",
+                "is_correct": false,
+                "justification": "El recurso de reconsideración es exclusivo del procedimiento tributario y aduanero; en el cambiario procede exclusivamente reposición."
+            },
+            {
+                "key": "C",
+                "text": "Recurso de Apelación ante el Director General de la DIAN dentro de los cinco días hábiles siguientes.",
+                "is_correct": false,
+                "justification": "En materia sancionatoria cambiaria no existe recurso de apelación jerárquico."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 18 (Recursos contra la resolución sancionatoria)",
+        "explanation_summary": "En el régimen procesal cambiario de la DIAN únicamente procede el recurso de reposición dentro del mes siguiente a la notificación de la sanción.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.565045-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 652,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una filial colombiana de una multinacional farmacéutica realiza compras de materia prima a su casa matriz en Alemania. Al mismo tiempo, la filial presta servicios de investigación científica a la matriz. Para evitar giros bancarios y comisiones, acuerdan contablemente compensar ('netear') los saldos entre la deuda de importación y la cuenta por cobrar de servicios, girando únicamente la diferencia neta de USD $5.000 a través de un IMC.",
+        "stem": "¿Qué principio del régimen cambiario colombiano se vulnera con el neteo o compensación directa de operaciones de comercio exterior?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La prohibición de compensación de deudas y acreencias sin canalización individual; toda importación y exportación de bienes debe canalizarse por su valor bruto real e independiente a través del mercado cambiario.",
+                "is_correct": true,
+                "justification": "Resolución Externa 1 de 2018 BanRep, Art. 7 y Decreto 2245 de 2011 Art. 3 Num. 1. El régimen cambiario prohíbe el neteo directo de operaciones de obligatoria canalización contra créditos o servicios."
+            },
+            {
+                "key": "B",
+                "text": "La regla de doble imposición internacional de la OCDE sobre precios de transferencia.",
+                "is_correct": false,
+                "justification": "Aunque puede tener impacto en precios de transferencia, la falta esencial es la vulneración cambiaria de no canalización bruta de la importación."
+            },
+            {
+                "key": "C",
+                "text": "No se vulnera ninguna norma si la operación se registra en las notas a los estados financieros bajo NIIF.",
+                "is_correct": false,
+                "justification": "Las normas contables NIIF no derogan ni prevalecen sobre el régimen cambiario sancionatorio obligatorio."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Resolución Externa 1 de 2018 Banco de la República, Artículo 7 \/ Decreto 2245 de 2011",
+        "explanation_summary": "En el régimen cambiario colombiano está prohibida la compensación o neteo de obligaciones de comercio exterior; cada operación debe canalizarse individualmente por su valor total.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.566851-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 653,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "La División de Control Cambiario de la DIAN detecta una omisión en la canalización de divisas por importaciones correspondiente a despachos aduaneros del 10 de febrero de 2018. El funcionario proyecta formular Pliego de Cargos el 20 de mayo de 2024.",
+        "stem": "¿Qué fenómeno jurídico procesal opera respecto de la facultad sancionatoria de la DIAN en este caso?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Caducidad de la acción sancionatoria, puesto que han transcurrido más de cinco (5) años desde la ocurrencia de los hechos constitutivos de infracción cambiaria sin haberse notificado el pliego de cargos.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 7. La acción sancionatoria cambiaria de la DIAN caduca en el término de cinco (5) años contados a partir de la comisión de la infracción."
+            },
+            {
+                "key": "B",
+                "text": "Prescripción de la sanción tributaria en tres (3) años conforme al artículo 714 del Estatuto Tributario.",
+                "is_correct": false,
+                "justification": "El término tributario de 3 años de firmeza no aplica a la potestad sancionatoria cambiaria regida por los 5 años del Decreto 2245 de 2011."
+            },
+            {
+                "key": "C",
+                "text": "No opera caducidad alguna, porque las infracciones cambiarias sobre divisas son imprescriptibles al comprometer las reservas internacionales del Estado.",
+                "is_correct": false,
+                "justification": "En el derecho administrativo sancionador no existe imprescriptibilidad de infracciones cambiarias; rige la caducidad legal de 5 años."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 7 (Caducidad de la acción sancionatoria cambiaria)",
+        "explanation_summary": "La facultad de la DIAN para imponer sanciones cambiarias caduca si no se notifica el pliego de cargos dentro de los cinco (5) años siguientes a la ocurrencia de los hechos.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.568584-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 654,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un viajero internacional arriba al Aeropuerto Internacional El Dorado procedente de Miami portando en su equipaje de mano USD $18.500 en efectivo. Al pasar por el filtro de control aduanero y de cambios de la DIAN, omite diligenciar y entregar la Declaración de Equipaje, Dinero y Títulos Representativos de Dinero (Formulario 530). Al ser requerido para inspección no intrusiva por rayos X, se le hallan los fajos de billetes.",
+        "stem": "¿Qué medida inmediata debe adoptar el funcionario de la DIAN y qué sanción procede por no declarar el ingreso de divisas superiores a USD $10.000?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Efectuar la retención física de las divisas y dar inicio al procedimiento sancionatorio cambiario para imponer multa equivalente al 30% del valor total no declarado en moneda legal colombiana.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 3 Numeral 25. Por no declarar el ingreso o salida de dinero en efectivo superior a USD 10.000 se retienen las divisas y se impone multa del 30% del valor no declarado."
+            },
+            {
+                "key": "B",
+                "text": "Decomisar de inmediato y de manera definitiva el 100% de las divisas sin derecho a formular descargos por considerarse contrabando abierto.",
+                "is_correct": false,
+                "justification": "La no declaración de divisas es una infracción cambiaria que conlleva retención cautelar y multa del 30%, devolviendo el remanente una vez pagada la sanción."
+            },
+            {
+                "key": "C",
+                "text": "Permitir el paso del viajero previo pago de una tarifa arancelaria del 19% de IVA en la ventanilla del banco recaudador.",
+                "is_correct": false,
+                "justification": "Las divisas no son mercancía gravada con IVA sino activos monetarios sometidos a control de cambios y prevención de lavado de activos."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 3 Numeral 25 \/ Circular Reglamentaria Externa DCIN-83",
+        "explanation_summary": "La omisión en la declaración de divisas superiores a USD 10.000 genera retención preventiva y sanción cambiaria del 30% del monto no declarado.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.570382-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 655,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una sociedad comercial domiciliada en Cali contrató un crédito financiero con un banco de Panamá por valor de USD $500.000 en enero de 2023. Los fondos fueron desembolsados directamente a proveedores de la sociedad en China, sin que la empresa colombiana hubiera registrado previamente la operación de endeudamiento externo pasivo ante el Banco de la República.",
+        "stem": "¿Qué infracción cambiaria se configura y cuál es el régimen sancionatorio aplicable por parte de la DIAN?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Infracción por no constituir o registrar el endeudamiento externo ante el Banco de la República en las condiciones y términos fijados por el régimen cambiario, sancionable con multa en UVT conforme al Decreto 2245 de 2011.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 3 Numeral 7. No registrar debidamente los créditos externos de pasivo constituye infracción sancionada por la DIAN con multa pecuniaria graduada en UVT."
+            },
+            {
+                "key": "B",
+                "text": "Constituye exclusivamente un delito penal de captación masiva e habitual sin consecuencias en sede administrativa de la DIAN.",
+                "is_correct": false,
+                "justification": "Es una infracción cambiaria administrativa autónoma de competencia sancionatoria expresa de la DIAN."
+            },
+            {
+                "key": "C",
+                "text": "No existe infracción si los fondos nunca ingresaron físicamente a cuentas en Colombia.",
+                "is_correct": false,
+                "justification": "Todo endeudamiento externo contraído por residentes en Colombia debe registrarse ante el Banco de la República sin importar el lugar del desembolso."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 3 Numeral 7 \/ Resolución Externa 1 de 2018 BanRep",
+        "explanation_summary": "Los créditos obtenidos con el exterior por residentes deben registrarse ante el Banco de la República; omitir este trámite constituye infracción cambiaria sancionable por la DIAN.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.57416-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 656,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una empresa investigada por infracciones cambiarias cometidas en 2021 interpone recurso de reposición contra la Resolución Sancionatoria de primera instancia en mayo de 2024. Durante el trámite del recurso, el apoderado manifiesta por escrito la intención de la empresa de allanarse formalmente a las glosas confirmadas y pagar la multa respectiva.",
+        "stem": "¿Cuál es el porcentaje de reducción de la sanción cambiaria cuando el allanamiento se presenta con ocasión del Recurso de Reposición?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La sanción se reduce al sesenta por ciento (60%) de su valor, siempre que se desista de los demás argumentos del recurso y se acredite el pago respectivo.",
+                "is_correct": true,
+                "justification": "Decreto 2245 de 2011, Art. 4 Literal b). Si el investigado se allana con ocasión del recurso de reposición, la multa se reduce al 60% de la tasada en la resolución sancionatoria."
+            },
+            {
+                "key": "B",
+                "text": "La sanción se reduce al setenta y cinco por ciento (75%) conforme a las reglas del recurso de reconsideración del Estatuto Tributario.",
+                "is_correct": false,
+                "justification": "El procedimiento cambiario se rige de manera autónoma por el Decreto 2245 de 2011, el cual estipula taxativamente el 60% y no el 75% tributario."
+            },
+            {
+                "key": "C",
+                "text": "Se extingue en su totalidad por principio de lealtad procesal y economía administrativa.",
+                "is_correct": false,
+                "justification": "El allanamiento parcial o total nunca extingue la sanción por completo; únicamente reduce su cuantía pecuniaria."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 4 Literal b) (Reducción en sede de recursos)",
+        "explanation_summary": "El allanamiento presentado con ocasión del recurso de reposición otorga el beneficio de pagar el 60% de la sanción impuesta.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.576168-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 657,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Durante una visita de inspección cambiaria practicada por auditores de la DIAN a las instalaciones de una comercializadora de calzado, los funcionarios exigen la exhibición de las declaraciones de cambio, facturas de compraventa internacional y documentos de transporte correspondientes a importaciones realizadas hace 3 años y medio. El contador manifiesta que tales archivos físicos fueron depurados y destruidos al cumplirse 2 años de la operación.",
+        "stem": "¿Por cuánto tiempo deben conservarse los documentos soporte de las operaciones de cambio y qué infracción se genera por su destrucción anticipada?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Deben conservarse por un término mínimo de cinco (5) años contados a partir de la fecha de la operación; no conservarlos o no exhibirlos acarrea sanción por obstrucción y multa pecuniaria en UVT.",
+                "is_correct": true,
+                "justification": "Circular Reglamentaria Externa DCIN-83 y Decreto 2245 de 2011 Art. 3 Numeral 18. Los documentos que soportan operaciones del mercado cambiario deben conservarse durante el término de caducidad de la acción (5 años)."
+            },
+            {
+                "key": "B",
+                "text": "El término legal de conservación es de dos (2) años, por lo cual la empresa actuó conforme a derecho y no puede ser sancionada.",
+                "is_correct": false,
+                "justification": "El término de 2 años es incorrecto; las normas cambiarias exigen un término mínimo de 5 años coincidente con la caducidad sancionatoria."
+            },
+            {
+                "key": "C",
+                "text": "Deben conservarse por diez (10) años conforme a las normas de contabilidad comercial mercantil del Código de Comercio.",
+                "is_correct": false,
+                "justification": "Si bien el Código de Comercio prevé 10 años para libros comerciales, la exigencia probatoria y de caducidad cambiaria específica de la DIAN es de 5 años."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2245 de 2011, Artículo 3 Numeral 18 \/ Circular Externa DCIN-83 Banco de la República",
+        "explanation_summary": "Los soportes documentales de las operaciones cambiarias deben conservarse por un mínimo de 5 años a disposición de la DIAN.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.577692-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 658,
+        "job_profile_id": 1,
+        "thematic_axis_id": 3,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una persona jurídica colombiana realiza periódicamente compras de insumos en el exterior a través de una tarjeta de crédito corporativa emitida en Colombia denominada en moneda extranjera. La empresa no presenta declaraciones de cambio individuales porque los cargos se convierten automáticamente a pesos por el banco emisor en el extracto mensual.",
+        "stem": "¿Qué tratamiento otorga el régimen cambiario a los pagos de importaciones efectuados mediante tarjetas de crédito internacionales corporativas?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Es un mecanismo autorizado de canalización a través del mercado cambiario en el cual el comprobante de pago o extracto hace las veces de declaración de cambio, siempre que ampare importaciones legalmente introducidas al país.",
+                "is_correct": true,
+                "justification": "Circular DCIN-83 y Res. Externa 1 de 2018. El pago de importaciones mediante tarjetas de crédito emitidas por IMC en Colombia canaliza legalmente la operación mediante el extracto que consolida la declaración de cambio."
+            },
+            {
+                "key": "B",
+                "text": "Constituye una infracción cambiaria flagrante de no canalización, sancionable con el 100% del valor pagado por no haber suscrito el Formulario No. 1 individual.",
+                "is_correct": false,
+                "justification": "El régimen cambiario autoriza expresamente el uso de tarjetas de crédito internacionales como mecanismo simplificado de canalización de importaciones."
+            },
+            {
+                "key": "C",
+                "text": "Solo se permite para operaciones de servicios de tecnología, estando prohibido para la importación de bienes tangibles.",
+                "is_correct": false,
+                "justification": "El régimen cambiario permite el uso de tarjetas internacionales tanto para bienes como para servicios, sin restricción sectorial."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Circular Reglamentaria Externa DCIN-83 Banco de la República \/ Decreto 2245 de 2011",
+        "explanation_summary": "El pago de importaciones de bienes con tarjetas de crédito emitidas en Colombia por un IMC constituye canalización legal válida y el extracto opera como declaración de cambio simplificada.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.579708-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 659,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Un importador marítimo de electrodomésticos transporta carga procedente de Shanghái con destino al Puerto de Buenaventura. De conformidad con las reformas introducidas por el Decreto 659 de 2024 al régimen aduanero colombiano, la presentación de la declaración aduanera de importación adquiere carácter obligatorio con antelación a la llegada del buque para ciertas categorías de mercancías sujetas a control.",
+        "stem": "¿Con cuánta antelación mínima debe presentarse la declaración anticipada en el modo de transporte marítimo según los lineamientos del Decreto 659 de 2024?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Con una antelación mínima de cuarenta y ocho (48) horas a la llegada del medio de transporte al territorio aduanero nacional.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019 modificado por el Decreto 659 de 2024. Para el tráfico marítimo, la declaración anticipada obligatoria debe presentarse con al menos 48 horas de antelación a la llegada de la motonave."
+            },
+            {
+                "key": "B",
+                "text": "Con una antelación mínima de doce (12) horas antes de que la carga sea descargada en el muelle portuario.",
+                "is_correct": false,
+                "justification": "El término legal para el modo marítimo es de mínimo 48 horas previas al arribo del medio de transporte."
+            },
+            {
+                "key": "C",
+                "text": "Dentro de los cinco (5) días siguientes al atraque del buque en el muelle de servicio público.",
+                "is_correct": false,
+                "justification": "Ese corresponde a un plazo posterior al arribo propio de declaraciones iniciales ordinarias antiguas, incompatible con la figura de declaración anticipada obligatoria."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 175 modificado por el Decreto 659 de 2024",
+        "explanation_summary": "El Decreto 659 de 2024 consolidó la obligatoriedad de la declaración anticipada para el modo marítimo con un término no inferior a 48 horas previas a la llegada de la embarcación.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.581755-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 660,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una carga de confecciones y calzado arriba al Aeropuerto El Dorado en un vuelo de carga procedente de Panamá. La mercancía estaba sujeta a la obligación de presentar declaración anticipada obligatoria conforme al Decreto 659 de 2024. Al momento de la llegada e inspección en el lugar de arribo, la autoridad aduanera verifica que el importador no radicó la declaración anticipada exigible.",
+        "stem": "¿Qué medida cautelar debe aplicar de manera inmediata la DIAN frente a las mercancías que incumplan la obligación de declaración anticipada?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Medida cautelar de aprehensión de la mercancía por configurar causal legal expresa de ingreso irregular al territorio aduanero nacional.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 647 modificado por Decreto 659 de 2024. Es causal expresa de aprehensión la llegada de mercancías sin la presentación previa de la declaración anticipada obligatoria cuando esta sea exigible."
+            },
+            {
+                "key": "B",
+                "text": "Otorgar un plazo improrrogable de 30 días calendario en bodega para radicar la declaración sin sanciones.",
+                "is_correct": false,
+                "justification": "La falta de declaración anticipada obligatoria no permite almacenamiento ordinario libre de sanción; activa de inmediato la aprehensión cautelar."
+            },
+            {
+                "key": "C",
+                "text": "Autorizar el reembarque obligatorio e inmediato hacia el país de origen sin retención de la carga.",
+                "is_correct": false,
+                "justification": "El reembarque voluntario o de oficio no procede cuando se ha configurado causal de aprehensión por vulneración de control previo."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 647 Numeral 1 modificado por el Decreto 659 de 2024",
+        "explanation_summary": "La omisión en la presentación de la declaración anticipada obligatoria cuando la norma la exige constituye causal legal directa para la aprehensión de la mercancía.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.583475-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 661,
+        "job_profile_id": 1,
+        "thematic_axis_id": 2,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un funcionario aduanero de fiscalización en un operativo de control en carretera detiene un camión que transporta mercancías de procedencia extranjera. El conductor no presenta la factura de nacionalización ni la declaración aduanera respectiva. El funcionario procede a tomar el control material del vehículo y de los bienes para ponerlos a disposición de un depósito habilitado de la DIAN.",
+        "stem": "¿Cuál es la naturaleza jurídica y el alcance de la medida cautelar de aprehensión en el régimen aduanero?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Es una medida cautelar que consiste en la retención física y toma de posesión material de las mercancías sobre las cuales recae una causal legal, con el fin de iniciar el proceso administrativo de decomiso.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 597 y Módulo 8 DIAN. La aprehensión es la medida cautelar que priva temporalmente de la tenencia material al poseedor de las mercancías presuntamente infractoras mientras se define su decomiso o devolución."
+            },
+            {
+                "key": "B",
+                "text": "Es un acto administrativo definitivo que transfiere de manera irreversible el dominio de los bienes a favor de la Nación desde el momento de la incautación.",
+                "is_correct": false,
+                "justification": "La aprehensión es cautelar y provisional; la transferencia de dominio solo ocurre con la ejecutoria de la Resolución de Decomiso."
+            },
+            {
+                "key": "C",
+                "text": "Es una sanción privativa de la libertad que se impone al conductor del vehículo automotor por el delito de contrabando.",
+                "is_correct": false,
+                "justification": "La aprehensión es de carácter real sobre bienes y de naturaleza netamente administrativa aduanera, no penal."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 597 \/ Módulo 8 Fiscalización Aduanera DIAN",
+        "explanation_summary": "La aprehensión es la medida cautelar preventiva mediante la cual la autoridad aduanera retiene físicamente la mercancía sujeta a causales de decomiso.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.585127-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 662,
+        "job_profile_id": 1,
+        "thematic_axis_id": 2,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "A una empresa comercializadora se le notificó Acta de Aprehensión por no amparar adecuadamente con documentos soporte un lote de repuestos industriales valorados en USD $60.000. La empresa decide allanarse a las observaciones y rescatar la mercancía mediante declaración de legalización antes de que se profiera la Resolución de Decomiso.",
+        "stem": "¿Qué porcentaje sobre el valor en aduana de la mercancía debe liquidar y pagar el interesado por concepto de rescate en esta etapa procesal?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El cincuenta por ciento (50%) del valor en aduana de las mercancías, además de los tributos aduaneros correspondientes.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 293 Numeral 3. Cuando la mercancía se encuentre aprehendida y se legalice antes de proferirse la resolución de decomiso, el valor del rescate corresponde al 50% de su valor en aduana."
+            },
+            {
+                "key": "B",
+                "text": "El quince por ciento (15%) del valor en aduana, por tratarse de un allanamiento en etapa probatoria inicial.",
+                "is_correct": false,
+                "justification": "El 15% o 20% aplica únicamente para legalizaciones voluntarias sin previa aprehensión de la autoridad."
+            },
+            {
+                "key": "C",
+                "text": "El setenta y cinco por ciento (75%) del valor comercial fijado en la lista oficial de precios de referencia.",
+                "is_correct": false,
+                "justification": "El 75% aplica cuando ya se ha proferido y ejecutoriado la resolución de decomiso, no antes de proferirse."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 293 Numeral 3 (Rescate de mercancías aprehendidas)",
+        "explanation_summary": "El rescate de mercancías aprehendidas antes de que se expida la resolución de decomiso exige el pago del 50% de su valor en aduana más tributos aduaneros.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.587581-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 663,
+        "job_profile_id": 1,
+        "thematic_axis_id": 2,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un importador detecta por sí mismo, cuatro meses después de haber obtenido el levante y retirado las mercancías de la aduana, que por error involuntario del digitador no se declaró una parte de la mercancía que venía en el contenedor. La DIAN no ha iniciado ninguna acción de control ni ha proferido requerimiento ordinario.",
+        "stem": "¿Puede el importador legalizar voluntariamente la mercancía y qué porcentaje de rescate le corresponde pagar?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Sí, puede presentar declaración de legalización voluntaria sin aprehensión previa, cancelando los tributos aduaneros dejados de pagar y un rescate equivalente al veinte por ciento (20%) del valor en aduana por haber superado los 30 días posteriores al levante.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 293 Numeral 2. Cuando la legalización se presenta voluntariamente sin que medie aprehensión y después de los 30 días calendario siguientes al levante, el rescate es del 20%."
+            },
+            {
+                "key": "B",
+                "text": "No es posible legalizar; el importador debe entregar las mercancías para destrucción inmediata obligatoria.",
+                "is_correct": false,
+                "justification": "La legislación aduanera permite el rescate y legalización voluntaria para subsanar inconsistencias sin aprehensión."
+            },
+            {
+                "key": "C",
+                "text": "Sí, y queda exonerado del 100% del pago de rescate por haber actuado de mutuo propio antes de que la DIAN lo descubriera.",
+                "is_correct": false,
+                "justification": "El rescate es una figura de compensación legal que no se exonera al 100%; se reduce al 15% o 20% según el tiempo."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 293 Numeral 2",
+        "explanation_summary": "La legalización espontánea sin intervención previa de la aduana después de los 30 días del levante causa rescate del 20% del valor en aduana.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.589641-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 664,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En el área de equipajes del aeropuerto, la autoridad aduanera descubre en las maletas de un viajero procedente del exterior mercancías comerciales consistentes en 40 teléfonos celulares nuevos de alta gama ocultos en doble fondo, cuyo valor supera los topes del régimen de viajeros.",
+        "stem": "¿Cuál es el procedimiento aduanero aplicable para definir la situación jurídica de estas mercancías?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Procedimiento de Decomiso Directo en el lugar de arribo, en el cual se profiere y notifica el acto de decomiso en el mismo momento con recurso de reposición.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 696 y Módulo 11 DIAN. En régimen de viajeros, tráfico postal y envíos urgentes, procede el decomiso directo sin necesidad de agotar el trámite ordinario prolongado."
+            },
+            {
+                "key": "B",
+                "text": "Procedimiento ordinario de fiscalización con pliego de cargos de 60 días de periodo probatorio.",
+                "is_correct": false,
+                "justification": "El decomiso en régimen de viajeros opera por la vía sumarísima del decomiso directo por expresa previsión legal."
+            },
+            {
+                "key": "C",
+                "text": "Procedimiento contencioso de conciliación prejudicial ante la Procuraduría General de la Nación.",
+                "is_correct": false,
+                "justification": "Las controversias aduaneras de retención en aeropuertos son de resorte de la DIAN y no requieren conciliación judicial."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 696 (Decomiso Directo) \/ Módulo 11 DIAN",
+        "explanation_summary": "El decomiso directo es el procedimiento abreviado aplicable en régimen de viajeros y tráfico postal para resolver la situación jurídica in situ.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.591378-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 665,
+        "job_profile_id": 1,
+        "thematic_axis_id": 2,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "A un operador de logística aduanera se le notifica en debida forma un Acta de Aprehensión de mercancías en el puerto marítimo el día 2 de mayo de 2024. El apoderado judicial del importador prepara un escrito de descargos y objeciones al acta para desvirtuar la infracción señalada por los funcionarios.",
+        "stem": "¿De qué término legal dispone el interesado para radicar el documento de objeción al acta de aprehensión?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Quince (15) días hábiles siguientes a la fecha de notificación del Acta de Aprehensión.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 698 y Módulo 11 DIAN. El término para presentar el documento de objeción a la aprehensión es de quince (15) días hábiles siguientes a la notificación."
+            },
+            {
+                "key": "B",
+                "text": "Cinco (5) días calendario contados a partir del momento de la incautación.",
+                "is_correct": false,
+                "justification": "Término demasiado corto y en días calendario; la norma aduanera confiere 15 días hábiles garantizando el derecho de defensa."
+            },
+            {
+                "key": "C",
+                "text": "Un (1) mes improrrogable según las reglas del procedimiento cambiario del Decreto 2245.",
+                "is_correct": false,
+                "justification": "Confunde el plazo del procedimiento cambiario (1 mes) con el plazo aduanero de objeción a la aprehensión (15 días hábiles)."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 698 (Objeciones a la aprehensión)",
+        "explanation_summary": "El término legal para formular objeciones al Acta de Aprehensión aduanera es de 15 días hábiles siguientes a su notificación.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.592903-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 666,
+        "job_profile_id": 1,
+        "thematic_axis_id": 2,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Finalizado el periodo probatorio y habiéndose valorado las objeciones presentadas por el importador respecto de una mercancía aprehendida, el funcionario del Grupo Interno de Trabajo de Decomisos y Liquidaciones de la DIAN debe proyectar la decisión de fondo.",
+        "stem": "¿Cuál es el término legal del que dispone la DIAN para expedir la resolución que decide de fondo sobre el decomiso o devolución de las mercancías aprehendidas?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Cuarenta y cinco (45) días hábiles siguientes al vencimiento del término para objetar o de la finalización del periodo probatorio.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 700. La autoridad aduanera dispone de 45 días hábiles para decidir de fondo sobre el decomiso o la devolución de las mercancías."
+            },
+            {
+                "key": "B",
+                "text": "Seis (6) meses calendario asimilándolo al término de la liquidación oficial de revisión tributaria.",
+                "is_correct": false,
+                "justification": "El procedimiento aduanero tiene términos más estrictos para evitar el deterioro de bienes en custodia fiscal."
+            },
+            {
+                "key": "C",
+                "text": "Diez (10) días hábiles contados desde la recepción de la prueba pericial.",
+                "is_correct": false,
+                "justification": "El término legal es de 45 días hábiles para garantizar una valoración jurídica integral."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 700 \/ Módulo 11 DIAN",
+        "explanation_summary": "La DIAN dispone de 45 días hábiles para proferir la resolución que decide de fondo el decomiso ordinario de las mercancías aprehendidas.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.598969-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 667,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Durante la inspección aduanera documental de una importación de productos químicos que gozan de preferencia arancelaria bajo el Acuerdo Comercial con la Unión Europea, el inspector de la DIAN advierte que la empresa no adjuntó en el sistema el Certificado de Origen ni la prueba de origen válida al radicar la declaración.",
+        "stem": "¿Cuál es el procedimiento que debe aplicar la autoridad aduanera frente a la falta del documento soporte de preferencia arancelaria?",
+        "options": [
+            {
+                "key": "A",
+                "text": "No autorizar el levante con preferencia arancelaria; el importador puede optar por pagar el arancel pleno general de terceros países o corregir dentro de los términos legales allegando la prueba de origen válida.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 185. La falta de prueba de origen no genera aprehensión inmediata si la mercancía está bien descrita, sino la pérdida temporal del beneficio arancelario preferencial."
+            },
+            {
+                "key": "B",
+                "text": "Aprehender de inmediato las mercancías por considerar que se cometió fraude aduanero agravado.",
+                "is_correct": false,
+                "justification": "La ausencia de certificado de origen no es causal de aprehensión automática si el importador liquida y paga el gravamen arancelario general."
+            },
+            {
+                "key": "C",
+                "text": "Declarar el abandono legal de las mercancías en favor de la DIAN sin posibilidad de desaduanamiento.",
+                "is_correct": false,
+                "justification": "El abandono legal solo opera por vencimiento de los términos máximos de almacenamiento en depósito."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 185 (Documentos soporte y preferencias arancelarias)",
+        "explanation_summary": "La falta de prueba de origen impide aplicar la tarifa arancelaria preferencial, pero permite al declarante nacionalizar la mercancía pagando la tarifa general arancelaria.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.60115-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 668,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "En una diligencia de inspección física a un contenedor de juguetes, los funcionarios de la DIAN constatan que la declaración de importación ampara 10.000 unidades, pero el conteo físico arroja 12.500 unidades idénticas a las declaradas. No existen documentos de justificación técnica sobre sobrantes.",
+        "stem": "¿Qué decisión procede respecto de las 2.500 unidades encontradas en exceso no amparadas en la declaración?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Aprehender las 2.500 unidades sobrantes por no encontrarse amparadas en la declaración aduanera de importación, autorizando el levante de las 10.000 unidades correctamente declaradas.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 647 y Art. 185. Procede la aprehensión exclusiva sobre la cantidad sobrante o no declarada, permitiéndose el desaduanamiento de la mercancía amparada."
+            },
+            {
+                "key": "B",
+                "text": "Aprehender la totalidad del contenedor (las 12.500 unidades) por el principio de indivisibilidad de la carga.",
+                "is_correct": false,
+                "justification": "La legislación aduanera permite segregar la carga legalmente amparada de las unidades sobrantes que incurren en causal de aprehensión."
+            },
+            {
+                "key": "C",
+                "text": "Regalar las unidades en exceso a un hogar de beneficencia sin levantar ningún informe formal.",
+                "is_correct": false,
+                "justification": "Toda mercancía en exceso debe someterse a procedimiento aduanero formal de aprehensión y decomiso."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículos 185 y 647 (Sobrantes en inspección aduanera)",
+        "explanation_summary": "Las unidades encontradas en exceso durante la inspección física que no cuenten con soporte aduanero son objeto de aprehensión independiente.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.603121-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 669,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una multinacional automotriz certificada en Colombia como Operador Económico Autorizado (OEA) en la modalidad de importador tramita la llegada de partes de ensamble al país. Al arribar la carga, el sistema informático aduanero evalúa el perfil de riesgo de la operación.",
+        "stem": "¿Cuál es uno de los principales beneficios operativos directos que otorga la condición de OEA respecto a los controles de fiscalización aduanera?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Disminución significativa de los niveles de inspección documental y física, con prevalencia de inspección no intrusiva y prioridad en la atención de trámites aduaneros.",
+                "is_correct": true,
+                "justification": "Decreto 3568 de 2011 y Resolución DIAN 0015 de 2016. La figura de OEA otorga estatus de operador confiable con beneficios de canal verde predominante e inspección no intrusiva."
+            },
+            {
+                "key": "B",
+                "text": "Exención absoluta y permanente del pago de tributos aduaneros (arancel e IVA) en todas sus operaciones.",
+                "is_correct": false,
+                "justification": "El OEA es un estatus de seguridad y facilitación logística; no constituye una exención fiscal tributaria o sustancial."
+            },
+            {
+                "key": "C",
+                "text": "Inmunidad total frente a investigaciones administrativas de la DIAN y prohibición de auditorías posteriores.",
+                "is_correct": false,
+                "justification": "El OEA está plenamente sujeto al control aduanero posterior y fiscalización ex post de la DIAN."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 3568 de 2011 \/ Decreto 1165 de 2019, Artículos 22 y 23 (Beneficios OEA)",
+        "explanation_summary": "La certificación OEA confiere tratamiento prioritario, reducción de inspecciones físicas y facilitación en el desaduanamiento.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.60568-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 670,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una empresa acreditada como OEA tipo importador nacionaliza mercancías de manera continua a lo largo del mes de julio. En lugar de pagar los tributos aduaneros en cada declaración individual antes de obtener el levante, la empresa hace uso de un beneficio especial de tesorería contemplado en la norma aduanera.",
+        "stem": "¿En qué consiste el beneficio de pago consolidado de tributos aduaneros para los usuarios OEA?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Pagar de forma consolidada todos los tributos aduaneros causados en las declaraciones del mes anterior dentro de los primeros cinco (5) días hábiles del mes siguiente, sin retardar el levante de cada operación.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 23 y Art. 192. Los importadores OEA gozan de la prerrogativa del pago diferido y consolidado mensual de tributos aduaneros."
+            },
+            {
+                "key": "B",
+                "text": "Diferir el pago de los tributos en cuotas semestrales a lo largo de un periodo de cinco (5) años sin intereses.",
+                "is_correct": false,
+                "justification": "El pago consolidado mensual vence en los primeros 5 días hábiles del mes subsiguiente; no existen cuotas semestrales a 5 años."
+            },
+            {
+                "key": "C",
+                "text": "Compensar automáticamente los tributos aduaneros con bonos de deuda pública sin reportar a los bancos recaudadores.",
+                "is_correct": false,
+                "justification": "El pago debe realizarse a través de las Entidades Autorizadas para Recaudar (EAR) conforme a los formularios oficiales."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 23 \/ Resolución DIAN (Pago consolidado OEA)",
+        "explanation_summary": "Los usuarios OEA pueden retirar sus mercancías con levante y consolidar el pago de todos los tributos aduaneros del mes en los primeros 5 días hábiles del mes siguiente.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.607765-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 672,
+        "job_profile_id": 4,
+        "thematic_axis_id": 39,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "En el proceso productivo de una empresa ensambladora en Zona Franca, se generan desperdicios metálicos (chatarra) que aún conservan valor comercial en el mercado local. La empresa planea vender dicha chatarra a una fundición ubicada en Bogotá (Territorio Aduanero Nacional - TAN).",
+        "stem": "¿Cómo deben tratarse aduanera y tributariamente los desperdicios con valor comercial que salen de Zona Franca hacia el TAN?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Deben someterse a una declaración de importación ordinaria al TAN, liquidando y pagando los tributos aduaneros correspondientes a la subpartida arancelaria del desperdicio sobre su valor de venta.",
+                "is_correct": true,
+                "justification": "Decreto 2147 de 2016, Art. 62. Los residuos y desperdicios que tengan valor comercial que salgan al TAN deben nacionalizarse como importación ordinaria según la clasificación del residuo."
+            },
+            {
+                "key": "B",
+                "text": "Pueden salir libremente con una simple remisión comercial sin pagar ningún tributo aduanero por considerarse desecho industrial.",
+                "is_correct": false,
+                "justification": "Si el desperdicio tiene valor comercial, su salida al TAN constituye una importación sujeta a tributos aduaneros."
+            },
+            {
+                "key": "C",
+                "text": "Está prohibida su venta al TAN; deben reexportarse obligatoriamente al país de procedencia de la materia prima original.",
+                "is_correct": false,
+                "justification": "La normativa permite la venta al TAN de desperdicios previa nacionalización formal."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2147 de 2016, Artículo 62 (Residuos y desperdicios en Zona Franca)",
+        "explanation_summary": "Los desperdicios con valor comercial provenientes de procesos industriales en Zona Franca deben nacionalizarse como importación al TAN si no son destruidos.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.611476-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 673,
+        "job_profile_id": 4,
+        "thematic_axis_id": 39,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Un Usuario Industrial de Bienes ubicado en Zona Franca produce medicamentos utilizando 60% de componentes nacionales y 40% de insumos importados de la India. La empresa vende un lote de estos medicamentos a un distribuidor mayorista en Medellín (TAN).",
+        "stem": "¿Cómo se liquidan los tributos aduaneros (arancel e IVA) en la introducción de dicho bien al Territorio Aduanero Nacional?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El arancel se liquida exclusivamente sobre el valor de las materias primas extranjeras incorporadas, mientras que el IVA se liquida sobre el valor total del producto final nacionalizado.",
+                "is_correct": true,
+                "justification": "Decreto 2147 de 2016, Art. 60 y Ley 1607 de 2012 Art. 67. El gravamen arancelario grava la materia prima extranjera incorporada según el certificado de integración, y el IVA recae sobre el valor aduanero total del bien."
+            },
+            {
+                "key": "B",
+                "text": "Tanto el arancel como el IVA se liquidan únicamente sobre el 40% del valor de los insumos importados.",
+                "is_correct": false,
+                "justification": "El IVA en importaciones desde Zona Franca grava el bien terminado en su totalidad para garantizar equidad con la producción nacional."
+            },
+            {
+                "key": "C",
+                "text": "La operación se encuentra totalmente exenta de arancel e IVA por haberse fabricado dentro de una Zona Franca colombiana.",
+                "is_correct": false,
+                "justification": "La salida de bienes al TAN desde Zona Franca se considera jurídicamente una importación gravada."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2147 de 2016, Artículo 60 \/ Estatuto Tributario, Artículo 459",
+        "explanation_summary": "Al ingresar al TAN un bien producido en Zona Franca, el arancel grava el componente extranjero y el IVA recae sobre el valor final total del producto.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.61412-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 674,
+        "job_profile_id": 4,
+        "thematic_axis_id": 39,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un Usuario Industrial de Confecciones en Zona Franca requiere enviar telas cortadas al Territorio Aduanero Nacional (TAN) para que un taller satélite realice labores especializadas de bordado y estampado que no pueden efectuarse en la zona franca. La empresa consulta el plazo máximo autorizado para el procesamiento parcial.",
+        "stem": "¿Cuál es el término máximo legal por el cual pueden salir materias primas de Zona Franca al TAN para procesamiento parcial?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Hasta por un término máximo de seis (6) meses, prorrogable por el Usuario Operador por un periodo igual por motivos justificados.",
+                "is_correct": true,
+                "justification": "Decreto 2147 de 2016, Art. 57. El procesamiento parcial fuera de Zona Franca puede autorizarse hasta por 6 meses prorrogables por 6 meses más."
+            },
+            {
+                "key": "B",
+                "text": "Treinta (30) días calendario improrrogables bajo sanción de decomiso.",
+                "is_correct": false,
+                "justification": "30 días no se compadecen con procesos industriales complejos; la norma otorga 6 meses prorrogables."
+            },
+            {
+                "key": "C",
+                "text": "Hasta por dos (2) años sin necesidad de reingreso a la Zona Franca.",
+                "is_correct": false,
+                "justification": "El procesamiento parcial no puede convertirse en deslocalización permanente de la actividad calificada."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 2147 de 2016, Artículo 57 (Procesamiento parcial fuera de Zona Franca)",
+        "explanation_summary": "La salida de insumos para procesamiento parcial en el TAN está limitada a 6 meses, prorrogable por 6 meses más por el Usuario Operador.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.61601-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 675,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una mercancía importada arriba a un depósito aduanero habilitado el 1 de febrero. El importador no tramita el régimen de importación ni solicita prórroga alguna. Al 3 de abril, transcurridos más de dos meses, la mercancía permanece en el depósito sin que se haya solicitado el levante.",
+        "stem": "¿Qué situación jurídica sobreviene respecto de la mercancía y qué derecho tiene el importador antes de que la decisión quede en firme?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Opera el abandono legal de la mercancía; no obstante, el importador puede rescatarla mediante declaración de legalización antes de que quede en firme la resolución que declare el abandono, pagando el rescate legal.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 171 y Art. 293 Num. 1. Vencido el mes de permanencia y su prórroga, opera el abandono legal, pudiendo rescatarse antes de la firmeza del acto con pago de rescate."
+            },
+            {
+                "key": "B",
+                "text": "La mercancía se destruye automáticamente sin posibilidad alguna de rescate ni intervención del dueño.",
+                "is_correct": false,
+                "justification": "La destrucción solo procede para mercancías descompuestas o prohibidas; el abandono legal otorga oportunidad de rescate."
+            },
+            {
+                "key": "C",
+                "text": "El depósito adquiere la propiedad privada del bien para subastarlo libremente en provecho propio.",
+                "is_correct": false,
+                "justification": "Las mercancías en abandono pasan a favor de la Nación (DIAN), nunca al patrimonio privado del depósito habilitado."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículos 171 y 293 (Abandono legal y rescate)",
+        "explanation_summary": "El vencimiento del término de almacenamiento genera abandono legal a favor de la Nación, pero permite el rescate mediante legalización antes de la firmeza del acto de adjudicación.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.617809-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 676,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Antes de presentar la declaración de importación de una maquinaria electromecánica de alta precisión compuesta por decenas de piezas sueltas, la Agencia de Aduanas tiene dudas sobre las marcas, números de serie y especificaciones técnicas exactas de la mercancía que se encuentra descargada en el depósito habilitado.",
+        "stem": "¿Qué facultad legal puede ejercer el declarante para inspeccionar la carga previamente y evitar errores que generen aprehensión?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Solicitar y realizar la Inspección Previa de la mercancía en el depósito aduanero conforme al artículo 52 del Decreto 1165 de 2019, abriendo empaques y extrayendo muestras sin que constituya causal de infracción.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 52. La inspección previa es un derecho del declarante para verificar la mercancía antes de declarar y asegurar la exacta descripción, cantidad y seriales."
+            },
+            {
+                "key": "B",
+                "text": "Retirar la mercancía hacia las instalaciones de la empresa mediante una garantía bancaria sin autorización de la DIAN.",
+                "is_correct": false,
+                "justification": "Retirar la carga del depósito sin levante ni autorización constituye sustracción ilícita de mercancías y causal de aprehensión."
+            },
+            {
+                "key": "C",
+                "text": "Radicar una declaración provisional y modificarla durante los siguientes dos años sin pagar sanciones.",
+                "is_correct": false,
+                "justification": "La declaración aduanera debe coincidir con la realidad física al momento del desaduanamiento."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículo 52 (Inspección previa de la mercancía)",
+        "explanation_summary": "La inspección previa permite al declarante examinar físicamente la carga en depósito antes de declarar para evitar inexactitudes y aprehensiones.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.619395-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 677,
+        "job_profile_id": 1,
+        "thematic_axis_id": 2,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una Agencia de Aduanas comete una errónea subpartida arancelaria al declarar una importación de insumos plásticos, lo cual ocasiona que se liquide un gravamen arancelario del 5% en lugar del 10% legalmente aplicable. La DIAN adelanta fiscalización posterior y detecta el error en la clasificación.",
+        "stem": "¿Qué consecuencias administrativas se derivan de esta inexactitud en la subpartida arancelaria?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Expedición de Liquidación Oficial de Corrección para exigir los mayores tributos aduaneros e imposición de sanción por infracción aduanera a la Agencia de Aduanas y al importador según su grado de responsabilidad.",
+                "is_correct": true,
+                "justification": "Decreto 1165 de 2019, Art. 680 y Art. 615. El error en la subpartida que implique menor pago de tributos conlleva liquidación oficial de corrección y sanción pecuniaria."
+            },
+            {
+                "key": "B",
+                "text": "Aprehensión y decomiso físico de los insumos plásticos aunque ya hayan sido utilizados en la producción.",
+                "is_correct": false,
+                "justification": "El error de subpartida no da lugar a aprehensión si la mercancía está bien descrita; se subsana mediante liquidación oficial de corrección y sanción pecuniaria."
+            },
+            {
+                "key": "C",
+                "text": "Cierre temporal de las operaciones del puerto marítimo por 30 días.",
+                "is_correct": false,
+                "justification": "El error clasificatorio de un declarante no afecta las instalaciones de infraestructura portuaria."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1165 de 2019, Artículos 615 y 680 (Liquidación Oficial de Corrección)",
+        "explanation_summary": "Los errores de subpartida arancelaria que disminuyen tributos se corrigen por vía de Liquidación Oficial de Corrección y sanción pecuniaria sin aprehensión cuando la descripción es completa.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.621664-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 678,
+        "job_profile_id": 1,
+        "thematic_axis_id": 38,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "En el marco de las disposiciones de facilitación y trazabilidad del Decreto 659 de 2024, la DIAN implementa controles basados en sistemas de inspección no intrusiva (escáneres de contenedores) en los principales puertos y pasos de frontera del país.",
+        "stem": "¿Qué consecuencia se produce si la imagen del escáner revela discrepancias o densidades anómalas no coincidentes con el manifiesto de carga o la declaración anticipada?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Se suspende inmediatamente el desaduanamiento y se ordena la inspección física intrusiva de la unidad de carga, procediendo a la aprehensión si se confirma mercancía no declarada u oculta.",
+                "is_correct": true,
+                "justification": "Decreto 659 de 2024 y Decreto 1165 de 2019. La inspección no intrusiva es una fase de control; ante anomalías en las imágenes, se escala de inmediato a inspección física exhaustiva y medidas cautelares si hay irregularidades."
+            },
+            {
+                "key": "B",
+                "text": "Se autoriza el levante automático condicionado a que el importador firme una declaración juramentada en los siguientes 6 meses.",
+                "is_correct": false,
+                "justification": "Las alertas de escáner impiden el levante y exigen verificación física inmediata obligatoria."
+            },
+            {
+                "key": "C",
+                "text": "El escáner es solo de carácter pedagógico y sus resultados no pueden ser utilizados como prueba en procedimientos aduaneros.",
+                "is_correct": false,
+                "justification": "Las imágenes de escáner constituyen plena prueba documental técnica dentro del sistema de administración de riesgos de la DIAN."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 659 de 2024 \/ Decreto 1165 de 2019, Artículos 581 y 582 (Inspección no intrusiva)",
+        "explanation_summary": "La detección de alertas o discrepancias en escáneres portuarios exige suspender el trámite y ordenar inspección física inmediata con fines cautelares.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.623725-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 679,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La División de Gestión de Fiscalización de la Dirección Seccional de Impuestos de Medellín profiere un Auto de Inspección Tributaria dentro de una investigación por presunta omisión de ingresos en la declaración de renta de una constructora. El auto es notificado legalmente el 12 de marzo de 2024, cuando faltaban 4 meses para que se venciera el término ordinario de firmeza para proferir el Requerimiento Especial.",
+        "stem": "¿Qué efecto jurídico procesal genera la notificación del Auto que ordena la Inspección Tributaria sobre el término para proferir el Requerimiento Especial?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Suspende el término para notificar el Requerimiento Especial por tres (3) meses contados a partir de la notificación del auto.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 706 y Art. 779. El término para notificar el requerimiento especial se suspende durante el tiempo que dure la inspección tributaria, si se practica de oficio hasta por tres (3) meses."
+            },
+            {
+                "key": "B",
+                "text": "Interrumpe la firmeza haciendo que el término de 3 años vuelva a comenzar desde cero a partir de la visita.",
+                "is_correct": false,
+                "justification": "La inspección tributaria suspende temporalmente el término (máximo por 3 meses), no lo interrumpe ni lo reinicia."
+            },
+            {
+                "key": "C",
+                "text": "No produce ningún efecto sobre los términos de prescripción o firmeza de la declaración.",
+                "is_correct": false,
+                "justification": "El artículo 706 del Estatuto Tributario señala de manera expresa el efecto suspensivo de la inspección tributaria."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículos 706 y 779 (Suspensión de términos por inspección tributaria)",
+        "explanation_summary": "La notificación del auto que ordena una inspección tributaria de oficio suspende el término para proferir el requerimiento especial hasta por 3 meses.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.625678-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 682,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "En el Requerimiento Especial, la DIAN propuso una sanción por inexactitud del 100% equivalente a $40.000.000 sobre el mayor impuesto determinado. Dentro del término de los 3 meses de respuesta, el contribuyente decide aceptar la totalidad de las glosas planteadas, corrige su declaración de renta y presenta memorial demostrando el pago del mayor impuesto y la sanción reducida.",
+        "stem": "¿A qué porcentaje se reduce la sanción por inexactitud cuando se acepta la propuesta de determinación en respuesta al Requerimiento Especial?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Se reduce a la mitad (50%) de la sanción inicialmente planteada por la administración tributaria, es decir, a $20.000.000.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 709. Si con ocasión de la respuesta al requerimiento especial el contribuyente acepta los hechos y corrige, la sanción por inexactitud se reduce al 50% de la propuesta."
+            },
+            {
+                "key": "B",
+                "text": "Se reduce al setenta y cinco por ciento (75%) de la sanción fijada en el requerimiento.",
+                "is_correct": false,
+                "justification": "La reducción al 75% opera en la etapa posterior, es decir, con ocasión del recurso de reconsideración contra la liquidación oficial de revisión (Art. 713 E.T.)."
+            },
+            {
+                "key": "C",
+                "text": "Se reduce al diez por ciento (10%) de conformidad con el principio de proporcionalidad del CPACA.",
+                "is_correct": false,
+                "justification": "En materia tributaria rige estrictamente la reducción tarifaria taxativa de los artículos 709 y 713 del Estatuto Tributario."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 709 (Corrección provocada por el requerimiento especial)",
+        "explanation_summary": "La aceptación de las glosas del Requerimiento Especial dentro de los 3 meses de respuesta permite reducir la sanción por inexactitud al 50% de la cuantía inicialmente propuesta.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.63164-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 683,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "El término legal de tres meses para que un contribuyente respondiera al Requerimiento Especial venció el día 15 de enero de 2024. El contribuyente presentó memorial de descargos rechazando las glosas. La División de Gestión de Liquidación de la DIAN debe proyectar y notificar la Liquidación Oficial de Revisión.",
+        "stem": "¿Cuál es el término legal máximo con el que cuenta la DIAN para proferir y notificar la Liquidación Oficial de Revisión?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Seis (6) meses contados a partir de la fecha de vencimiento del término para dar respuesta al Requerimiento Especial.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 710. La Liquidación Oficial de Revisión debe expedirse y notificarse dentro de los seis (6) meses siguientes al vencimiento del término para responder el requerimiento especial."
+            },
+            {
+                "key": "B",
+                "text": "Tres (3) años contados desde la presentación de la declaración privada inicial.",
+                "is_correct": false,
+                "justification": "Los 3 años aplican para notificar el requerimiento especial (Art. 705 E.T.); una vez notificado este, rige el plazo de 6 meses del Art. 710 E.T."
+            },
+            {
+                "key": "C",
+                "text": "Dos (2) meses siguientes a la radicación del memorial de respuesta del contribuyente.",
+                "is_correct": false,
+                "justification": "El término es de 6 meses y se computa a partir del vencimiento del término para responder, no de la fecha de radicación anticipada del contribuyente."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 710 (Término para proferir la liquidación oficial de revisión)",
+        "explanation_summary": "La DIAN dispone de seis (6) meses siguientes al vencimiento del término para responder el Requerimiento Especial para notificar la Liquidación Oficial de Revisión.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.633625-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 684,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La DIAN notifica Liquidación Oficial de Revisión a una empresa del sector comercio el 10 de abril de 2024, confirmando la adición de ingresos por ventas no facturadas y liquidando una sanción de inexactitud. La empresa no está de acuerdo y busca agotar la vía gubernativa.",
+        "stem": "¿Qué recurso procede contra la Liquidación Oficial de Revisión y cuál es el término para interponerlo?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El Recurso de Reconsideración, el cual debe interponerse dentro de los dos (2) meses siguientes a la notificación de la liquidación oficial.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 720. Contra las liquidaciones oficiales procede el Recurso de Reconsideración dentro de los dos (2) meses siguientes a su notificación."
+            },
+            {
+                "key": "B",
+                "text": "El Recurso de Apelación dentro de los diez (10) días hábiles siguientes ante el Tribunal Administrativo.",
+                "is_correct": false,
+                "justification": "En vía gubernativa tributaria procede reconsideración; el tribunal es sede judicial contenciosa."
+            },
+            {
+                "key": "C",
+                "text": "El Recurso de Reposición dentro del mes siguiente conforme a las normas de procedimiento cambiario.",
+                "is_correct": false,
+                "justification": "En materia de determinación tributaria el recurso exclusivo es el de reconsideración (Art. 720 E.T.)."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 720 (Recurso de reconsideración)",
+        "explanation_summary": "Contra la Liquidación Oficial de Revisión procede el Recurso de Reconsideración dentro de los dos (2) meses siguientes a su notificación.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.635497-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 685,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Un contribuyente sancionado con Liquidación Oficial de Revisión decide allanarse a las modificaciones propuestas al interponer el Recurso de Reconsideración, aceptando el mayor valor del impuesto determinado y corrigiendo su declaración privada.",
+        "stem": "¿A qué porcentaje se reduce la sanción por inexactitud cuando el contribuyente acepta los hechos dentro del término del Recurso de Reconsideración?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Se reduce al setenta y cinco por ciento (75%) de la sanción inicialmente determinada en la liquidación oficial.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 713. Si al interponer el recurso de reconsideración el contribuyente acepta los hechos, la sanción por inexactitud se reduce al 75% de la determinada en la liquidación oficial."
+            },
+            {
+                "key": "B",
+                "text": "Se reduce al cincuenta por ciento (50%) como si estuviese en etapa de respuesta al requerimiento especial.",
+                "is_correct": false,
+                "justification": "La reducción al 50% solo aplica en sede de Requerimiento Especial (Art. 709 E.T.); en sede de recurso es del 75%."
+            },
+            {
+                "key": "C",
+                "text": "Se condona el cien por ciento (100%) de las sanciones e intereses moratorios por principio de justicia rogada.",
+                "is_correct": false,
+                "justification": "Las normas tributarias no contemplan condonaciones totales por simple desistimiento del recurso."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 713 (Corrección provocada por la liquidación de revisión)",
+        "explanation_summary": "El allanamiento formulado al momento de interponer el Recurso de Reconsideración permite pagar la sanción por inexactitud reducida al 75%.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.637582-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 686,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La División de Fiscalización de la DIAN notifica un Emplazamiento para Corregir a una sociedad por inconsistencias aritméticas en los costos declarados en IVA. El contribuyente recibe el acto el 2 de mayo de 2024.",
+        "stem": "¿De qué término dispone el contribuyente para corregir y cuál es el efecto del emplazamiento sobre la sanción de corrección?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Dispone de un (1) mes para corregir su declaración; en caso de hacerlo, la sanción de corrección aumentará al veinte por ciento (20%) del mayor valor a pagar conforme al artículo 644 Numeral 2 del E.T.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 685 y Art. 644 Numeral 2. El término para responder al emplazamiento para corregir es de 1 mes, duplicándose la sanción de corrección del 10% al 20%."
+            },
+            {
+                "key": "B",
+                "text": "Dispone de tres (3) meses y la sanción de corrección se exonera totalmente si se allana de inmediato.",
+                "is_correct": false,
+                "justification": "El término es de 1 mes y la sanción no se exonera; se agrava del 10% al 20%."
+            },
+            {
+                "key": "C",
+                "text": "Dispone de quince (15) días hábiles y debe pagar una sanción de cierre temporal del establecimiento.",
+                "is_correct": false,
+                "justification": "El emplazamiento para corregir es un acto previo facultativo regido por el mes perentorio del artículo 685 E.T."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 685 y Artículo 644 Numeral 2",
+        "explanation_summary": "El Emplazamiento para Corregir otorga un término de 1 mes para corregir, elevando la sanción de corrección al 20% del mayor impuesto.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.640059-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 687,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una persona natural obligada a declarar renta por superar el tope de consignaciones bancarias omite presentar su declaración del año gravable 2022. La DIAN le notifica Emplazamiento Previo por No Declarar y, ante su silencio durante el mes siguiente, le aplica la sanción por no declarar. Posteriormente, la administración procede a determinar el tributo mediante Liquidación Oficial de Aforo.",
+        "stem": "¿Cuál es la sanción por no declarar en el impuesto sobre la renta y de qué plazo dispone la DIAN para expedir la Liquidación Oficial de Aforo?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Sanción del veinte por ciento (20%) del valor de las consignaciones bancarias o de los ingresos brutos del periodo, y la DIAN dispone de cinco (5) años siguientes al vencimiento del plazo para declarar para proferir la Liquidación de Aforo.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 643 Numeral 1 y Art. 717. La sanción por no declarar en renta es del 20% de consignaciones o ingresos brutos, y la liquidación de aforo debe proferirse dentro de los 5 años siguientes al vencimiento para declarar."
+            },
+            {
+                "key": "B",
+                "text": "Sanción del cien por ciento (100%) del patrimonio líquido y plazo perentorio de seis (6) meses desde el emplazamiento.",
+                "is_correct": false,
+                "justification": "La sanción del 100% sobre patrimonio no existe en el artículo 643; la tarifa legal en renta es del 20% sobre ingresos o consignaciones."
+            },
+            {
+                "key": "C",
+                "text": "Sanción de diez (10) UVT fijas y plazo de tres (3) años coincidente con la firmeza general ordinaria.",
+                "is_correct": false,
+                "justification": "Para los omisos el término de aforo es especial de 5 años conforme al artículo 717 E.T."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículos 643 Numeral 1 y 717 (Liquidación de Aforo)",
+        "explanation_summary": "La sanción por no declarar en renta es del 20% de consignaciones o ingresos brutos y la Liquidación Oficial de Aforo puede expedirse dentro de los 5 años siguientes al vencimiento para declarar.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.642066-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 688,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una sociedad presenta electrónicamente su declaración mensual de Retención en la Fuente del periodo mayo de 2024 el día de su vencimiento, arrojando un saldo a pagar de $18.000.000. Sin embargo, no realiza el pago del valor liquidado porque la empresa atraviesa problemas temporales de liquidez en caja.",
+        "stem": "¿Cuál es la consecuencia jurídica que opera de pleno derecho respecto de la declaración de retención presentada sin pago total?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La declaración no produce efecto legal alguno (es ineficaz de pleno derecho) sin necesidad de acto administrativo que así lo declare, a menos que el pago se efectúe dentro de los dos (2) meses siguientes al vencimiento.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 580-1. Las declaraciones de retención presentadas sin pago total son ineficaces de pleno derecho, salvo que el agente retenedor pague la totalidad dentro de los dos meses siguientes al vencimiento."
+            },
+            {
+                "key": "B",
+                "text": "La declaración es plenamente válida pero genera intereses de mora a una tasa reducida del 50%.",
+                "is_correct": false,
+                "justification": "El artículo 580-1 expresamente castiga la falta de pago con la ineficacia de pleno derecho del documento."
+            },
+            {
+                "key": "C",
+                "text": "La DIAN debe formular demanda de cobro ejecutivo ante la jurisdicción civil de manera inmediata.",
+                "is_correct": false,
+                "justification": "Al ser ineficaz, la declaración no constituye título ejecutivo hábil; la administración debe emplazar para declarar como omiso."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 580-1 (Ineficacia de las declaraciones de retención en la fuente)",
+        "explanation_summary": "Las declaraciones de retención en la fuente presentadas sin pago total no producen efecto legal alguno (ineficacia de pleno derecho), a menos que se pague dentro de los 2 meses siguientes.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.643718-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 689,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "En un programa de fiscalización a una empresa de suministros industriales, la DIAN descubre que la compañía incluyó facturas de compras de materiales por $450 millones emitidas por un tercero que fue declarado proveedor ficticio mediante resolución ejecutoriada en los términos del artículo 671 del Estatuto Tributario.",
+        "stem": "¿Qué consecuencias tributarias y sancionatorias se aplican respecto a los costos soportados con proveedores ficticios?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Rechazo total de los costos y deducciones en renta e impuestos descontables en IVA, e imposición de la sanción agravada por inexactitud del doscientos por ciento (200%) del mayor impuesto originado en la utilización de operaciones simuladas.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 671 y Art. 648 Numeral 3. Las compras a proveedores ficticios no son deducibles y configuran causal agravada de sanción por inexactitud del 200%."
+            },
+            {
+                "key": "B",
+                "text": "Aceptación del 50% de los costos por principio de buena fe comercial y sanción ordinaria de corrección del 10%.",
+                "is_correct": false,
+                "justification": "La inclusión de facturas de proveedores ficticios constituye fraude tipificado que acarrea rechazo total y sanción del 200%."
+            },
+            {
+                "key": "C",
+                "text": "Únicamente una sanción pedagógica consistente en asistir a cursos de ética tributaria en la sede de la DIAN.",
+                "is_correct": false,
+                "justification": "La normativa tributaria impone severas consecuencias patrimoniales y pecuniarias por el uso de documentos simulados."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículos 671 y 648 Numeral 3 (Sanción por inexactitud agravada)",
+        "explanation_summary": "Las operaciones con proveedores ficticios conllevan el rechazo absoluto de deducciones y la sanción agravada por inexactitud del 200% sobre el mayor impuesto.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.645816-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 690,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Durante una auditoría de ingresos, la DIAN cruza información con el sistema financiero y detecta que un comerciante responsable de IVA recibió consignaciones bancarias por $800 millones en el año 2023, pero en sus declaraciones tributarias solo reportó ingresos operacionales por $250 millones. El contribuyente no aporta libros contables ni justifica el origen del dinero restante.",
+        "stem": "¿Qué presunción legal opera en favor de la DIAN respecto de las consignaciones bancarias no justificadas?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Se presume legalmente que el valor de las consignaciones no justificadas constituye renta líquida gravable del periodo gravable y, simultáneamente, base gravable de ventas para efectos del IVA.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 755-3 y Art. 757. Las consignaciones bancarias no justificadas se presumen ingresos que constituyen renta líquida gravable y base gravable del impuesto sobre las ventas."
+            },
+            {
+                "key": "B",
+                "text": "Se presumen como préstamos de familiares exentos de todo tributo de acuerdo con el derecho consuetudinario.",
+                "is_correct": false,
+                "justification": "Para desvirtuar la presunción se requiere prueba documental idónea con fecha cierta; no opera presunción de gratuidad."
+            },
+            {
+                "key": "C",
+                "text": "Se consideran pasivos corrientes sin efecto sobre la determinación del impuesto sobre la renta.",
+                "is_correct": false,
+                "justification": "La falta de justificación contable transforma las consignaciones directamente en ingresos constitutivos de renta gravable."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículos 755-3 y 757 (Presunción por consignaciones bancarias)",
+        "explanation_summary": "Las consignaciones bancarias no justificadas con contabilidad o prueba idónea se presumen legalmente ingresos gravables en renta e IVA.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.647757-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 691,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "En el año gravable 2024, la DIAN descubre que un contribuyente posee tres inmuebles de alto valor que nunca han sido incluidos en sus declaraciones de renta de años anteriores. El contribuyente alega que fueron adquiridos con ahorros antiguos y solicita incluirlos en su declaración sin pagar sanción.",
+        "stem": "¿Cuál es el tratamiento tributario legal y la sanción aplicable a la omisión de activos descubierta por la administración según el artículo 239-1 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El valor del activo omitido constituye renta líquida gravable en el periodo investigado sin derecho a deducción alguna, y genera una sanción por inexactitud del doscientos por ciento (200%).",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 239-1. La omisión de activos o inclusión de pasivos inexistentes detectada por la DIAN constituye renta líquida gravable y se sanciona con inexactitud agravada del 200%."
+            },
+            {
+                "key": "B",
+                "text": "Se grava como ganancia ocasional a la tarifa general del 15% sin liquidación de sanciones pecuniarias.",
+                "is_correct": false,
+                "justification": "El artículo 239-1 no lo trata como ganancia ocasional sino como renta líquida especial gravada a tarifa ordinaria más el 200% de sanción."
+            },
+            {
+                "key": "C",
+                "text": "Se autoriza su registro contable en la cuenta de superávit de capital pagando únicamente 100 UVT de sanción formal.",
+                "is_correct": false,
+                "justification": "La omisión de activos no es una falta formal; es una evasión sustancial sancionada con la máxima gravedad patrimonial."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 239-1 (Renta líquida gravable por activos omitidos)",
+        "explanation_summary": "Los activos omitidos detectados por la DIAN se incorporan como renta líquida gravable con sanción por inexactitud del 200%.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.649753-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 692,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una entidad obligada a presentar información exógena tributaria (reporte de terceros) correspondiente al año gravable 2023 no la transmitió dentro de los plazos fijados por la resolución de la DIAN. La empresa decide presentar voluntariamente la información antes de que la DIAN le notifique pliego de cargos.",
+        "stem": "¿Cómo opera la tasación y reducción de la sanción por no enviar información del artículo 651 del Estatuto Tributario tras las modificaciones de la Ley 2277 de 2022?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La tarifa general por no suministrar información es del uno por ciento (1%) de las sumas no reportadas (con tope de 7.500 UVT), y si se subsana voluntariamente antes del pliego de cargos, la sanción se reduce al diez por ciento (10%).",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 651 modificado por Ley 2277 de 2022 y Parágrafo 1. La tarifa máxima se redujo del 5% al 1% con tope de 7.500 UVT, y la subsanación voluntaria antes de pliego de cargos permite reducirla al 10% de su valor."
+            },
+            {
+                "key": "B",
+                "text": "La tarifa es del cinco por ciento (5%) de los ingresos brutos con un tope de 15.000 UVT sin posibilidad de reducción voluntaria.",
+                "is_correct": false,
+                "justification": "Esas eran las tarifas antiguas anteriores a la reforma de la Ley 2277 de 2022."
+            },
+            {
+                "key": "C",
+                "text": "La sanción equivale a una tarifa fija de 50 UVT por cada mes de retardo sin importar las sumas objeto de reporte.",
+                "is_correct": false,
+                "justification": "La sanción del artículo 651 se liquida proporcionalmente sobre las sumas objeto de información no suministrada."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 651 modificado por Ley 2277 de 2022",
+        "explanation_summary": "La Ley 2277 de 2022 redujo la sanción por información exógena al 1% de las sumas no informadas (tope 7.500 UVT), con reducción al 10% si se subsana voluntariamente antes de pliego de cargos.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.651435-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 693,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un funcionario ejecutor de fiscalización de la DIAN notifica a una sociedad un Requerimiento Ordinario de Información solicitando la entrega de auxiliares contables de cuentas por pagar y copias de contratos de compraventa.",
+        "stem": "¿Cuál es el término legal supletorio general con el que cuenta el contribuyente para atender y responder a un Requerimiento Ordinario de Información de la DIAN?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Quince (15) días calendario siguientes a la fecha de notificación del requerimiento ordinario.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 684 y Ley 223 de 1995 Art. 261. El plazo para responder requerimientos ordinarios de información es de 15 días calendario."
+            },
+            {
+                "key": "B",
+                "text": "Tres (3) meses improrrogables asimilándolo al término de respuesta del Requerimiento Especial.",
+                "is_correct": false,
+                "justification": "El término de 3 meses es privativo del Requerimiento Especial regulado por el artículo 707 E.T."
+            },
+            {
+                "key": "C",
+                "text": "Cinco (5) días hábiles bajo apremio de cierre preventivo del establecimiento de comercio.",
+                "is_correct": false,
+                "justification": "El término general ordinario es de 15 días calendario y no genera cierre preventivo de plano."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 684 \/ Ley 223 de 1995, Artículo 261",
+        "explanation_summary": "Los requerimientos ordinarios de información emitidos en investigaciones de fiscalización deben responderse dentro de los 15 días calendario siguientes a su notificación.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.653211-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 694,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una sociedad determina y liquida una pérdida fiscal en su declaración de renta del año gravable 2021. La empresa proyecta compensar dicha pérdida fiscal en las declaraciones de los años 2022 y 2023.",
+        "stem": "¿Cuál es el término especial de firmeza que ampara a las declaraciones tributarias en las cuales se determinen o compensen pérdidas fiscales?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El término de firmeza de la declaración donde se liquida la pérdida fiscal es de cinco (5) años; y la declaración en que se compense estará sujeta al mismo término que la ley establece para compensarla (hasta 12 años).",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 714 Inciso 5. Las declaraciones en que se liquiden o compensen pérdidas fiscales tienen un término especial de firmeza coincidente con el plazo de compensación."
+            },
+            {
+                "key": "B",
+                "text": "Quedan en firme dentro de los seis (6) meses siguientes por aplicación automática del beneficio de auditoría.",
+                "is_correct": false,
+                "justification": "Las declaraciones con pérdidas fiscales no acceden automáticamente al beneficio de auditoría sin cumplir los requisitos de incremento de impuesto neto."
+            },
+            {
+                "key": "C",
+                "text": "Adquieren firmeza definitiva en el término general ordinario de tres (3) años sin excepción alguna.",
+                "is_correct": false,
+                "justification": "El artículo 714 E.T. consagra una excepción expresa para declaraciones con pérdidas fiscales."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 714 Incisos 4 y 5 (Firmeza con pérdidas fiscales)",
+        "explanation_summary": "Las declaraciones de renta que liquidan o compensan pérdidas fiscales están sujetas a un término especial de firmeza extendido igual al plazo legal para compensarlas.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.655754-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 695,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un contribuyente advierte que por error duplicó la declaración de unos ingresos exentos en su declaración de renta, lo cual causó que pagara $25 millones de pesos de más a la DIAN. Decide presentar una declaración de corrección para disminuir el valor a pagar.",
+        "stem": "¿Cuál es el procedimiento y el término legal del que dispone el contribuyente para presentar correcciones que disminuyen el valor a pagar o aumentan el saldo a favor?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Debe presentar la solicitud de corrección dentro del año siguiente al vencimiento del plazo para declarar, radicando el proyecto de corrección conforme al artículo 589 del Estatuto Tributario.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 589. Las correcciones que disminuyen el valor a pagar o aumentan el saldo a favor se deben radicar dentro del año siguiente al vencimiento del plazo para declarar."
+            },
+            {
+                "key": "B",
+                "text": "Dispone de tres (3) años y la corrección opera directamente sin necesidad de presentar proyecto ni validación previa.",
+                "is_correct": false,
+                "justification": "El término legal del artículo 589 E.T. es de un (1) año, a diferencia del plazo de 3 años para correcciones que aumentan el impuesto (Art. 588)."
+            },
+            {
+                "key": "C",
+                "text": "No es posible corregir disminuyendo impuestos; el contribuyente debe demandar judicialmente a la DIAN ante el Consejo de Estado.",
+                "is_correct": false,
+                "justification": "El artículo 589 faculta la corrección administrativa directa mediante el trámite de proyecto de corrección."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 589 (Correcciones que disminuyen el valor a pagar)",
+        "explanation_summary": "Las correcciones que disminuyen el impuesto a pagar o aumentan el saldo a favor deben presentarse dentro del año siguiente al vencimiento para declarar (Art. 589 E.T.).",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.657623-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 696,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Una Sociedad de Responsabilidad Limitada (Ltda.) acumula deudas fiscales por concepto de impuesto sobre la renta por $180 millones y entra en cesación de pagos. La DIAN agota los bienes de la sociedad sin lograr el recaudo. El funcionario ejecutor proyecta vincular solidariamente a los dos socios que conforman la entidad.",
+        "stem": "¿Cómo opera la responsabilidad solidaria de los socios en las sociedades de responsabilidad limitada frente a las deudas tributarias de la compañía?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Los socios responden solidariamente por los impuestos de la sociedad a prorrata de sus aportes en la misma y del tiempo durante el cual los hubieren poseído en el respectivo periodo gravable.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 794. En las sociedades de personas y de responsabilidad limitada, los socios responden solidariamente por los impuestos de la sociedad a prorrata de sus aportes."
+            },
+            {
+                "key": "B",
+                "text": "Los socios son totalmente inmunes y su patrimonio personal nunca puede ser afectado por deudas fiscales corporativas.",
+                "is_correct": false,
+                "justification": "El artículo 794 consagra la responsabilidad solidaria expresa en sociedades de personas y limitadas."
+            },
+            {
+                "key": "C",
+                "text": "Responden solidariamente por el cien por ciento (100%) de la deuda cada uno de manera ilimitada independientemente de su porcentaje accionario.",
+                "is_correct": false,
+                "justification": "La responsabilidad de los socios es solidaria pero tasada a prorrata de su cuota social o participación patrimonial."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 794 (Responsabilidad solidaria de los socios)",
+        "explanation_summary": "En sociedades de responsabilidad limitada, los socios responden solidariamente por las obligaciones tributarias corporativas a prorrata de sus aportes.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.659363-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 697,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un contribuyente se acoge al Beneficio de Auditoría en su declaración de renta del año gravable 2023, incrementando su impuesto neto sobre la renta en un treinta y cinco por ciento (35%) en relación con el impuesto neto del año anterior. Presenta la declaración oportunamente pero paga el valor liquidado 45 días después del vencimiento.",
+        "stem": "¿Conserva el contribuyente el beneficio de auditoría y la firmeza especial de seis (6) meses?",
+        "options": [
+            {
+                "key": "A",
+                "text": "No conserva el beneficio; para que opere la firmeza especial es requisito indispensable que la declaración se presente oportunamente y su pago total se efectúe dentro de los plazos legales fijados para declarar.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 689-3. Es condición imperativa para la firmeza abreviada que la declaración se presente y pague oportunamente dentro de los plazos del reglamento."
+            },
+            {
+                "key": "B",
+                "text": "Sí conserva el beneficio, porque el pago tardío solo genera intereses de mora sin afectar la firmeza de la declaración.",
+                "is_correct": false,
+                "justification": "El artículo 689-3 expresamente condiciona el beneficio a que el pago se realice en debida forma dentro del término legal."
+            },
+            {
+                "key": "C",
+                "text": "Conserva el beneficio pero el término de firmeza se amplía a dieciocho (18) meses.",
+                "is_correct": false,
+                "justification": "El incumplimiento del pago extingue de pleno derecho el beneficio, rigiendo el término general de firmeza de 3 años."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 689-3 (Beneficio de auditoría y requisitos de pago)",
+        "explanation_summary": "El pago oportuno de la totalidad de la declaración de renta dentro de los plazos fijados por el Gobierno es requisito sine qua non para mantener el Beneficio de Auditoría.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.661065-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 698,
+        "job_profile_id": 1,
+        "thematic_axis_id": 1,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Durante una visita de control de facturación a un restaurante de alta afluencia, los auditores de la DIAN constatan que el establecimiento no expide factura electrónica de venta a sus clientes, entregando comprobantes de comanda interna sin validez fiscal ni transmisión al sistema DIAN.",
+        "stem": "¿Qué sanción procede imponer al establecimiento de conformidad con el artículo 657 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Sanción de clausura o cierre del establecimiento de comercio, oficina o consultorio por un término de tres (3) días calendario, mediante la imposición de sellos oficiales de la DIAN.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 657 Numeral 1. Por no expedir factura o expedirla sin los requisitos legales, procede la sanción de clausura del establecimiento por 3 días."
+            },
+            {
+                "key": "B",
+                "text": "Decomiso aduanero de todo el mobiliario y enseres de cocina del restaurante.",
+                "is_correct": false,
+                "justification": "El decomiso es una figura aduanera sobre mercancías extranjeras en contrabando, no una sanción de control de facturación interna."
+            },
+            {
+                "key": "C",
+                "text": "Cancelación definitiva del registro mercantil ante la Cámara de Comercio con disolución de la sociedad.",
+                "is_correct": false,
+                "justification": "La DIAN no tiene competencia para disolver sociedades comerciales por infracciones formales de facturación."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 657 (Sanción de clausura del establecimiento)",
+        "explanation_summary": "No expedir factura electrónica estando legalmente obligado acarrea la sanción de clausura del establecimiento de comercio por tres (3) días calendario.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.663397-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 699,
+        "job_profile_id": 5,
+        "thematic_axis_id": 77,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Un funcionario ejecutor con cargo de Gestor II en la Dirección Seccional de Impuestos de Cali tiene a su cargo el expediente coactivo de un deudor que adeuda $500 millones en retenciones en la fuente. Investigaciones patrimoniales revelan que el deudor está vendiendo aceleradamente sus inmuebles y vaciando sus cuentas bancarias para declararse insolvente antes de que se libre el mandamiento de pago.",
+        "stem": "¿Puede el funcionario ejecutor decretar el embargo de los bienes del deudor antes de notificar el mandamiento de pago?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Sí, puede decretar medidas cautelares previas de embargo y secuestro de bienes de manera concomitante o previa al mandamiento de pago, con el fin de asegurar el pago de la deuda fiscal conforme al artículo 836 del Estatuto Tributario.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 836. Previa o simultáneamente con el mandamiento de pago, el funcionario ejecutor podrá decretar el embargo y secuestro preventivo de los bienes del deudor."
+            },
+            {
+                "key": "B",
+                "text": "No, está terminantemente prohibido decretar embargos sin que el mandamiento de pago se encuentre plenamente ejecutoriado con resolución de excepciones resuelta.",
+                "is_correct": false,
+                "justification": "El artículo 836 faculta expresamente las medidas cautelares previas o simultáneas para evitar la insolvencia fraudulenta."
+            },
+            {
+                "key": "C",
+                "text": "Solo puede hacerlo si obtiene una autorización previa emitida por un juez de la república en audiencia preliminar.",
+                "is_correct": false,
+                "justification": "La DIAN goza de jurisdicción coactiva autónoma administrativa y no requiere autorización judicial para decretar medidas cautelares."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 836 (Medidas cautelares previas o simultáneas)",
+        "explanation_summary": "El funcionario ejecutor de la DIAN está legalmente facultado para decretar embargos y secuestros de forma previa o simultánea al mandamiento de pago para proteger el crédito fiscal.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.665437-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 700,
+        "job_profile_id": 5,
+        "thematic_axis_id": 77,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En cumplimiento de una orden de embargo de sumas de dinero proferida por la DIAN, una entidad bancaria recibe el oficio que ordena debitar los recursos de las cuentas de una persona natural asalariada que tiene una deuda tributaria de $15 millones de pesos. El banco encuentra una cuenta de ahorros con un saldo de $12 millones de pesos (equivalente a 260 UVT).",
+        "stem": "¿Cómo debe operar la entidad financiera frente a la orden de embargo a la luz del artículo 837-1 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Debe abstenerse de debitar los recursos, puesto que los saldos depositados en cuentas de ahorro de personas naturales son inembargables hasta por el límite fijado por la ley tributaria de quinientas diez (510) UVT.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 837-1. El límite de inembargabilidad para las cuentas de ahorros pertenecientes a personas naturales en procesos de cobro coactivo de la DIAN es de quinientas diez (510) UVT."
+            },
+            {
+                "key": "B",
+                "text": "Debe debitar la totalidad de los $12 millones de inmediato, porque en las deudas tributarias con el Estado no existe límite alguno de inembargabilidad bancaria.",
+                "is_correct": false,
+                "justification": "El artículo 837-1 establece de manera expresa la protección social de las primeras 510 UVT en cuentas de ahorros de personas naturales."
+            },
+            {
+                "key": "C",
+                "text": "Debe retener los fondos por 3 días y luego transferirlos a un fondo común de pensiones.",
+                "is_correct": false,
+                "justification": "La inembargabilidad opera de pleno derecho; el banco debe certificar que los fondos no superan las 510 UVT."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 837-1 (Límite de inembargabilidad en cobro coactivo)",
+        "explanation_summary": "En cobro coactivo de la DIAN, los saldos en cuentas de ahorro de personas naturales son inembargables hasta por 510 UVT.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.667084-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 701,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Dentro de un proceso de cobro coactivo, la DIAN ha embargado y secuestrado un inmueble comercial de propiedad del ejecutado. El perito auxiliar de la justicia presenta el avalúo del bien, el cual queda en firme y aprobado en la suma de $1.000 millones de pesos. El Gestor II fija fecha y hora para la celebración de la primera diligencia de remate de bienes.",
+        "stem": "¿Cuál es la base de postura mínima admisible para que un postor pueda presentar oferta válida en la primera licitación del remate?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El setenta por ciento (70%) del valor del avalúo aprobado, es decir, setecientos millones de pesos ($700.000.000).",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 840 y Código General del Proceso Art. 451. Será postura admisible en la primera licitación la que cubra al menos el 70% del valor del avalúo aprobado del bien."
+            },
+            {
+                "key": "B",
+                "text": "El cien por ciento (100%) del valor del avalúo sin rebaja alguna.",
+                "is_correct": false,
+                "justification": "El remate procesal no exige el 100% como base de postura; la postura legal en primera licitación es del 70%."
+            },
+            {
+                "key": "C",
+                "text": "El cincuenta por ciento (50%) del avalúo por tratarse de un proceso ejecutivo coactivo del Estado.",
+                "is_correct": false,
+                "justification": "El 50% es admisible solo en licitaciones posteriores (tercera licitación en normas especiales), pero no en la primera."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 840 \/ Código General del Proceso, Artículo 451",
+        "explanation_summary": "La base legal de licitación en primera diligencia de remate en cobro coactivo es del 70% del valor del avalúo pericial aprobado.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.668828-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 702,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Tras realizar tres convocatorias públicas de remate sobre una bodega industrial embargada dentro de un proceso de cobro coactivo, la diligencia se declara desierta por falta absoluta de postores. La DIAN requiere extinguir la obligación tributaria insatisfecha.",
+        "stem": "¿Qué figura procesal procede aplicar respecto del bien subastado desierto conforme al artículo 840 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Adjudicación del bien a favor de la Nación - DIAN por el porcentaje legal correspondiente de su avalúo, imputándose dicho valor a la extinción de las deudas del ejecutado.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 840. Si no hubiere postores en las licitaciones, el bien podrá ser adjudicado a la Nación - DIAN por el valor legal fijado en el reglamento para extinguir el crédito fiscal."
+            },
+            {
+                "key": "B",
+                "text": "Devolución incondicional y forzosa del inmueble al deudor con prescripción inmediata de la totalidad de la deuda.",
+                "is_correct": false,
+                "justification": "La falta de postores no condona la deuda ni devuelve el bien embargado; habilita la adjudicación estatal."
+            },
+            {
+                "key": "C",
+                "text": "Orden de demolición inmediata de la edificación por parte del escuadrón móvil de la DIAN.",
+                "is_correct": false,
+                "justification": "La ley persigue la recuperación del activo para el tesoro público mediante adjudicación o administración inmobiliaria."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 840 (Adjudicación de bienes a favor de la Nación)",
+        "explanation_summary": "Ante la ausencia reiterada de postores en diligencias de remate, la DIAN puede adjudicarse los bienes a favor de la Nación para extinguir las obligaciones fiscales.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.671166-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 703,
+        "job_profile_id": 5,
+        "thematic_axis_id": 77,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "La DIAN registra el embargo de un apartamento que en el folio de matrícula figuraba a nombre del deudor ejecutado. Un tercero comparece al proceso coactivo acreditando que seis meses antes de la medida cautelar adquirió el inmueble por escritura pública debidamente registrada en la Oficina de Registro de Instrumentos Públicos, habiendo incurrido la oficina de registro en un error mecanográfico en el traslado de folios.",
+        "stem": "¿Qué mecanismo de defensa debe tramitar el funcionario ejecutor frente a la solicitud del tercero y cómo debe resolverse?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Tramitar una Tercería Excluyente de Dominio; si el tercero acredita con título idóneo e inscripción registral previa a la medida que es el legítimo propietario, el funcionario debe levantar el embargo sobre el bien ajeno.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 839-2. En cobro coactivo procede la tercería excluyente de dominio; acreditado el dominio del tercero anterior al embargo, procede el desembargo inmediato."
+            },
+            {
+                "key": "B",
+                "text": "Rechazar de plano la petición porque las decisiones cautelares de la DIAN son inatacables por terceros.",
+                "is_correct": false,
+                "justification": "El debido proceso y el derecho de propiedad amparan a terceros de buena fe mediante el trámite de tercerías."
+            },
+            {
+                "key": "C",
+                "text": "Exigirle al tercero que pague la totalidad de la deuda fiscal ajena si desea que se le devuelva su inmueble.",
+                "is_correct": false,
+                "justification": "Un tercero ajeno a la relación tributaria no puede ser obligado a responder con su patrimonio por deudas ajenas."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículo 839-2 (Tercerías en el cobro coactivo)",
+        "explanation_summary": "La tercería excluyente de dominio permite al verdadero propietario demostrar su derecho adquirido antes del embargo coactivo y obtener el desembargo del bien.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.673231-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 704,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Dentro de un proceso de cobro coactivo contra una empresa, la DIAN embarga un predio sobre el cual un banco comercial tiene inscrita una hipoteca de primer grado constituida con anterioridad. El banco formula tercería de mejor derecho solicitando que el producto del remate le sea entregado con prelación.",
+        "stem": "¿Cómo opera la prelación de créditos entre las deudas fiscales de la DIAN y el crédito con garantía hipotecaria del banco según el Código Civil y la jurisprudencia tributaria?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Los créditos fiscales de la Nación gozan de prelación de primer grado conforme al artículo 2495 del Código Civil, primando sobre los créditos hipotecarios (de tercer grado) respecto de la masa general de bienes del ejecutado.",
+                "is_correct": true,
+                "justification": "Código Civil Art. 2495 y Estatuto Tributario Art. 839-3. Los créditos por impuestos fiscales corresponden a créditos de primer grado, los cuales prefieren a todas las demás clases de acreencias sobre los bienes embargados."
+            },
+            {
+                "key": "B",
+                "text": "El crédito hipotecario desplaza absolutamente al crédito tributario de la DIAN en cualquier caso por ser un derecho real de garantía.",
+                "is_correct": false,
+                "justification": "El Código Civil establece expresamente que los créditos de primer grado (laborales y fiscales de la Nación) tienen prioridad sobre los créditos hipotecarios de tercer grado."
+            },
+            {
+                "key": "C",
+                "text": "Los fondos se distribuyen por partes iguales (50% y 50%) sin importar el tipo de acreencia.",
+                "is_correct": false,
+                "justification": "En el derecho concursal y procesal rige el principio estricto de prelación de créditos, no el reparto igualitario."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Código Civil Colombiano, Artículo 2495 (Créditos de Primera Clase) \/ Estatuto Tributario, Artículo 839-3",
+        "explanation_summary": "Las deudas por impuestos nacionales corresponden a créditos de primer grado, teniendo preferencia legal sobre las acreencias hipotecarias de tercer grado.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.67493-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 705,
+        "job_profile_id": 5,
+        "thematic_axis_id": 81,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "La Superintendencia de Sociedades expide auto admitiendo a la sociedad ejecutada a un proceso de reorganización empresarial bajo la Ley 1116 de 2006. El apoderado de la empresa radica dicho auto ante el Gestor II de Cobranzas de la DIAN solicitando la suspensión del proceso administrativo de cobro coactivo.",
+        "stem": "¿Qué conducta procesal debe asumir de inmediato el funcionario ejecutor de la DIAN?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Suspender inmediatamente el proceso de cobro coactivo y remitir las actuaciones y acreencias al promotor o juez del concurso para que se hagan valer dentro del acuerdo de reorganización.",
+                "is_correct": true,
+                "justification": "Ley 1116 de 2006, Art. 20 y Estatuto Tributario Art. 845. El inicio de la reorganización impone la suspensión forzosa de los procesos coactivos individuales y la remisión al trámite concursal."
+            },
+            {
+                "key": "B",
+                "text": "Continuar adelante con el remate de bienes ignorando el auto judicial por gozar la DIAN de autonomía coactiva especial.",
+                "is_correct": false,
+                "justification": "Continuar actuaciones coactivas individuales desconociendo la admisión concursal vicia el trámite de nulidad absoluta insanable."
+            },
+            {
+                "key": "C",
+                "text": "Declarar la prescripción extintiva de la totalidad de las obligaciones y ordenar el archivo del expediente.",
+                "is_correct": false,
+                "justification": "La reorganización no prescribe la deuda; traslada su cobro y negociación al marco concursal colectivo."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Ley 1116 de 2006, Artículo 20 (Suspensión de ejecuciones) \/ Estatuto Tributario, Artículo 845",
+        "explanation_summary": "La admisión a proceso de reorganización empresarial exige la suspensión inmediata del cobro coactivo y la remisión de las acreencias fiscales al juez de insolvencia.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.676624-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 706,
+        "job_profile_id": 5,
+        "thematic_axis_id": 81,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Un juez civil de circuito decreta la apertura del proceso de Liquidación Judicial de una empresa deudora de la DIAN. La providencia es comunicada al despacho de cobro coactivo donde cursa mandamiento de pago con medidas de embargo sobre bienes raíces.",
+        "stem": "¿Cuál es el efecto procesal inmediato sobre la competencia del funcionario ejecutor de la DIAN y las medidas cautelares practicadas?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El funcionario de la DIAN pierde competencia para continuar la ejecución coactiva; debe remitir el expediente y poner los bienes embargados a disposición del liquidador judicial para integrar la masa liquidatoria.",
+                "is_correct": true,
+                "justification": "Ley 1116 de 2006, Art. 50. La apertura de la liquidación judicial determina la pérdida de competencia del ejecutor administrativo y la remisión de los bienes a la masa concursal."
+            },
+            {
+                "key": "B",
+                "text": "El ejecutor de la DIAN adquiere la calidad de juez liquidador universal asumiendo el control de todas las deudas privadas de la empresa.",
+                "is_correct": false,
+                "justification": "La DIAN es un acreedor más dentro del proceso liquidatorio judicial y no asume el rol del juez del concurso."
+            },
+            {
+                "key": "C",
+                "text": "El proceso coactivo sigue su curso ordinario y la DIAN se apropia de los bienes sin rendir cuentas al juez concursal.",
+                "is_correct": false,
+                "justification": "Vulneraría el principio de universalidad objetiva de la masa concursal previsto en la Ley 1116 de 2006."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Ley 1116 de 2006, Artículo 50 Numerales 2 y 3 (Efectos de la apertura de liquidación judicial)",
+        "explanation_summary": "Con la apertura de la liquidación judicial, el ejecutor coactivo pierde competencia y debe remitir las actuaciones y bienes embargados al juez de la liquidación.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.678546-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 707,
+        "job_profile_id": 5,
+        "thematic_axis_id": 78,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un contribuyente tiene una deuda pendiente de pago por concepto de retención en la fuente por $35 millones de pesos en estado de cobro coactivo. Simultáneamente, en su declaración de renta del último año gravable liquida un saldo a favor de $50 millones de pesos, pero no ha radicado solicitud de compensación ni devolución.",
+        "stem": "¿Puede la DIAN compensar de oficio la deuda tributaria contra el saldo a favor existente a la luz de los artículos 815 y 816 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Sí, la DIAN está plenamente facultada para aplicar la Compensación de Oficio, cruzando el saldo a favor del contribuyente contra sus deudas insolutas sin necesidad de esperar su solicitud previa.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 815 y Art. 816. La administración tributaria puede compensar de oficio los saldos a favor con las deudas tributarias existentes a cargo del mismo contribuyente."
+            },
+            {
+                "key": "B",
+                "text": "No, la compensación únicamente puede operar a petición expresa e indelegable del contribuyente radicada con firma digital.",
+                "is_correct": false,
+                "justification": "El artículo 816 E.T. prevé expresamente la procedencia de la compensación oficiosa por parte de la administración."
+            },
+            {
+                "key": "C",
+                "text": "Solo puede hacerlo si el contribuyente consiente expresamente mediante acta de conciliación ante la Procuraduría.",
+                "is_correct": false,
+                "justification": "La compensación oficiosa es un acto administrativo unilateral de recaudo que no requiere conciliación judicial."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículos 815 y 816 (Compensación de saldos a favor de oficio)",
+        "explanation_summary": "La DIAN tiene la facultad de compensar de oficio los saldos a favor contra deudas pendientes de pago del mismo contribuyente.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.680662-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 708,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una obligación fiscal quedó ejecutoriada el 15 de marzo de 2019. La División de Cobranzas de la DIAN notifica formalmente el Mandamiento de Pago al deudor el día 10 de febrero de 2024, cuando faltaba un mes para que se cumplieran los 5 años de la prescripción de la acción de cobro.",
+        "stem": "¿Qué efecto produce la notificación legal del Mandamiento de Pago sobre el término de prescripción de la acción de cobro conforme al artículo 818 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Interrumpe la prescripción de la acción de cobro, haciendo que el término legal de cinco (5) años empiece a contarse de nuevo desde cero a partir de la notificación del mandamiento.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 818. La notificación del mandamiento de pago interrumpe el término de prescripción de la acción de cobro, empezando a correr nuevamente por cinco años."
+            },
+            {
+                "key": "B",
+                "text": "Suspende el término por un mes y la deuda prescribe irremediablemente el 15 de marzo de 2024.",
+                "is_correct": false,
+                "justification": "El efecto de la notificación del mandamiento de pago es de interrupción (reinicio del cómputo de 5 años), no de mera suspensión transitoria."
+            },
+            {
+                "key": "C",
+                "text": "Extingue de plano las facultades sancionatorias por haberse notificado en el último año.",
+                "is_correct": false,
+                "justification": "Notificado válidamente dentro de los 5 años, el acto goza de plena eficacia y reinicia el plazo legal."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional, Artículos 817 y 818 (Interrupción de la prescripción de la acción de cobro)",
+        "explanation_summary": "La notificación del mandamiento de pago interrumpe la prescripción de la acción de cobro, reiniciando el cómputo del término de cinco (5) años.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.682812-05",
+        "is_shared": true,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 709,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "El jefe de una seccional de la DIAN requiere contratar el suministro de papelería especializada para los meses de febrero a noviembre del año siguiente. A finales de noviembre de la vigencia en curso, solicita a la Coordinación Financiera comprometer recursos del presupuesto actual argumentando que sobran saldos en el rubro respectivo.",
+        "stem": "¿Qué principio presupuestal consagrado en el Decreto 111 de 1996 impide comprometer recursos de la vigencia que termina para amparar gastos de la siguiente sin autorización especial?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El Principio de Anualidad Presupuestal, el cual establece que el año fiscal comienza el 1 de enero y termina el 31 de diciembre, no pudiendo adquirirse compromisos con cargo al presupuesto del año en curso para cubrir gastos de vigencias futuras sin autorización legal expresa.",
+                "is_correct": true,
+                "justification": "Decreto 111 de 1996, Art. 14. El principio de anualidad presupuestal determina que el año fiscal concluye el 31 de diciembre y las apropiaciones caducan al cierre de la vigencia."
+            },
+            {
+                "key": "B",
+                "text": "El Principio de Inembargabilidad del Presupuesto General de la Nación.",
+                "is_correct": false,
+                "justification": "La inembargabilidad protege los recursos públicos frente a medidas judiciales, pero no regula la temporalidad del gasto anual."
+            },
+            {
+                "key": "C",
+                "text": "El Principio de Publicidad y Transparencia de la Contratación Estatal.",
+                "is_correct": false,
+                "justification": "Si bien rige la contratación, el principio presupuestal técnico vulnerado es el de anualidad."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 111 de 1996, Artículo 14 (Principio de Anualidad Presupuestal)",
+        "explanation_summary": "El principio de anualidad presupuestal prohíbe imputar gastos de vigencias posteriores al presupuesto del año en curso sin autorización de vigencias futuras.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.684695-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 710,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Para adelantar la contratación del mantenimiento de los servidores de la sede central, la oficina de compras solicita la expedición de los documentos presupuestales previos a la firma del contrato. Un analista novato confunde las funciones del Certificado de Disponibilidad Presupuestal (CDP) con las del Registro Presupuestal (RP).",
+        "stem": "¿Cuál es la diferencia fundamental entre el CDP y el RP en la ejecución del gasto público?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El CDP garantiza previamente la existencia de apropiación presupuestal disponible para iniciar el proceso contractual, mientras que el RP afecta de forma definitiva dicha apropiación perfeccionando el compromiso e individualizando al beneficiario y el contrato firmado.",
+                "is_correct": true,
+                "justification": "Decreto 111 de 1996, Art. 71. El CDP es preventivo y ampara la convocatoria; el RP es constitutivo del compromiso definitivo a favor del contratista."
+            },
+            {
+                "key": "B",
+                "text": "El CDP se expide después de pagar la factura, y el RP es el cheque emitido por la Tesorería.",
+                "is_correct": false,
+                "justification": "Tanto el CDP como el RP son actos presupuestales previos al pago; la orden de pago y giro suceden posteriormente."
+            },
+            {
+                "key": "C",
+                "text": "El CDP solo aplica para contratación privada y el RP se utiliza únicamente en entidades descentralizadas.",
+                "is_correct": false,
+                "justification": "Ambos son instrumentos obligatorios en todas las entidades del orden nacional conforme al Estatuto Orgánico del Presupuesto."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 111 de 1996, Artículo 71 (Disponibilidad y Registro Presupuestal)",
+        "explanation_summary": "El CDP asegura la existencia de saldo antes de contratar y el RP afecta definitivamente el presupuesto al individualizar el contrato suscrito.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.686703-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 711,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Una dependencia de la DIAN cuenta con Registro Presupuestal vigente para realizar el desembolso a un contratista que ya entregó a satisfacción los insumos requeridos. Sin embargo, el área de Tesorería informa que no puede transferir los fondos en el mes corriente debido a que se agotó el cupo asignado en el Programa Anual Mensualizado de Caja.",
+        "stem": "¿Cuál es la función del Programa Anual Mensualizado de Caja (PAC) en el marco de la gestión presupuestal del Estado?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Fijar el monto máximo mensual de fondos disponibles en la cuenta de la Tesorería para efectuar pagos y giros efectivos, supeditando los desembolsos a la liquidez real de la caja nacional.",
+                "is_correct": true,
+                "justification": "Decreto 111 de 1996, Art. 73. El PAC es la herramienta de programación financiera que define el límite máximo de pagos mensuales conforme a los recaudos efectivos."
+            },
+            {
+                "key": "B",
+                "text": "Determinar las tarifas del impuesto sobre la renta que deben pagar las grandes empresas.",
+                "is_correct": false,
+                "justification": "El PAC no tiene naturaleza impositiva sustancial; es un instrumento de tesorería y flujo de efectivo presupuestal."
+            },
+            {
+                "key": "C",
+                "text": "Autorizar créditos internacionales con organismos multilaterales de crédito.",
+                "is_correct": false,
+                "justification": "El endeudamiento público se rige por leyes especiales de crédito y cupos de endeudamiento, no por el PAC mensual."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 111 de 1996, Artículo 73 (Programa Anual Mensualizado de Caja - PAC)",
+        "explanation_summary": "El PAC regula y limita mensualmente los desembolsos efectivos de tesorería para garantizar la liquidez del Tesoro Nacional.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.689098-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 712,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Al inicio del año fiscal, la Dirección Seccional de Impuestos debe habilitar el funcionamiento de la caja menor de la sede. El Coordinador Administrativo requiere conocer qué requisitos jurídicos y administrativos son necesarios para su constitución válida.",
+        "stem": "¿Qué actos y requisitos se exigen para la constitución legal de una caja menor en una entidad pública según el Decreto 1068 de 2015?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Expedición de una resolución motivada del ordenador del gasto que fije la cuantía, responsable, rubros autorizados y cuenta bancaria oficial, acompañada de la constitución de la respectiva póliza de manejo y el CDP que ampara los recursos.",
+                "is_correct": true,
+                "justification": "Decreto 1068 de 2015, Art. 2.8.4.3.1 y siguientes. La constitución requiere acto administrativo anual, CDP, cuenta corriente a nombre de la entidad y garantía de cumplimiento (póliza de manejo)."
+            },
+            {
+                "key": "B",
+                "text": "Un acuerdo verbal entre el tesorero y los funcionarios de la sede retirando efectivo de cualquier cajero automático.",
+                "is_correct": false,
+                "justification": "La constitución de caja menor está estrictamente reglamentada por acto administrativo y amparada en póliza de manejo."
+            },
+            {
+                "key": "C",
+                "text": "Una autorización firmada por el Sindicato de la entidad con consignación en cuenta personal del pagador.",
+                "is_correct": false,
+                "justification": "Los fondos públicos jamás pueden manejarse en cuentas personales ni por acuerdo sindical."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1068 de 2015, Artículos 2.8.4.3.1 y 2.8.4.3.2 \/ Manual de Cajas Menores",
+        "explanation_summary": "La caja menor se constituye anualmente mediante resolución formal motivada del ordenador del gasto, con CDP y póliza de manejo.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.69116-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 713,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un supervisor de sede solicita al responsable de la caja menor el pago de una factura de cerrajería urgente por $180.000 para reparar una puerta de seguridad dañada durante la madrugada que impedía el acceso a la oficina y ponía en riesgo el archivo reservado.",
+        "stem": "¿Se ajusta este gasto a la destinación legal permitida para los fondos de caja menor?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Sí, se ajusta plenamente, porque la caja menor está destinada a atender gastos imprevistos, urgentes, imprescindibles e inaplazables de menor cuantía necesarios para el normal funcionamiento de la sede.",
+                "is_correct": true,
+                "justification": "Decreto 1068 de 2015 y Manual de Cajas Menores. La finalidad de la caja menor es cubrir necesidades urgentes, imprevistas y de menor cuantía que no admiten trámite contractual ordinario."
+            },
+            {
+                "key": "B",
+                "text": "No, porque todo gasto en reparaciones de inmuebles debe someterse a licitación pública en el SECOP por un periodo mínimo de 45 días.",
+                "is_correct": false,
+                "justification": "Una reparación urgente e inaplazable de menor cuantía es precisamente la justificación de la caja menor."
+            },
+            {
+                "key": "C",
+                "text": "No, porque la caja menor solo puede utilizarse para comprar café y azúcar para las reuniones de directivos.",
+                "is_correct": false,
+                "justification": "La caja menor está diseñada para gastos operativos urgentes e imprevistos de la sede institucional."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1068 de 2015, Artículo 2.8.4.3.1 \/ Manual para Manejo de Cajas Menores",
+        "explanation_summary": "La caja menor está legalmente reservada para gastos imprevistos, urgentes, inaplazables y de menor cuantía indispensables para el servicio.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.692794-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 714,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Durante una auditoría interna de control financiero a una caja menor, se constata que para realizar el mantenimiento de varios equipos de aire acondicionado por un total de $7.000.000 (el cual superaba el tope máximo legal por compra de $2.000.000), el cuentadante solicitó al mismo proveedor emitir cuatro facturas sucesivas de $1.750.000 en días consecutivos.",
+        "stem": "¿Qué conducta irregular se configura en esta operación y qué prohibición legal se vulnera?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Fraccionamiento del gasto, conducta expresamente prohibida por las normas de contratación pública y el régimen de cajas menores que busca eludir los topes máximos por operación y los canales contractuales ordinarios.",
+                "is_correct": true,
+                "justification": "Decreto 1068 de 2015 y Ley 80 de 1993. Está terminantemente prohibido fraccionar adquisiciones para eludir los límites de cuantía de la caja menor o la contratación formal."
+            },
+            {
+                "key": "B",
+                "text": "Buena administración financiera orientada a la eficiencia y celeridad de las compras públicas.",
+                "is_correct": false,
+                "justification": "El fraccionamiento es una falta disciplinaria y eventual ilícito fiscal, nunca una buena práctica administrativa."
+            },
+            {
+                "key": "C",
+                "text": "Operación de pago diferido autorizada automáticamente por las normas tributarias del Estatuto Orgánico.",
+                "is_correct": false,
+                "justification": "Las facturas sucesivas a un mismo proveedor para no superar el tope constituyen fraccionamiento sancionable."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1068 de 2015, Artículo 2.8.4.3.6 \/ Manual de Manejo de Cajas Menores",
+        "explanation_summary": "El fraccionamiento de compras para acomodarlas a los topes de caja menor está taxativamente prohibido y genera responsabilidad disciplinaria y fiscal.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.694546-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 715,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Un funcionario del área de informática solicita con cargo a la caja menor la compra de tres computadores portátiles y dos impresoras láser multifuncionales por valor de $6.000.000, argumentando que se requieren con urgencia para atender una contingencia operativa.",
+        "stem": "¿Es procedente autorizar el pago de equipos de cómputo con recursos de la caja menor?",
+        "options": [
+            {
+                "key": "A",
+                "text": "No es procedente; está taxativamente prohibido adquirir activos fijos, bienes muebles inventariables o de carácter devolutivo con cargo a los fondos de la caja menor.",
+                "is_correct": true,
+                "justification": "Decreto 1068 de 2015, Art. 2.8.4.3.6. Con recursos de caja menor no se pueden adquirir activos fijos ni elementos que deban ingresar al inventario de almacén general."
+            },
+            {
+                "key": "B",
+                "text": "Sí es procedente, siempre y cuando el funcionario informático firme un pagaré en blanco como respaldo.",
+                "is_correct": false,
+                "justification": "La prohibición de comprar activos fijos con caja menor es de orden público presupuestal y no admite garantías personales."
+            },
+            {
+                "key": "C",
+                "text": "Sí es procedente, si la compra se realiza aprovechando descuentos promocionales del día sin IVA.",
+                "is_correct": false,
+                "justification": "Los activos fijos deben adquirirse por los procesos contractuales formales del plan anual de adquisiciones."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1068 de 2015, Artículo 2.8.4.3.6 (Prohibiciones en caja menor)",
+        "explanation_summary": "Está expresamente prohibido adquirir activos fijos o bienes inventariables de carácter permanente con fondos de caja menor.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.696898-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 716,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "El cuentadante responsable de una caja menor de $10.000.000 ha ejecutado gastos autorizados y soportados con facturas por un valor acumulado de $7.200.000. Presenta la solicitud de reembolso para reponer los fondos gastados ante la Subdirección Financiera.",
+        "stem": "¿Cumple la solicitud con los requisitos para tramitar el reembolso de fondos de caja menor?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Sí cumple, porque las normas presupuestales exigen que la caja menor se haya ejecutado en al menos un setenta por ciento (70%) de su monto total asignado para que proceda la solicitud de reembolso.",
+                "is_correct": true,
+                "justification": "Decreto 1068 de 2015 y Manual de Cajas Menores. Los reembolsos se tramitan cuando se haya consumido mínimo el 70% de los fondos asignados, adjuntando la relación y soportes legales."
+            },
+            {
+                "key": "B",
+                "text": "No cumple, porque los reembolsos únicamente pueden radicarse cuando se haya gastado el 100% exacto de los recursos en efectivo.",
+                "is_correct": false,
+                "justification": "Esperar al 100% paralizaría las operaciones imprevistas de la sede; el umbral reglamentario es del 70%."
+            },
+            {
+                "key": "C",
+                "text": "No cumple, porque los reembolsos solo se permiten una única vez al año al finalizar el mes de diciembre.",
+                "is_correct": false,
+                "justification": "Los reembolsos son periódicos y rotativos a lo largo de la vigencia fiscal conforme se consumen los fondos."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1068 de 2015, Artículo 2.8.4.3.7 \/ Manual para Manejo de Cajas Menores",
+        "explanation_summary": "La solicitud de reembolso de caja menor procede ordinariamente cuando se ha ejecutado mínimo el 70% del monto total asignado.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.698825-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 717,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "alto",
+        "case_text": "Auditores de la Oficina de Control Interno practican un arqueo sorpresivo a la caja menor de una dependencia. Al verificar el efectivo y los recibos de soporte, hallan vales provisionales firmados por compañeros de oficina a quienes el cuentadante prestó $800.000 de los fondos públicos como anticipo voluntario de quincena.",
+        "stem": "¿Qué calificación jurídica merece esta conducta y qué responsabilidades acarrea para el funcionario cuentadante?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Constituye una violación flagrante del régimen de cajas menores, ya que está prohibido destinar recursos públicos para préstamos a terceros o pago de anticipos de nómina, acarreando investigación disciplinaria, juicio de responsabilidad fiscal y eventualmente proceso penal.",
+                "is_correct": true,
+                "justification": "Decreto 1068 de 2015 y Ley 610 de 2000. Los fondos públicos tienen destinación específica exclusiva; el préstamo de recursos de caja menor constituye falta disciplinaria gravísima y posible peculado."
+            },
+            {
+                "key": "B",
+                "text": "Es una conducta válida amparada en el principio constitucional de solidaridad laboral y bienestar institucional.",
+                "is_correct": false,
+                "justification": "Los fondos de caja menor son caudales públicos sagrados; no pueden utilizarse bajo pretextos de solidaridad privada."
+            },
+            {
+                "key": "C",
+                "text": "Se considera una falta leve que se subsana simplemente pagando una multa de tránsito.",
+                "is_correct": false,
+                "justification": "El desvío de fondos públicos de caja menor genera responsabilidades concurrentes fiscal, disciplinaria y penal."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1068 de 2015, Artículo 2.8.4.3.6 \/ Ley 610 de 2000 (Responsabilidad Fiscal)",
+        "explanation_summary": "Está terminantemente prohibido utilizar dineros de caja menor para otorgar préstamos o cambiar cheques; su incumplimiento activa investigaciones disciplinarias y fiscales.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.700563-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 718,
+        "job_profile_id": 1,
+        "thematic_axis_id": 36,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Llega el 20 de diciembre y concluyen las operaciones administrativas del año fiscal en una seccional de la DIAN. En la cuenta bancaria de la caja menor queda un remanente disponible de $2.500.000 sin ejecutar. El cuentadante consulta si puede dejar dicho saldo en la cuenta para comenzar a operar el 2 de enero del siguiente año.",
+        "stem": "¿Cuál es la obligación legal perentoria que rige para el cierre anual definitivo de las cajas menores al término de la vigencia fiscal?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Se debe legalizar la totalidad de los gastos efectuados y reintegrar en efectivo o consignación el saldo no utilizado a la Dirección General de Crédito Público y Tesoro Nacional antes de finalizar la vigencia, no pudiendo trasladarse saldos a la siguiente anualidad.",
+                "is_correct": true,
+                "justification": "Decreto 1068 de 2015, Art. 2.8.4.3.8 y Manual de Cajas Menores. Toda caja menor debe cancelarse al cierre de la vigencia fiscal, reintegrando obligatoriamente los saldos no ejecutados al Tesoro Nacional."
+            },
+            {
+                "key": "B",
+                "text": "Puede conservarse el dinero en efectivo guardado en la caja fuerte de la sede para gastos de año nuevo.",
+                "is_correct": false,
+                "justification": "El principio de anualidad exige el reintegro y liquidación total; en la nueva vigencia debe expedirse una nueva resolución constitutiva."
+            },
+            {
+                "key": "C",
+                "text": "El remanente debe distribuirse entre los funcionarios de la sede como prima extraordinaria de navidad.",
+                "is_correct": false,
+                "justification": "Distribuir saldos públicos es una apropiación indebida de dineros del Estado sancionada penalmente."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1068 de 2015, Artículo 2.8.4.3.8 (Cierre definitivo de cajas menores)",
+        "explanation_summary": "Al cierre de la vigencia fiscal todas las cajas menores deben liquidarse definitivamente y reintegrar el 100% de los saldos sobrantes al Tesoro Nacional.",
+        "is_active": true,
+        "created_at": "2026-10-13 12:00:05.702369-05",
+        "is_shared": true,
+        "scope_level": "transversal"
     }
 ]
