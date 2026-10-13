@@ -7530,42 +7530,6 @@
         "scope_level": "profesional"
     },
     {
-        "id": 584,
-        "job_profile_id": null,
-        "thematic_axis_id": 72,
-        "question_type": "situacional",
-        "difficulty": "medio",
-        "case_text": "Caso de prueba para importación.",
-        "stem": "¿Pregunta de prueba para test de importación de backup 6acbf06a81820?",
-        "options": [
-            {
-                "key": "A",
-                "text": "Opción de prueba A",
-                "is_correct": true,
-                "justification": "Correcta por ley."
-            },
-            {
-                "key": "B",
-                "text": "Opción de prueba B",
-                "is_correct": false,
-                "justification": "Incorrecta."
-            },
-            {
-                "key": "C",
-                "text": "Opción de prueba C",
-                "is_correct": false,
-                "justification": "Incorrecta."
-            }
-        ],
-        "correct_option": "A",
-        "legal_basis": "Estatuto Tributario Nacional",
-        "explanation_summary": "Explicación de prueba.",
-        "is_active": true,
-        "created_at": "2026-10-11 15:24:10.558969-05",
-        "is_shared": true,
-        "scope_level": "transversal"
-    },
-    {
         "id": 510,
         "job_profile_id": 3,
         "thematic_axis_id": 8,
@@ -8610,6 +8574,42 @@
         "scope_level": "tecnico"
     },
     {
+        "id": 600,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La División de Cobranzas de la Dirección Seccional de Impuestos de Bogotá adelanta proceso de cobro coactivo contra la sociedad Comercializadora Andina S.A.S. por concepto de obligaciones de IVA y Retención en la Fuente adeudadas del año gravable 2023 por un monto de $340 millones de pesos. El funcionario ejecutor, con cargo de Gestor II, profiere mandamiento de pago el 3 de mayo de 2024. El deudor es notificado personalmente el 10 de mayo de 2024 y, con el propósito de controvertir la actuación, su apoderado radica un escrito en el que formula diversas excepciones y objeciones de fondo al procedimiento adelantado por la administración tributaria.",
+        "stem": "¿Cuál es el término legal perentorio que tiene el ejecutado para proponer excepciones contra el mandamiento de pago y desde qué momento se cuenta?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Quince (15) días hábiles siguientes a la fecha de expedición interna del mandamiento de pago por la administración.",
+                "is_correct": false,
+                "justification": "El término legal no corre a partir de la expedición interna sino a partir de la notificación formal al deudor."
+            },
+            {
+                "key": "B",
+                "text": "Quince (15) días hábiles contados a partir del día siguiente a la notificación formal del mandamiento de pago.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 830. Dentro de los quince (15) días siguientes a la notificación del mandamiento de pago, el deudor deberá cancelar el monto de la deuda con sus respectivos intereses, o proponer las excepciones legales previstas en el artículo 831."
+            },
+            {
+                "key": "C",
+                "text": "Treinta (30) días calendario siguientes a la fecha en que el deudor acusa recibo del requerimiento persuasivo previo.",
+                "is_correct": false,
+                "justification": "El término legal para excepciones es de 15 días tras la notificación del mandamiento coactivo, no 30 días ni se liga al cobro persuasivo."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 830 (Término para pagar o proponer excepciones)",
+        "explanation_summary": "Art. 830 E.T.: El deudor dispone de quince (15) días hábiles siguientes a la notificación del mandamiento de pago para cancelar la obligación o proponer las excepciones contempladas en el artículo 831.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.695687-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 92,
         "job_profile_id": 1,
         "thematic_axis_id": 8,
@@ -8648,6 +8648,42 @@
         "explanation_summary": "Valor “Honestidad e Imparcialidad” (Código de Integridad DIAN – Principio 3). Todo intento de soborno en acto de servicio debe ser denunciado de inmediato.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.621081-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 601,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La División de Cobranzas de la Dirección Seccional de Impuestos de Bogotá adelanta proceso de cobro coactivo contra la sociedad Comercializadora Andina S.A.S. por concepto de obligaciones de IVA y Retención en la Fuente adeudadas del año gravable 2023 por un monto de $340 millones de pesos. El funcionario ejecutor, con cargo de Gestor II, profiere mandamiento de pago el 3 de mayo de 2024. El deudor es notificado personalmente el 10 de mayo de 2024 y, con el propósito de controvertir la actuación, su apoderado radica un escrito en el que formula diversas excepciones y objeciones de fondo al procedimiento adelantado por la administración tributaria.",
+        "stem": "El apoderado del contribuyente formula excepción alegando que el acto administrativo de liquidación oficial fue demandado en acción de nulidad y restablecimiento del derecho. ¿Cuál de las siguientes causales del artículo 831 del Estatuto Tributario ampara dicha defensa?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Falta de ejecutoria del título ejecutivo en el cual se fundamenta el mandamiento de pago.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 831 Numeral 5. Es causal de excepción contra el mandamiento de pago la falta de ejecutoria del título, la cual se configura cuando el acto administrativo no se encuentra en firme o sus efectos se encuentran legalmente suspendidos."
+            },
+            {
+                "key": "B",
+                "text": "Beneficio de excusión y división patrimonial entre los socios de la entidad ejecutada.",
+                "is_correct": false,
+                "justification": "El beneficio de excusión no aplica en el cobro coactivo administrativo tributario y no es causal prevista en el Art. 831 E.T."
+            },
+            {
+                "key": "C",
+                "text": "Indebida representación de la administración tributaria por incompetencia territorial sobreviniente.",
+                "is_correct": false,
+                "justification": "No es una excepción taxativa frente al mandamiento de pago según el artículo 831 del Estatuto Tributario."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 831 Numeral 5 (Excepciones en cobro coactivo)",
+        "explanation_summary": "Art. 831 Num. 5 E.T.: Las excepciones contra el mandamiento de pago son taxativas; entre ellas figura la falta de ejecutoria del título que soporta la acreencia fiscal ejecutada.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.720892-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -9558,6 +9594,78 @@
         "scope_level": "tecnico"
     },
     {
+        "id": 602,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La División de Cobranzas de la Dirección Seccional de Impuestos de Bogotá adelanta proceso de cobro coactivo contra la sociedad Comercializadora Andina S.A.S. por concepto de obligaciones de IVA y Retención en la Fuente adeudadas del año gravable 2023 por un monto de $340 millones de pesos. El funcionario ejecutor, con cargo de Gestor II, profiere mandamiento de pago el 3 de mayo de 2024. El deudor es notificado personalmente el 10 de mayo de 2024 y, con el propósito de controvertir la actuación, su apoderado radica un escrito en el que formula diversas excepciones y objeciones de fondo al procedimiento adelantado por la administración tributaria.",
+        "stem": "¿Cuál es el término legal perentorio que tiene la DIAN para resolver las excepciones propuestas por el deudor y qué acto administrativo debe proferir?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Quince (15) días hábiles mediante auto de cúmplase no recurrible en vía gubernativa.",
+                "is_correct": false,
+                "justification": "El término legal es de un mes, no de quince días, y se resuelve mediante resolución motivada."
+            },
+            {
+                "key": "B",
+                "text": "Un (1) mes contado a partir de la presentación del escrito de excepciones, mediante resolución motivada.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 832. Las excepciones propuestas serán resueltas dentro del mes siguiente a la presentación del escrito, mediante resolución que las declare probadas o las rechace y ordene continuar con la ejecución."
+            },
+            {
+                "key": "C",
+                "text": "Sesenta (60) días calendario mediante liquidación oficial de aforo definitivo.",
+                "is_correct": false,
+                "justification": "La liquidación oficial de aforo es un acto de determinación sustancial de tributos, no el acto procesal de decisión de excepciones en cobro coactivo."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 832 (Trámite de excepciones)",
+        "explanation_summary": "Art. 832 E.T.: El funcionario ejecutor dispone de un (1) mes para decidir sobre las excepciones mediante resolución motivada, ordenando continuar la ejecución o el archivo según corresponda.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.723354-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 603,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La División de Cobranzas de la Dirección Seccional de Impuestos de Bogotá adelanta proceso de cobro coactivo contra la sociedad Comercializadora Andina S.A.S. por concepto de obligaciones de IVA y Retención en la Fuente adeudadas del año gravable 2023 por un monto de $340 millones de pesos. El funcionario ejecutor, con cargo de Gestor II, profiere mandamiento de pago el 3 de mayo de 2024. El deudor es notificado personalmente el 10 de mayo de 2024 y, con el propósito de controvertir la actuación, su apoderado radica un escrito en el que formula diversas excepciones y objeciones de fondo al procedimiento adelantado por la administración tributaria.",
+        "stem": "Si el funcionario ejecutor rechaza las excepciones propuestas por el deudor, ¿qué recurso procede contra la resolución que las desestima y ante qué autoridad se interpone?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Recurso de apelación ante el Director General de la DIAN dentro de los cinco (5) días hábiles siguientes.",
+                "is_correct": false,
+                "justification": "En el procedimiento de cobro coactivo no existe apelación ante el Director General de la DIAN contra la resolución que rechaza excepciones."
+            },
+            {
+                "key": "B",
+                "text": "Recurso de reposición ante el mismo funcionario ejecutor que dictó la resolución, dentro del mes siguiente a su notificación.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 834. En la resolución que rechace las excepciones propuestas, se ordenará adelantar la ejecución. Contra esta resolución procede únicamente el recurso de reposición ante el mismo funcionario que la profirió, dentro del mes siguiente a su notificación."
+            },
+            {
+                "key": "C",
+                "text": "Recurso de queja directamente ante el Tribunal Administrativo de Cundinamarca dentro de los diez (10) días hábiles siguientes.",
+                "is_correct": false,
+                "justification": "El recurso en vía gubernativa es la reposición ante la administración; no procede recurso de queja judicial directo."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 834 (Recursos en el cobro coactivo)",
+        "explanation_summary": "Art. 834 E.T.: Contra la resolución que rechaza excepciones procede únicamente el recurso de reposición ante el mismo funcionario que la dictó, debiendo interponerse dentro del mes siguiente a su notificación.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.725808-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 73,
         "job_profile_id": 1,
         "thematic_axis_id": 8,
@@ -9680,6 +9788,42 @@
         "explanation_summary": "Valor “Transparencia” (Código de Integridad DIAN – Principio 1). Todo intento de soborno debe ser reportado de inmediato.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.59664-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 604,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La División de Cobranzas de la Dirección Seccional de Impuestos de Bogotá adelanta proceso de cobro coactivo contra la sociedad Comercializadora Andina S.A.S. por concepto de obligaciones de IVA y Retención en la Fuente adeudadas del año gravable 2023 por un monto de $340 millones de pesos. El funcionario ejecutor, con cargo de Gestor II, profiere mandamiento de pago el 3 de mayo de 2024. El deudor es notificado personalmente el 10 de mayo de 2024 y, con el propósito de controvertir la actuación, su apoderado radica un escrito en el que formula diversas excepciones y objeciones de fondo al procedimiento adelantado por la administración tributaria.",
+        "stem": "Respecto a la prescripción de la acción de cobro regulada en el artículo 817 del Estatuto Tributario, ¿cuál de los siguientes eventos interrumpe dicho término legal de cinco (5) años?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La notificación formal del mandamiento de pago al deudor de las obligaciones tributarias.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 818. El término de prescripción de la acción de cobro se interrumpe por la notificación del mandamiento de pago, por el otorgamiento de facilidades de pago, o por la admisión a proceso concursal. Interrumpida la prescripción, comenzará a correr de nuevo desde el día siguiente a la notificación del mandamiento."
+            },
+            {
+                "key": "B",
+                "text": "El envío de comunicaciones persuasivas por correo ordinario invitando a la normalización voluntaria.",
+                "is_correct": false,
+                "justification": "Las cartas de cobro persuasivo ordinarias no tienen fuerza interruptora de la prescripción tributaria según el artículo 818 E.T."
+            },
+            {
+                "key": "C",
+                "text": "La expedición de la certificación de estado de cuenta en el sistema de gestión tributaria Muisca.",
+                "is_correct": false,
+                "justification": "La emisión de certificados internos o estados de cuenta no interrumpe los términos legales de prescripción extintiva de la acción de cobro."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 818 (Interrupción y suspensión del término de prescripción)",
+        "explanation_summary": "Art. 818 E.T.: La notificación del mandamiento de pago interrumpe el término de prescripción de la acción de cobro, empezando a correr nuevamente el término quinquenal desde el día siguiente.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.728411-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -9852,6 +9996,78 @@
         "scope_level": "profesional"
     },
     {
+        "id": 605,
+        "job_profile_id": 5,
+        "thematic_axis_id": 77,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Dentro de la investigación patrimonial adelantada por el Grupo de Cobranzas de la Seccional de Medellín sobre el deudor Inversiones Los Pinos S.A.S., se verifica la existencia de obligaciones fiscales en mora por $850 millones de pesos. El funcionario Gestor II analiza las alternativas de aseguramiento patrimonial sobre cuentas bancarias, acciones y tres bienes inmuebles de propiedad de la sociedad ejecutada para garantizar la satisfacción de la deuda pública.",
+        "stem": "¿En qué momento procesal está facultado el funcionario ejecutor de la DIAN para decretar medidas cautelares sobre los bienes del deudor?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Únicamente después de ejecutoriada la sentencia judicial que resuelve la demanda contra la liquidación oficial.",
+                "is_correct": false,
+                "justification": "La DIAN no requiere sentencia judicial previa para decretar medidas cautelares en ejercicio de su jurisdicción coactiva administrativa."
+            },
+            {
+                "key": "B",
+                "text": "Previa o simultáneamente con el mandamiento de pago, o en cualquier estado del proceso de cobro coactivo.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 837. Para asegurar el pago de las deudas tributarias, el funcionario competente podrá decretar el embargo y secuestro preventivo de los bienes del deudor que se hayan establecido como de su propiedad, previa o simultáneamente con el mandamiento de pago."
+            },
+            {
+                "key": "C",
+                "text": "Exclusivamente una vez vencido el plazo de un mes para interponer el recurso de reposición contra la orden de ejecución.",
+                "is_correct": false,
+                "justification": "Las medidas cautelares tienen carácter cautelar y urgente, por lo que no requieren esperar la culminación de los recursos para su adopción."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 837 (Medidas cautelares en el cobro coactivo)",
+        "explanation_summary": "Art. 837 E.T.: El funcionario competente puede decretar el embargo y secuestro preventivo de bienes previa o simultáneamente con el mandamiento de pago, o durante el desarrollo del proceso.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.730717-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 606,
+        "job_profile_id": 5,
+        "thematic_axis_id": 77,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Dentro de la investigación patrimonial adelantada por el Grupo de Cobranzas de la Seccional de Medellín sobre el deudor Inversiones Los Pinos S.A.S., se verifica la existencia de obligaciones fiscales en mora por $850 millones de pesos. El funcionario Gestor II analiza las alternativas de aseguramiento patrimonial sobre cuentas bancarias, acciones y tres bienes inmuebles de propiedad de la sociedad ejecutada para garantizar la satisfacción de la deuda pública.",
+        "stem": "¿Cuál es el límite legal que debe respetar la administración tributaria al decretar el embargo sobre los bienes del ejecutado según el artículo 838 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El valor del avalúo de los bienes embargados no podrá exceder del doble de la deuda más sus intereses y costas procesales.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 838. El valor de los bienes embargados no podrá exceder del doble de la deuda más sus intereses. Si excediere de este monto, el funcionario competente deberá reducir el embargo de oficio o a solicitud de parte."
+            },
+            {
+                "key": "B",
+                "text": "El embargo no puede superar el cincuenta por ciento (50%) del patrimonio líquido declarado en el último año gravable.",
+                "is_correct": false,
+                "justification": "El límite legal no se fija en función del patrimonio líquido sino en función del monto de la deuda (doble de la deuda más intereses)."
+            },
+            {
+                "key": "C",
+                "text": "El funcionario goza de discrecionalidad absoluta para embargar todos los bienes sin límite alguno hasta que se cancele la obligación.",
+                "is_correct": false,
+                "justification": "La facultad de embargo está legalmente reglada para evitar medidas desproporcionadas frente al crédito adeudado."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 838 (Límite de los embargos)",
+        "explanation_summary": "Art. 838 E.T.: El valor de los bienes embargados no podrá superar el doble de la deuda más sus intereses; si se sobrepasa este límite, procede la reducción del embargo.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.733005-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 88,
         "job_profile_id": 1,
         "thematic_axis_id": 8,
@@ -9974,6 +10190,42 @@
         "explanation_summary": "Valor “Verdad y Responsabilidad” (Código de Integridad DIAN – Principio 5). Obligación de denuncia ante fraude detectado.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.612111-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 607,
+        "job_profile_id": 5,
+        "thematic_axis_id": 77,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Dentro de la investigación patrimonial adelantada por el Grupo de Cobranzas de la Seccional de Medellín sobre el deudor Inversiones Los Pinos S.A.S., se verifica la existencia de obligaciones fiscales en mora por $850 millones de pesos. El funcionario Gestor II analiza las alternativas de aseguramiento patrimonial sobre cuentas bancarias, acciones y tres bienes inmuebles de propiedad de la sociedad ejecutada para garantizar la satisfacción de la deuda pública.",
+        "stem": "Al comunicar el embargo de recursos depositados en cuentas bancarias a las entidades financieras, ¿cómo opera la inembargabilidad en cuentas de ahorro para personas naturales?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Las cuentas de ahorro de personas naturales son inembargables en su totalidad frente a cualquier tipo de acreencia fiscal.",
+                "is_correct": false,
+                "justification": "No son totalmente inembargables; existe un monto límite legal fijado por la Superintendencia Financiera, sobre el cual sí procede el embargo."
+            },
+            {
+                "key": "B",
+                "text": "El límite de inembargabilidad fijado por la ley opera hasta el monto actualizado anualmente por la Superintendencia Financiera, procediendo el embargo sobre el excedente.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 837-1 y Estatuto Orgánico del Sistema Financiero. El límite de inembargabilidad para cuentas de ahorro de personas naturales rige según el valor determinado anualmente por la Superfinanciera, siendo embargables los montos que excedan dicho tope."
+            },
+            {
+                "key": "C",
+                "text": "No existe ningún límite de inembargabilidad, por lo cual la DIAN embarga el 100% de cualquier saldo sin importar su monto ni titular.",
+                "is_correct": false,
+                "justification": "El artículo 837-1 E.T. remite expresamente a las normas de inembargabilidad de depósitos de ahorro de personas naturales."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 837-1 (Límite de inembargabilidad en cuentas bancarias)",
+        "explanation_summary": "Art. 837-1 E.T.: Las cuentas de ahorro de personas naturales están protegidas por el límite legal de inembargabilidad señalado por la Superintendencia Financiera, embargándose únicamente el excedente.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.735005-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -10146,6 +10398,42 @@
         "scope_level": "profesional"
     },
     {
+        "id": 608,
+        "job_profile_id": 5,
+        "thematic_axis_id": 77,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Dentro de la investigación patrimonial adelantada por el Grupo de Cobranzas de la Seccional de Medellín sobre el deudor Inversiones Los Pinos S.A.S., se verifica la existencia de obligaciones fiscales en mora por $850 millones de pesos. El funcionario Gestor II analiza las alternativas de aseguramiento patrimonial sobre cuentas bancarias, acciones y tres bienes inmuebles de propiedad de la sociedad ejecutada para garantizar la satisfacción de la deuda pública.",
+        "stem": "Si el deudor solicita el levantamiento de las medidas cautelares sobre sus cuentas corrientes para poder pagar la nómina de sus trabajadores, ¿qué mecanismo legal permite levantar el embargo sin desproteger la acreencia tributaria?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La suscripción de una carta de compromiso simple sin respaldo patrimonial ante el Director Seccional.",
+                "is_correct": false,
+                "justification": "Una carta simple sin garantía formal idónea no es legalmente suficiente para levantar medidas cautelares sobre créditos ejecutados."
+            },
+            {
+                "key": "B",
+                "text": "El otorgamiento de una garantía bancaria o póliza de seguro de cumplimiento que respalde el valor de la deuda más intereses calculados.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 837 y Decreto 1625 de 2016. Las medidas cautelares podrán ser levantadas si el ejecutado presta garantía bancaria o de compañía de seguros por el valor de la deuda más los intereses correspondientes."
+            },
+            {
+                "key": "C",
+                "text": "La interposición formal de una acción de tutela por vulneración transitoria al mínimo vital corporativo.",
+                "is_correct": false,
+                "justification": "Las personas jurídicas no tienen mínimo vital biológico y la vía legal ordinaria y eficaz es la constitución de póliza o garantía admisible."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 837 y Decreto 1625 de 2016 (Garantías para levantamiento de medidas)",
+        "explanation_summary": "Art. 837 E.T.: Procede el levantamiento de embargos si el ejecutado constituye una garantía bancaria o póliza de seguros suficiente que asegure el cumplimiento de la obligación tributaria.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.73723-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 99,
         "job_profile_id": 1,
         "thematic_axis_id": 8,
@@ -10268,6 +10556,78 @@
         "explanation_summary": "Competencia “Orientación al Logro y Gestión del Tiempo” (Nivel 4 – Diccionario DIAN). Equilibra eficiencia operativa con servicio al ciudadano (Código de Ética art. 7 – Eficiencia y Eficacia).",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.636648-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 609,
+        "job_profile_id": 5,
+        "thematic_axis_id": 77,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Dentro de la investigación patrimonial adelantada por el Grupo de Cobranzas de la Seccional de Medellín sobre el deudor Inversiones Los Pinos S.A.S., se verifica la existencia de obligaciones fiscales en mora por $850 millones de pesos. El funcionario Gestor II analiza las alternativas de aseguramiento patrimonial sobre cuentas bancarias, acciones y tres bienes inmuebles de propiedad de la sociedad ejecutada para garantizar la satisfacción de la deuda pública.",
+        "stem": "¿Cómo opera la prelación legal de los créditos de la DIAN frente a otros acreedores cuando se registran embargos sobre los inmuebles del deudor?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Los créditos fiscales pertenecen a la primera clase de créditos según el Código Civil, con prelación general salvo frente a acreedores hipotecarios legalmente constituidos con anterioridad.",
+                "is_correct": true,
+                "justification": "Código Civil Art. 2495 y Estatuto Tributario Art. 839-1. Los créditos del Fisco Nacional gozan del privilegio de primera clase en el orden de prelación de créditos, concurriendo preferentemente sobre acreencias comunes, respetando los derechos de hipoteca o prenda debidamente registrados con anterioridad."
+            },
+            {
+                "key": "B",
+                "text": "Los créditos por impuestos nacionales siempre se posponen a las deudas con proveedores comerciales y créditos quirografarios.",
+                "is_correct": false,
+                "justification": "Los créditos fiscales tienen rango preferencial de primera clase frente a deudas quirografarias comunes."
+            },
+            {
+                "key": "C",
+                "text": "La DIAN pierde toda prelación si el embargo fue registrado con posterioridad a un embargo de un juzgado civil municipal.",
+                "is_correct": false,
+                "justification": "El régimen coactivo de la DIAN prevé acumulación de embargos y prelación de rango sustancial según el Art. 839-1 E.T."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Código Civil - Artículo 2495 y Estatuto Tributario - Artículo 839-1 (Prelación de créditos fiscales)",
+        "explanation_summary": "Art. 2495 C.C. y Art. 839-1 E.T.: Los créditos tributarios corresponden a créditos privilegiados de primera clase, gozando de prelación sustancial sobre acreedores comunes en la distribución del producto de los bienes.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.739598-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 610,
+        "job_profile_id": 5,
+        "thematic_axis_id": 78,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La sociedad Manufacturas de Occidente S.A. presentó su declaración de Impuesto sobre la Renta del año gravable 2023 arrojando un saldo a favor de $580 millones de pesos, originado en retenciones en la fuente a título de renta que superan ampliamente el impuesto neto de renta. El 12 de junio de 2024, el representante legal radica a través del Servicio Informático Electrónico (SIE) de Devoluciones y Compensaciones la solicitud formal de devolución del saldo a favor. El expediente es asignado a un Gestor II para el control sustancial y formal de la solicitud.",
+        "stem": "¿Cuál es el término legal máximo que tenía el contribuyente para solicitar la devolución o compensación del saldo a favor liquidado en su declaración tributaria?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Seis (6) meses contados a partir de la fecha de presentación de la declaración.",
+                "is_correct": false,
+                "justification": "El término legal de solicitud de saldos a favor no es de seis meses sino de dos años."
+            },
+            {
+                "key": "B",
+                "text": "Dos (2) años contados a partir de la fecha del vencimiento del plazo para declarar.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 854. La solicitud de devolución de saldos a favor de IVA o Renta deberá presentarse a más tardar dos (2) años después de la fecha de vencimiento del término para declarar."
+            },
+            {
+                "key": "C",
+                "text": "Cinco (5) años coincidentes con el término general de prescripción de la acción de cobro.",
+                "is_correct": false,
+                "justification": "El término para solicitar devolución caduca a los dos (2) años según el Art. 854 E.T., a diferencia de la prescripción de cobro que es de 5 años."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 854 (Término para solicitar la devolución de saldos a favor)",
+        "explanation_summary": "Art. 854 E.T.: La solicitud de devolución o compensación de saldos a favor debe radicarse a más tardar dentro de los dos (2) años siguientes al vencimiento del plazo para declarar.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.741508-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -10398,6 +10758,42 @@
         "scope_level": "profesional"
     },
     {
+        "id": 611,
+        "job_profile_id": 5,
+        "thematic_axis_id": 78,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La sociedad Manufacturas de Occidente S.A. presentó su declaración de Impuesto sobre la Renta del año gravable 2023 arrojando un saldo a favor de $580 millones de pesos, originado en retenciones en la fuente a título de renta que superan ampliamente el impuesto neto de renta. El 12 de junio de 2024, el representante legal radica a través del Servicio Informático Electrónico (SIE) de Devoluciones y Compensaciones la solicitud formal de devolución del saldo a favor. El expediente es asignado a un Gestor II para el control sustancial y formal de la solicitud.",
+        "stem": "El contribuyente solicita la aplicación del mecanismo de Devolución Automática. ¿En qué término debe la DIAN reconocer y abonar la devolución si se cumplen los requisitos del parágrafo 5 del artículo 855 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Diez (10) días hábiles siguientes a la radicación de la solicitud en debida forma.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 855 Parágrafo 5 y Decreto 1625 de 2016. La DIAN devolverá de forma automática dentro de los diez (10) días hábiles siguientes a la fecha de radicación, a los contribuyentes que no representen riesgo alto y soporten sus costos y deducciones con factura electrónica en los porcentajes de ley."
+            },
+            {
+                "key": "B",
+                "text": "Treinta (30) días calendario previa visita domiciliaria de verificación de libros contables.",
+                "is_correct": false,
+                "justification": "La devolución automática no exige visita previa domiciliaria y tiene un plazo expreso de diez (10) días hábiles."
+            },
+            {
+                "key": "C",
+                "text": "Cuarenta y ocho (48) horas a través de abono directo en el Banco de la República.",
+                "is_correct": false,
+                "justification": "El término legal de la devolución automática es de 10 días hábiles, no 48 horas."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 855 Parágrafo 5 (Devolución automática de saldos a favor)",
+        "explanation_summary": "Art. 855 Parágrafo 5 E.T.: La devolución automática opera en un término abreviado de diez (10) días hábiles para contribuyentes que cumplan estándares de bajo riesgo y facturación electrónica.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.74358-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 109,
         "job_profile_id": 1,
         "thematic_axis_id": 14,
@@ -10524,6 +10920,78 @@
         "scope_level": "profesional"
     },
     {
+        "id": 612,
+        "job_profile_id": 5,
+        "thematic_axis_id": 78,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La sociedad Manufacturas de Occidente S.A. presentó su declaración de Impuesto sobre la Renta del año gravable 2023 arrojando un saldo a favor de $580 millones de pesos, originado en retenciones en la fuente a título de renta que superan ampliamente el impuesto neto de renta. El 12 de junio de 2024, el representante legal radica a través del Servicio Informático Electrónico (SIE) de Devoluciones y Compensaciones la solicitud formal de devolución del saldo a favor. El expediente es asignado a un Gestor II para el control sustancial y formal de la solicitud.",
+        "stem": "¿Cuál es el término ordinario con el que cuenta la administración tributaria para resolver las solicitudes de devolución de saldos a favor cuando no aplica la devolución automática ni garantía bancaria?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Cincuenta (50) días hábiles contados a partir de la fecha de la solicitud de devolución presentada en debida forma.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 855. La administración tributaria dispone de cincuenta (50) días hábiles siguientes a la fecha de la solicitud de devolución presentada en debida forma, para practicar la liquidación y devolver el saldo a favor."
+            },
+            {
+                "key": "B",
+                "text": "Veinte (20) días hábiles contados desde la recepción física del archivo de retenciones.",
+                "is_correct": false,
+                "justification": "Veinte días es el término especial cuando se presenta garantía bancaria o de póliza (Art. 860 E.T.), no el término ordinario general."
+            },
+            {
+                "key": "C",
+                "text": "Noventa (90) días calendario improrrogables desde la sesión del comité de devoluciones.",
+                "is_correct": false,
+                "justification": "El término general ordinario es de 50 días hábiles conforme al Art. 855 E.T."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 855 (Término general para efectuar la devolución)",
+        "explanation_summary": "Art. 855 E.T.: El término ordinario legal para proferir la resolución de devolución o compensación es de cincuenta (50) días hábiles siguientes a la radicación en debida forma.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.745668-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 613,
+        "job_profile_id": 5,
+        "thematic_axis_id": 78,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La sociedad Manufacturas de Occidente S.A. presentó su declaración de Impuesto sobre la Renta del año gravable 2023 arrojando un saldo a favor de $580 millones de pesos, originado en retenciones en la fuente a título de renta que superan ampliamente el impuesto neto de renta. El 12 de junio de 2024, el representante legal radica a través del Servicio Informático Electrónico (SIE) de Devoluciones y Compensaciones la solicitud formal de devolución del saldo a favor. El expediente es asignado a un Gestor II para el control sustancial y formal de la solicitud.",
+        "stem": "Durante la revisión del expediente, el Gestor II detecta indicios fundados sobre la improcedencia parcial de las retenciones certificadas. ¿Qué actuación procede según el artículo 857-1 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Archivar inmediatamente la solicitud de devolución sin posibilidad de subsanación por parte del contribuyente.",
+                "is_correct": false,
+                "justification": "El archivo sin trámite previo vulnera el debido proceso; la norma dispone la suspensión del término mediante auto motivado."
+            },
+            {
+                "key": "B",
+                "text": "Proferir auto motivado de suspensión de términos para devolver hasta por un plazo máximo de noventa (90) días calendario para adelantar la investigación tributaria.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 857-1. Cuando la administración tributaria dentro del término para devolver encuentre indicios de inexactitud o improcedencia, proferirá auto de suspensión del término para devolver hasta por noventa (90) días, para que la división de fiscalización adelante la investigación respectiva."
+            },
+            {
+                "key": "C",
+                "text": "Denunciar penalmente al representante legal ante la Fiscalía General de la Nación de forma inmediata antes de cualquier verificación administrativa.",
+                "is_correct": false,
+                "justification": "La fase de verificación e investigación de saldos a favor corresponde al procedimiento administrativo tributario reglado en el Art. 857-1 E.T."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 857-1 (Suspensión de términos para la devolución e investigación previa)",
+        "explanation_summary": "Art. 857-1 E.T.: La DIAN puede suspender los términos para devolver hasta por 90 días mediante auto motivado cuando existan indicios de inexactitud, trasladando el expediente a fiscalización.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.749301-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 114,
         "job_profile_id": 1,
         "thematic_axis_id": 14,
@@ -10646,6 +11114,42 @@
         "explanation_summary": "Competencia “Manejo de Conflictos” (Nivel 4). Preserva la imagen institucional.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.653683-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 614,
+        "job_profile_id": 5,
+        "thematic_axis_id": 78,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La sociedad Manufacturas de Occidente S.A. presentó su declaración de Impuesto sobre la Renta del año gravable 2023 arrojando un saldo a favor de $580 millones de pesos, originado en retenciones en la fuente a título de renta que superan ampliamente el impuesto neto de renta. El 12 de junio de 2024, el representante legal radica a través del Servicio Informático Electrónico (SIE) de Devoluciones y Compensaciones la solicitud formal de devolución del saldo a favor. El expediente es asignado a un Gestor II para el control sustancial y formal de la solicitud.",
+        "stem": "Si un contribuyente obtiene una devolución o compensación de un saldo a favor que posteriormente es determinado como improcedente por la DIAN mediante liquidación oficial, ¿cuál es la sanción aplicable según el artículo 670 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El contribuyente debe reintegrar las sumas devueltas en exceso, liquidar los intereses moratorios correspondientes y pagar una sanción del 10% o 20% del valor devuelto improcedentemente.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 670. Quien obtenga devolución o compensación improcedente deberá reintegrar los dineros, pagar intereses de mora y una sanción del 10% del valor devuelto en exceso, o del 20% si se modificaron retenciones o costos inexistentes."
+            },
+            {
+                "key": "B",
+                "text": "Únicamente se devuelven los intereses comerciales sin que proceda sanción dineraria alguna por tratarse de un error aritmético.",
+                "is_correct": false,
+                "justification": "La devolución improcedente acarrea expresamente sanción pecuniaria administrativa y reintegro con intereses moratorios."
+            },
+            {
+                "key": "C",
+                "text": "Se cancela el RUT del contribuyente y se impone una multa fija de 100 UVT independiente del monto devuelto.",
+                "is_correct": false,
+                "justification": "La sanción del artículo 670 E.T. es porcentual sobre la suma devuelta indebidamente más reintegro e intereses moratorios."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 670 (Sanción por devolución o compensación improcedente)",
+        "explanation_summary": "Art. 670 E.T.: La devolución improcedente exige reintegrar los dineros con intereses moratorios incrementados y pagar una sanción pecuniaria del 10% o 20% sobre el saldo devuelto indebidamente.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.751276-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -10818,6 +11322,42 @@
         "scope_level": "profesional"
     },
     {
+        "id": 615,
+        "job_profile_id": 5,
+        "thematic_axis_id": 79,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La empresa Textil del Tolima S.A., afectada por problemas temporales de liquidez, adeuda a la DIAN la suma de $420 millones de pesos por concepto de impuesto sobre las ventas e impuesto de renta de vigencias anteriores. El representante legal se acerca a la División de Recaudo y Cobranzas solicitando una facilidad de pago en cuotas mensuales para normalizar su situación y evitar el remate de maquinaria embargada. El expediente es asignado a un Gestor II para evaluar la viabilidad de la solicitud y estructurar el acuerdo.",
+        "stem": "¿Cuál es el plazo máximo que puede conceder la administración tributaria para una facilidad o acuerdo de pago según el artículo 814 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Hasta doce (12) meses improrrogables en cualquier circunstancia económica del deudor.",
+                "is_correct": false,
+                "justification": "El plazo legal máximo no es de 12 meses; la norma permite otorgar hasta cinco (5) años con garantías idóneas."
+            },
+            {
+                "key": "B",
+                "text": "Hasta por un plazo máximo de cinco (5) años para el pago de los impuestos administrados por la DIAN y sus sanciones e intereses.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 814. El Director de Impuestos o los administradores podrán conceder facilidades para el pago al deudor o a un tercero en su nombre, hasta por cinco (5) años, para el pago de los impuestos de timbre, renta, ventas y retenciones, así como las sanciones e intereses."
+            },
+            {
+                "key": "C",
+                "text": "Hasta por diez (10) años si la empresa pertenece al sector manufacturero o agropecuario.",
+                "is_correct": false,
+                "justification": "El tope máximo general contemplado en el artículo 814 del Estatuto Tributario es de cinco (5) años."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 814 (Facilidades para el pago)",
+        "explanation_summary": "Art. 814 E.T.: La DIAN puede suscribir acuerdos de pago por un término de hasta cinco (5) años, garantizando el recaudo de impuestos, intereses y sanciones debidamente caucionados.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.753613-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 124,
         "job_profile_id": 1,
         "thematic_axis_id": 14,
@@ -10944,6 +11484,78 @@
         "scope_level": "profesional"
     },
     {
+        "id": 616,
+        "job_profile_id": 5,
+        "thematic_axis_id": 79,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La empresa Textil del Tolima S.A., afectada por problemas temporales de liquidez, adeuda a la DIAN la suma de $420 millones de pesos por concepto de impuesto sobre las ventas e impuesto de renta de vigencias anteriores. El representante legal se acerca a la División de Recaudo y Cobranzas solicitando una facilidad de pago en cuotas mensuales para normalizar su situación y evitar el remate de maquinaria embargada. El expediente es asignado a un Gestor II para evaluar la viabilidad de la solicitud y estructurar el acuerdo.",
+        "stem": "¿Qué tipos de garantías resultan legalmente admisibles para respaldar un acuerdo de pago otorgado a un plazo superior a un año?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Garantías reales como hipotecas o prendas, garantías bancarias, pólizas de seguros de cumplimiento o libranzas debidamente formalizadas.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 814. Para plazos superiores a un año se exige constituir garantías personales, reales (hipoteca, prenda), bancarias o de compañías de seguros, que respalden suficientemente la acreencia y sus intereses."
+            },
+            {
+                "key": "B",
+                "text": "Únicamente pagarés firmados en blanco sin necesidad de aval ni respaldo asegurador.",
+                "is_correct": false,
+                "justification": "Un pagaré simple en blanco no satisface las exigencias de garantía admisible del Art. 814 E.T. para deudas superiores a 1 año."
+            },
+            {
+                "key": "C",
+                "text": "La promesa de cesión de futuros contratos comerciales con clientes del sector privado.",
+                "is_correct": false,
+                "justification": "La promesa de contratos futuros no constituye garantía real ni bancaria respaldada legalmente para suspender el cobro coactivo."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 814 (Garantías en facilidades de pago)",
+        "explanation_summary": "Art. 814 E.T.: Los acuerdos de pago requieren garantías idóneas (reales como hipoteca\/prenda, bancarias o pólizas de seguros de cumplimiento) que cubran el capital, intereses y sanciones.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.755783-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 617,
+        "job_profile_id": 5,
+        "thematic_axis_id": 79,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La empresa Textil del Tolima S.A., afectada por problemas temporales de liquidez, adeuda a la DIAN la suma de $420 millones de pesos por concepto de impuesto sobre las ventas e impuesto de renta de vigencias anteriores. El representante legal se acerca a la División de Recaudo y Cobranzas solicitando una facilidad de pago en cuotas mensuales para normalizar su situación y evitar el remate de maquinaria embargada. El expediente es asignado a un Gestor II para evaluar la viabilidad de la solicitud y estructurar el acuerdo.",
+        "stem": "Si dentro de las deudas del contribuyente existen valores retenidos por Retención en la Fuente no consignados en bancos, ¿qué efecto tiene la suscripción del acuerdo de pago sobre la responsabilidad penal del agente retenedor?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Extingue de plano y en forma definitiva la acción penal sin necesidad de verificar el pago total efectivo de las cuotas pactadas.",
+                "is_correct": false,
+                "justification": "La mera firma del acuerdo no extingue la acción penal; solo el pago total efectivo de las sumas retenidas e intereses produce la extinción de la responsabilidad penal (Art. 402 Código Penal)."
+            },
+            {
+                "key": "B",
+                "text": "No extingue la acción penal de forma inmediata; la extinción de la responsabilidad penal (Art. 402 Código Penal) opera solo cuando se pague totalmente la obligación tributaria con sus intereses y sanciones.",
+                "is_correct": true,
+                "justification": "Código Penal Art. 402 y Estatuto Tributario Art. 814. La suscripción de una facilidad de pago no extingue la acción penal por omisión del agente retenedor o recaudador; únicamente el pago total y efectivo de las obligaciones extingue la responsabilidad penal correspondiente."
+            },
+            {
+                "key": "C",
+                "text": "Impide que la DIAN reporte la denuncia penal a la Fiscalía en cualquier circunstancia, trasladando la culpa a los socios.",
+                "is_correct": false,
+                "justification": "La DIAN tiene la obligación de denunciar penalmente la omisión de agente retenedor conforme a la ley penal sustancial."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Código Penal Colombiano - Artículo 402 y Estatuto Tributario - Artículo 814 (Omisión de agente retenedor y acuerdos de pago)",
+        "explanation_summary": "Art. 402 C.P. y Art. 814 E.T.: La firma del acuerdo de pago no extingue la responsabilidad penal por retención en la fuente; la extinción opera exclusivamente con el pago total e íntegro de la obligación.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.757903-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 129,
         "job_profile_id": 1,
         "thematic_axis_id": 14,
@@ -11066,6 +11678,42 @@
         "explanation_summary": "Competencia “Comunicación Efectiva y Manejo de Conflictos” (Nivel 4). Desescalada profesional (Código de Integridad DIAN).",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.674257-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 618,
+        "job_profile_id": 5,
+        "thematic_axis_id": 79,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La empresa Textil del Tolima S.A., afectada por problemas temporales de liquidez, adeuda a la DIAN la suma de $420 millones de pesos por concepto de impuesto sobre las ventas e impuesto de renta de vigencias anteriores. El representante legal se acerca a la División de Recaudo y Cobranzas solicitando una facilidad de pago en cuotas mensuales para normalizar su situación y evitar el remate de maquinaria embargada. El expediente es asignado a un Gestor II para evaluar la viabilidad de la solicitud y estructurar el acuerdo.",
+        "stem": "¿Qué consecuencias jurídicas y procesales se producen si el contribuyente incumple el pago de alguna de las cuotas pactadas en la facilidad para el pago?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Se concede automáticamente una prórroga de dos años adicionales sin necesidad de acto administrativo.",
+                "is_correct": false,
+                "justification": "No existe prórroga automática en caso de mora; el incumplimiento acarrea la revocatoria del acuerdo."
+            },
+            {
+                "key": "B",
+                "text": "El funcionario ejecutor declara el incumplimiento mediante resolución, se pierde el beneficio del plazo, se hace exigible la totalidad del saldo adeudado y se ordena hacer efectivas las garantías prestadas.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 814-3. Cuando el beneficiario de una facilidad para el pago dejare de pagar alguna de las cuotas o de cancelar cualquier otra obligación tributaria surgida con posterioridad, el administrador declarará sin vigencia el plazo concedido y ordenará hacer efectivas las garantías hasta la concurrencia del saldo insoluto, continuando el cobro coactivo."
+            },
+            {
+                "key": "C",
+                "text": "Se condona el 50% de los intereses moratorios acumulados como incentivo para reanudar los pagos.",
+                "is_correct": false,
+                "justification": "La administración no tiene potestad para condonar intereses por vía de incumplimiento de acuerdos de pago."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 814-3 (Incumplimiento de las facilidades de pago)",
+        "explanation_summary": "Art. 814-3 E.T.: El incumplimiento de cualquier cuota deja sin vigencia el plazo otorgado, reactiva el cobro coactivo inmediato por la totalidad del saldo y ordena hacer efectivas las pólizas o garantías.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.759937-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -11406,6 +12054,78 @@
         "scope_level": "profesional"
     },
     {
+        "id": 619,
+        "job_profile_id": 5,
+        "thematic_axis_id": 79,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La empresa Textil del Tolima S.A., afectada por problemas temporales de liquidez, adeuda a la DIAN la suma de $420 millones de pesos por concepto de impuesto sobre las ventas e impuesto de renta de vigencias anteriores. El representante legal se acerca a la División de Recaudo y Cobranzas solicitando una facilidad de pago en cuotas mensuales para normalizar su situación y evitar el remate de maquinaria embargada. El expediente es asignado a un Gestor II para evaluar la viabilidad de la solicitud y estructurar el acuerdo.",
+        "stem": "¿En qué se diferencia fundamentalmente la etapa de cobro persuasivo frente al proceso administrativo de cobro coactivo?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El cobro persuasivo es una fase no coactiva orientada a la invitación, concertación y facilitación voluntaria del pago antes de librar mandamiento de pago, mientras el coactivo es formal, compulsivo y restrictivo de bienes.",
+                "is_correct": true,
+                "justification": "Modelo de Cobro DIAN y Estatuto Tributario. El cobro persuasivo busca el cumplimiento voluntario mediante llamadas, comunicaciones y jornadas de atención sin medidas cautelares forzosas, mientras que el coactivo ejerce la potestad de imperio estatal mediante mandamiento de pago, embargos y remate."
+            },
+            {
+                "key": "B",
+                "text": "El cobro persuasivo lo realizan jueces de la República y el cobro coactivo lo ejecutan notarías autorizadas.",
+                "is_correct": false,
+                "justification": "Ambas etapas son de competencia de la DIAN dentro del procedimiento administrativo tributario."
+            },
+            {
+                "key": "C",
+                "text": "El cobro persuasivo solo aplica para multas aduaneras y el cobro coactivo exclusivamente para retención en la fuente.",
+                "is_correct": false,
+                "justification": "Ambos esquemas aplican a todas las obligaciones sustanciales y sancionatorias de competencia de la DIAN."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Manual de Cobro y Procedimiento Administrativo DIAN \/ Estatuto Tributario",
+        "explanation_summary": "El cobro persuasivo es una etapa preventiva y orientadora para lograr el pago espontáneo antes de formalizar la vía compulsiva del mandamiento de pago en cobro coactivo.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.762001-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 620,
+        "job_profile_id": 5,
+        "thematic_axis_id": 80,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En desarrollo del programa de depuración masiva de estados de cuenta y control extensivo de obligaciones en la Dirección Seccional de Cali, el equipo de Gestores II realiza cruces de información entre las declaraciones presentadas, los recibos oficiales de pago en bancos y el sistema de cuenta corriente tributaria Muisca. Se identifican múltiples inconsistencias formales en declaraciones que no varían el impuesto a pagar, deudas de más de 6 años sin respaldo patrimonial y saldos a favor pendientes de aplicar.",
+        "stem": "¿Cuál es el procedimiento legal para corregir inconsistencias formales en declaraciones tributarias (como errores en el NIT o año gravable) que no alteran el valor determinado por el contribuyente?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Presentar una nueva declaración con liquidación forzosa de sanción de extemporaneidad del 100%.",
+                "is_correct": false,
+                "justification": "Los errores formales que no afectan el valor a pagar no exigen liquidar sanción de extemporaneidad forzosa."
+            },
+            {
+                "key": "B",
+                "text": "Aplicar el procedimiento de corrección de inconsistencias del artículo 43 de la Ley 962 de 2005 (Ley Antitrámites), corrigiéndose de oficio o a petición de parte sin sanción.",
+                "is_correct": true,
+                "justification": "Ley 962 de 2005 Art. 43 y Circular DIAN. Los errores en el diligenciamiento de declaraciones que no afecten el valor a pagar, como número de NIT, año o período, podrán corregirse de oficio o a solicitud de parte en cualquier tiempo, sin que se genere sanción alguna."
+            },
+            {
+                "key": "C",
+                "text": "Exigir un pronunciamiento previo de la Sala Plena del Consejo de Estado mediante concepto vinculante.",
+                "is_correct": false,
+                "justification": "La corrección de inconsistencias formales es un trámite administrativo expedito consagrado en la Ley 962 de 2005."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Ley 962 de 2005 - Artículo 43 (Corrección de errores formales sin sanción)",
+        "explanation_summary": "Art. 43 Ley 962 de 2005: Los errores formales en declaraciones tributarias que no modifiquen el valor a pagar se corrigen de oficio o a solicitud del contribuyente sin sanción.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.764032-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 143,
         "job_profile_id": 1,
         "thematic_axis_id": 12,
@@ -11616,6 +12336,42 @@
         "scope_level": "profesional"
     },
     {
+        "id": 621,
+        "job_profile_id": 5,
+        "thematic_axis_id": 80,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En desarrollo del programa de depuración masiva de estados de cuenta y control extensivo de obligaciones en la Dirección Seccional de Cali, el equipo de Gestores II realiza cruces de información entre las declaraciones presentadas, los recibos oficiales de pago en bancos y el sistema de cuenta corriente tributaria Muisca. Se identifican múltiples inconsistencias formales en declaraciones que no varían el impuesto a pagar, deudas de más de 6 años sin respaldo patrimonial y saldos a favor pendientes de aplicar.",
+        "stem": "¿Bajo qué condiciones consagradas en el artículo 820 del Estatuto Tributario puede la DIAN suprimir y declarar la remisión de deudas tributarias incobrables?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Cuando las obligaciones tengan una antigüedad superior a cinco (5) años, no se tenga noticia del deudor ni se hayan ubicado bienes susceptibles de embargo tras la debida investigación patrimonial.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 820. El Director de Impuestos y los Administradores podrán suprimir de los registros y cuentas las deudas a cargo de personas que hayan fallecido sin dejar bienes, o cuando transcurridos cinco (5) años de la exigibilidad de la obligación no se tenga noticia del deudor y no se hayan ubicado bienes."
+            },
+            {
+                "key": "B",
+                "text": "Cuando el contribuyente presente una declaración de insolvencia simple autenticada ante notario público de cualquier circuito.",
+                "is_correct": false,
+                "justification": "La remisión de deudas públicas exige el cumplimiento estricto de los supuestos legales de investigación y temporalidad del Art. 820 E.T."
+            },
+            {
+                "key": "C",
+                "text": "Únicamente en vigencias fiscales donde el Congreso de la República decrete una amnistía tributaria general mediante ley de presupuesto.",
+                "is_correct": false,
+                "justification": "La remisión de deudas incobrables es una figura permanente regulada en el artículo 820 del Estatuto Tributario, no una amnistía temporal."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 820 (Remisión de las deudas tributarias)",
+        "explanation_summary": "Art. 820 E.T.: La remisión permite extinguir y suprimir de los registros contables obligaciones fiscales de más de cinco (5) años cuando no exista patrimonio embargable ni ubicación del deudor.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.765951-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 150,
         "job_profile_id": 1,
         "thematic_axis_id": 12,
@@ -11696,6 +12452,42 @@
         "explanation_summary": "Art. 29 Constitución Política: El debido proceso se aplicará a toda clase de actuaciones judiciales y administrativas.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.696311-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 622,
+        "job_profile_id": 5,
+        "thematic_axis_id": 80,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En desarrollo del programa de depuración masiva de estados de cuenta y control extensivo de obligaciones en la Dirección Seccional de Cali, el equipo de Gestores II realiza cruces de información entre las declaraciones presentadas, los recibos oficiales de pago en bancos y el sistema de cuenta corriente tributaria Muisca. Se identifican múltiples inconsistencias formales en declaraciones que no varían el impuesto a pagar, deudas de más de 6 años sin respaldo patrimonial y saldos a favor pendientes de aplicar.",
+        "stem": "Al efectuar el reproceso de una cuenta corriente tributaria, se detecta que un contribuyente tiene un saldo a favor en IVA y al mismo tiempo registra deudas vencidas en Renta. ¿Qué facultad tiene la DIAN según el artículo 861 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Compensar de oficio el saldo a favor contra las deudas líquidas y exigibles que registre el contribuyente, devolviendo únicamente el remanente si existiere.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 861. En todos los casos, la devolución de saldos a favor se efectuará una vez compensadas las deudas y obligaciones de plazo vencido del contribuyente. La administración tiene la facultad de compensar de oficio los saldos a favor con obligaciones en mora."
+            },
+            {
+                "key": "B",
+                "text": "Entregar en cheque la totalidad del saldo a favor y cobrar las deudas pendientes en un proceso coactivo separado.",
+                "is_correct": false,
+                "justification": "La ley prohíbe entregar saldos a favor cuando el contribuyente tiene deudas pendientes con la DIAN; debe compensarse prioritariamente."
+            },
+            {
+                "key": "C",
+                "text": "Retener indefinidamente el saldo a favor sin emitir acto administrativo ni cruzar las cuentas del deudor.",
+                "is_correct": false,
+                "justification": "La compensación requiere expedición de resolución motivada donde se detallan los conceptos y períodos compensados."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 861 (Compensación previa a la devolución)",
+        "explanation_summary": "Art. 861 E.T.: Antes de efectuar cualquier devolución, la DIAN está facultada y obligada a compensar de oficio los saldos a favor contra deudas tributarias exigibles del contribuyente.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.767919-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -11822,6 +12614,42 @@
         "explanation_summary": "Decreto 1083\/2015: El manual de funciones es un marco, pero el servidor tiene el deber de colaborar en las metas institucionales.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.701765-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 623,
+        "job_profile_id": 5,
+        "thematic_axis_id": 80,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En desarrollo del programa de depuración masiva de estados de cuenta y control extensivo de obligaciones en la Dirección Seccional de Cali, el equipo de Gestores II realiza cruces de información entre las declaraciones presentadas, los recibos oficiales de pago en bancos y el sistema de cuenta corriente tributaria Muisca. Se identifican múltiples inconsistencias formales en declaraciones que no varían el impuesto a pagar, deudas de más de 6 años sin respaldo patrimonial y saldos a favor pendientes de aplicar.",
+        "stem": "¿Cuál es el término legal del artículo 588 del Estatuto Tributario para que un contribuyente corrija voluntariamente su declaración aumentando el impuesto o disminuyendo el saldo a favor?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Dentro de los tres (3) años siguientes al vencimiento del plazo para declarar y antes de que se le haya notificado requerimiento especial.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 588 (modificado Ley 1819 de 2016). Los contribuyentes pueden corregir sus declaraciones tributarias dentro de los tres (3) años siguientes al vencimiento del plazo para declarar y antes de que se les haya notificado requerimiento especial o pliego de cargos."
+            },
+            {
+                "key": "B",
+                "text": "Dentro de los seis (6) meses siguientes a la radicación de la declaración inicial únicamente.",
+                "is_correct": false,
+                "justification": "El término legal es de tres (3) años conforme al texto actual del artículo 588 del Estatuto Tributario."
+            },
+            {
+                "key": "C",
+                "text": "En cualquier tiempo sin límite de años, siempre que no se haya cobrado coactivamente la obligación.",
+                "is_correct": false,
+                "justification": "El derecho a corregir vence a los tres años o con la notificación del requerimiento especial."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 588 (Correcciones que aumentan el impuesto)",
+        "explanation_summary": "Art. 588 E.T.: Las declaraciones tributarias pueden ser corregidas para aumentar el impuesto a pagar dentro de los 3 años siguientes al vencimiento del plazo para declarar, liquidando la sanción del 10%.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.770247-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -11990,6 +12818,42 @@
         "explanation_summary": "Ley 909\/2004: Protege al empleado de carrera ante la supresión de cargos por modernización.",
         "is_active": true,
         "created_at": "2026-10-10 08:23:59.707714-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 624,
+        "job_profile_id": 5,
+        "thematic_axis_id": 80,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En desarrollo del programa de depuración masiva de estados de cuenta y control extensivo de obligaciones en la Dirección Seccional de Cali, el equipo de Gestores II realiza cruces de información entre las declaraciones presentadas, los recibos oficiales de pago en bancos y el sistema de cuenta corriente tributaria Muisca. Se identifican múltiples inconsistencias formales en declaraciones que no varían el impuesto a pagar, deudas de más de 6 años sin respaldo patrimonial y saldos a favor pendientes de aplicar.",
+        "stem": "En el marco del control extensivo de obligaciones, ¿cuál es el objetivo del cruce de información exógena tributaria frente a los ingresos y retenciones reportados?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Identificar omisos e inexactos mediante conciliación automática de operaciones comerciales informadas por terceros frente a lo autoliquidado por el contribuyente.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 631 y Sistema de Control Extensivo DIAN. El cruce sistemático de medios magnéticos permite detectar discrepancias de ingresos, costos inexistentes y agentes de retención omisos de manera masiva y automatizada."
+            },
+            {
+                "key": "B",
+                "text": "Fijar unilateralmente la tasa de interés de colocación bancaria aplicable a los créditos de vivienda.",
+                "is_correct": false,
+                "justification": "El cruce de exógena es una herramienta de control tributario fiscalizador, no una medida de política financiera bancaria."
+            },
+            {
+                "key": "C",
+                "text": "Exonerar de auditoría a las empresas que presenten más de cien reportes de información en el año.",
+                "is_correct": false,
+                "justification": "La entrega de información no exonera de auditoría; por el contrario, suministra los insumos para fiscalizar."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 631 y Modelo de Gestión del Riesgo DIAN",
+        "explanation_summary": "El control extensivo de la DIAN utiliza la información exógena para identificar patrones de evasión, omisos de declarar y diferencias en bases gravables de forma masiva.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.772408-05",
         "is_shared": false,
         "scope_level": "profesional"
     },
@@ -16542,6 +17406,78 @@
         "scope_level": "tecnico"
     },
     {
+        "id": 625,
+        "job_profile_id": 5,
+        "thematic_axis_id": 81,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La Superintendencia de Sociedades admite a la sociedad Agroindustrias del Norte S.A. al trámite de un proceso de reorganización empresarial bajo la Ley 1116 de 2006. La sociedad adeuda a la DIAN $1.800 millones de pesos por concepto de impuestos, anticipos, retenciones en la fuente e intereses moratorios. El funcionario Gestor II es designado mediante resolución interna para actuar como apoderado especial del Fisco Nacional en el proceso de insolvencia y representar los intereses del Estado.",
+        "stem": "¿En qué orden de prelación legal de créditos deben ser reconocidas las acreencias fiscales de la DIAN dentro del proyecto de graduación y calificación de créditos de la Ley 1116 de 2006?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Como créditos de primera clase, concurriendo preferentemente con los créditos laborales y parafiscales según el artículo 2495 del Código Civil.",
+                "is_correct": true,
+                "justification": "Código Civil Art. 2495 y Ley 1116 de 2006. Las deudas fiscales por impuestos pertenecen a la primera clase de créditos en el orden concursal, teniendo prelación sustancial sobre acreedores quirografarios y subordinados."
+            },
+            {
+                "key": "B",
+                "text": "Como créditos de quinta clase quirografarios sin ninguna prioridad de pago frente al resto de acreedores.",
+                "is_correct": false,
+                "justification": "Los créditos fiscales no son quirografarios comunes sino créditos legalmente privilegiados de primera clase."
+            },
+            {
+                "key": "C",
+                "text": "Como gastos de administración que deben pagarse de contado en un término no mayor a tres días de admitido el proceso.",
+                "is_correct": false,
+                "justification": "Las deudas causadas con anterioridad a la fecha de inicio del proceso son acreencias concursales de primera clase, no gastos de administración."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Ley 1116 de 2006 y Código Civil - Artículo 2495 (Graduación y prelación de créditos fiscales)",
+        "explanation_summary": "Art. 2495 C.C. y Ley 1116 de 2006: Los créditos por impuestos corresponden a créditos privilegiados de primera clase en los procesos de reorganización y liquidación judicial.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.782893-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 626,
+        "job_profile_id": 5,
+        "thematic_axis_id": 81,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La Superintendencia de Sociedades admite a la sociedad Agroindustrias del Norte S.A. al trámite de un proceso de reorganización empresarial bajo la Ley 1116 de 2006. La sociedad adeuda a la DIAN $1.800 millones de pesos por concepto de impuestos, anticipos, retenciones en la fuente e intereses moratorios. El funcionario Gestor II es designado mediante resolución interna para actuar como apoderado especial del Fisco Nacional en el proceso de insolvencia y representar los intereses del Estado.",
+        "stem": "El promotor de la sociedad concursada propone incluir en el acuerdo de reorganización una condonación del 40% del capital adeudado por Retención en la Fuente. ¿Qué posición jurídica debe asumir el Gestor II en representación de la DIAN?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Aceptar la condonación siempre que los socios de la compañía ofrezcan pagar el saldo en un plazo no mayor a tres meses.",
+                "is_correct": false,
+                "justification": "La ley concursal y tributaria prohíbe de forma expresa a los funcionarios condonar el capital retenido en la fuente por constituir recursos públicos del Estado."
+            },
+            {
+                "key": "B",
+                "text": "Rechazar de plano la propuesta, dado que las retenciones en la fuente son dineros del Estado recaudados de terceros y el capital tributario es legalmente indisponible e incondonable.",
+                "is_correct": true,
+                "justification": "Ley 1116 de 2006 Art. 32 y Estatuto Tributario. La DIAN no puede condonar capital de retenciones en la fuente ni de impuestos; los acuerdos de reorganización no pueden contener quitas o condonaciones sobre el capital de sumas retenidas que son de propiedad del Fisco."
+            },
+            {
+                "key": "C",
+                "text": "Someter la decisión a consulta vinculante ante el Concejo Municipal del domicilio de la empresa.",
+                "is_correct": false,
+                "justification": "El Concejo Municipal carece por completo de competencia sobre tributos administrados por la DIAN del orden nacional."
+            }
+        ],
+        "correct_option": "B",
+        "legal_basis": "Ley 1116 de 2006 - Artículo 32 y Estatuto Tributario (Indisponibilidad del capital de retenciones)",
+        "explanation_summary": "Art. 32 Ley 1116 de 2006: Las retenciones en la fuente son recursos públicos que no pueden ser objeto de quitas o condonaciones de capital dentro de los acuerdos concursales.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.785612-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 314,
         "job_profile_id": 3,
         "thematic_axis_id": 11,
@@ -16626,6 +17562,114 @@
         "scope_level": "tecnico"
     },
     {
+        "id": 627,
+        "job_profile_id": 5,
+        "thematic_axis_id": 81,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La Superintendencia de Sociedades admite a la sociedad Agroindustrias del Norte S.A. al trámite de un proceso de reorganización empresarial bajo la Ley 1116 de 2006. La sociedad adeuda a la DIAN $1.800 millones de pesos por concepto de impuestos, anticipos, retenciones en la fuente e intereses moratorios. El funcionario Gestor II es designado mediante resolución interna para actuar como apoderado especial del Fisco Nacional en el proceso de insolvencia y representar los intereses del Estado.",
+        "stem": "¿Qué efecto inmediato produce el auto de admisión al proceso de reorganización empresarial sobre los procesos de cobro coactivo adelantados por la DIAN contra el deudor concursado?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Produce la suspensión de los procesos de cobro coactivo en curso y la prohibición legal de iniciar nuevas ejecuciones individuales contra el deudor.",
+                "is_correct": true,
+                "justification": "Ley 1116 de 2006 Art. 20. A partir de la fecha de inicio del proceso de reorganización, no podrá admitirse ni continuarse demanda de ejecución o cualquier otro proceso de cobro coactivo contra el deudor, debiendo remitirse los procesos al juez del concurso."
+            },
+            {
+                "key": "B",
+                "text": "Faculta a la DIAN para acelerar el remate de bienes sin necesidad de notificar al juez del concurso.",
+                "is_correct": false,
+                "justification": "El auto de admisión paraliza las ejecuciones individuales; continuar con el remate constituiría nulidad procesal."
+            },
+            {
+                "key": "C",
+                "text": "Provoca la extinción definitiva de la obligación fiscal sin pago ni compensación.",
+                "is_correct": false,
+                "justification": "La acreencia no se extingue, se suspende la ejecución individual para incorporarse al proceso universal concursal."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Ley 1116 de 2006 - Artículo 20 (Suspensión de procesos de cobro coactivo)",
+        "explanation_summary": "Art. 20 Ley 1116 de 2006: La admisión a reorganización suspende los procesos de cobro coactivo y prohíbe nuevos embargos individuales para canalizar todas las acreencias ante el juez concursal.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.787712-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 628,
+        "job_profile_id": 5,
+        "thematic_axis_id": 81,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La Superintendencia de Sociedades admite a la sociedad Agroindustrias del Norte S.A. al trámite de un proceso de reorganización empresarial bajo la Ley 1116 de 2006. La sociedad adeuda a la DIAN $1.800 millones de pesos por concepto de impuestos, anticipos, retenciones en la fuente e intereses moratorios. El funcionario Gestor II es designado mediante resolución interna para actuar como apoderado especial del Fisco Nacional en el proceso de insolvencia y representar los intereses del Estado.",
+        "stem": "¿Bajo qué condiciones sustanciales puede el funcionario delegado de la DIAN emitir voto favorable para la aprobación del acuerdo de reorganización empresarial?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Que el acuerdo prevea el pago total del capital e intereses tributarios, se fijen plazos razonables no discriminatorios y se mantengan las garantías adecuadas sobre los activos.",
+                "is_correct": true,
+                "justification": "Decreto 1625 de 2016 y Ley 1116 de 2006. El voto de la DIAN está reglado internamente: exige el pago íntegro de los créditos fiscales, plazos razonables alineados con la viabilidad empresarial y preservación de garantías reales constituidas."
+            },
+            {
+                "key": "B",
+                "text": "Que los acreedores financieros perdonen el 90% de sus créditos bancarios como requisito previo indispensable.",
+                "is_correct": false,
+                "justification": "Las decisiones de los acreedores financieros son autónomas de sus clases y no condicionan el mandato legal de voto de la DIAN."
+            },
+            {
+                "key": "C",
+                "text": "Que el Estado asuma la condición de accionista mayoritario de la sociedad en reemplazo de los fundadores.",
+                "is_correct": false,
+                "justification": "La DIAN actúa como acreedora fiscal de derecho público, no como inversor de capital de riesgo corporativo."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Decreto 1625 de 2016 y Ley 1116 de 2006 (Lineamientos de voto de la DIAN en acuerdos de reorganización)",
+        "explanation_summary": "La DIAN vota favorablemente los acuerdos de reorganización cuando se garantiza la satisfacción íntegra del crédito público en plazos viables y con respaldo de garantías idóneas.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.789688-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 629,
+        "job_profile_id": 5,
+        "thematic_axis_id": 81,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "La Superintendencia de Sociedades admite a la sociedad Agroindustrias del Norte S.A. al trámite de un proceso de reorganización empresarial bajo la Ley 1116 de 2006. La sociedad adeuda a la DIAN $1.800 millones de pesos por concepto de impuestos, anticipos, retenciones en la fuente e intereses moratorios. El funcionario Gestor II es designado mediante resolución interna para actuar como apoderado especial del Fisco Nacional en el proceso de insolvencia y representar los intereses del Estado.",
+        "stem": "Si la sociedad incumple de forma reiterada las obligaciones pactadas en el acuerdo de reorganización aprobado, ¿qué consecuencia procesal sobreviene?",
+        "options": [
+            {
+                "key": "A",
+                "text": "El juez del concurso declara la terminación del acuerdo de reorganización y la apertura inmediata del proceso de liquidación judicial de la sociedad deudora.",
+                "is_correct": true,
+                "justification": "Ley 1116 de 2006 Art. 46. El incumplimiento no subsanado del acuerdo de reorganización produce su terminación y la declaratoria inmediata de apertura del proceso de liquidación judicial, procediéndose a la enajenación de activos para pagar pasivos en el orden de prelación legal."
+            },
+            {
+                "key": "B",
+                "text": "Se extingue automáticamente la personería jurídica de la DIAN como entidad acreedora.",
+                "is_correct": false,
+                "justification": "La DIAN mantiene su personería y facultades de cobro en el proceso de liquidación judicial."
+            },
+            {
+                "key": "C",
+                "text": "La sociedad queda legalmente habilitada para operar sin pagar tributos durante los siguientes diez años.",
+                "is_correct": false,
+                "justification": "El incumplimiento acarrea la liquidación judicial y venta forzada de activos, no beneficios tributarios."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Ley 1116 de 2006 - Artículo 46 (Incumplimiento del acuerdo y apertura de liquidación judicial)",
+        "explanation_summary": "Art. 46 Ley 1116 de 2006: El incumplimiento no subsanado del acuerdo de reorganización acarrea la apertura inmediata de la liquidación judicial para la venta de los activos y pago en prelación legal.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.791514-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 318,
         "job_profile_id": 3,
         "thematic_axis_id": 11,
@@ -16708,6 +17752,42 @@
         "created_at": "2026-10-10 08:23:59.899755-05",
         "is_shared": false,
         "scope_level": "tecnico"
+    },
+    {
+        "id": 630,
+        "job_profile_id": 5,
+        "thematic_axis_id": 82,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En el marco de la auditoría de control al recaudo tributario nacional, la Subdirección de Recaudo de la DIAN realiza un seguimiento operativo al Banco Comercial del Sur, entidad bancaria legalmente autorizada para recaudar impuestos nacionales (EAR). Se constata que la entidad financiera recibió 1.250 declaraciones tributarias con pago durante el mes de marzo, pero consignó los recursos recaudados en la cuenta de la Dirección del Tesoro Nacional cuatro (4) días hábiles después del plazo fijado en el calendario oficial.",
+        "stem": "¿Cuál es la sanción legal que debe imponer la DIAN a la entidad bancaria autorizada por consignar extemporáneamente los dineros recaudados por concepto de impuestos según el artículo 674 del Estatuto Tributario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La liquidación y pago de intereses moratorios calculados día a día a la tasa legal vigente, junto con la sanción pecuniaria fijada por cada día de retardo en la transferencia al Tesoro Nacional.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 674. Cuando una entidad autorizada para recaudar impuestos no consigne las sumas recaudadas dentro de los plazos establecidos, se le cobrarán intereses moratorios y se le impondrá sanción por cada día de retardo en la consignación."
+            },
+            {
+                "key": "B",
+                "text": "La amonestación escrita sin cobro de intereses ni sanciones pecuniarias por tratarse de un intermediario financiero vigilado.",
+                "is_correct": false,
+                "justification": "La ley tributaria prevé expresamente sanciones económicas e intereses moratorios por la retención extemporánea de fondos públicos."
+            },
+            {
+                "key": "C",
+                "text": "La clausura inmediata de todas las sucursales del banco en el territorio nacional por un período de seis meses.",
+                "is_correct": false,
+                "justification": "La sanción de clausura de establecimiento aplica a comerciantes en facturación, no a bancos recaudadores por extemporaneidad en consignación."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 674 (Sanción a entidades autorizadas por extemporaneidad en la consignación)",
+        "explanation_summary": "Art. 674 E.T.: Las entidades autorizadas para recaudar que consignen extemporáneamente deben pagar intereses moratorios y sanciones pecuniarias por cada día de mora en la entrega de los dineros al Tesoro.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.793452-05",
+        "is_shared": false,
+        "scope_level": "profesional"
     },
     {
         "id": 323,
@@ -16878,6 +17958,78 @@
         "scope_level": "tecnico"
     },
     {
+        "id": 631,
+        "job_profile_id": 5,
+        "thematic_axis_id": 82,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En el marco de la auditoría de control al recaudo tributario nacional, la Subdirección de Recaudo de la DIAN realiza un seguimiento operativo al Banco Comercial del Sur, entidad bancaria legalmente autorizada para recaudar impuestos nacionales (EAR). Se constata que la entidad financiera recibió 1.250 declaraciones tributarias con pago durante el mes de marzo, pero consignó los recursos recaudados en la cuenta de la Dirección del Tesoro Nacional cuatro (4) días hábiles después del plazo fijado en el calendario oficial.",
+        "stem": "Durante la validación de la información magnética reportada por el banco, se evidencian 85 registros con errores graves en el número de NIT de los contribuyentes y valores inconsistentes. ¿Qué sanción consagra el artículo 675 del Estatuto Tributario para este incumplimiento?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Multa pecuniaria tasada en Unidades de Valor Tributario (UVT) por cada documento o registro con inconsistencias no corregidas dentro del término legal.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 675. Cuando las entidades autorizadas para recaudar suministren la información en medios magnéticos con errores, inconsistencias o datos no fidedignos, incurrirán en una sanción tasada en UVT por cada registro o documento errado."
+            },
+            {
+                "key": "B",
+                "text": "El cobro de una comisión del 2% sobre el patrimonio de los directivos de la entidad financiera.",
+                "is_correct": false,
+                "justification": "La sanción del artículo 675 E.T. es una multa tasada en UVT por registro con error aplicable a la entidad recaudadora."
+            },
+            {
+                "key": "C",
+                "text": "La anulación retroactiva de las declaraciones presentadas por los contribuyentes en dicha sede bancaria.",
+                "is_correct": false,
+                "justification": "Los errores de transcripción del banco no anulan las declaraciones debidamente presentadas por los contribuyentes."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 675 (Sanción por inconsistencias en la información suministrada por bancos)",
+        "explanation_summary": "Art. 675 E.T.: Las entidades autorizadas para recaudar que transmitan información magnética con errores o inconsistencias incurren en multa en UVT por cada registro errado.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.795621-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 632,
+        "job_profile_id": 5,
+        "thematic_axis_id": 82,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En el marco de la auditoría de control al recaudo tributario nacional, la Subdirección de Recaudo de la DIAN realiza un seguimiento operativo al Banco Comercial del Sur, entidad bancaria legalmente autorizada para recaudar impuestos nacionales (EAR). Se constata que la entidad financiera recibió 1.250 declaraciones tributarias con pago durante el mes de marzo, pero consignó los recursos recaudados en la cuenta de la Dirección del Tesoro Nacional cuatro (4) días hábiles después del plazo fijado en el calendario oficial.",
+        "stem": "¿Qué conducta de una entidad recaudadora autorizada está tipificada como infracción sancionable en el artículo 676 del Estatuto Tributario por rechazo indebido de documentos?",
+        "options": [
+            {
+                "key": "A",
+                "text": "La negativa injustificada a recibir declaraciones o pagos de tributos nacionales que cumplan con los requisitos formales fijados por la ley.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 676. Cuando las entidades autorizadas para recaudar se nieguen injustificadamente a recibir declaraciones o pagos tributarios de los contribuyentes, incurrirán en una sanción pecuniaria tasada en UVT por cada infracción comprobada."
+            },
+            {
+                "key": "B",
+                "text": "Exigir documento de identidad original al momento de realizar transacciones en ventanilla.",
+                "is_correct": false,
+                "justification": "La verificación de identidad es un control de seguridad bancario, no una negativa injustificada de recepción."
+            },
+            {
+                "key": "C",
+                "text": "Abrir canales virtuales de atención al cliente durante los días sábados y domingos.",
+                "is_correct": false,
+                "justification": "La habilitación de canales de servicio adicionales es legítima y no constituye infracción tributaria."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 676 (Sanción por rechazo indebido de declaraciones y pagos)",
+        "explanation_summary": "Art. 676 E.T.: Las entidades bancarias autorizadas están obligadas a recibir las declaraciones y pagos tributarios en debida forma; negarse injustificadamente acarrea sanción por cada infracción.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.803297-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 333,
         "job_profile_id": 3,
         "thematic_axis_id": 15,
@@ -17002,6 +18154,42 @@
         "created_at": "2026-10-10 08:23:59.916411-05",
         "is_shared": false,
         "scope_level": "tecnico"
+    },
+    {
+        "id": 633,
+        "job_profile_id": 5,
+        "thematic_axis_id": 82,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En el marco de la auditoría de control al recaudo tributario nacional, la Subdirección de Recaudo de la DIAN realiza un seguimiento operativo al Banco Comercial del Sur, entidad bancaria legalmente autorizada para recaudar impuestos nacionales (EAR). Se constata que la entidad financiera recibió 1.250 declaraciones tributarias con pago durante el mes de marzo, pero consignó los recursos recaudados en la cuenta de la Dirección del Tesoro Nacional cuatro (4) días hábiles después del plazo fijado en el calendario oficial.",
+        "stem": "¿Cuál es el procedimiento administrativo que debe adelantar la DIAN para imponer las sanciones a las Entidades Autorizadas para Recaudar (EAR)?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Formular pliego de cargos a la entidad bancaria, otorgando el término legal de un (1) mes para responder, y decidir mediante resolución motivada.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 678. Las sanciones a las entidades autorizadas para recaudar se impondrán previo traslado del pliego de cargos por el término de un mes para que presenten sus descargos y aporten pruebas, resolviéndose mediante resolución administrativa."
+            },
+            {
+                "key": "B",
+                "text": "Debitar de inmediato el valor de la sanción de las reservas del banco en una sola actuación sin derecho a descargos.",
+                "is_correct": false,
+                "justification": "Toda imposición sancionatoria administrativa exige respeto al debido proceso mediante formulación previa de pliego de cargos."
+            },
+            {
+                "key": "C",
+                "text": "Convocar a un tribunal de arbitramento internacional en la Cámara de Comercio de París.",
+                "is_correct": false,
+                "justification": "El régimen sancionatorio de recaudo es de naturaleza administrativa pública nacional regulado en el Estatuto Tributario."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 678 (Procedimiento sancionatorio a entidades autorizadas)",
+        "explanation_summary": "Art. 678 E.T.: Las sanciones a entidades recaudadoras exigen pliego de cargos previo con término de un (1) mes para descargos antes de proferir la resolución sancionatoria.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.805369-05",
+        "is_shared": false,
+        "scope_level": "profesional"
     },
     {
         "id": 335,
@@ -17130,6 +18318,150 @@
         "scope_level": "tecnico"
     },
     {
+        "id": 634,
+        "job_profile_id": 5,
+        "thematic_axis_id": 82,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "En el marco de la auditoría de control al recaudo tributario nacional, la Subdirección de Recaudo de la DIAN realiza un seguimiento operativo al Banco Comercial del Sur, entidad bancaria legalmente autorizada para recaudar impuestos nacionales (EAR). Se constata que la entidad financiera recibió 1.250 declaraciones tributarias con pago durante el mes de marzo, pero consignó los recursos recaudados en la cuenta de la Dirección del Tesoro Nacional cuatro (4) días hábiles después del plazo fijado en el calendario oficial.",
+        "stem": "¿Bajo qué circunstancias graves puede la Dirección General de la DIAN revocar o cancelar la autorización de recaudo a una entidad financiera?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Por reiterada extemporaneidad en la consignación de fondos públicos, deficiencias graves en la entrega de información magnética o incumplimiento sistemático del convenio de recaudo.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 801 y Decreto 1625 de 2016. La DIAN podrá revocar o suspender la autorización para recepcionar declaraciones y pagos cuando la entidad bancaria incurra en incumplimientos graves o reiterados en la consignación oportuna o reporte de los dineros fiscales."
+            },
+            {
+                "key": "B",
+                "text": "Cuando la entidad financiera cambie el logotipo comercial de sus cajeros automáticos sin autorización previa de la DIAN.",
+                "is_correct": false,
+                "justification": "El cambio de imagen institucional corporativa no es causal de cancelación del convenio de recaudo tributario."
+            },
+            {
+                "key": "C",
+                "text": "Si el banco concede créditos de consumo a personas naturales en mora con el impuesto de rodamiento municipal.",
+                "is_correct": false,
+                "justification": "Las operaciones de crédito privado del banco no constituyen causal tributaria para rescindir la autorización nacional de recaudo."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional - Artículo 801 y Decreto 1625 de 2016 (Cancelación de la autorización de recaudo)",
+        "explanation_summary": "Art. 801 E.T.: La autorización de recaudo puede ser cancelada administrativamente por la DIAN ante irregularidades graves o mora sistemática en la consignación de los dineros recaudados.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.807548-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 635,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "comportamental",
+        "difficulty": "medio",
+        "case_text": "Usted se desempeña como Gestor II en la Dirección Seccional de Impuestos. Durante el trámite de un proceso de cobro coactivo con medida de embargo sobre bienes raíces de alto valor, el abogado apoderado de la sociedad ejecutada solicita una reunión privada en su despacho. En dicha reunión, el profesional le manifiesta de manera indirecta que, si usted 'demora' durante tres semanas la notificación del auto que ordena el avalúo de los inmuebles para darles tiempo de vender otros activos, su firma de consultoría estaría dispuesta a contratar formalmente a un familiar cercano suyo con una remuneración económica altamente atractiva.",
+        "stem": "De acuerdo con el Diccionario de Competencias Comportamentales de la Resolución 0065 de 2024 (Competencia: Comportamiento Ético, Nivel 4), ¿cuál es la conducta que usted debe asumir?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Rechazar de manera contundente y transparente el ofrecimiento indebido, dejar constancia detallada en el expediente procesal, informar de inmediato a su superior y radicar la denuncia ante Control Interno Disciplinario y la Fiscalía.",
+                "is_correct": true,
+                "justification": "Resolución 0065 de 2024 (Comportamiento Ético, Nivel 4). En el nivel 4, el profesional promueve activamente la integridad, actúa como referente moral de la institución, rechaza cualquier tipo de dádiva o ventaja indebida y activa los canales formales de denuncia sin vacilación."
+            },
+            {
+                "key": "B",
+                "text": "Decirle verbalmente al apoderado que no acepta la propuesta, pero concederle el plazo de tres semanas solicitado sin dejar constancia escrita para evitar conflictos con el contribuyente.",
+                "is_correct": false,
+                "justification": "Conceder beneficios no reglados y omitir la denuncia atenta directamente contra la integridad pública y el deber de denuncia penal y disciplinaria."
+            },
+            {
+                "key": "C",
+                "text": "Aceptar que envíen la hoja de vida de su familiar para que compita en igualdad de condiciones con otros candidatos en la empresa privada.",
+                "is_correct": false,
+                "justification": "Constituye una gravísima falta contra la ética pública y una conducta penalmente sancionable tipificada como cohecho o tráfico de influencias."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Resolución DIAN 0065 de 2024 - Diccionario de Competencias Comportamentales (Comportamiento Ético, Nivel 4)",
+        "explanation_summary": "Resolución 0065 de 2024: El Comportamiento Ético en nivel 4 exige rechazar de forma categórica cualquier ventaja indebida y activar de inmediato los mecanismos institucionales de denuncia.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.80961-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 636,
+        "job_profile_id": 5,
+        "thematic_axis_id": 76,
+        "question_type": "comportamental",
+        "difficulty": "medio",
+        "case_text": "Un amigo de infancia que trabaja como asesor financiero se entera de que usted fue asignado como Gestor II en el área de Cobranzas y Devoluciones de la DIAN. En una reunión social, le pide el favor de consultar en el sistema informático Muisca si una empresa competidora que está participando en una licitación pública tiene deudas tributarias en cobro coactivo o embargos vigentes, asegurándole que la información es solo para 'fines de prevención comercial'.",
+        "stem": "Teniendo en cuenta el deber de reserva tributaria (Art. 583 E.T.) y la competencia de Comportamiento Ético (Resolución 0065 de 2024), ¿cómo debe proceder el Gestor II?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Explicar con firmeza y cortesía que la información tributaria está cobijada por reserva legal estricta y que acceder a bases de datos oficiales para fines ajenos a sus funciones constituye una falta disciplinaria y delito que usted no cometerá.",
+                "is_correct": true,
+                "justification": "Estatuto Tributario Art. 583 y Resolución 0065 de 2024. La información de las declaraciones y bases de datos de la DIAN tiene carácter de reserva legal; el acceso o divulgación indebida vulnera la integridad institucional y constituye falta gravísima y delito de revelación de secreto."
+            },
+            {
+                "key": "B",
+                "text": "Consultar rápidamente el sistema desde su usuario pero sin descargar ningún documento ni imprimir pantalla para no dejar rastro digital.",
+                "is_correct": false,
+                "justification": "El acceso sin justificación legal y funcional es una violación del secreto tributario y de la política de seguridad de la información."
+            },
+            {
+                "key": "C",
+                "text": "Darle únicamente una respuesta verbal de 'sí o no' sin mostrarle detalles numéricos para ayudar a su amigo.",
+                "is_correct": false,
+                "justification": "La revelación verbal de información reservada también viola el artículo 583 del Estatuto Tributario."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Resolución DIAN 0065 de 2024 y Estatuto Tributario - Artículo 583 (Reserva de las declaraciones)",
+        "explanation_summary": "La reserva tributaria y el comportamiento ético imponen el deber irrestricto de proteger la confidencialidad de la información fiscal de los ciudadanos.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.812078-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
+        "id": 637,
+        "job_profile_id": 5,
+        "thematic_axis_id": 79,
+        "question_type": "comportamental",
+        "difficulty": "medio",
+        "case_text": "La Dirección General de la DIAN implementa una nueva plataforma digital que automatiza la radicación de solicitudes de facilidades para el pago y el cálculo de liquidaciones de intereses moratorios. Varios compañeros de su equipo expresan resistencia al cambio, quejándose de que el sistema anterior en hojas de cálculo era más familiar y que la nueva herramienta exige mayor rigor en la validación de garantías y causación de cuotas.",
+        "stem": "Desde la competencia de Adaptabilidad (Nivel 3) según la Resolución 0065 de 2024, ¿cuál es la actitud y acción esperada de su parte?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Asumir una postura proactiva, capacitarse a fondo en el funcionamiento de la nueva herramienta, ajustar sus propios métodos de trabajo y colaborar con sus compañeros para superar las dificultades iniciales de adopción.",
+                "is_correct": true,
+                "justification": "Resolución 0065 de 2024 (Adaptabilidad, Nivel 3). El servidor público con nivel 3 comprende los beneficios del cambio institucional, se ajusta con rapidez a nuevas directrices y herramientas tecnológicas, y actúa como facilitador del cambio frente a sus pares."
+            },
+            {
+                "key": "B",
+                "text": "Continuar utilizando el software anterior a escondidas hasta que la dirección emita un ultimátum disciplinario vinculante.",
+                "is_correct": false,
+                "justification": "La resistencia pasiva y el desacato a las directrices tecnológicas vulneran las competencias institucionales de adaptabilidad."
+            },
+            {
+                "key": "C",
+                "text": "Liderar una carta de protesta formal exigiendo el aplazamiento indefinido de cualquier modernización tecnológica en la seccional.",
+                "is_correct": false,
+                "justification": "Oponerse a la transformación digital atenta contra la eficiencia y modernización del servicio público."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Resolución DIAN 0065 de 2024 - Diccionario de Competencias Comportamentales (Adaptabilidad, Nivel 3)",
+        "explanation_summary": "Resolución 0065 de 2024: La Adaptabilidad en nivel 3 implica asimilar con agilidad los cambios normativos y tecnológicos y promover su apropiación positiva en el entorno laboral.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.814093-05",
+        "is_shared": false,
+        "scope_level": "profesional"
+    },
+    {
         "id": 342,
         "job_profile_id": 3,
         "thematic_axis_id": 8,
@@ -17170,6 +18502,42 @@
         "created_at": "2026-10-10 08:23:59.928002-05",
         "is_shared": false,
         "scope_level": "tecnico"
+    },
+    {
+        "id": 638,
+        "job_profile_id": 5,
+        "thematic_axis_id": 78,
+        "question_type": "comportamental",
+        "difficulty": "medio",
+        "case_text": "Un contribuyente persona natural acude sumamente alterado a la oficina de atención de la Seccional porque se le profirió auto de suspensión de términos en su trámite de devolución de saldo a favor de Renta por 90 días, manifestando a viva voz que 'los funcionarios de la DIAN le están robando su dinero injustamente y que acudirá a los medios de comunicación'. Usted, como Gestor II a cargo de la atención ciudadana en ese turno, debe intervenir.",
+        "stem": "Bajo la competencia de Comunicación Efectiva (Nivel 3) de la Resolución 0065 de 2024, ¿cómo debe gestionar usted la interacción con el usuario?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Escuchar activamente al ciudadano con respeto y empatía, mantener un tono sereno y profesional, explicarle con claridad y rigor jurídico los motivos normativos del auto de suspensión y orientarlo sobre los documentos que puede aportar para agilizar la verificación.",
+                "is_correct": true,
+                "justification": "Resolución 0065 de 2024 (Comunicación Efectiva, Nivel 3). En el nivel 3, el profesional comunica mensajes complejos con claridad y asertividad, modula su comunicación en situaciones de conflicto, maneja objeciones con empatía y orienta al ciudadano hacia soluciones constructivas dentro del marco legal."
+            },
+            {
+                "key": "B",
+                "text": "Gritarle al usuario exigiendo respeto y llamar inmediatamente al personal de seguridad privada para que lo expulse de las instalaciones.",
+                "is_correct": false,
+                "justification": "Reaccionar con confrontación o agresividad evidencia falta de autorregulación y comunicación asertiva en el servicio público."
+            },
+            {
+                "key": "C",
+                "text": "Prometerle falsamente que firmará la devolución al día siguiente con tal de que se calme y desaloje la sala de atención.",
+                "is_correct": false,
+                "justification": "Hacer promesas contrarias a la ley o al estado real del expediente vulnera el deber ético y de transparencia institucional."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Resolución DIAN 0065 de 2024 - Diccionario de Competencias Comportamentales (Comunicación Efectiva, Nivel 3)",
+        "explanation_summary": "Resolución 0065 de 2024: La Comunicación Efectiva en nivel 3 permite desescalar situaciones tensas mediante escucha empática, claridad conceptual y orientación jurídica rigurosa.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.816482-05",
+        "is_shared": false,
+        "scope_level": "profesional"
     },
     {
         "id": 374,
@@ -17332,6 +18700,42 @@
         "created_at": "2026-10-10 08:23:59.93334-05",
         "is_shared": false,
         "scope_level": "tecnico"
+    },
+    {
+        "id": 639,
+        "job_profile_id": 5,
+        "thematic_axis_id": 81,
+        "question_type": "comportamental",
+        "difficulty": "medio",
+        "case_text": "Para el cierre de la vigencia fiscal, la Dirección Seccional tiene una meta retadora de recaudo coactivo y depuración de cartera que exige cruzar datos urgentes entre la División de Cobranzas y la División de Fiscalización. Un compañero de otra área con el que usted ha tenido desacuerdos personales en el pasado es el encargado de suministrarle un archivo clave de auditorías concluidas.",
+        "stem": "Desde la perspectiva de la competencia de Trabajo en Equipo (Nivel 3) de la Resolución 0065 de 2024, ¿cómo debe actuar el Gestor II?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Separar por completo cualquier diferencia personal del ámbito laboral, coordinar activamente con el colega el intercambio oportuno de información y trabajar de manera colaborativa para alcanzar la meta colectiva institucional.",
+                "is_correct": true,
+                "justification": "Resolución 0065 de 2024 (Trabajo en Equipo, Nivel 3). El servidor público con nivel 3 prioriza los objetivos organizacionales por encima de intereses o discrepancias individuales, fomenta la cooperación interdependiente y aporta solidariamente al éxito del equipo de trabajo."
+            },
+            {
+                "key": "B",
+                "text": "Negarse a hablar con el compañero y enviar un memorando quejándose ante el Director Seccional para que obliguen al otro funcionario a enviarle el archivo.",
+                "is_correct": false,
+                "justification": "La falta de disposición al diálogo y el escalamiento innecesario de conflictos personales deteriora el clima laboral y el cumplimiento de metas."
+            },
+            {
+                "key": "C",
+                "text": "Esperar a que se venza el plazo del informe y culpar públicamente al compañero del retraso en el comité de cobranzas.",
+                "is_correct": false,
+                "justification": "Boicotear el trabajo en equipo o culpar a otros evade la responsabilidad compartida y atenta contra los valores de la DIAN."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Resolución DIAN 0065 de 2024 - Diccionario de Competencias Comportamentales (Trabajo en Equipo, Nivel 3)",
+        "explanation_summary": "Resolución 0065 de 2024: El Trabajo en Equipo en nivel 3 demanda anteponer los objetivos misionales del Estado a las diferencias interpersonales, cooperando activamente por el logro común.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:32:54.81918-05",
+        "is_shared": false,
+        "scope_level": "profesional"
     },
     {
         "id": 375,
@@ -17984,6 +19388,42 @@
         "explanation_summary": "Las estrategias educativas y pedagógicas a mediano y largo plazo construyen cultura de la legalidad y rechazo colectivo frente a los dineros ilícitos y el contrabando.",
         "is_active": true,
         "created_at": "2026-10-10 13:14:41.213151-05",
+        "is_shared": true,
+        "scope_level": "transversal"
+    },
+    {
+        "id": 642,
+        "job_profile_id": null,
+        "thematic_axis_id": 88,
+        "question_type": "situacional",
+        "difficulty": "medio",
+        "case_text": "Caso de prueba para importación.",
+        "stem": "¿Pregunta de prueba para test de importación de backup 6ace5db6e5c69?",
+        "options": [
+            {
+                "key": "A",
+                "text": "Opción de prueba A",
+                "is_correct": true,
+                "justification": "Correcta por ley."
+            },
+            {
+                "key": "B",
+                "text": "Opción de prueba B",
+                "is_correct": false,
+                "justification": "Incorrecta."
+            },
+            {
+                "key": "C",
+                "text": "Opción de prueba C",
+                "is_correct": false,
+                "justification": "Incorrecta."
+            }
+        ],
+        "correct_option": "A",
+        "legal_basis": "Estatuto Tributario Nacional",
+        "explanation_summary": "Explicación de prueba.",
+        "is_active": true,
+        "created_at": "2026-10-13 11:35:02.973212-05",
         "is_shared": true,
         "scope_level": "transversal"
     },

@@ -1057,6 +1057,23 @@ class DianExamTest extends TestCase
         $practiceResponse = $this->actingAs($testUser)->get('/practica');
         $practiceResponse->assertStatus(200);
         $practiceResponse->assertSee('Cobro Coactivo');
+
+        // Verificar que cada uno de los 7 ejes temáticos de Gestor II tiene preguntas cargadas
+        foreach ($axes as $axis) {
+            $axisQuestionsCount = Question::where('thematic_axis_id', $axis->id)->count();
+            $this->assertGreaterThanOrEqual(5, $axisQuestionsCount, "El eje {$axis->name} debe tener al menos 5 preguntas cargadas");
+
+            $axisPracticeView = $this->actingAs($testUser)->get(route('practica.eje', $axis->id));
+            $axisPracticeView->assertStatus(200);
+            $axisPracticeView->assertSee($axis->name);
+        }
+
+        // Probar que un simulacro para Gestor II se inicia correctamente
+        $simulacroResponse = $this->actingAs($testUser)->post('/simulacro/iniciar', [
+            'question_count' => 50,
+            'force_new' => true,
+        ]);
+        $simulacroResponse->assertRedirect();
     }
 
     public function test_dynamic_options_shuffling_is_deterministic_and_accurately_graded(): void

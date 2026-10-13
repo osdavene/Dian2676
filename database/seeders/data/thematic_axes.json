@@ -369,12 +369,75 @@
         "created_at": "2026-10-10 15:45:50.792021-05"
     },
     {
-        "id": 57,
+        "id": 76,
+        "job_profile_id": 5,
+        "category": "funcional_especifica",
+        "name": "Cobro Coactivo y Procedimiento Administrativo de Cobro",
+        "description": "Mandamiento de pago, excepciones, prescripción de la acción de cobro y liquidación de créditos según el Estatuto Tributario.",
+        "weight_pct": "15.00",
+        "created_at": "2026-10-13 10:57:17.689914-05"
+    },
+    {
+        "id": 77,
+        "job_profile_id": 5,
+        "category": "funcional_especifica",
+        "name": "Medidas Cautelares y Garantías Tributarias",
+        "description": "Embargos de cuentas bancarias, bienes sujetos a registro, secuestros y constitución de pólizas de garantía.",
+        "weight_pct": "15.00",
+        "created_at": "2026-10-13 10:57:17.689914-05"
+    },
+    {
+        "id": 78,
+        "job_profile_id": 5,
+        "category": "funcional_especifica",
+        "name": "Devoluciones y Compensaciones de Tributos",
+        "description": "Trámite de solicitudes de devolución y compensación de saldos a favor en Renta e IVA, devoluciones automáticas e improcedentes.",
+        "weight_pct": "15.00",
+        "created_at": "2026-10-13 10:57:17.689914-05"
+    },
+    {
+        "id": 79,
+        "job_profile_id": 5,
+        "category": "funcional_especifica",
+        "name": "Cobro Persuasivo y Acuerdos de Pago",
+        "description": "Campañas de cobro preventivo, facilidades para el pago (Art. 814 E.T.) y normalización de obligaciones tributarias.",
+        "weight_pct": "15.00",
+        "created_at": "2026-10-13 10:57:17.689914-05"
+    },
+    {
+        "id": 80,
+        "job_profile_id": 5,
+        "category": "funcional_especifica",
+        "name": "Control Extensivo de Obligaciones y Normalización",
+        "description": "Depuración de estados de cuenta, corrección de inconsistencias en declaraciones y reproceso de saldos.",
+        "weight_pct": "15.00",
+        "created_at": "2026-10-13 10:57:17.689914-05"
+    },
+    {
+        "id": 81,
+        "job_profile_id": 5,
+        "category": "funcional_especifica",
+        "name": "Procesos Concursales y Reorganización Empresarial",
+        "description": "Representación de la DIAN en acuerdos de reorganización, liquidación judicial (Ley 1116 de 2006) y acreencias fiscales.",
+        "weight_pct": "15.00",
+        "created_at": "2026-10-13 10:57:17.689914-05"
+    },
+    {
+        "id": 82,
+        "job_profile_id": 5,
+        "category": "funcional_especifica",
+        "name": "Entidades Autorizadas para Recaudar (EAR)",
+        "description": "Auditoría, seguimiento, validación de consignaciones y sanciones a bancos y entidades recaudadoras autorizadas.",
+        "weight_pct": "10.00",
+        "created_at": "2026-10-13 10:57:17.689914-05"
+    },
+    {
+        "id": 88,
         "job_profile_id": 1,
         "category": "funcional_especifica",
         "name": "Eje de Prueba Backup",
         "description": "Eje temporal para test de importación",
         "weight_pct": "10.00",
-        "created_at": "2026-10-11 06:23:58.32053-05"
+        "created_at": "2026-10-13 11:35:02.957689-05"
     }
 ]

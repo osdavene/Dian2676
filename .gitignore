@@ -30,3 +30,5 @@ __pycache__/
 /client/node_modules/
 /client/dist/
 /storage/app/backups/*.json
+Doc/Drive_Downloads/
+
