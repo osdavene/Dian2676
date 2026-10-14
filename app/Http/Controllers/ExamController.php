@@ -843,4 +843,56 @@ class ExamController extends Controller
             'criticalAxes'
         ));
     }
+
+    /**
+     * Vista de Reporte Oficial imprimible en PDF con formato institucional CNSC / DIAN
+     */
+    public function printReport($sessionId)
+    {
+        $user = Auth::user();
+        $session = ExamSession::with([
+            'jobProfile',
+            'sessionAnswers.question.thematicAxis',
+            'user',
+        ])->findOrFail($sessionId);
+
+        if ($session->user_id !== $user->id && ! $user->isAdmin()) {
+            abort(403, 'No tiene permiso para consultar este reporte.');
+        }
+
+        $answers = $session->sessionAnswers;
+
+        $axisStats = [];
+        foreach ($answers as $a) {
+            $q = $a->question;
+            if (! $q) {
+                continue;
+            }
+
+            $axis = $q->thematicAxis;
+            $axisName = $axis->name ?? 'General / Transversal';
+
+            if (! isset($axisStats[$axisName])) {
+                $axisStats[$axisName] = [
+                    'name' => $axisName,
+                    'total' => 0,
+                    'correct' => 0,
+                    'incorrect' => 0,
+                ];
+            }
+            $axisStats[$axisName]['total']++;
+            if ($a->is_correct) {
+                $axisStats[$axisName]['correct']++;
+            } else {
+                $axisStats[$axisName]['incorrect']++;
+            }
+        }
+
+        foreach ($axisStats as &$st) {
+            $st['percent'] = $st['total'] > 0 ? round(($st['correct'] / $st['total']) * 100, 1) : 0;
+        }
+        unset($st);
+
+        return view('reports.exam_report', compact('session', 'answers', 'axisStats'));
+    }
 }

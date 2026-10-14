@@ -589,6 +589,28 @@
         </div>
     </div>
 
+    {{-- Modal de Auto-Pausa por Inactividad (Protección de Tiempo) --}}
+    <div id="inactivity-pause-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-amber-500/40 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative text-center space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 mx-auto flex items-center justify-center text-2xl">
+                <i class="fa-solid fa-hourglass-half"></i>
+            </div>
+            <div>
+                <h3 class="text-base sm:text-lg font-black text-white">Simulacro Pausado por Inactividad</h3>
+                <p class="text-xs text-amber-300 font-semibold mt-1">Tu tiempo restante ha sido protegido.</p>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                    Detectamos una inactividad de más de 4 minutos. Para evitar que tu tiempo límite se consuma sin que estés respondiendo, pausamos el simulacro de forma segura.
+                </p>
+            </div>
+            <div class="pt-2">
+                <button type="button" onclick="resumeFromInactivity()"
+                        class="w-full py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-play"></i> Reanudar Simulacro
+                </button>
+            </div>
+        </div>
+    </div>
+
 </div>
 @endsection
 
@@ -803,7 +825,20 @@
         answeredSet.add(qNum);
         updateProgress();
 
-        // 1. Actualizar visualmente la tarjeta de la opción elegida y desmarcar las otras
+        // 1. Respaldo local instantáneo (tolerancia a fallos y sin conexión)
+        const storageKey = 'dian2676_exam_answers_{{ $session->id }}';
+        try {
+            const localAnswers = JSON.parse(localStorage.getItem(storageKey) || '{}');
+            localAnswers[qId] = {
+                option: optionLetter,
+                qNum: qNum,
+                timeSpent: secondsSpent,
+                savedAt: Date.now()
+            };
+            localStorage.setItem(storageKey, JSON.stringify(localAnswers));
+        } catch (e) {}
+
+        // 2. Actualizar visualmente la tarjeta de la opción elegida y desmarcar las otras
         const card = document.getElementById(`question-card-${qNum}`);
         if (card) {
             const labels = card.querySelectorAll('.option-label');
@@ -823,16 +858,16 @@
             });
         }
 
-        // 2. Actualizar estilo del bubble óptico
+        // 3. Actualizar estilo del bubble óptico
         updateBubbleStyle(qNum);
 
-        // 3. Indicador de Guardando... en la barra superior
+        // 4. Indicador de Guardando... en la barra superior
         if (saveIndicator) {
             saveIndicator.className = "hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-amber-400 font-semibold shadow-inner";
             saveIndicator.innerHTML = '<i class="fa-solid fa-arrows-rotate animate-spin"></i><span>Guardando...</span>';
         }
 
-        // 4. Autoguardado asíncrono en base de datos (con tiempo consumido actualizado)
+        // 5. Autoguardado asíncrono en base de datos (con tiempo consumido actualizado)
         fetch("{{ route('simulacro.guardar-respuesta', $session->id) }}", {
             method: 'POST',
             headers: {
@@ -852,12 +887,38 @@
             }
         })
         .catch(err => {
-            console.warn('Error en autoguardado:', err);
+            console.warn('Guardado en nube diferido (respaldado en dispositivo):', err);
             if (saveIndicator) {
-                saveIndicator.className = "hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-rose-400 font-semibold shadow-inner";
-                saveIndicator.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i><span>Error conexión</span>';
+                saveIndicator.className = "hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-amber-400 font-semibold shadow-inner";
+                saveIndicator.innerHTML = '<i class="fa-solid fa-floppy-disk text-sm"></i><span>Guardado local</span>';
             }
         });
+    }
+
+    function syncOfflineAnswers() {
+        const storageKey = 'dian2676_exam_answers_{{ $session->id }}';
+        try {
+            const raw = localStorage.getItem(storageKey);
+            if (!raw) return;
+            const localAnswers = JSON.parse(raw);
+            const entries = Object.entries(localAnswers);
+            if (entries.length > 0 && navigator.onLine) {
+                entries.forEach(([qId, data]) => {
+                    fetch("{{ route('simulacro.guardar-respuesta', $session->id) }}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({
+                            question_id: parseInt(qId),
+                            selected_option: typeof data === 'object' ? data.option : data,
+                            time_spent_seconds: secondsSpent
+                        })
+                    }).catch(() => {});
+                });
+            }
+        } catch (e) {}
     }
 
     function toggleReviewMark(qNum) {
@@ -961,7 +1022,56 @@
         clearInterval(timerInterval);
         if (typeof heartbeatTimer !== 'undefined') clearInterval(heartbeatTimer);
         timeSpentInput.value = secondsSpent;
+        try {
+            localStorage.removeItem('dian2676_exam_answers_{{ $session->id }}');
+        } catch (e) {}
         document.getElementById('exam-form').submit();
+    }
+
+    // Detección de Inactividad (4 minutos) para auto-pausa y protección de cronómetro
+    let inactivitySeconds = 0;
+    const INACTIVITY_LIMIT = 240; // 4 minutos de inactividad
+    let isPausedByInactivity = false;
+
+    function resetInactivity() {
+        inactivitySeconds = 0;
+    }
+
+    ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'].forEach(evt => {
+        window.addEventListener(evt, resetInactivity, { passive: true });
+    });
+
+    setInterval(() => {
+        if (!isTimerActive || isPausedByInactivity) return;
+        inactivitySeconds++;
+        if (inactivitySeconds >= INACTIVITY_LIMIT) {
+            pauseByInactivity();
+        }
+    }, 1000);
+
+    function pauseByInactivity() {
+        isPausedByInactivity = true;
+        isTimerActive = false;
+        sendHeartbeat(true);
+        const modal = document.getElementById('inactivity-pause-modal');
+        if (modal) modal.classList.remove('hidden');
+        if (saveIndicator) {
+            saveIndicator.className = "hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-amber-400 font-semibold shadow-inner";
+            saveIndicator.innerHTML = '<i class="fa-solid fa-hourglass-half text-sm"></i><span>Pausado por inactividad</span>';
+        }
+    }
+
+    function resumeFromInactivity() {
+        isPausedByInactivity = false;
+        isTimerActive = true;
+        inactivitySeconds = 0;
+        const modal = document.getElementById('inactivity-pause-modal');
+        if (modal) modal.classList.add('hidden');
+        if (saveIndicator) {
+            saveIndicator.className = "hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-emerald-400 font-semibold shadow-inner";
+            saveIndicator.innerHTML = '<i class="fa-solid fa-play text-sm"></i><span>Simulacro reanudado</span>';
+        }
+        sendHeartbeat(false);
     }
 
     // Sincronización continua de tiempo (Heartbeat y Beacon al salir)
@@ -1032,13 +1142,14 @@
     });
 
     window.addEventListener('online', () => {
-        isTimerActive = true;
+        isTimerActive = !isPausedByInactivity;
         if (offlineNotice) offlineNotice.classList.add('hidden');
         if (saveIndicator) {
             saveIndicator.className = "hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-emerald-400 font-semibold shadow-inner";
             saveIndicator.innerHTML = '<i class="fa-solid fa-cloud-arrow-up text-sm"></i><span>Conexión restaurada</span>';
         }
         sendHeartbeat(false);
+        syncOfflineAnswers();
     });
 
     // Guardar tiempo y pausar si el usuario cambia de pestaña o minimiza
@@ -1063,6 +1174,7 @@
         updateBubbleStyle(i);
     }
     updateMobileUI();
+    syncOfflineAnswers();
     const activeBubble = document.getElementById(`bubble-${currentQuestion}`);
     if (activeBubble) {
         activeBubble.scrollIntoView({ block: 'nearest', behavior: 'smooth' });

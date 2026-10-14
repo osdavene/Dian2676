@@ -66,6 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/simulacro/{session}/pausar', [ExamController::class, 'pauseSimulacro'])->name('simulacro.pausar');
     Route::post('/simulacro/{session}/finalizar', [ExamController::class, 'submitSimulacro'])->name('simulacro.finalizar');
     Route::get('/simulacro/{session}/resultado', [ExamController::class, 'showResult'])->name('simulacro.resultado');
+    Route::get('/simulacro/{session}/reporte-impresion', [ExamController::class, 'printReport'])->name('simulacro.reporte');
 
     // Modo Práctica Focalizada
     Route::get('/practica', [ExamController::class, 'practiceSelection'])->name('practica.index');
@@ -88,6 +89,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/usuarios/{id}/reiniciar', [AdminController::class, 'resetAttempts'])->name('users.reset_attempts');
         Route::get('/simulacros', [AdminController::class, 'examSessions'])->name('sessions');
         Route::get('/preguntas', [AdminController::class, 'questionsIndex'])->name('questions.index');
+        Route::post('/preguntas', [AdminController::class, 'storeQuestion'])->name('questions.store');
+        Route::get('/preguntas/plantilla-csv', [AdminController::class, 'downloadQuestionTemplate'])->name('questions.template');
+        Route::post('/preguntas/importar-archivo', [AdminController::class, 'importQuestionsFile'])->name('questions.import');
         Route::get('/preguntas/{id}/datos', [AdminController::class, 'getQuestionData'])->name('questions.data');
         Route::put('/preguntas/{id}', [AdminController::class, 'updateQuestion'])->name('questions.update');
         Route::post('/preguntas/desactivar-duplicados', [AdminController::class, 'deactivateDuplicates'])->name('questions.deactivate-duplicates');

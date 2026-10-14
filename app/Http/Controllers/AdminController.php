@@ -986,4 +986,324 @@ class AdminController extends Controller
 
         return back()->with('success', "Se desactivaron {$deactivatedCount} preguntas redundantes. Ahora todas las preguntas activas son 100% únicas.");
     }
+
+    /**
+     * Crear una nueva pregunta desde el panel de Super Administrador
+     */
+    public function storeQuestion(Request $request)
+    {
+        $request->validate([
+            'stem' => 'required|string',
+            'case_text' => 'nullable|string',
+            'thematic_axis_id' => 'required|exists:thematic_axes,id',
+            'job_profile_id' => 'nullable|exists:job_profiles,id',
+            'difficulty' => 'nullable|string',
+            'question_type' => 'nullable|string',
+            'correct_option' => 'required|in:A,B,C,D',
+            'option_a' => 'required|string',
+            'option_b' => 'required|string',
+            'option_c' => 'required|string',
+            'option_d' => 'nullable|string',
+            'legal_basis' => 'nullable|string',
+            'explanation_summary' => 'nullable|string',
+        ], [
+            'stem.required' => 'El enunciado de la pregunta es obligatorio.',
+            'thematic_axis_id.required' => 'Debe seleccionar el eje temático.',
+            'correct_option.required' => 'Debe seleccionar la clave correcta (A, B, C o D).',
+            'option_a.required' => 'La opción A es obligatoria.',
+            'option_b.required' => 'La opción B es obligatoria.',
+            'option_c.required' => 'La opción C es obligatoria.',
+        ]);
+
+        $correct = strtoupper(trim($request->input('correct_option')));
+
+        $options = [
+            [
+                'key' => 'A',
+                'text' => trim($request->input('option_a')),
+                'is_correct' => ($correct === 'A'),
+                'justification' => $request->input('justification_a') ?: ($correct === 'A' ? $request->input('explanation_summary') : ''),
+            ],
+            [
+                'key' => 'B',
+                'text' => trim($request->input('option_b')),
+                'is_correct' => ($correct === 'B'),
+                'justification' => $request->input('justification_b') ?: ($correct === 'B' ? $request->input('explanation_summary') : ''),
+            ],
+            [
+                'key' => 'C',
+                'text' => trim($request->input('option_c')),
+                'is_correct' => ($correct === 'C'),
+                'justification' => $request->input('justification_c') ?: ($correct === 'C' ? $request->input('explanation_summary') : ''),
+            ],
+        ];
+
+        if ($request->filled('option_d')) {
+            $options[] = [
+                'key' => 'D',
+                'text' => trim($request->input('option_d')),
+                'is_correct' => ($correct === 'D'),
+                'justification' => $request->input('justification_d') ?: ($correct === 'D' ? $request->input('explanation_summary') : ''),
+            ];
+        }
+
+        $isShared = $request->boolean('is_shared', true);
+        $scopeLevel = $request->input('scope_level') ?: ($request->filled('job_profile_id') ? 'profesional' : 'transversal');
+
+        $question = Question::create([
+            'job_profile_id' => $request->input('job_profile_id') ?: null,
+            'thematic_axis_id' => $request->input('thematic_axis_id'),
+            'case_text' => $request->filled('case_text') ? trim($request->input('case_text')) : null,
+            'stem' => trim($request->input('stem')),
+            'options' => $options,
+            'correct_option' => $correct,
+            'explanation_summary' => $request->input('explanation_summary'),
+            'legal_basis' => $request->input('legal_basis'),
+            'question_type' => $request->input('question_type', 'situacional'),
+            'difficulty' => $request->input('difficulty', 'medio'),
+            'is_active' => $request->boolean('is_active', true),
+            'is_shared' => $isShared,
+            'scope_level' => $scopeLevel,
+        ]);
+
+        $this->syncQuestionsJson();
+
+        return redirect()->route('admin.questions.index')
+            ->with('success', "¡Pregunta #{$question->id} creada y agregada al banco con éxito!");
+    }
+
+    /**
+     * Descarga plantilla CSV para importación masiva de preguntas
+     */
+    public function downloadQuestionTemplate()
+    {
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="plantilla_preguntas_dian2676.csv"',
+        ];
+
+        $callback = function () {
+            $handle = fopen('php://output', 'w');
+            fprintf($handle, chr(0xEF).chr(0xBB).chr(0xBF));
+
+            fputcsv($handle, [
+                'enunciado',
+                'caso_estudio',
+                'opcion_a',
+                'opcion_b',
+                'opcion_c',
+                'opcion_d',
+                'clave_correcta',
+                'eje_tematico_id',
+                'dificultad',
+                'fundamento_legal',
+                'explicacion_resumen',
+            ]);
+
+            fputcsv($handle, [
+                '¿Cuál es el término legal para responder un derecho de petición de interés general?',
+                'Un ciudadano radica una solicitud ante la DIAN requiriendo información sobre un trámite.',
+                '15 días hábiles.',
+                '10 días hábiles.',
+                '30 días calendario.',
+                '',
+                'A',
+                '6',
+                'medio',
+                'CPACA Ley 1437 de 2011 Artículo 14',
+                'El término general para resolver peticiones de interés general es de 15 días hábiles siguientes a su recepción.',
+            ]);
+
+            fclose($handle);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+
+    /**
+     * Importar preguntas masivamente desde archivo CSV o JSON
+     */
+    public function importQuestionsFile(Request $request)
+    {
+        $request->validate([
+            'questions_file' => 'required|file|max:20480',
+        ], [
+            'questions_file.required' => 'Debe adjuntar un archivo para importar.',
+            'questions_file.file' => 'El archivo no es válido.',
+            'questions_file.max' => 'El archivo no debe exceder 20 MB.',
+        ]);
+
+        $file = $request->file('questions_file');
+        $extension = strtolower($file->getClientOriginalExtension());
+
+        $defaultAxisId = $request->input('default_axis_id') ?: ThematicAxis::first()?->id;
+        $defaultJobId = $request->input('default_job_id') ?: null;
+
+        $insertedCount = 0;
+        $skippedCount = 0;
+
+        if ($extension === 'json') {
+            $data = json_decode(file_get_contents($file->getRealPath()), true);
+            if (! is_array($data)) {
+                return back()->with('error', 'El archivo JSON no tiene un formato válido.');
+            }
+
+            $list = isset($data['questions']) ? $data['questions'] : $data;
+            foreach ($list as $row) {
+                $stem = trim($row['stem'] ?? $row['enunciado'] ?? '');
+                if (! $stem) {
+                    continue;
+                }
+
+                if (Question::where('stem', $stem)->exists()) {
+                    $skippedCount++;
+
+                    continue;
+                }
+
+                $correct = strtoupper(trim($row['correct_option'] ?? $row['clave_correcta'] ?? 'A'));
+                $options = $row['options'] ?? [
+                    ['key' => 'A', 'text' => $row['option_a'] ?? $row['opcion_a'] ?? '', 'is_correct' => $correct === 'A'],
+                    ['key' => 'B', 'text' => $row['option_b'] ?? $row['opcion_b'] ?? '', 'is_correct' => $correct === 'B'],
+                    ['key' => 'C', 'text' => $row['option_c'] ?? $row['opcion_c'] ?? '', 'is_correct' => $correct === 'C'],
+                ];
+                if (! empty($row['option_d']) || ! empty($row['opcion_d'])) {
+                    $options[] = ['key' => 'D', 'text' => $row['option_d'] ?? $row['opcion_d'], 'is_correct' => $correct === 'D'];
+                }
+
+                Question::create([
+                    'job_profile_id' => $row['job_profile_id'] ?? $defaultJobId,
+                    'thematic_axis_id' => $row['thematic_axis_id'] ?? $defaultAxisId,
+                    'case_text' => $row['case_text'] ?? $row['caso_estudio'] ?? null,
+                    'stem' => $stem,
+                    'options' => $options,
+                    'correct_option' => $correct,
+                    'legal_basis' => $row['legal_basis'] ?? $row['fundamento_legal'] ?? null,
+                    'explanation_summary' => $row['explanation_summary'] ?? $row['explicacion_resumen'] ?? null,
+                    'question_type' => $row['question_type'] ?? 'situacional',
+                    'difficulty' => $row['difficulty'] ?? 'medio',
+                    'is_active' => true,
+                    'is_shared' => true,
+                    'scope_level' => 'transversal',
+                ]);
+                $insertedCount++;
+            }
+        } else {
+            $handle = fopen($file->getRealPath(), 'r');
+            if ($handle === false) {
+                return back()->with('error', 'No se pudo leer el archivo CSV.');
+            }
+
+            $bom = fread($handle, 3);
+            if ($bom !== "\xEF\xBB\xBF") {
+                rewind($handle);
+            }
+
+            $firstLine = fgets($handle);
+            $delimiter = (substr_count($firstLine, ';') > substr_count($firstLine, ',')) ? ';' : ',';
+            rewind($handle);
+            if ($bom === "\xEF\xBB\xBF") {
+                fread($handle, 3);
+            }
+
+            $headers = fgetcsv($handle, 0, $delimiter);
+            if (! $headers) {
+                fclose($handle);
+
+                return back()->with('error', 'El archivo CSV está vacío.');
+            }
+
+            $cleanHeaders = array_map(function ($h) {
+                return strtolower(trim(preg_replace('/[^a-zA-Z0-9_]/', '', $h)));
+            }, $headers);
+
+            while (($row = fgetcsv($handle, 0, $delimiter)) !== false) {
+                if (count($row) < 3) {
+                    continue;
+                }
+
+                $dataRow = [];
+                foreach ($cleanHeaders as $idx => $key) {
+                    $dataRow[$key] = isset($row[$idx]) ? trim($row[$idx]) : '';
+                }
+
+                $stem = $dataRow['enunciado'] ?? $dataRow['stem'] ?? '';
+                if (! $stem) {
+                    continue;
+                }
+
+                if (Question::where('stem', $stem)->exists()) {
+                    $skippedCount++;
+
+                    continue;
+                }
+
+                $correct = strtoupper(trim($dataRow['clave_correcta'] ?? $dataRow['correct_option'] ?? 'A'));
+                if (! in_array($correct, ['A', 'B', 'C', 'D'])) {
+                    $correct = 'A';
+                }
+
+                $optA = $dataRow['opcion_a'] ?? $dataRow['option_a'] ?? '';
+                $optB = $dataRow['opcion_b'] ?? $dataRow['option_b'] ?? '';
+                $optC = $dataRow['opcion_c'] ?? $dataRow['option_c'] ?? '';
+                $optD = $dataRow['opcion_d'] ?? $dataRow['option_d'] ?? '';
+
+                if (! $optA || ! $optB) {
+                    continue;
+                }
+
+                $options = [
+                    ['key' => 'A', 'text' => $optA, 'is_correct' => ($correct === 'A')],
+                    ['key' => 'B', 'text' => $optB, 'is_correct' => ($correct === 'B')],
+                ];
+                if ($optC) {
+                    $options[] = ['key' => 'C', 'text' => $optC, 'is_correct' => ($correct === 'C')];
+                }
+                if ($optD) {
+                    $options[] = ['key' => 'D', 'text' => $optD, 'is_correct' => ($correct === 'D')];
+                }
+
+                $axisId = ! empty($dataRow['eje_tematico_id']) ? (int) $dataRow['eje_tematico_id'] : $defaultAxisId;
+
+                Question::create([
+                    'job_profile_id' => $defaultJobId,
+                    'thematic_axis_id' => $axisId,
+                    'case_text' => $dataRow['caso_estudio'] ?? $dataRow['case_text'] ?? null,
+                    'stem' => $stem,
+                    'options' => $options,
+                    'correct_option' => $correct,
+                    'legal_basis' => $dataRow['fundamento_legal'] ?? $dataRow['legal_basis'] ?? null,
+                    'explanation_summary' => $dataRow['explicacion_resumen'] ?? $dataRow['explanation_summary'] ?? null,
+                    'question_type' => 'situacional',
+                    'difficulty' => $dataRow['dificultad'] ?? 'medio',
+                    'is_active' => true,
+                    'is_shared' => true,
+                    'scope_level' => 'transversal',
+                ]);
+                $insertedCount++;
+            }
+            fclose($handle);
+        }
+
+        $this->syncQuestionsJson();
+
+        return redirect()->route('admin.questions.index')
+            ->with('success', "¡Importación completada! Se insertaron {$insertedCount} preguntas nuevas ({$skippedCount} duplicadas omitidas).");
+    }
+
+    /**
+     * Sincroniza las preguntas en database/seeders/data/questions.json
+     */
+    private function syncQuestionsJson(): void
+    {
+        try {
+            $path = database_path('seeders/data/questions.json');
+            if (file_exists($path)) {
+                $all = Question::all()->toArray();
+                file_put_contents($path, json_encode($all, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+            }
+        } catch (\Throwable $e) {
+            // Ignorar errores menores de sincronización en caliente
+        }
+    }
 }

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JobProfile;
-use App\Models\ThematicAxis;
 use App\Models\ExamSession;
+use App\Models\JobProfile;
+use App\Models\Question;
 use App\Models\SessionAnswer;
-use Illuminate\Http\Request;
+use App\Models\ThematicAxis;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -17,7 +16,7 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         // Si el usuario no tiene cargo asignado, asignar Analista III por defecto
-        if (!$user->job_profile_id) {
+        if (! $user->job_profile_id) {
             $defaultJob = JobProfile::where('code', 'AT-FL-2011')->first() ?? JobProfile::first();
             if ($defaultJob) {
                 $user->update([
@@ -48,17 +47,31 @@ class DashboardController extends Controller
             ->distinct('session_answers.question_id')
             ->count('session_answers.question_id');
 
-        // 2. Ejes temáticos del cargo activo con conteo de preguntas
+        // 2. Ejes temáticos del cargo activo con conteo de preguntas (incluyendo transversales y compartidas)
         $thematicAxes = ThematicAxis::where('job_profile_id', $activeJob->id)
-            ->withCount(['questions' => function ($q) {
-                $q->where('is_active', true);
-            }])
             ->orderBy('category')
             ->orderBy('id')
-            ->get();
+            ->get()
+            ->map(function ($axis) {
+                $axis->questions_count = Question::where('is_active', true)
+                    ->where(function ($q) use ($axis) {
+                        $q->where('thematic_axis_id', $axis->id)
+                            ->orWhere(function ($sub) use ($axis) {
+                                $sub->where(function ($s) {
+                                    $s->where('is_shared', true)
+                                        ->orWhere('scope_level', 'transversal');
+                                })->whereHas('thematicAxis', function ($tax) use ($axis) {
+                                    $tax->where('name', $axis->name);
+                                });
+                            });
+                    })
+                    ->count();
 
-        // Total de preguntas disponibles para este cargo
-        $totalJobQuestions = $thematicAxes->sum('questions_count');
+                return $axis;
+            });
+
+        // Total de preguntas reales disponibles para este cargo
+        $totalJobQuestions = Question::forCargo($activeJob->id)->where('is_active', true)->count();
 
         // 3. Últimas 5 sesiones del usuario
         $recentSessions = ExamSession::where('user_id', $user->id)

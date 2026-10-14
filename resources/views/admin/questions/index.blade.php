@@ -22,6 +22,18 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                <button type="button" onclick="openCreateQuestionModal()" 
+                        class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-plus"></i>
+                    Nueva Pregunta
+                </button>
+
+                <button type="button" onclick="openImportModal()" 
+                        class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-indigo-600/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-file-import"></i>
+                    Importar CSV / JSON
+                </button>
+
                 <a href="{{ route('admin.dashboard') }}" 
                    class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-700 transition-all flex items-center gap-2">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -407,10 +419,292 @@
     </div>
 </div>
 
+{{-- MODAL CREAR NUEVA PREGUNTA --}}
+<div id="modal-create-question" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-4xl max-h-[92vh] bg-slate-900 border border-emerald-500/30 rounded-3xl shadow-2xl overflow-hidden flex flex-col p-6 sm:p-7">
+        
+        {{-- Header del Modal --}}
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800 shrink-0">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-black text-white">
+                        Crear Nueva Pregunta / Reactivo
+                    </h3>
+                    <p class="text-xs text-slate-400">
+                        Ingresa el reactivo con su caso de estudio, alternativas y fundamentación jurídica oficial.
+                    </p>
+                </div>
+            </div>
+            <button type="button" onclick="closeCreateQuestionModal()" 
+                    class="w-8 h-8 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        {{-- Formulario --}}
+        <form action="{{ route('admin.questions.store') }}" method="POST" class="space-y-4 overflow-y-auto pr-1 flex-1 mt-4">
+            @csrf
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {{-- Cargo Asociado --}}
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Cargo Dirigido:</label>
+                    <select name="job_profile_id" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                        <option value="">Transversal (Aplica a todos los cargos)</option>
+                        @foreach($jobs as $j)
+                            <option value="{{ $j->id }}">{{ $j->name }} (Nivel {{ ucfirst($j->level ?? 'Profesional') }})</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                {{-- Eje Temático --}}
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Eje Temático: <span class="text-emerald-400">*</span></label>
+                    <select name="thematic_axis_id" required class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                        @foreach($axes as $ax)
+                            <option value="{{ $ax->id }}">{{ $ax->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            {{-- Selector Prominente de Opción Correcta --}}
+            <div class="p-4 rounded-2xl bg-emerald-950/30 border border-emerald-500/40 space-y-2">
+                <label class="block text-xs font-black uppercase tracking-wider text-emerald-300">
+                    <i class="fa-solid fa-check-double mr-1"></i> Opción Correcta Oficial del Reactivo: <span class="text-rose-400">*</span>
+                </label>
+                <div class="grid grid-cols-4 gap-2 sm:gap-3">
+                    @foreach(['A', 'B', 'C', 'D'] as $let)
+                        <label class="cursor-pointer">
+                            <input type="radio" name="correct_option" value="{{ $let }}" {{ $let === 'A' ? 'checked' : '' }} class="sr-only peer">
+                            <div class="py-2.5 px-3 rounded-xl border border-slate-700 text-center font-bold text-sm text-slate-300 peer-checked:bg-emerald-600 peer-checked:border-emerald-500 peer-checked:text-white peer-checked:shadow-lg peer-checked:shadow-emerald-600/30 transition-all hover:bg-slate-800">
+                                Opción {{ $let }}
+                            </div>
+                        </label>
+                    @endforeach
+                </div>
+            </div>
+
+            {{-- Enunciado --}}
+            <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Enunciado de la Pregunta: <span class="text-emerald-400">*</span></label>
+                <textarea name="stem" rows="3" required placeholder="Ingresa la pregunta o planteamiento del problema..."
+                          class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs leading-relaxed focus:outline-none focus:border-emerald-500"></textarea>
+            </div>
+
+            {{-- Caso Situacional --}}
+            <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Caso Situacional de Análisis (Opcional):</label>
+                <textarea name="case_text" rows="3" placeholder="Si la pregunta se fundamenta en un caso práctico o contexto institucional, ingrésalo aquí..."
+                          class="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs leading-relaxed focus:outline-none focus:border-emerald-500"></textarea>
+            </div>
+
+            {{-- Opciones de Respuesta --}}
+            <div class="space-y-2.5 pt-2 border-t border-slate-800">
+                <span class="block text-xs font-bold uppercase tracking-wider text-slate-400">Alternativas de Respuesta:</span>
+
+                <div>
+                    <label class="block text-[11px] font-bold text-blue-300 mb-0.5">Opción A: <span class="text-emerald-400">*</span></label>
+                    <input type="text" name="option_a" required placeholder="Texto de la opción A..."
+                           class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-bold text-blue-300 mb-0.5">Opción B: <span class="text-emerald-400">*</span></label>
+                    <input type="text" name="option_b" required placeholder="Texto de la opción B..."
+                           class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-bold text-blue-300 mb-0.5">Opción C: <span class="text-emerald-400">*</span></label>
+                    <input type="text" name="option_c" required placeholder="Texto de la opción C..."
+                           class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-bold text-blue-300 mb-0.5">Opción D (Opcional):</label>
+                    <input type="text" name="option_d" placeholder="Texto opcional para la opción D..."
+                           class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                </div>
+            </div>
+
+            {{-- Parámetros Técnicos y Justificación --}}
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-800">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Tipo de Pregunta:</label>
+                    <select name="question_type" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                        <option value="situacional">Situacional (Caso / Juicio Situacional)</option>
+                        <option value="conceptual">Conceptual / Teórica</option>
+                        <option value="comportamental">Comportamental</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Dificultad:</label>
+                    <select name="difficulty" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                        <option value="medio" selected>Medio</option>
+                        <option value="facil">Bajo / Fácil</option>
+                        <option value="dificil">Alto / Difícil</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Base Legal:</label>
+                    <input type="text" name="legal_basis" placeholder="Ej: Ley 594 de 2000, Art. 4"
+                           class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500">
+                </div>
+                <div class="sm:col-span-3">
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Sustentación / Retroalimentación Explicativa:</label>
+                    <textarea name="explanation_summary" rows="2" placeholder="Argumentación jurídica o técnica de por qué la opción correcta es la seleccionada..."
+                              class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-emerald-500"></textarea>
+                </div>
+            </div>
+
+            {{-- Configuración de Visibilidad --}}
+            <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 flex flex-wrap items-center gap-6">
+                <label class="flex items-center gap-2 cursor-pointer select-none text-xs text-slate-300 font-semibold">
+                    <input type="checkbox" name="is_active" value="1" checked
+                           class="w-4 h-4 rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0">
+                    <span>Pregunta Activa inmediatamente</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer select-none text-xs text-slate-300 font-semibold">
+                    <input type="checkbox" name="is_shared" value="1" checked
+                           class="w-4 h-4 rounded border-slate-700 bg-slate-900 text-emerald-500 focus:ring-0">
+                    <span>Compartida de manera transversal si aplica</span>
+                </label>
+            </div>
+
+            {{-- Botones de Acción --}}
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-end gap-3 shrink-0">
+                <button type="button" onclick="closeCreateQuestionModal()"
+                        class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-colors">
+                    Cancelar
+                </button>
+                <button type="submit"
+                        class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Pregunta
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{{-- MODAL IMPORTACIÓN MASIVA CSV / JSON --}}
+<div id="modal-import-questions" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-2xl bg-slate-900 border border-indigo-500/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col p-6 sm:p-7">
+        
+        {{-- Header del Modal --}}
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800 shrink-0">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-file-import"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-black text-white">
+                        Importación Masiva de Preguntas
+                    </h3>
+                    <p class="text-xs text-slate-400">
+                        Carga lotes de preguntas directamente desde archivos CSV o JSON estandarizados.
+                    </p>
+                </div>
+            </div>
+            <button type="button" onclick="closeImportModal()" 
+                    class="w-8 h-8 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        {{-- Formulario --}}
+        <form action="{{ route('admin.questions.import') }}" method="POST" enctype="multipart/form-data" class="space-y-4 mt-4">
+            @csrf
+
+            {{-- Descarga de Plantilla --}}
+            <div class="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/30 flex items-center justify-between gap-3">
+                <div>
+                    <p class="text-xs font-bold text-white mb-0.5">¿No tienes la estructura de columnas?</p>
+                    <p class="text-[11px] text-slate-400">Descarga la plantilla oficial en Excel/CSV con el encabezado correcto y un ejemplo listo.</p>
+                </div>
+                <a href="{{ route('admin.questions.template') }}"
+                   class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shrink-0 flex items-center gap-1.5 shadow-md shadow-indigo-600/30 transition-all">
+                    <i class="fa-solid fa-file-csv"></i> Descargar Plantilla CSV
+                </a>
+            </div>
+
+            {{-- Input Archivo --}}
+            <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">Seleccionar Archivo (.CSV o .JSON): <span class="text-indigo-400">*</span></label>
+                <input type="file" name="questions_file" accept=".csv,.json,text/csv,application/json" required
+                       class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 cursor-pointer focus:outline-none focus:border-indigo-500">
+                <p class="text-[11px] text-slate-500 mt-1">
+                    Formatos soportados: CSV delimitado por coma (,) o punto y coma (;), y JSON con arreglo de objetos. Tamaño máx: 20 MB.
+                </p>
+            </div>
+
+            {{-- Parámetros por Defecto en caso de filas sin especificar --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-800">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Eje Temático por Defecto:</label>
+                    <select name="default_axis_id" class="w-full p-2 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-indigo-500">
+                        @foreach($axes as $ax)
+                            <option value="{{ $ax->id }}">{{ $ax->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Cargo por Defecto:</label>
+                    <select name="default_job_id" class="w-full p-2 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-indigo-500">
+                        <option value="">Transversal (Todos los cargos)</option>
+                        @foreach($jobs as $j)
+                            <option value="{{ $j->id }}">{{ $j->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            {{-- Nota de Seguridad Antiduplicados --}}
+            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400 flex items-start gap-2">
+                <i class="fa-solid fa-shield-halved text-emerald-400 mt-0.5"></i>
+                <span><strong>Protección inteligente:</strong> Si alguna pregunta del archivo ya existe en el banco con el mismo enunciado, el sistema la omitirá de forma segura para evitar duplicados redundantes.</span>
+            </div>
+
+            {{-- Botones de Acción --}}
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-end gap-3 shrink-0">
+                <button type="button" onclick="closeImportModal()"
+                        class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-colors">
+                    Cancelar
+                </button>
+                <button type="submit"
+                        class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-indigo-600/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> Iniciar Importación
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
 @endsection
 
 @push('scripts')
 <script>
+    function openCreateQuestionModal() {
+        document.getElementById('modal-create-question').classList.remove('hidden');
+    }
+
+    function closeCreateQuestionModal() {
+        document.getElementById('modal-create-question').classList.add('hidden');
+    }
+
+    function openImportModal() {
+        document.getElementById('modal-import-questions').classList.remove('hidden');
+    }
+
+    function closeImportModal() {
+        document.getElementById('modal-import-questions').classList.add('hidden');
+    }
+
     function openEditQuestionModal(qId) {
         const modal = document.getElementById('modal-edit-question');
         const form = document.getElementById('edit-question-form');

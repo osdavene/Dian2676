@@ -76,6 +76,12 @@
                         </form>
                     @endif
 
+                    <a href="{{ route('simulacro.reporte', $session->id) }}" target="_blank"
+                       class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        Descargar Reporte en PDF
+                    </a>
+
                     <a href="{{ route('dashboard') }}" 
                        class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-house"></i>
