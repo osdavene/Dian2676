@@ -961,30 +961,42 @@ class AdminController extends Controller
      */
     public function deactivateDuplicates()
     {
-        $duplicateStems = Question::select('stem')
-            ->where('is_active', true)
-            ->groupBy('stem')
-            ->havingRaw('count(*) > 1')
-            ->get();
+        $allActive = Question::where('is_active', true)->orderBy('id', 'asc')->get();
+        $groups = [];
+
+        foreach ($allActive as $q) {
+            $cleanCase = trim((string) $q->case_text);
+            $cleanStem = trim((string) $q->stem);
+            $key = md5($cleanCase.'|||'.$cleanStem);
+            $groups[$key][] = $q;
+        }
 
         $deactivatedCount = 0;
-        foreach ($duplicateStems as $dup) {
-            $copies = Question::where('stem', $dup->stem)
-                ->where('is_active', true)
-                ->orderBy('id', 'asc')
-                ->get();
+        $preservedCount = 0;
 
-            if ($copies->count() > 1) {
-                // Conservar la primera pregunta ($copies->first()) y desactivar las copias redundantes
-                $duplicatesToDeactivate = $copies->slice(1);
-                foreach ($duplicatesToDeactivate as $q) {
-                    $q->update(['is_active' => false]);
+        foreach ($groups as $key => $items) {
+            if (count($items) > 1) {
+                // Conservar la primera pregunta y promoverla a transversal para que todos los cargos la compartan
+                $primary = $items[0];
+                $primary->update([
+                    'is_shared' => true,
+                    'scope_level' => 'transversal',
+                    'is_active' => true,
+                ]);
+                $preservedCount++;
+
+                // Desactivar las copias redundantes
+                $duplicates = array_slice($items, 1);
+                foreach ($duplicates as $dup) {
+                    $dup->update(['is_active' => false]);
                     $deactivatedCount++;
                 }
             }
         }
 
-        return back()->with('success', "Se desactivaron {$deactivatedCount} preguntas redundantes. Ahora todas las preguntas activas son 100% únicas.");
+        $this->syncQuestionsJson();
+
+        return back()->with('success', "¡Unificación exitosa! Se conservaron {$preservedCount} preguntas como transversales únicas y se desactivaron {$deactivatedCount} copias redundantes.");
     }
 
     /**
