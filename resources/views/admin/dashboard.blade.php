@@ -117,7 +117,7 @@
                         $remaining = max(0, ($live->time_limit_seconds ?? 18000) - $spent);
                         $hrs = floor($remaining / 3600);
                         $mins = floor(($remaining % 3600) / 60);
-                        $isLiveNow = $live->updated_at && $live->updated_at->diffInMinutes(now()) <= 3;
+                        $isLiveNow = $live->updated_at && $live->updated_at >= now()->subMinutes(3) && $live->updated_at <= now()->addMinute();
                     @endphp
                     <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between gap-3 hover:border-slate-700 transition-all">
                         <div class="space-y-1 min-w-0">
