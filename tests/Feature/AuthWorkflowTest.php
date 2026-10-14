@@ -255,4 +255,27 @@ class AuthWorkflowTest extends TestCase
         $response->assertRedirect(route('login'));
         $response->assertSessionHas('error');
     }
+
+    public function test_login_rate_limiting_protects_against_brute_force_attacks(): void
+    {
+        $email = 'bruteforce.'.uniqid().'@dian.gov.co';
+        $this->createdEmails[] = $email;
+
+        // 5 intentos fallidos consecutivos
+        for ($i = 0; $i < 5; $i++) {
+            $this->post(route('login.post'), [
+                'email' => $email,
+                'password' => 'ClaveIncorrecta123',
+            ]);
+        }
+
+        // El 6to intento debe ser bloqueado por RateLimiter con aviso temporal
+        $response = $this->post(route('login.post'), [
+            'email' => $email,
+            'password' => 'ClaveIncorrecta123',
+        ]);
+
+        $response->assertSessionHasErrors('email');
+        $this->assertStringContainsString('Demasiados intentos', session('errors')->first('email'));
+    }
 }
