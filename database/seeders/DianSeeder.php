@@ -185,6 +185,25 @@ class DianSeeder extends Seeder
                         'scope_level' => $q['scope_level'] ?? 'transversal',
                     ]);
                     $importedCount++;
+                } else {
+                    Question::where('stem', $q['stem'])
+                        ->where(function ($query) use ($jobId, $axisId) {
+                            if ($jobId) {
+                                $query->where('job_profile_id', $jobId);
+                            } else {
+                                $query->whereNull('job_profile_id');
+                            }
+                            if ($axisId) {
+                                $query->where('thematic_axis_id', $axisId);
+                            } else {
+                                $query->whereNull('thematic_axis_id');
+                            }
+                        })
+                        ->update([
+                            'is_shared' => $q['is_shared'] ?? true,
+                            'scope_level' => $q['scope_level'] ?? 'transversal',
+                            'is_active' => $q['is_active'] ?? true,
+                        ]);
                 }
             }
             $this->command->info(" Preguntas procesadas. Nuevas insertadas: {$importedCount} (Total en base: ".Question::count().')');

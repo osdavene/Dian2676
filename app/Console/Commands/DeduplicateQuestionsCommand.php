@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Question;
+use App\Models\ThematicAxis;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -74,6 +75,44 @@ class DeduplicateQuestionsCommand extends Command
                     }
 
                     $totalPreserved++;
+                }
+            }
+
+            // Promover ejes básicos obligatorios de la función pública a transversales
+            $transversalKeywords = [
+                'Constitución Política',
+                'Carrera Administrativa',
+                'Procedimiento Administrativo General',
+                'Código de Integridad',
+                'Gestión Documental y Modelo MIPG',
+                'Ley de Transparencia',
+            ];
+
+            $axes = ThematicAxis::all();
+            $targetAxisIds = [];
+            foreach ($axes as $axis) {
+                foreach ($transversalKeywords as $kw) {
+                    if (stripos($axis->name, $kw) !== false) {
+                        $targetAxisIds[] = $axis->id;
+                        break;
+                    }
+                }
+            }
+
+            if (! $isDryRun && ! empty($targetAxisIds)) {
+                $promotedCount = Question::whereIn('thematic_axis_id', $targetAxisIds)
+                    ->where('is_active', true)
+                    ->where(function ($q) {
+                        $q->where('is_shared', false)
+                            ->orWhereNull('is_shared')
+                            ->orWhere('scope_level', '!=', 'transversal');
+                    })
+                    ->update([
+                        'is_shared' => true,
+                        'scope_level' => 'transversal',
+                    ]);
+                if ($promotedCount > 0) {
+                    $this->info("✓ Preguntas adicionales promovidas a transversales: {$promotedCount}");
                 }
             }
 
