@@ -57,15 +57,26 @@
     </div>
 
     {{-- Cuadrícula de KPIs Globales --}}
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         
+        <a href="{{ route('admin.questions.index') }}" class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-5 flex items-center justify-between transition-all group col-span-2 sm:col-span-1">
+            <div>
+                <span class="text-xs font-semibold text-slate-400 block group-hover:text-amber-300 transition-colors">Banco de Preguntas</span>
+                <span class="text-2xl sm:text-3xl font-black text-white mt-1 block">{{ $totalQuestions }}</span>
+                <span class="text-[11px] text-emerald-400 font-medium">{{ $activeQuestions }} activas &bull; {{ $transversalQuestions }} transv.</span>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl group-hover:scale-105 transition-transform shrink-0">
+                <i class="fa-solid fa-database"></i>
+            </div>
+        </a>
+
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 flex items-center justify-between">
             <div>
                 <span class="text-xs font-semibold text-slate-400 block">Aspirantes Registrados</span>
                 <span class="text-2xl sm:text-3xl font-black text-white mt-1 block">{{ $totalUsers }}</span>
                 <span class="text-[11px] text-slate-500 font-medium">{{ $totalAspirantes }} aspirantes &bull; {{ $totalAdmins }} admins</span>
             </div>
-            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-xl">
+            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-xl shrink-0">
                 <i class="fa-solid fa-users-gear"></i>
             </div>
         </div>

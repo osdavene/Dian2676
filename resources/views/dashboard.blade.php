@@ -5,6 +5,38 @@
 @section('content')
 <div class="space-y-6">
 
+    {{-- Notificación / Acceso Rápido a Control Central para Administradores --}}
+    @if($user->isAdmin())
+        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-slate-900 to-indigo-950/40 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
+            <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl shrink-0 shadow-inner">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-black uppercase tracking-wider text-amber-400">Panel de Super Administrador</span>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">Control Central</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                        Estás viendo la vista de aspirante. Para acceder al <strong>Banco Global ({{ \App\Models\Question::count() }} preguntas)</strong>, monitorear aspirantes y ver la analítica general del concurso, ingresa al panel principal.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                <a href="{{ route('admin.dashboard') }}" 
+                   class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-amber-500/20">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    Ir a Control Central
+                </a>
+                <a href="{{ route('admin.questions.index') }}" 
+                   class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+                    <i class="fa-solid fa-database text-amber-400"></i>
+                    Gestión de Preguntas
+                </a>
+            </div>
+        </div>
+    @endif
+
     {{-- Banner de Bienvenida y Cargo Meta --}}
     <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-900/90 via-indigo-900/80 to-slate-900 border border-blue-500/30 p-5 sm:p-8 shadow-2xl">
         <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6">

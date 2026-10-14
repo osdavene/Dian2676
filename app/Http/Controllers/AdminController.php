@@ -23,6 +23,12 @@ class AdminController extends Controller
         $totalAspirantes = User::where('role', 'aspirante')->count();
         $totalAdmins = User::whereIn('role', ['admin', 'superadmin'])->count();
 
+        $totalQuestions = Question::count();
+        $activeQuestions = Question::where('is_active', true)->count();
+        $transversalQuestions = Question::where(function ($q) {
+            $q->where('is_shared', true)->orWhereNull('job_profile_id');
+        })->where('is_active', true)->count();
+
         $allCompletedSessions = ExamSession::whereNotNull('completed_at')->get();
         $totalExamsCompleted = $allCompletedSessions->count();
         $passedExamsCount = $allCompletedSessions->where('is_passed', true)->count();
@@ -73,6 +79,9 @@ class AdminController extends Controller
             'totalUsers',
             'totalAspirantes',
             'totalAdmins',
+            'totalQuestions',
+            'activeQuestions',
+            'transversalQuestions',
             'totalExamsCompleted',
             'globalPassRate',
             'globalAvgScore',
