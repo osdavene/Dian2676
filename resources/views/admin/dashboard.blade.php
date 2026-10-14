@@ -9,9 +9,19 @@
     <div class="bg-gradient-to-r from-slate-900 via-indigo-950/60 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
         <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div class="space-y-2">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
-                    <i class="fa-solid fa-shield-halved text-amber-400"></i>
-                    Panel de Super Usuario &bull; Control Central
+                <div class="flex items-center gap-2 flex-wrap">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-shield-halved text-amber-400"></i>
+                        Panel de Super Usuario &bull; Control Central
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold border {{ config('app.debug') ? 'bg-rose-500/20 text-rose-300 border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' }}" title="{{ config('app.debug') ? 'Alerta: El modo depuración está encendido. En producción debe estar en false.' : 'Seguro: El modo depuración está apagado.' }}">
+                        <i class="fa-solid {{ config('app.debug') ? 'fa-triangle-exclamation' : 'fa-lock' }}"></i>
+                        Debug: {{ config('app.debug') ? 'ACTIVADO' : 'DESACTIVADO (Seguro)' }}
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono text-slate-300 bg-slate-800/80 border border-slate-700/60" title="Zona horaria activa de la aplicación">
+                        <i class="fa-regular fa-clock text-blue-400"></i>
+                        {{ config('app.timezone') }}
+                    </span>
                 </div>
                 <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
                     Monitoreo y Analítica del Concurso DIAN 2676
