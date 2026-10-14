@@ -373,16 +373,21 @@
 
                     {{-- Caso / Situación (si existe) --}}
                     @if(!empty($q->case_text))
-                        <div class="p-4 rounded-xl bg-slate-950/50 border border-slate-800 text-slate-300 text-xs sm:text-sm whitespace-pre-line">
-                            <strong class="text-blue-400 block mb-1 font-semibold uppercase tracking-wider text-[11px]">
+                        <div class="p-4 rounded-xl bg-slate-950/50 border border-slate-800 text-slate-300 text-xs sm:text-sm">
+                            <strong class="text-blue-400 block mb-2 font-semibold uppercase tracking-wider text-[11px]">
                                 <i class="fa-solid fa-book-open mr-1"></i> Contexto / Caso
                             </strong>
-                            {{ $q->case_text }}
+                            @php
+                                $caseParagraphs = preg_split('/\r\n\r\n|\n\n/', trim($q->case_text));
+                            @endphp
+                            @foreach($caseParagraphs as $cp)
+                                <p class="mb-2.5 last:mb-0" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">{!! nl2br(e(trim($cp))) !!}</p>
+                            @endforeach
                         </div>
                     @endif
 
                     {{-- Enunciado --}}
-                    <p class="text-sm font-semibold text-white leading-relaxed">
+                    <p class="text-sm font-semibold text-white leading-relaxed" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">
                         {{ $q->stem }}
                     </p>
 
@@ -410,9 +415,9 @@
                             <i class="fa-solid fa-scale-balanced"></i>
                             Sustentación Oficial y Fundamento Jurídico
                         </div>
-                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
+                        <div class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">
                             {{ $q->rationale ?? 'No se registró explicación adicional.' }}
-                        </p>
+                        </div>
                         @if(!empty($q->legal_basis))
                             <div class="pt-2 border-t border-blue-500/20 text-xs text-blue-300 flex items-center gap-1.5 font-semibold">
                                 <i class="fa-solid fa-gavel"></i>

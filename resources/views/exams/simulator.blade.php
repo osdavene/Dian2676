@@ -192,8 +192,13 @@
                                             <i id="case-toggle-icon-{{ $index + 1 }}" class="fa-solid fa-chevron-down text-[10px] transition-transform"></i>
                                         </button>
                                     </div>
-                                    <div id="case-body-{{ $index + 1 }}" class="hidden mt-3 pt-3 border-t border-slate-800 text-xs sm:text-sm leading-relaxed text-slate-300 whitespace-pre-line text-justify [text-justify:inter-word]">
-                                        {{ $q->case_text }}
+                                    <div id="case-body-{{ $index + 1 }}" class="hidden mt-3 pt-3 border-t border-slate-800 text-xs sm:text-sm leading-relaxed text-slate-300">
+                                        @php
+                                            $caseParagraphs = preg_split('/\r\n\r\n|\n\n/', trim($q->case_text));
+                                        @endphp
+                                        @foreach($caseParagraphs as $cp)
+                                            <p class="mb-2.5 last:mb-0" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">{!! nl2br(e(trim($cp))) !!}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                             @else
@@ -202,8 +207,13 @@
                                         <i class="fa-solid fa-file-lines text-sm sm:text-base"></i>
                                         Caso de Estudio Situacional &bull; Concurso DIAN
                                     </div>
-                                    <div class="text-sm sm:text-base leading-relaxed sm:leading-loose text-slate-200 whitespace-pre-line font-normal text-justify [text-justify:inter-word] [hyphens:auto]">
-                                        {{ $q->case_text }}
+                                    <div class="text-sm sm:text-base leading-relaxed sm:leading-loose text-slate-200 font-normal">
+                                        @php
+                                            $caseParagraphs = preg_split('/\r\n\r\n|\n\n/', trim($q->case_text));
+                                        @endphp
+                                        @foreach($caseParagraphs as $cp)
+                                            <p class="mb-3.5 last:mb-0" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">{!! nl2br(e(trim($cp))) !!}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                             @endif
@@ -214,7 +224,7 @@
                             <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
                                 Enunciado de la Pregunta
                             </span>
-                            <h3 class="text-base sm:text-lg font-bold text-white leading-relaxed sm:leading-snug text-justify [text-justify:inter-word]">
+                            <h3 class="text-base sm:text-lg font-bold text-white leading-relaxed sm:leading-snug" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">
                                 {{ $q->stem }}
                             </h3>
                         </div>
@@ -232,9 +242,9 @@
                                     @endphp
                                     <label for="q{{ $q->id }}_{{ $letter }}" 
                                            data-letter="{{ $letter }}"
-                                           class="option-label flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4.5 rounded-2xl border cursor-pointer transition-all active:scale-[0.99] {{ $isSelected ? 'border-blue-500 bg-blue-950/40 ring-1 ring-blue-500/50 shadow-md shadow-blue-500/10' : 'border-slate-800 bg-slate-950/60 hover:bg-slate-800/60 hover:border-blue-500/50' }}">
+                                           class="option-label w-full flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4.5 rounded-2xl border cursor-pointer transition-all active:scale-[0.99] {{ $isSelected ? 'border-blue-500 bg-blue-950/40 ring-1 ring-blue-500/50 shadow-md shadow-blue-500/10' : 'border-slate-800 bg-slate-950/60 hover:bg-slate-800/60 hover:border-blue-500/50' }}">
                                         
-                                        <div class="flex items-center h-6 mt-0.5">
+                                        <div class="flex items-center h-6 mt-0.5 shrink-0">
                                             <input type="radio" 
                                                    id="q{{ $q->id }}_{{ $letter }}" 
                                                    name="answers[{{ $q->id }}]" 
@@ -244,13 +254,13 @@
                                                    class="w-4 h-4 text-blue-600 bg-slate-900 border-slate-700 focus:ring-blue-500 focus:ring-2">
                                         </div>
 
-                                        <div class="flex-1 flex items-start gap-3">
+                                        <div class="flex-1 min-w-0 flex items-start gap-3 sm:gap-3.5">
                                             <span class="option-badge w-7 h-7 sm:w-8 sm:h-8 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center shrink-0 transition-colors {{ $isSelected ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/40' : 'bg-slate-800 text-slate-300' }}">
                                                 {{ $letter }}
                                             </span>
-                                            <span class="text-sm sm:text-base text-slate-200 font-medium leading-relaxed text-justify [text-justify:inter-word] pt-0.5">
+                                            <div class="flex-1 min-w-0 text-sm sm:text-base text-slate-200 font-medium leading-relaxed pt-0.5" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">
                                                 {{ $text }}
-                                            </span>
+                                            </div>
                                         </div>
                                     </label>
                                 @endif
@@ -321,31 +331,37 @@
                     <div class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto pr-1" id="bubbles-container">
                         @foreach($questions as $index => $q)
                             @php
+                                $qNum = $index + 1;
+                                $isActive = ($qNum === (int)$initialQuestionNumber);
                                 $isAnswered = isset($savedAnswers[$q->id]) && !empty($savedAnswers[$q->id]);
                             @endphp
                             <button type="button" 
-                                    id="bubble-{{ $index + 1 }}" 
-                                    data-q="{{ $index + 1 }}"
-                                    onclick="goToQuestion({{ $index + 1 }})" 
-                                    class="bubble-btn h-8 rounded-xl font-bold text-xs flex items-center justify-center transition-all {{ $isAnswered ? 'bg-blue-600 text-white font-black shadow-sm' : 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300' }} {{ ($index + 1) === $initialQuestionNumber ? 'ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-900 scale-105' : '' }}">
-                                {{ $index + 1 }}
+                                    id="bubble-{{ $qNum }}" 
+                                    data-q="{{ $qNum }}"
+                                    onclick="goToQuestion({{ $qNum }})" 
+                                    class="bubble-btn h-8 rounded-xl text-xs flex items-center justify-center transition-all {{ $isActive ? 'bg-orange-500 text-white font-black shadow-lg shadow-orange-500/40 ring-2 ring-orange-300 ring-offset-2 ring-offset-slate-900 scale-105 z-10 border-transparent' : ($isAnswered ? 'bg-blue-600 text-white font-black shadow-sm border border-blue-500/40 hover:bg-blue-500' : 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300 font-bold') }}">
+                                {{ $qNum }}
                             </button>
                         @endforeach
                     </div>
 
                     {{-- Leyenda de Estados --}}
-                    <div class="grid grid-cols-3 gap-1 text-[9px] text-slate-400 pt-3 mt-3 border-t border-slate-800 text-center">
+                    <div class="grid grid-cols-4 gap-1 text-[9px] text-slate-400 pt-3 mt-3 border-t border-slate-800 text-center">
                         <div class="flex items-center justify-center gap-1">
-                            <span class="w-2 h-2 rounded-full bg-slate-800 border border-slate-600"></span>
-                            <span>Pendiente</span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-orange-500 shadow-sm shadow-orange-500/50"></span>
+                            <span>En curso</span>
                         </div>
                         <div class="flex items-center justify-center gap-1">
-                            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
                             <span>Respondida</span>
                         </div>
                         <div class="flex items-center justify-center gap-1">
-                            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
                             <span>Revisión</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600"></span>
+                            <span>Pendiente</span>
                         </div>
                     </div>
 
@@ -427,32 +443,38 @@
             <div class="grid grid-cols-5 gap-2 overflow-y-auto pr-1 flex-1 py-1" id="mobile-bubbles-container">
                 @foreach($questions as $index => $q)
                     @php
+                        $qNum = $index + 1;
+                        $isActive = ($qNum === (int)$initialQuestionNumber);
                         $isAnswered = isset($savedAnswers[$q->id]) && !empty($savedAnswers[$q->id]);
                     @endphp
                     <button type="button" 
-                            id="m-bubble-{{ $index + 1 }}" 
-                            data-q="{{ $index + 1 }}"
-                            onclick="goToQuestionAndClose({{ $index + 1 }})" 
-                            class="m-bubble-btn h-10 rounded-xl font-bold text-xs flex items-center justify-center transition-all active:scale-95 {{ $isAnswered ? 'bg-blue-600 text-white font-black shadow-sm' : 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300' }} {{ ($index + 1) === $initialQuestionNumber ? 'ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-900 scale-105' : '' }}">
-                        {{ $index + 1 }}
+                            id="m-bubble-{{ $qNum }}" 
+                            data-q="{{ $qNum }}"
+                            onclick="goToQuestionAndClose({{ $qNum }})" 
+                            class="m-bubble-btn h-10 rounded-xl text-xs flex items-center justify-center transition-all active:scale-95 {{ $isActive ? 'bg-orange-500 text-white font-black shadow-lg shadow-orange-500/40 ring-2 ring-orange-300 ring-offset-2 ring-offset-slate-900 scale-105 z-10 border-transparent' : ($isAnswered ? 'bg-blue-600 text-white font-black shadow-sm border border-blue-500/40' : 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300 font-bold') }}">
+                        {{ $qNum }}
                     </button>
                 @endforeach
             </div>
 
             {{-- Leyenda y Botón Continuar --}}
             <div class="pt-3 border-t border-slate-800 shrink-0 space-y-3">
-                <div class="grid grid-cols-3 gap-1 text-[10px] text-slate-400 text-center">
+                <div class="grid grid-cols-4 gap-1 text-[10px] text-slate-400 text-center">
                     <div class="flex items-center justify-center gap-1">
-                        <span class="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600"></span>
-                        <span>Pendiente</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-orange-500 shadow-sm shadow-orange-500/50"></span>
+                        <span>En curso</span>
                     </div>
                     <div class="flex items-center justify-center gap-1">
                         <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
                         <span>Respondida</span>
                     </div>
                     <div class="flex items-center justify-center gap-1">
-                        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
                         <span>Revisión</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-1">
+                        <span class="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600"></span>
+                        <span>Pendiente</span>
                     </div>
                 </div>
 
@@ -670,19 +692,48 @@
         }
     }
 
+    function updateBubbleStyle(qNum) {
+        if (qNum < 1 || qNum > totalQuestions) return;
+
+        const bubble = document.getElementById(`bubble-${qNum}`);
+        const mBubble = document.getElementById(`m-bubble-${qNum}`);
+        const isActive = (qNum === currentQuestion);
+        const isAnswered = answeredSet.has(qNum);
+        const isReview = reviewSet.has(qNum);
+
+        let desktopClass = 'bubble-btn h-8 rounded-xl text-xs flex items-center justify-center transition-all ';
+        let mobileClass = 'm-bubble-btn h-10 rounded-xl text-xs flex items-center justify-center transition-all active:scale-95 ';
+
+        if (isActive) {
+            // Pregunta en curso (en la que estás trabajando actualmente): NARANJA
+            const activeStyles = 'bg-orange-500 text-white font-black shadow-lg shadow-orange-500/40 ring-2 ring-orange-300 ring-offset-2 ring-offset-slate-900 scale-105 z-10 border-transparent';
+            desktopClass += activeStyles;
+            mobileClass += activeStyles;
+        } else if (isReview) {
+            // Marcada para revisión: AMARILLO
+            const reviewStyles = 'bg-amber-400 text-slate-950 font-black shadow-sm border border-amber-300 hover:bg-amber-300';
+            desktopClass += reviewStyles;
+            mobileClass += reviewStyles;
+        } else if (isAnswered) {
+            // Respondida: AZUL
+            const answeredStyles = 'bg-blue-600 text-white font-black shadow-sm border border-blue-500/40 hover:bg-blue-500';
+            desktopClass += answeredStyles;
+            mobileClass += answeredStyles;
+        } else {
+            // Pendiente: GRIS
+            const pendingStyles = 'bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 text-slate-300 font-bold';
+            desktopClass += pendingStyles;
+            mobileClass += pendingStyles;
+        }
+
+        if (bubble) bubble.className = desktopClass;
+        if (mBubble) mBubble.className = mobileClass;
+    }
+
     function goToQuestion(qNum) {
         if (qNum < 1 || qNum > totalQuestions) return;
 
-        // Quitar anillo activo anterior (desktop y móvil)
-        const prevBubble = document.getElementById(`bubble-${currentQuestion}`);
-        if (prevBubble) {
-            prevBubble.classList.remove('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900', 'scale-105');
-        }
-        const prevMBubble = document.getElementById(`m-bubble-${currentQuestion}`);
-        if (prevMBubble) {
-            prevMBubble.classList.remove('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900', 'scale-105');
-        }
-
+        const prevQuestion = currentQuestion;
         const currentCard = document.getElementById(`question-card-${currentQuestion}`);
         if (currentCard) currentCard.classList.add('hidden');
 
@@ -690,15 +741,16 @@
         const newCard = document.getElementById(`question-card-${currentQuestion}`);
         if (newCard) newCard.classList.remove('hidden');
 
-        // Poner anillo activo al nuevo bubble (desktop y móvil)
+        // Sincronizar estilos de los bubbles (anterior vuelve a su color y el nuevo se pone en naranja)
+        updateBubbleStyle(prevQuestion);
+        updateBubbleStyle(currentQuestion);
+
         const activeBubble = document.getElementById(`bubble-${currentQuestion}`);
         if (activeBubble) {
-            activeBubble.classList.add('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900', 'scale-105');
             activeBubble.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
         }
         const activeMBubble = document.getElementById(`m-bubble-${currentQuestion}`);
         if (activeMBubble) {
-            activeMBubble.classList.add('ring-2', 'ring-amber-400', 'ring-offset-2', 'ring-offset-slate-900', 'scale-105');
             activeMBubble.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
         }
 
@@ -758,32 +810,21 @@
             labels.forEach(lbl => {
                 const badge = lbl.querySelector('.option-badge');
                 if (lbl.getAttribute('data-letter') === optionLetter) {
-                    lbl.className = 'option-label flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border cursor-pointer transition-all active:scale-[0.99] border-blue-500 bg-blue-950/40 ring-1 ring-blue-500/50 shadow-md shadow-blue-500/10';
+                    lbl.className = 'option-label w-full flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4.5 rounded-2xl border cursor-pointer transition-all active:scale-[0.99] border-blue-500 bg-blue-950/40 ring-1 ring-blue-500/50 shadow-md shadow-blue-500/10';
                     if (badge) {
-                        badge.className = 'option-badge w-6 h-6 sm:w-7 sm:h-7 rounded-lg text-xs font-black flex items-center justify-center shrink-0 transition-colors bg-blue-600 text-white shadow-sm shadow-blue-500/40';
+                        badge.className = 'option-badge w-7 h-7 sm:w-8 sm:h-8 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center shrink-0 transition-colors bg-blue-600 text-white shadow-sm shadow-blue-500/40';
                     }
                 } else {
-                    lbl.className = 'option-label flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border cursor-pointer transition-all active:scale-[0.99] border-slate-800 bg-slate-950/60 hover:bg-slate-800/60 hover:border-blue-500/50';
+                    lbl.className = 'option-label w-full flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4.5 rounded-2xl border cursor-pointer transition-all active:scale-[0.99] border-slate-800 bg-slate-950/60 hover:bg-slate-800/60 hover:border-blue-500/50';
                     if (badge) {
-                        badge.className = 'option-badge w-6 h-6 sm:w-7 sm:h-7 rounded-lg text-xs font-black flex items-center justify-center shrink-0 transition-colors bg-slate-800 text-slate-300';
+                        badge.className = 'option-badge w-7 h-7 sm:w-8 sm:h-8 rounded-xl text-xs sm:text-sm font-black flex items-center justify-center shrink-0 transition-colors bg-slate-800 text-slate-300';
                     }
                 }
             });
         }
 
-        // 2. Actualizar burbujas ópticas (Desktop y Móvil)
-        const bubble = document.getElementById(`bubble-${qNum}`);
-        const mBubble = document.getElementById(`m-bubble-${qNum}`);
-        if (!reviewSet.has(qNum)) {
-            if (bubble) {
-                bubble.classList.remove('bg-slate-800/80');
-                bubble.classList.add('bg-blue-600', 'text-white', 'font-black');
-            }
-            if (mBubble) {
-                mBubble.classList.remove('bg-slate-800/80');
-                mBubble.classList.add('bg-blue-600', 'text-white', 'font-black');
-            }
-        }
+        // 2. Actualizar estilo del bubble óptico
+        updateBubbleStyle(qNum);
 
         // 3. Indicador de Guardando... en la barra superior
         if (saveIndicator) {
@@ -820,35 +861,17 @@
     }
 
     function toggleReviewMark(qNum) {
-        const bubble = document.getElementById(`bubble-${qNum}`);
-        const mBubble = document.getElementById(`m-bubble-${qNum}`);
         const btnMark = document.getElementById(`btn-mark-${qNum}`);
 
         if (reviewSet.has(qNum)) {
             reviewSet.delete(qNum);
             if (btnMark) btnMark.classList.remove('bg-amber-500/20', 'text-amber-300', 'border-amber-500/40');
-            
-            [bubble, mBubble].forEach(b => {
-                if (b) {
-                    b.classList.remove('bg-amber-500', 'text-slate-950');
-                    if (answeredSet.has(qNum)) {
-                        b.classList.add('bg-blue-600', 'text-white', 'font-black');
-                    } else {
-                        b.classList.add('bg-slate-800/80', 'text-slate-300');
-                    }
-                }
-            });
         } else {
             reviewSet.add(qNum);
             if (btnMark) btnMark.classList.add('bg-amber-500/20', 'text-amber-300', 'border-amber-500/40');
-            
-            [bubble, mBubble].forEach(b => {
-                if (b) {
-                    b.classList.remove('bg-slate-800/80', 'bg-blue-600', 'text-white');
-                    b.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
-                }
-            });
         }
+
+        updateBubbleStyle(qNum);
         updateMobileUI();
     }
 
@@ -1035,7 +1058,10 @@
     window.addEventListener('pagehide', () => sendHeartbeat(true));
     window.addEventListener('beforeunload', () => sendHeartbeat(true));
 
-    // Inicializar UI Móvil y enfocar bubble activo al cargar
+    // Inicializar estados de los bubbles, UI Móvil y enfocar bubble activo al cargar
+    for (let i = 1; i <= totalQuestions; i++) {
+        updateBubbleStyle(i);
+    }
     updateMobileUI();
     const activeBubble = document.getElementById(`bubble-${currentQuestion}`);
     if (activeBubble) {

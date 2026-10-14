@@ -60,17 +60,22 @@
 
                 {{-- Caso de Estudio --}}
                 @if(!empty($q->case_text))
-                    <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-slate-200 text-xs sm:text-sm whitespace-pre-line leading-relaxed text-justify [text-justify:inter-word]">
-                        <div class="flex items-center gap-2 text-blue-400 font-bold text-xs uppercase tracking-wider mb-1.5">
+                    <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800 text-slate-200 text-xs sm:text-sm leading-relaxed">
+                        <div class="flex items-center gap-2 text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">
                             <i class="fa-solid fa-file-lines"></i>
                             Situación de Hecho / Caso
                         </div>
-                        {{ $q->case_text }}
+                        @php
+                            $caseParagraphs = preg_split('/\r\n\r\n|\n\n/', trim($q->case_text));
+                        @endphp
+                        @foreach($caseParagraphs as $cp)
+                            <p class="mb-2.5 last:mb-0" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">{!! nl2br(e(trim($cp))) !!}</p>
+                        @endforeach
                     </div>
                 @endif
 
                 {{-- Enunciado --}}
-                <div class="text-sm sm:text-base font-semibold text-white leading-relaxed text-justify [text-justify:inter-word]">
+                <div class="text-sm sm:text-base font-semibold text-white leading-relaxed" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">
                     {{ $q->stem }}
                 </div>
 
@@ -89,9 +94,9 @@
                                 <span class="badge-letter w-6 h-6 rounded-lg bg-slate-800 group-hover:bg-blue-600 group-hover:text-white text-slate-300 text-xs font-bold flex items-center justify-center shrink-0 transition-colors">
                                     {{ $letter }}
                                 </span>
-                                <span class="text-xs sm:text-sm font-medium leading-relaxed flex-1 text-justify [text-justify:inter-word]">
+                                <div class="flex-1 min-w-0 text-xs sm:text-sm font-medium leading-relaxed pt-0.5" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">
                                     {{ $text }}
-                                </span>
+                                </div>
                             </button>
                         @endif
                     @endforeach
@@ -103,9 +108,9 @@
                         <i class="fa-solid fa-scale-balanced"></i>
                         Explicación Jurídica y Análisis Oficial
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal text-justify [text-justify:inter-word]">
+                    <div class="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal" style="text-align: justify; text-justify: inter-word; text-align-last: left; word-break: break-word;">
                         {{ $q->rationale ?? 'No se registró explicación adicional.' }}
-                    </p>
+                    </div>
                     @if(!empty($q->legal_basis))
                         <div class="pt-2 border-t border-blue-500/20 text-xs text-blue-300 font-semibold flex items-center gap-1.5">
                             <i class="fa-solid fa-gavel"></i>
